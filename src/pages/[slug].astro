@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+import { SECTOARE, BRANDURI } from '../data/sectoare';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const s of SECTOARE) {
+    paths.push({ params: { slug: 'reparatii-tv-sector-' + s.nr }, props: { tip: 'sector', data: s } });
+  }
+  for (const b of BRANDURI) {
+    paths.push({ params: { slug: 'reparatii-tv-' + b.slug }, props: { tip: 'brand', data: b } });
+  }
+  return paths;
+}
+const { tip, data } = Astro.props;
+const isS6 = tip === 'sector' && data.nr === 6;
+const title = tip === 'sector'
+  ? (isS6 ? 'Reparații TV Sector 6 Militari București | Service Televizoare La Domiciliu' : 'Reparații TV Sector ' + data.nr + ' București | Service Televizoare La Domiciliu')
+  : data.titluSite;
+const desc = tip === 'sector'
+  ? 'Reparații televizoare Sector ' + data.nr + ' București la domiciliu. Tehnicianul vine acasă la tine! Samsung, LG, Sony, Philips. Diagnostic gratuit. Sună acum: 0765.461.357'
+  : 'Service televizoare ' + data.nume + ' în București — reparații la domiciliu sau în atelier, Sector 6 Militari. Diagnostic gratuit, garanție 6–12 luni. ☎ 0765.461.357';
+---
+<Base title={title} description={desc}>
+{tip === 'sector' ? (
+<>
+<div class="hero"><div class="wrap">
+  <span class="badge">⚡ INTERVENȚIE ÎN 2–4 ORE</span>
+  <h1>Reparații TV Sector {data.nr} București</h1>
+  <p class="lead">Reparații TV la domiciliu Sector {data.nr} — {data.zone}. Acoperim tot Sectorul {data.nr} fără taxă de deplasare.</p>
+  <div class="pills"><span>✅ Garanție 6–12 luni</span><span>🚚 Transport GRATUIT</span><span>🔍 Diagnosticare GRATUITĂ</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Reparații TV Rapide și Profesionale în Sectorul {data.nr}</h2>
+  <p>Oferim servicii complete de reparații TV la domiciliu în tot Sectorul {data.nr}: {data.zone}. Tehnicianul vine la tine acasă — fără costuri de deplasare. Intervenim în aceeași zi.</p>
+  <ul class="checks">
+    <li>Diagnosticare gratuită la domiciliu</li>
+    <li>Reparație pe loc în marea majoritate a cazurilor</li>
+    <li>Garanție scrisă de 6–12 luni</li>
+    <li>Prețuri transparente, fără costuri ascunse</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Cartiere din Sectorul {data.nr} Deservite</h2>
+  <div class="grid g4">{data.pins.map(p => <div class="card-soft"><strong>📍 {p}</strong></div>)}</div>
+</section>
+<section class="sec">
+  <h2>Servicii disponibile în Sectorul {data.nr}</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🖥️</div><h3>Ecran / Imagine</h3><p>Linii pe ecran, pete, ecran spart, backlight defect.</p></div>
+    <div class="card"><div class="ico">🔊</div><h3>Sunet</h3><p>Fără sunet, sunet distorsionat, boxe defecte.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>TV nu pornește</h3><p>Sursă defectă, condensatori arși, circuite tensiune.</p></div>
+    <div class="card"><div class="ico">📱</div><h3>Smart TV</h3><p>Probleme Wi-Fi, Android/Tizen/WebOS, actualizări.</p></div>
+    <div class="card"><div class="ico">🔌</div><h3>Conectivitate</h3><p>Porturi HDMI/USB defecte, antenă, Ethernet.</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>Telecomandă</h3><p>Reparare sau înlocuire telecomandă, senzori IR.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>De Ce Să Ne Alegeți?</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🏠</div><h3>La tine acasă</h3><p>Venim la domiciliul tău în Sectorul {data.nr}.</p></div>
+    <div class="card"><div class="ico">🚚</div><h3>Transport GRATUIT</h3><p>Zero cost de deplasare.</p></div>
+    <div class="card"><div class="ico">🔍</div><h3>Diagnoză GRATUITĂ</h3><p>Plătești doar dacă accepți reparația.</p></div>
+    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Garanție scrisă pentru toate intervențiile.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>Intervenție Rapidă</h3><p>Ajungem în 2–4 ore de la apel.</p></div>
+    <div class="card"><div class="ico">🎓</div><h3>25+ Ani Experiență</h3><p>Echipă cu experiență vastă în reparații TV.</p></div>
+  </div>
+</section>
+{isS6 && <section class="sec"><div class="note-green">🏠 <strong>Atelierul nostru este chiar în Sectorul 6</strong> — Str. Moinești 7, Militari. Pe lângă reparații TV la domiciliu, aici reparăm și <a href="/reparatii-laptop-sector-6/" style="color:#0a7d43">laptopuri</a>, <a href="/reparatii-macbook-sector-6/" style="color:#0a7d43">MacBook</a>, <a href="/reparatii-console-gaming-sector-6/" style="color:#0a7d43">console</a>, <a href="/reparatii-monitoare-sector-6/" style="color:#0a7d43">monitoare</a> și <a href="/reparatii-boxe-active-amplificatoare/" style="color:#0a7d43">boxe &amp; amplificatoare</a>.</div></section>}
+<section class="sec">
+  <p style="font-size:14.5px;color:var(--mut)">Reparăm TV în toate sectoarele: {SECTOARE.map((s, i) => <span>{i > 0 && ' · '}<a href={'/reparatii-tv-sector-' + s.nr + '/'}>{'Sector ' + s.nr}</a></span>)} — vezi și <a href="/reparatii-tv-sectoare/">harta completă</a>.</p>
+</section>
+<Cta titlu={'📺 TV Defect în Sectorul ' + data.nr + '? Sunați-ne!'} text={'Sună acum și programăm o vizită gratuită în Sectorul ' + data.nr + '.'} />
+</div>
+</>
+) : (
+<>
+<div class="hero"><div class="wrap">
+  <span class="badge">📺 SERVICE TELEVIZOARE {data.nume.toUpperCase()}</span>
+  <h1>Reparații TV {data.nume} București</h1>
+  <p class="lead">{data.hero}</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Ce Probleme Reparăm la Televizoarele {data.nume}</h2>
+  <p>Televizoarele {data.nume} sunt fiabile, dar în timp pot dezvolta defecțiuni specifice. Le reparăm la nivel de componentă — nu înlocuim plăci întregi atunci când nu este necesar, ca să reducem costul.</p>
+  <ul class="checks">{data.defecte.map(d => <li><strong>{d[0]}</strong> — {d[1]}</li>)}</ul>
+</section>
+<section class="sec">
+  <h2>Game și Modele {data.nume} Reparate</h2>
+  <p>{data.game}</p>
+</section>
+<section class="sec">
+  <h2>De Ce Să Ne Alegeți?</h2>
+  <div class="grid g4">
+    <div class="card"><div class="ico">🏠</div><h3>Reparații la domiciliu</h3><p>Tehnicianul vine la tine acasă în București, fără taxă de deplasare.</p></div>
+    <div class="card"><div class="ico">🔍</div><h3>Diagnoză GRATUITĂ</h3><p>Identificăm problema fără costuri. Plătești doar dacă accepți reparația.</p></div>
+    <div class="card"><div class="ico">🔧</div><h3>La nivel de componentă</h3><p>Reparăm componenta defectă, nu înlocuim plăci întregi inutil.</p></div>
+    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Garanție scrisă pentru toate intervențiile noastre.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <p style="font-size:14.5px;color:var(--mut)">Reparăm și alte branduri: {BRANDURI.filter(b => b.slug !== data.slug).map((b, i) => <span>{i > 0 && ' · '}<a href={'/reparatii-tv-' + b.slug + '/'}>{b.nume}</a></span>)} — sau vezi <a href="/reparatii-televizoare/">toate serviciile TV</a>.</p>
+</section>
+<Cta titlu={'📺 Televizor ' + data.nume + ' Defect? Sunați-ne!'} text="Diagnostic gratuit și intervenție rapidă, de regulă în aceeași zi. Trimite-ne modelul de pe eticheta din spatele televizorului." />
+</div>
+</>
+)}
+</Base>
