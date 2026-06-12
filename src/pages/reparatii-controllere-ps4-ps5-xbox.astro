@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Reparatii Controllere PS4 PS5 Xbox Bucuresti | Service Rapid" description="Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!">
+<div class="hero"><div class="wrap">
+  <h1>Reparații Controllere PS4, PS5, Xbox</h1>
+  <p class="lead">Servicii profesionale de reparații controllere pentru PlayStation 4, PlayStation 5 și Xbox. Rezolvăm rapid orice defecțiune: drift joystick, butoane blocate, port USB defect sau probleme de conectare.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Cele Mai Frecvente Probleme ale Controllerelor</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Drift joystick</strong><span>Joystick-ul se mișcă singur fără input — cea mai frecventă problemă</span></div>
+    <div class="card-soft"><strong>Butoane blocate / nefuncționale</strong><span>Butoane care nu răspund sau rămân apăsate</span></div>
+    <div class="card-soft"><strong>Probleme de conectare</strong><span>Controllerul nu se conectează wireless sau prin cablu</span></div>
+    <div class="card-soft"><strong>Baterie defectă</strong><span>Controllerul nu se încarcă sau se descarcă rapid</span></div>
+    <div class="card-soft"><strong>Port USB defect</strong><span>Cablul nu se conectează corect</span></div>
+    <div class="card-soft"><strong>Vibrații nefuncționale</strong><span>Motoarele de vibrații nu funcționează</span></div>
+    <div class="card-soft"><strong>Touchpad defect (PS4/PS5)</strong><span>Touchpad-ul nu răspunde la atingere</span></div>
+  </div>
+</section>
+<section class="sec">
+  <div class="grid g3">
+    <div class="card"><h3>Controller PS4 (DualShock 4)</h3><ul class="checks"><li>Înlocuire module joystick analog (L3/R3) — remedierea drift-ului</li><li>Înlocuire butoane (X, O, triunghi, pătrat, L1, L2, R1, R2)</li><li>Reparare port Micro-USB</li><li>Înlocuire baterie Li-Ion</li><li>Reparare touchpad și placă de bază</li></ul></div>
+    <div class="card"><h3>Controller PS5 (DualSense)</h3><ul class="checks"><li>Înlocuire module joystick analog — remedierea drift-ului PS5</li><li>Reparare triggere adaptive (L2/R2)</li><li>Înlocuire baterie și reparare port USB-C</li><li>Reparare motoare haptice și difuzor încorporat</li></ul></div>
+    <div class="card"><h3>Controller Xbox (One / Series X|S)</h3><ul class="checks"><li>Înlocuire module joystick analog — drift Xbox</li><li>Înlocuire butoane (A, B, X, Y, LB, RB, LT, RT)</li><li>Reparare port USB / Micro-USB și baterie</li><li>Reparare vibrații și curățare generală</li></ul></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>De Ce Să Alegi Marcus Electronics?</h2>
+  <ul class="checks">
+    <li>Piese de schimb originale sau de calitate superioară</li>
+    <li>Diagnosticare gratuită înainte de aprobare</li>
+    <li>Garanție 3 luni pentru manoperă</li>
+    <li>Timp de reparație rapid — de obicei în aceeași zi</li>
+  </ul>
+  <p style="font-size:14px;color:var(--mut)">Alte servicii pentru console: <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparații console PlayStation și Xbox</a>, <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>.</p>
+</section>
+<Cta titlu="🕹️ Controller Defect? Sunați-ne!" />
+</div>
+</Base>
