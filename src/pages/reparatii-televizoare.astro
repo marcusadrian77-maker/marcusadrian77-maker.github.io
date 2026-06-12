@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Reparatii Televizoare Bucuresti | Service TV Rapid Sector 6" description="Service profesional reparatii televizoare LED, LCD, OLED, Smart TV in Bucuresti. Samsung, LG, Sony, Philips. Diagnosticare gratuita, garantie 6-12 luni. Suna acum!">
+<div class="hero"><div class="wrap">
+  <h1>Reparații Televizoare București</h1>
+  <p class="lead">Service profesional reparații televizoare LED, LCD, OLED, QLED și Smart TV în București, Sector 6. Diagnosticare gratuită, intervenție rapidă, garanție 6–12 luni.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <div class="note-green" style="margin-top:24px"><strong>🏠 Reparăm televizoarele și la domiciliu</strong> — tehnicianul vine la dvs. acasă, oriunde în {SITE.zonaDomiciliu}. Vezi <a href="/reparatii-tv-sectoare/" style="color:#0a7d43;font-weight:700">paginile pe sectoare</a>.</div>
+  <h2>Mărci de Televizoare Reparate</h2>
+  <p>Reparăm televizoare de la: <strong>Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp, Toshiba, Grundig, JVC, Hitachi, Thomson, Nokia, Daewoo, Beko, Vortex, NEI, Finlux, Funai</strong> și alte mărci.</p>
+  <div class="grid g4" style="margin:10px 0">
+    <a class="card-soft" href="/reparatii-tv-samsung/" style="text-decoration:none"><strong>📺 Samsung</strong><span>QLED, Crystal UHD, The Frame</span></a>
+    <a class="card-soft" href="/reparatii-tv-lg/" style="text-decoration:none"><strong>📺 LG</strong><span>OLED evo, QNED, NanoCell</span></a>
+    <a class="card-soft" href="/reparatii-tv-sony/" style="text-decoration:none"><strong>📺 Sony</strong><span>Bravia, OLED, Google TV</span></a>
+    <a class="card-soft" href="/reparatii-tv-philips/" style="text-decoration:none"><strong>📺 Philips</strong><span>OLED, Ambilight, The One</span></a>
+    <a class="card-soft" href="/reparatii-tv-panasonic/" style="text-decoration:none"><strong>📺 Panasonic</strong><span>OLED, Viera LED</span></a>
+    <a class="card-soft" href="/reparatii-tv-toshiba/" style="text-decoration:none"><strong>📺 Toshiba</strong><span>UHD 4K, Fire TV, VIDAA</span></a>
+    <a class="card-soft" href="/reparatii-tv-sharp/" style="text-decoration:none"><strong>📺 Sharp</strong><span>Aquos, Android TV, Roku</span></a>
+    <a class="card-soft" href="/reparatii-tv-sectoare/" style="text-decoration:none"><strong>📍 Pe sectoare</strong><span>Sector 1–6, la domiciliu</span></a>
+  </div>
+</section>
+<section class="sec">
+  <h2>Servicii Reparații Televizoare</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Televizor nu pornește</strong><span>Reparare sursă de alimentare sau placă principală</span></div>
+    <div class="card-soft"><strong>Imagine cu dungi sau neagră</strong><span>Înlocuire panel sau reparare placă T-CON</span></div>
+    <div class="card-soft"><strong>Televizor se stinge singur</strong><span>Circuite de protecție, condensatoare sau sursă</span></div>
+    <div class="card-soft"><strong>Fără sunet</strong><span>Reparare placă audio sau difuzoare</span></div>
+    <div class="card-soft"><strong>Smart TV nu se conectează</strong><span>Reparare modul WiFi sau software update</span></div>
+    <div class="card-soft"><strong>Ecran crăpat</strong><span>Înlocuire panel LCD/OLED/QLED</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>De Ce Să Ne Alegeți?</h2>
+  <ul class="checks">
+    <li><strong>25 ani experiență</strong> — experiență vastă în reparații televizoare de toate mărcile</li>
+    <li><strong>Garanție 6–12 luni</strong> — piese de calitate, garanție la toate reparațiile efectuate</li>
+    <li><strong>Diagnosticare gratuită</strong> — verificare și estimare cost fără costuri suplimentare</li>
+  </ul>
+</section>
+<Cta titlu="📺 Televizor Defect? Sunați-ne!" />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/reparatii-macbook/">reparații MacBook</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-boxe-active/">reparații boxe active</a>, <a href="/reparatii-cuptoare-cu-microunde/">reparații cuptoare microunde</a>.</p>
+</div>
+</Base>
