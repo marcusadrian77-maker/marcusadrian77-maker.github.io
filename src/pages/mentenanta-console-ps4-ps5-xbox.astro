@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Cât de des trebuie să fac mentenanța la consola PS4 sau PS5?', a: 'Recomandăm mentenanța o dată pe an sau la fiecare 12–18 luni de utilizare intensă. Mentenanța regulată previne supraîncălzirea și prelungește durata de viață a aparatului.' },
+ { q: 'Ce include serviciul de mentenanță console?', a: 'Curățare internă completă, înlocuire pastă termică, curățare ventilator și radiator, verificare conectori și porturi, test complet de funcționare. Se realizează în 24–48 ore.' },
+ { q: 'Care este prețul pentru mentenanță console gaming?', a: 'Prețul variază în funcție de modelul consolei și gradul de uzură. Contactați-ne la 0765.461.357 pentru o ofertă personalizată.' },
+ { q: 'Oferiți mentenanță la domiciliu pentru console?', a: 'Mentenanța se realizează în atelierul nostru din Sectorul 6 București, Str. Moinești nr. 7. Puteți aduce consola personal sau trimite prin curier.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base title="Mentenanta Console PS4 PS5 Xbox Bucuresti | Curatare Profesionala" description="Servicii profesionale de mentenanta si curatare console PS4, PS5, Xbox in Bucuresti. Pasta termala, curatare praf. Garantie. Suna acum!" schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Mentenanță Console PS4, PS5, Xbox</h1>
+  <p class="lead">Servicii complete de mentenanță preventivă și curativă pentru PlayStation 4, PlayStation 5 și Xbox — durată de viață mai lungă a consolei și experiență de gaming superioară.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>De ce este importantă mentenanța consolei tale?</h2>
+  <p>Fără o mentenanță regulată, consolele acumulează praf, pasta termică se degradează și ventilatoarele se uzează. Acest lucru duce la supraîncălzire și opriri bruște în timpul jocului, zgomot excesiv, performanță redusă și lag-uri, defecțiuni hardware premature.</p>
+  <p>Un simplu service de mentenanță preventivă poate preveni aceste probleme și îți economisește bani pe termen lung.</p>
+</section>
+<section class="sec">
+  <h2>Servicii de Mentenanță PlayStation 4 (PS4)</h2>
+  <p>Pachete complete pentru toate modelele: PS4 Standard, PS4 Slim și PS4 Pro.</p>
+  <ul class="checks">
+    <li><strong>Curățare completă internă</strong> — eliminarea prafului din carcasă, de pe placa de bază și din ventilator</li>
+    <li><strong>Înlocuire pastă termică</strong> — pastă de calitate superioară pe procesor și GPU</li>
+    <li><strong>Curățare și lubrifiere ventilator</strong> — flux de aer corespunzător</li>
+    <li><strong>Curățare unitate optică</strong> — citire corectă a discurilor</li>
+    <li><strong>Verificare conexiuni interne</strong> — inspecția tuturor conectorilor</li>
+    <li><strong>Test de stres</strong> — testarea consolei sub încărcare maximă</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Servicii de Mentenanță PlayStation 5 (PS5)</h2>
+  <p>PlayStation 5 necesită mentenanță specializată datorită sistemului de răcire avansat. Recomandăm mentenanța PS5 la fiecare 12–18 luni.</p>
+  <ul class="checks">
+    <li><strong>Curățare completă internă PS5</strong> — dezasamblare completă, curățare profesională</li>
+    <li><strong>Înlocuire metal lichid (Liquid Metal)</strong> — PS5 folosește metal lichid pe procesor; înlocuirea necesită echipament special și experiență</li>
+    <li><strong>Curățare sistem de răcire</strong> — radiator și ventilator de mari dimensiuni</li>
+    <li><strong>Verificare SSD și stocare</strong> — diagnosticarea stocării interne</li>
+    <li><strong>Test complet de funcționare</strong> — porturi HDMI, USB și funcționalitate generală</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Servicii de Mentenanță Xbox (One, Series S/X)</h2>
+  <ul class="checks">
+    <li><strong>Curățare internă completă</strong> — praf și depuneri din carcasă și componente</li>
+    <li><strong>Înlocuire pastă termică</strong> — pe APU, pentru temperatură optimă</li>
+    <li><strong>Curățare ventilator și radiator</strong> — restaurarea performanței răcirii</li>
+    <li><strong>Curățare unitate optică</strong> (unde este cazul)</li>
+    <li><strong>Verificare alimentare și conectori</strong></li>
+    <li><strong>Test de performanță</strong> — validarea funcționării după mentenanță</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Pachete de Mentenanță Disponibile</h2>
+  <div class="grid g3">
+    <div class="card"><h3>🟢 Basic</h3><p>Curățare externă și internă, verificare generală</p></div>
+    <div class="card"><h3>🟡 Standard</h3><p>Curățare completă + înlocuire pastă termică + test de stres</p></div>
+    <div class="card"><h3>🔵 Premium</h3><p>Toate serviciile Standard + curățare unitate optică + raport detaliat de diagnostic</p></div>
+  </div>
+  <p style="margin-top:12px" class="note-warn">Toate serviciile includ <strong>garanție 3 luni</strong> pentru manopera efectuată. Vezi și <a href="/mentenanta-profesionala-pasta-termica/">mentenanță profesională cu pastă termică &amp; metal lichid</a>.</p>
+</section>
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🎮 Programează Mentenanța Consolei Tale" text="Nu aștepta până când consola se defectează! Sună-ne sau scrie-ne pe WhatsApp." />
+</div>
+</Base>
