@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Cât costă reparația unui cuptor cu microunde?', a: 'Prețul variază în funcție de defecțiune. Diagnosticarea este gratuită și vă comunicăm costul înainte de reparație.' },
+ { q: 'Cât durează reparația cuptorului cu microunde?', a: 'Majoritatea reparațiilor se efectuează în 24–48 ore de la depunerea aparatului.' },
+ { q: 'Merită să repar un cuptor cu microunde vechi?', a: 'Da, în general repararea este mult mai economică decât achiziționarea unui aparat nou, mai ales pentru defecțiuni comune.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base title="Reparații Cuptoare cu Microunde București | Service Rapid Sector 6" description="Reparații cuptoare cu microunde în București – Samsung, LG, Whirlpool, Electrolux, Bosch, Panasonic. Service în atelier, diagnostic gratuit, garanție. ☎ 0765.461.357" schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Cuptoare cu Microunde București</h1>
+  <p class="lead">Servicii profesionale de reparații cuptoare cu microunde în București, Sector 6. Diagnosticare gratuită, intervenție rapidă, garanție la toate reparațiile.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Mărci de Cuptoare cu Microunde Reparate</h2>
+  <p>Efectuăm reparații cuptoare microunde pentru: <strong>Electrolux, Samsung, LG, Whirlpool, Bosch, Gorenje, Arctic, Daewoo, Sharp, Panasonic, Beko, AEG, Indesit, Zanussi, Candy, Hotpoint, Tefal, Moulinex, Teka</strong> și alte mărci.</p>
+</section>
+<section class="sec">
+  <h2>Servicii de Reparații Cuptoare cu Microunde</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Cuptorul nu pornește</strong><span>Reparare siguranță, sursă de alimentare sau panou de control</span></div>
+    <div class="card-soft"><strong>Nu încălzește mâncarea</strong><span>Înlocuire magnetron sau condensator defect</span></div>
+    <div class="card-soft"><strong>Scântei sau arcuri electrice</strong><span>Înlocuire placă de ghidaj unde sau suport stiroflex</span></div>
+    <div class="card-soft"><strong>Display nefuncțional</strong><span>Reparare sau înlocuire panou de afișaj</span></div>
+    <div class="card-soft"><strong>Ușa nu se închide corect</strong><span>Reparare sau înlocuire încuietoare și balamale</span></div>
+    <div class="card-soft"><strong>Platoul nu se rotește</strong><span>Reparare motor platou sau cuplaj</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>De Ce Să Alegeți Service-ul Nostru?</h2>
+  <ul class="checks">
+    <li><strong>25 de ani experiență</strong> — electroniști specializați cu vastă experiență</li>
+    <li><strong>Diagnosticare gratuită</strong> — verificăm gratuit cuptorul înainte de a stabili costul</li>
+    <li><strong>Garanție 6–12 luni</strong> — la toate reparațiile efectuate</li>
+    <li><strong>Piese originale</strong> — folosim piese de calitate pentru reparații durabile</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🔌 Cuptor cu Microunde Defect? Sunați-ne!" text="Aduceți cuptorul la service-ul nostru din Sector 6 București. Diagnosticare gratuită!" />
+</div>
+</Base>
