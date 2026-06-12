@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+import { SECTOARE, BRANDURI } from '../data/sectoare';
+---
+<Base title="Reparații TV pe Sectoare în București | Marcus Electronics" description="Service televizoare la domiciliu în toate cele 6 sectoare ale Bucureștiului. Alege sectorul tău sau marca televizorului. Diagnostic gratuit. ☎ 0765.461.357">
+<div class="hero"><div class="wrap">
+  <span class="badge">📍 ACOPERIM TOT BUCUREȘTIUL</span>
+  <h1>Reparații TV pe Sectoare în București</h1>
+  <p class="lead">Service televizoare la domiciliu în toate cele 6 sectoare ale Bucureștiului. Alege sectorul tău sau marca televizorului pentru detalii.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Reparații TV pe Sectoare</h2>
+  <div class="grid g3">
+    {SECTOARE.map(s => <a class="card" href={'/reparatii-tv-sector-' + s.nr + '/'} style="text-decoration:none"><div class="ico">📍</div><h3>Sector {s.nr}</h3><p>{s.zone}</p></a>)}
+  </div>
+</section>
+<section class="sec">
+  <h2>Reparații TV pe Branduri</h2>
+  <div class="grid g3">
+    {BRANDURI.map(b => <a class="card" href={'/reparatii-tv-' + b.slug + '/'} style="text-decoration:none"><div class="ico">📺</div><h3>{b.nume}</h3><p>Service specializat televizoare {b.nume} — la domiciliu sau în atelier.</p></a>)}
+  </div>
+</section>
+<Cta titlu="📺 Televizor Defect? Sunați-ne!" text="Diagnostic gratuit și intervenție rapidă în tot Bucureștiul, de regulă în aceeași zi." />
+</div>
+</Base>
