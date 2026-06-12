@@ -1,0 +1,11 @@
+---
+import { SITE } from '../data/site';
+const { titlu = '📞 Program și Contact' } = Astro.props;
+---
+<h2>{titlu}</h2>
+<div class="card" style="font-size:15.5px">
+  <div style="margin-bottom:7px">📍 <strong>Adresă:</strong> {SITE.adresa}</div>
+  <div style="margin-bottom:7px">📞 <strong>Telefon / WhatsApp:</strong> <a href={SITE.telefonHref} style="font-weight:800;text-decoration:none">{SITE.telefon}</a></div>
+  <div style="margin-bottom:7px">✉️ <strong>Email:</strong> <a href={'mailto:' + SITE.email}>{SITE.email}</a></div>
+  <div>🕐 <strong>Program:</strong> {SITE.program}</div>
+</div>
