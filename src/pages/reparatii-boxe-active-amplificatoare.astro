@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import ContactCard from '../components/ContactCard.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Reparați și amplificatoare vintage din anii 1970–1990?', a: 'Da, cu plăcere. Amplificatoarele vintage Denon, Yamaha, Pioneer, Sony, Kenwood, Sansui, Technics din acea perioadă sunt adesea superior construite față de echipamentele noi din aceeași gamă de preț. O revizie completă (condensatoare electrolit, tranzistoare, potentiometre) la 200–400 lei le readuce la performanța din fabrică.' },
+ { q: 'Cât costă repararea unei boxe active PA?', a: 'Depinde de defecțiune: înlocuire tweeter driver 100–200 lei, reparație amplificator intern 150–350 lei, înlocuire sursă SMPS 200–400 lei, înlocuire woofer 150–400 lei. Diagnosticul este gratuit.' },
+ { q: 'Merită reparat un amplificator Behringer/Mackie defect?', a: 'Da, în marea majoritate a cazurilor. Costul de înlocuire tranzistoare finale sau condensatoare este de 100–250 lei — față de 500–2000 lei pentru un echipament nou echivalent. Vă sfătuim sincer la diagnostic.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const pa = [
+ ['🔊 Behringer','Eurolive B108D, B110D, B112D, B115D, B208D, B210D, B212D, B215D, B315D, B318S-X (subwoofer activ), iNUKE, VP, VQ, B1X. Defecțiuni frecvente: amplificator final ars, sursă comutată defectă, tweeter ars, protecție activată.'],
+ ['🔊 Mackie','Thump 8, 12, 15, 15A, 18S, SRM350, SRM450, SRM550, SRM650, SRM1550, DRM315, DRM515. Amplificatoare: M•800, M•1400, M•1400i, M•2600. Probleme tipice: etaj final MOSFET defect, placă DSP defectă, ventilator blocat.'],
+ ['🔊 JBL Professional','EON 306P, 308P, 310, 510, 515, 518S, 610, 615, 618S, PRX412M, PRX415M, PRX425, PRX735, PRX815, PRX835. Subwoofere: PRX818S, SRX818SP, SRX828SP. Defecte comune: mufă XLR oxidată, amplificator DSP defect, condensatoare umflate.'],
+ ['🔊 QSC','K8, K8.2, K10, K10.2, K12, K12.2, K15, KW122, KW153, KW181, KS112, KS118, KS212C. Amplificatoare: GX3–GX7, PLX, RMX, PowerLight, CX.'],
+ ['🔊 RCF','ART 310-A MK4, 312-A MK4, 315-A MK4, 735-A MK4, 745-A MK4, ART 910-A, 912-A, 915-A, NX 910-A, NX 915-A, NX 12-SMA, HDL 20-A, TT 22-A. Defecte: DSP blocat, tranzistoare finale arse, protecție permanentă.'],
+ ['🔊 Electro-Voice (EV)','ZLX-8P, ZLX-12P, ZLX-15P, ETX-10P, ETX-12P, ETX-15P, ETX-18SP, ELX200 (10P–18SP), EVERSE 8/12. Procesoare DSP EV și rack-uri din seria Q.'],
+ ['🔊 dB Technologies','Opera 10, 12, 15, 605, 906, DVX D10HP, D12HP, D15HP, D15XP, ES 602, 802, 1202, LVX 8–15. Subwoofere: DVX SUB 12D, 15D, 18D.'],
+ ['🔊 Yamaha PA','DXR8, DXR10, DXR12, DXR15, DXS12, DXS15, DBR10, DBR12, DBR15, CBR10–CBR18S, MSR100, 250, 400. Defecte: protecție activată, amplificator clasa D defect, SMPS arsă.'],
+ ['🔊 HK Audio','Linear 3, Linear 5, Lucas 2K15, Lucas Nano 300, Sonar 110/112/115 Xi, Premium PR:O 112/115 FD2, PR:O 118 Sub D.'],
+ ['🔊 Alto Professional','TS308–TS318S, TS408–TS418S, Truesonic 2 TS210S, TS212S, TS215S, Transmix, TX212, TX215.'],
+ ['🔊 Turbosound','iQ10, iQ12, iQ15, iQ18B, Milan M10, M12, M15, Inspire iP1000, iP2000, iP3000.'],
+];
+const studio = [
+ ['🎚️ Yamaha Studio','HS5, HS7, HS8, HS8S (subwoofer), HS50M, HS80M, MSP3, MSP5, MSP7, MSP10 Studio. Defecte: tweeter ars, amplificator LF/HF defect, protecție DC.'],
+ ['🎚️ Genelec','8010–8050, 1030, 1032, 8330–8360, M030, M040. Subwoofere: 7050–7380. Defecte: amplificator ICEpower, filtre protecție.'],
+ ['🎚️ Adam Audio','T5V, T7V, T8V, T10S, A3X–A77X, S2V–S5H. Problemă frecventă: tweeterul cu bandă (ribbon ART) — îl înlocuim sau reparăm.'],
+ ['🎚️ KRK','Rokit 5/7/8 G3/G4, Rokit 10-3 G3, Classic 5/7/8, VXT6, VXT8, Expose E8B. Subwoofere: KRK 10s, 12s.'],
+ ['🎚️ Focal','Alpha 50, 65, 80, Twin, Solo6 Be, Twin6 Be, SM9, CMS 40/50/65. Subwoofere: Alpha Sub 80, Sub One.'],
+];
+const hifi = [
+ ['📻 Denon','AVR-X550BT–X6700H, AVR-S540BT–S960H, PMA-600NE–2500NE, DRA-800H. Defecte: HDMI board, tranzistoare finale arse, releu protecție blocat.'],
+ ['📻 Yamaha','RX-V385–V6A, RX-A2A–A6A, TSR-700, TSR-7850, A-S301–S3200, R-N602, R-N803D. Defecte: condensatoare filtraj, tranzistoare finale, releu ieșire.'],
+ ['📻 Pioneer','VSX-534, 835, 935, SC-LX701–901, A-10AE–A-70DAE, SX-10AE, SX-20AE, GM-A3702–A6704.'],
+ ['📻 Onkyo','TX-SR393–595, TX-NR696–7100, A-9110–9510, HT-S3910, HT-S7805. Problemă frecventă: HDMI chipset overheating — reparăm prin reballing BGA.'],
+ ['📻 Marantz','SR5015–SR8015, AV7706, AV8805, PM5005–PM10, SA8005, NA6006, ND8006.'],
+ ['📻 NAD','3020i, C316BEE–C399, T 758 V3, T 778, M10–M33. Defecte: condensatoare cuplaj, MOSFET finali, relee protecție.'],
+ ['📻 Cambridge Audio','AXA25, AXA35, CXA61, CXA81, Azur 351A–751A, Edge A/W, Topaz AM5, AM10, CXR120, CXR200.'],
+ ['📻 Sony','STR-DH590–AN1000, TA-A1ES, TA-AN1000, STR-ZA810ES–ZA5000ES. Defecte: HDMI board, protecție DC, finali.'],
+];
+const power = [
+ ['⚡ Crown (Harman)','XLS 1002–2502, XTi 1002–6002, Macro-Tech MA 2402, MA 5002VZ, CDi, DriveCore, DCi, IT4x3500HD.'],
+ ['⚡ Lab.Gruppen','FP 1400–FP 10000Q, C 10:4X–28:4X, D 80:4L, D 120:4L, IPD 1200, IPD 2400. Defecte: mosfete putere, surse switching, protecție DSP.'],
+ ['⚡ Powersoft','X4, X8, X4L, X8L, Ottocanali 8K4–14K4DSP, Duecanali, Quattrocanali, K3–K10.'],
+ ['⚡ Dynacord','SL 1800, SL 2400, L 1300–3600 FD, C 1600/2400 FDi, CL 1800/2400 FDz, DSA 8410, DSA 8415.'],
+ ['⚡ Behringer','iNuke NU1000–NU12000DSP, EP1500–EP4000, KM750–KM1900, A500, A800.'],
+ ['⚡ QSC','GX3–GX7, PLX 1104–3102, PLX3, RMX 2450a, RMX 4050HD, CX302–CX902, PL218–PL9.0.'],
+ ['⚡ Electro-Voice și Bosch','EV Q44–Q1212, CP3000S, Tour Pro 2000. Bosch: LBB1990–LBB1994, PLM 2-250–8-250.'],
+];
+---
+<Base title="Reparații Boxe Active și Amplificatoare București | Marcus Electronics" description="Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și profesionale în București, Sector 6 Militari. Diagnostic gratuit." schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Boxe Active și Amplificatoare — Sector 6</h1>
+  <p class="lead">Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și amplificatoare profesionale în București, Sector 6 Militari. Reparăm la nivel de componentă electronică — nu înlocuim module întregi. Diagnostic gratuit, garanție 6–12 luni, reparăm în aceeași zi.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec"><h2>🔊 Boxe Active PA — Modele Reparate</h2><div class="grid g2">{pa.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
+<section class="sec"><h2>🎚️ Boxe Active Studio Monitor — Modele Reparate</h2><div class="grid g2">{studio.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
+<section class="sec"><h2>📻 Amplificatoare HiFi &amp; Home Cinema — Modele Reparate</h2><div class="grid g2">{hifi.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
+<section class="sec"><h2>⚡ Amplificatoare Profesionale de Putere — Modele Reparate</h2><div class="grid g2">{power.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
+<section class="sec">
+  <h2>🔧 Defecțiuni Frecvente — Ce Reparăm</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>🔴 Amplificator intră în protecție</strong><span>Tranzistoare finale arse, DC offset, scurtcircuit difuzor</span></div>
+    <div class="card-soft"><strong>🔴 Nu pornește</strong><span>Sursă SMPS defectă, condensatoare filtraj, fuzibil intern</span></div>
+    <div class="card-soft"><strong>🔴 Distorsiune / zumzet</strong><span>Condensatoare cuplaj, tranzistoare driver, masă defectă</span></div>
+    <div class="card-soft"><strong>🔴 Un singur canal mut</strong><span>Tranzistoare finale etaj putere pe un canal</span></div>
+    <div class="card-soft"><strong>🔴 Ventilator zgomotos / blocat</strong><span>Înlocuire ventilator, curățare</span></div>
+    <div class="card-soft"><strong>🔴 Tweeter ars la boxă activă</strong><span>Înlocuire tweeter/driver compresie</span></div>
+    <div class="card-soft"><strong>🔴 Woofer ars sau voce defectă</strong><span>Rebobinare bobină mobilă sau înlocuire difuzor</span></div>
+    <div class="card-soft"><strong>🔴 DSP/procesor blocat</strong><span>Resetare firmware, înlocuire modul DSP</span></div>
+    <div class="card-soft"><strong>🔴 Mufă XLR/jack oxidată sau ruptă</strong><span>Înlocuire conectori</span></div>
+    <div class="card-soft"><strong>🔴 Display/LED-uri defecte</strong><span>Înlocuire componente afișaj</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>⭐ De Ce Marcus Electronics?</h2>
+  <ul class="checks">
+    <li><strong>30 ani experiență</strong> în electronice audio profesionale și HiFi</li>
+    <li><strong>Reparăm la nivel de componentă</strong> — economii de 5–10x față de înlocuire modul</li>
+    <li><strong>Diagnostic gratuit</strong> — nu plătești nimic dacă nu repari</li>
+    <li><strong>Reparăm în aceeași zi</strong> pentru defecțiunile standard</li>
+    <li><strong>Garanție 6–12 luni</strong> pe toate intervențiile</li>
+    <li><strong>Parteneri ASWO</strong> — piese originale și componente certificate</li>
+  </ul>
+</section>
+<ContactCard />
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🔊 Boxă sau Amplificator Defect? Sunați-ne!" />
+</div>
+</Base>
