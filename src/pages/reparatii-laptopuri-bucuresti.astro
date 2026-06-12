@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Reparații Laptopuri București | Service Laptop Rapid – Marcus Electronics" description="Service laptopuri București – Dell, HP, Lenovo, Asus, Acer, MSI, Apple MacBook. Reparații rapide în atelier: ecran, tastatură, baterie, placă de bază. ☎ 0765.461.357">
+<div class="hero"><div class="wrap">
+  <span class="badge">💻 SERVICE LAPTOP — MILITARI, SECTOR 6</span>
+  <h1>Reparații Laptopuri București</h1>
+  <p class="lead">Service profesional de reparații laptop în atelierul nostru din Militari, Sector 6. Diagnosticare gratuită, reparații la nivel de componentă, garanție 6–12 luni.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Reparații Laptop Rapide și Profesionale</h2>
+  <p>Aduceți laptopul la sediul nostru din Militari, Sector 6 și îl reparăm rapid, la nivel de componentă electronică — fără să înlocuim plăci întregi atunci când nu este necesar. Diagnosticăm gratuit și vă comunicăm costul exact înainte de a începe.</p>
+  <ul class="checks">
+    <li><strong>Laptop nu pornește</strong> — diagnoză placă de bază, sursă de alimentare sau BIOS</li>
+    <li><strong>Ecran defect / fisurat</strong> — înlocuire display LCD/LED pentru orice model</li>
+    <li><strong>Tastatură defectă</strong> — înlocuire taste sau tastatură completă</li>
+    <li><strong>Supraîncălzire / se oprește singur</strong> — curățare ventilator, schimb pastă termică</li>
+    <li><strong>Nu se conectează la WiFi</strong> — reparare sau înlocuire placă wireless</li>
+    <li><strong>Baterie care nu se încarcă</strong> — diagnoză port de încărcare sau baterie</li>
+    <li><strong>Placă video defectă</strong> — reparare GPU sau înlocuire placă video</li>
+    <li><strong>HDD / SSD defect</strong> — înlocuire și recuperare date</li>
+    <li><strong>Upgrade RAM / SSD</strong> — creșterea performanței laptopului</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Mărci de Laptopuri Reparate</h2>
+  <p>Reparăm laptopuri de la: <strong>Dell, HP, Lenovo, Asus, Acer, Toshiba, Samsung, MSI, Fujitsu, Sony Vaio, Packard Bell, Medion, Compaq, Gateway, Clevo, Huawei MateBook, Microsoft Surface, LG Gram, Razer Blade, Alienware, Gigabyte, Xiaomi</strong> și alte mărci.</p>
+  <p>Reparăm toate tipurile: laptopuri de birou, gaming, ultrabook-uri, 2-in-1 și workstation-uri.</p>
+</section>
+<section class="sec">
+  <h2>De Ce Să Ne Alegeți?</h2>
+  <div class="grid g4">
+    <div class="card"><div class="ico">🔍</div><h3>Diagnoză GRATUITĂ</h3><p>Identificăm problema fără costuri. Plătești doar dacă accepți reparația.</p></div>
+    <div class="card"><div class="ico">🔧</div><h3>La nivel de componentă</h3><p>Reparăm componenta defectă, nu înlocuim plăci întregi inutil.</p></div>
+    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Garanție scrisă pentru toate intervențiile noastre.</p></div>
+    <div class="card"><div class="ico">🎓</div><h3>Experiență vastă</h3><p>Tehnicieni cu experiență pe toate mărcile de laptop.</p></div>
+  </div>
+</section>
+<Cta titlu="💻 Laptop Defect? Sunați-ne!" text="Aduceți laptopul la atelierul nostru din Militari, Sector 6. Diagnostic gratuit și ofertă pe loc." />
+</div>
+</Base>
