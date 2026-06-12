@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Cât costă repararea unei console PS4 sau PS5?', a: 'Prețul variază în funcție de defecțiune. Oferim diagnosticare gratuită și îți comunicăm costul exact înainte de a începe reparația. Nu există costuri ascunse.' },
+ { q: 'Cât durează o reparație de consolă Xbox sau PlayStation?', a: 'Marea majoritate a reparațiilor se finalizează în 24–72 de ore. Reparațiile complexe pot dura 3–5 zile lucrătoare.' },
+ { q: 'Se poate repara drift-ul de joystick la DualSense PS5?', a: 'Da! Înlocuim modulele de joystick la controllere DualShock 4, DualSense PS5, Xbox One și Xbox Series. Este una dintre cele mai comune și rapide reparații.' },
+ { q: 'Oferiți garanție pentru reparațiile de console?', a: 'Da, oferim garanție pentru toate reparațiile efectuate. Garanția acoperă defecțiunile legate de lucrarea efectuată.' },
+ { q: 'Unde vă găsesc? Faceți și ridicare de la domiciliu?', a: 'Service-ul nostru este în Sector 6, București – Militari. Consolele pot fi aduse personal sau expediate prin curier. Sunați la 0765.461.357 pentru detalii.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base title="Reparații Console Gaming PS4 PS5 Xbox | Service București Sector 6" description="Service reparații console gaming PS4, PS5, Xbox One/Series X/S, Nintendo Switch în București. Diagnostic gratuit, piese originale, garanție. ☎ 0765.461.357" schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <span class="badge">SERVICE BUCUREȘTI — SECTOR 6</span>
+  <h1>Reparații &amp; Mentenanță Console Gaming</h1>
+  <p class="lead">PlayStation PS4, PS5 · Xbox One, Series X/S · Manete &amp; Controllere. Diagnosticare gratuită, piese originale, garanție la toate lucrările efectuate. Peste 25 ani de experiență în electronice.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <div class="grid g4" style="margin-top:26px">
+    <div class="card" style="text-align:center"><div class="ico">🔧</div><h3>Diagnosticare Gratuită</h3><p>Verificare completă fără costuri, estimare înainte de reparație</p></div>
+    <div class="card" style="text-align:center"><div class="ico">⚡</div><h3>Reparație Rapidă</h3><p>Majoritatea reparațiilor se finalizează în 24–72 ore</p></div>
+    <div class="card" style="text-align:center"><div class="ico">🛡️</div><h3>Garanție Lucrări</h3><p>Garanție oferită la toate reparațiile efectuate</p></div>
+    <div class="card" style="text-align:center"><div class="ico">🏆</div><h3>25 Ani Experiență</h3><p>Tehnicieni specializați în electronice și console gaming</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>🎮 Reparații PlayStation 4 (PS4 / PS4 Slim / PS4 Pro)</h2>
+  <p>PlayStation 4 este una dintre cele mai populare console din lume, dar în timp poate dezvolta o serie de defecțiuni. Cele mai comune probleme sunt legate de supraîncălzire, ventilator defect, cititor de discuri sau portul HDMI deteriorat. Intervenim la nivel de componentă pe placa de bază, fără a o înlocui în totalitate, economisind semnificativ costul reparației.</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Supraîncălzire / BLOD</strong><span>Curățare profesională, pastă termică premium, înlocuire ventilator</span></div>
+    <div class="card-soft"><strong>Cititor discuri defect</strong><span>Nu citește jocuri, erori de citire, înlocuire laser sau mecanică</span></div>
+    <div class="card-soft"><strong>Port HDMI deteriorat</strong><span>Imagine neclară, fără semnal, înlocuire conector HDMI</span></div>
+    <div class="card-soft"><strong>Nu pornește / ecran negru</strong><span>Diagnosticare placă de bază, reparare componente SMD</span></div>
+    <div class="card-soft"><strong>Port USB defect</strong><span>Înlocuire porturi USB, reparare circuit alimentare controller</span></div>
+  </div>
+  <p style="margin-top:10px" class="note-green"><strong>Mentenanță PS4:</strong> curățare internă periodică (6–12 luni), înlocuire pastă termică, verificare ventilator — prelungește semnificativ durata de viață a consolei.</p>
+</section>
+<section class="sec">
+  <h2>🎮 Reparații PlayStation 5 (PS5 / PS5 Digital Edition)</h2>
+  <p>PlayStation 5 vine cu hardware extrem de avansat dar și cu vulnerabilități specifice. Portul HDMI 2.1, sistemul de răcire cu vapori și controllerul DualSense sunt componentele cel mai frecvent afectate. Reparăm PS5 la nivel de componentă, fără a înlocui placa de bază în integralitate.</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Port HDMI 2.1 defect</strong><span>Fără imagine, imagine distorsionată, rezoluție incorectă pe TV 4K</span></div>
+    <div class="card-soft"><strong>Nu pornește / eroare CE/SU</strong><span>Reprogramare software, reparare circuite placă de bază</span></div>
+    <div class="card-soft"><strong>Supraîncălzire PS5</strong><span>Curățare cameră de vapori, metal lichid premium Conductonaut</span></div>
+    <div class="card-soft"><strong>Cititor Blu-ray defect</strong><span>Nu citește discuri, erori de citire Blu-ray</span></div>
+    <div class="card-soft"><strong>Probleme SSD / stocare</strong><span>Recuperare date, înlocuire SSD M.2 NVMe</span></div>
+  </div>
+  <p style="margin-top:10px" class="note-green"><strong>Mentenanță PS5:</strong> curățare sistem de răcire cu vapori, înlocuire pastă termică lichidă — critică pentru performanța pe termen lung. Vezi <a href="/mentenanta-profesionala-pasta-termica/" style="color:#0a7d43;font-weight:700">mentenanță profesională pastă termică</a>.</p>
+</section>
+<section class="sec">
+  <h2>🎮 Reparații Xbox One, Xbox Series S &amp; Xbox Series X</h2>
+  <p>Consolele Xbox sunt recunoscute pentru robustețea lor, dar nu sunt imune la defecțiuni. Xbox One are probleme frecvente cu unitatea optică și supraîncălzirea, în timp ce Xbox Series X/S pot suferi de erori software, probleme HDMI sau defecțiuni ale SSD-ului.</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Nu citește discuri</strong><span>Reparare / înlocuire unitate optică Xbox One</span></div>
+    <div class="card-soft"><strong>Port HDMI defect</strong><span>Înlocuire conector HDMI, reparare controller HDMI pe placă</span></div>
+    <div class="card-soft"><strong>Erori E100, E101, E200</strong><span>Reinstalare sistem, recuperare date, reparare BIOS</span></div>
+    <div class="card-soft"><strong>Supraîncălzire Xbox</strong><span>Curățare completă, pastă termică, verificare ventilator</span></div>
+    <div class="card-soft"><strong>Nu pornește / blochează la logo</strong><span>Diagnosticare placă de bază, reparare circuit alimentare</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>🕹️ Reparații Manete &amp; Controllere Gaming</h2>
+  <p>DualShock 4 · DualSense PS5 · Xbox Controller · Pro Controller Nintendo. Drift-ul de joystick, butoanele care nu mai răspund, trigger-ele blocate sau portul de încărcare defect — le rezolvăm rapid și la prețuri accesibile.</p>
+  <div class="grid g3">
+    <div class="card"><h3>DualShock 4 &amp; DualSense PS5</h3><ul class="checks"><li>Drift joystick stânga/dreapta</li><li>Butoane L2/R2 care se blochează</li><li>Port USB-C / Micro-USB defect</li><li>Înlocuire baterie controller</li><li>Touchpad / LED bar defect</li></ul></div>
+    <div class="card"><h3>Xbox Controller Wireless</h3><ul class="checks"><li>Drift stick-uri Xbox</li><li>Butoane A/B/X/Y care nu răspund</li><li>Trigger-e rigide sau blocate</li><li>Port USB-C / conector baterie</li><li>Probleme conectare wireless</li></ul></div>
+    <div class="card"><h3>Servicii Generale Manete</h3><ul class="checks"><li>Înlocuire module joystick</li><li>Curățare contacte și butoane</li><li>Reparare vibratoare (rumble)</li><li>Înlocuire carcasă / grip</li><li>Calibrare și testare completă</li></ul></div>
+  </div>
+  <p style="font-size:14.5px;color:var(--mut)">Detalii pe pagina dedicată: <a href="/reparatii-controllere-ps4-ps5-xbox/">Reparații Controllere PS4, PS5, Xbox</a>.</p>
+</section>
+<section class="sec">
+  <h2>⭐ Mentenanță Preventivă Console Gaming</h2>
+  <p>Mentenanța periodică este esențială pentru a prelungi durata de viață a consolei tale. Recomandăm o curățare completă la 6–12 luni de utilizare intensă.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Ce include mentenanța?</h3><ul class="checks"><li>Dezasamblare completă și curățare internă</li><li>Curățare ventilator și radiatoare</li><li>Înlocuire pastă termică premium</li><li>Verificare și curățare cititor de discuri</li><li>Testare completă după asamblare</li><li>Raport despre starea consolei</li></ul></div>
+    <div class="card"><h3>De ce este importantă?</h3><ul class="checks"><li>Previne supraîncălzirea și BLOD-ul la PS4</li><li>Menține performanța GPU la valori maxime</li><li>Reduce zgomotul ventilatorului</li><li>Prelungește durata de viață cu 3–5 ani</li><li>Costă mult mai puțin decât o reparație majoră</li><li>Include garanție după service</li></ul></div>
+  </div>
+  <p style="font-size:14.5px;color:var(--mut)">Vezi și pagina dedicată: <a href="/mentenanta-console-ps4-ps5-xbox/">Mentenanță Console PS4, PS5, Xbox</a>.</p>
+</section>
+<section class="sec">
+  <h2>❓ Întrebări Frecvente — Reparații Console</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🎮 Consolă sau Manetă Defectă?" text="Sunați-ne acum pentru diagnosticare GRATUITĂ!" />
+</div>
+</Base>
