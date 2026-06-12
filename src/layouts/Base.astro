@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+import { SITE, NAV_SERVICII, SCHEMA_LOCALBUSINESS } from '../data/site';
+export interface Props { title: string; description: string; schemaExtra?: object | null; }
+const { title, description, schemaExtra = null } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+---
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content="ro_RO" />
+<meta name="theme-color" content="#14365d" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<script type="application/ld+json" set:html={JSON.stringify(SCHEMA_LOCALBUSINESS)} />
+{schemaExtra && <script type="application/ld+json" set:html={JSON.stringify(schemaExtra)} />}
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap hd">
+    <a class="logo" href="/" aria-label="Marcus Electronics — Acasă">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="3" y="7" width="42" height="28" rx="4" fill="#14365d"/>
+        <rect x="7" y="11" width="34" height="20" rx="2" fill="#0a6ebd"/>
+        <path d="M17 21h4l2-5 3 10 2-5h4" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <rect x="16" y="39" width="16" height="3" rx="1.5" fill="#14365d"/>
+        <rect x="22" y="35" width="4" height="5" fill="#14365d"/>
+      </svg>
+      <span>Marcus Electronics<small>Reparații Electronice</small></span>
+    </a>
+    <input type="checkbox" id="nav-open" class="nav-toggle" aria-hidden="true" />
+    <label for="nav-open" class="burger" aria-label="Deschide meniul"><span></span><span></span><span></span></label>
+    <nav class="main" aria-label="Meniu principal">
+      <ul>
+        <li><a href="/">Acasă</a></li>
+        <li><a href="/despre-noi/">Despre Noi</a></li>
+        <li class="has-sub desk-only">
+          <a href="/servicii/">Servicii</a>
+          <div class="sub">
+            {NAV_SERVICII.map(s => <a href={s.href}>{s.label}</a>)}
+          </div>
+        </li>
+        <li class="mob-only">
+          <details class="m-sub">
+            <summary>Servicii</summary>
+            <a href="/servicii/">Toate Serviciile</a>
+            {NAV_SERVICII.map(s => <a href={s.href}>{s.label}</a>)}
+          </details>
+        </li>
+        <li><a href="/preturi/">Prețuri</a></li>
+        <li><a href="/intrebari-frecvente-faq-2/">FAQ</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a class="tel" href={SITE.telefonHref}>📞 {SITE.telefon}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+<slot />
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Marcus Electronics</h4>
+        <p style="margin:0;font-size:14px;">Service de reparații electronice în Militari, Sector 6, București. Reparații TV la domiciliu în {SITE.zonaDomiciliu}; laptopuri, MacBook, console, boxe, monitoare și cuptoare în atelier. Diagnostic gratuit, garanție 6–12 luni.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>📍 {SITE.adresa}</li>
+          <li>📞 <a href={SITE.telefonHref}>{SITE.telefon}</a></li>
+          <li>💬 <a href={SITE.whatsapp} rel="noopener">WhatsApp</a></li>
+          <li>✉️ <a href={'mailto:' + SITE.email}>{SITE.email}</a></li>
+          <li>🕐 {SITE.program}</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servicii populare</h4>
+        <ul>
+          <li><a href="/reparatii-televizoare/">Reparații Televizoare</a></li>
+          <li><a href="/reparatii-tv-sectoare/">Reparații TV la Domiciliu</a></li>
+          <li><a href="/reparatii-laptopuri-bucuresti/">Reparații Laptopuri</a></li>
+          <li><a href="/reparatii-macbook/">Reparații MacBook</a></li>
+          <li><a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">Reparații Console</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informații</h4>
+        <ul>
+          <li><a href="/despre-noi/">Despre Noi</a></li>
+          <li><a href="/preturi/">Prețuri</a></li>
+          <li><a href="/intrebari-frecvente-faq-2/">Întrebări Frecvente</a></li>
+          <li><a href="/termeni-si-conditii/">Termeni și Condiții</a></li>
+          <li><a href="/politica-de-confidentialitate/">Politică de Confidențialitate</a></li>
+          <li><a href="/gdpr/">GDPR</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© {new Date().getFullYear()} {SITE.firma}. Toate drepturile rezervate.</span>
+      <span><a href="https://anpc.ro" rel="noopener">ANPC</a> · <a href="https://ec.europa.eu/consumers/odr/" rel="noopener">SOL</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
