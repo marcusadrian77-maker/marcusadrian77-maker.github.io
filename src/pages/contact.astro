@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Contact Service Electronice București | Marcus Electronics – 0765.461.357" description="Contactează service-ul Marcus Electronics din București, Sector 6 Militari. Reparații TV la domiciliu și laptopuri în atelier. ☎ 0765.461.357">
+<div class="hero"><div class="wrap">
+  <h1>Contact — Marcus Electronics</h1>
+  <p class="lead">Aveți un echipament defect? Contactați service-ul nostru de reparații electronice din Sector 6, București.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <div class="grid g2" style="margin-top:26px">
+    <div>
+      <h2 style="margin-top:0">Informații de Contact</h2>
+      <div class="card" style="font-size:15.5px">
+        <div style="margin-bottom:9px">📍 <strong>Adresă:</strong> Str. Moinești nr. 7, bl. 134A, sc. A, ap. 1, int. 01, Sector 6, București</div>
+        <div style="margin-bottom:9px">📞 <strong>Telefon:</strong> <a href={SITE.telefonHref} style="font-weight:800;text-decoration:none">{SITE.telefon}</a></div>
+        <div style="margin-bottom:9px">💬 <strong>WhatsApp:</strong> <a href={SITE.whatsapp} rel="noopener">trimite mesaj</a></div>
+        <div style="margin-bottom:9px">✉️ <strong>Email:</strong> <a href={'mailto:' + SITE.email}>{SITE.email}</a></div>
+        <div>🕐 <strong>Program:</strong> {SITE.program}</div>
+      </div>
+      <h3>Echipamente pe care le reparăm</h3>
+      <p style="font-size:15px;color:var(--mut)">Reparăm la sediul nostru: televizoare, monitoare LCD, laptopuri, Apple MacBook Air, MacBook Pro, iMac, boxe active, amplificatoare și cuptoare cu microunde. Televizoarele le reparăm și la domiciliu, în {SITE.zonaDomiciliu}. Pentru alte tipuri de aparate, vă rugăm să ne contactați telefonic mai întâi.</p>
+      <div class="note-green">🚇 Suntem aproape de stația de metrou <strong>Gorjului</strong> (linia M4), accesibili din toată zona Militari–Drumul Taberei–Crângași.</div>
+    </div>
+    <div>
+      <h2 style="margin-top:0">Scrieți-ne un Mesaj</h2>
+      <form class="card" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="PUNE_CHEIA_WEB3FORMS_AICI" />
+        <input type="hidden" name="subject" value="Mesaj nou de pe reparatiielectronice.ro" />
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+        <label style="display:block;font-weight:700;font-size:14px;margin-bottom:4px">Nume</label>
+        <input required name="name" type="text" placeholder="Numele dvs." style="width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;margin-bottom:12px;font:inherit" />
+        <label style="display:block;font-weight:700;font-size:14px;margin-bottom:4px">Telefon</label>
+        <input required name="phone" type="tel" placeholder="07xx.xxx.xxx" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;margin-bottom:12px;font:inherit" />
+        <label style="display:block;font-weight:700;font-size:14px;margin-bottom:4px">Email (opțional)</label>
+        <input name="email" type="email" placeholder="adresa@email.ro" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;margin-bottom:12px;font:inherit" />
+        <label style="display:block;font-weight:700;font-size:14px;margin-bottom:4px">Mesaj — marca, modelul și defecțiunea</label>
+        <textarea required name="message" rows="5" placeholder="Ex: TV Samsung UE43AU7172, nu mai pornește, LED-ul clipește..." style="width:100%;padding:11px;border:1px solid var(--line);border-radius:9px;margin-bottom:14px;font:inherit"></textarea>
+        <button class="btn btn-blue" type="submit" style="border:0;cursor:pointer;width:100%;margin:0">Trimite mesajul</button>
+        <p style="font-size:12.5px;color:var(--mut);margin:10px 0 0">Prin trimitere sunteți de acord cu <a href="/politica-de-confidentialitate/">politica de confidențialitate</a>. Pentru răspuns rapid, sunați sau scrieți pe WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</div>
+</Base>
