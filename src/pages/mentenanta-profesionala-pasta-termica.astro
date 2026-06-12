@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import ContactCard from '../components/ContactCard.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Cât de des trebuie schimbată pasta termică la PS4/PS5?', a: 'La PS4 recomandăm înlocuire la fiecare 2–3 ani. La PS5, metalul lichid este mai stabil — recomandăm verificare la 3–4 ani sau la orice intervenție internă.' },
+ { q: 'Metalul lichid este periculos pentru consola mea?', a: 'Aplicat corect de un tehnician specializat, metalul lichid este complet sigur și superior pastei termice clasice. Pericolul apare doar la aplicare necorespunzătoare (cantitate prea mare, scurgere pe componente conductoare).' },
+ { q: 'Pot aduce echipamentul doar pentru mentenanță preventivă?', a: 'Absolut! Mentenanța preventivă este cea mai bună investiție. Costul ei este întotdeauna mai mic decât costul unei reparații cauzate de supraîncălzire cronică.' },
+ { q: 'Cât durează mentenanța?', a: 'O mentenanță completă durează 2–4 ore. Aduci echipamentul dimineața și îl poți ridica în aceeași zi.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const psPasi = ['Dezasamblare completă PS5 — carcasă, ventilator, radiator, heatpipe','Curățare radiator și ventilator — aer comprimat, perie anti-statică','Îndepărtare metal lichid vechi — curățare cu izopropilic 99.9% de pe APU','Inspecție APU și zona înconjurătoare — verificare scurgeri sau coroziune','Aplicare metal lichid nou (Thermal Grizzly Conductonaut) — dozat precis 0.05–0.1ml','Izolarea zonelor de risc — kapton tape pe componente adiacente','Reasamblare și testare temperaturi sub load cu software specializat','Raport final de temperaturi — valori înainte/după intervenție'];
+const ps4Pasi = ['Dezasamblare completă — carcasă, sursă alimentare, Blu-ray drive, placă de bază','Curățare radiator cu aer comprimat — eliminare praf dintre lamele','Curățare ventilator — fiecare paletă individual','Îndepărtare pastă termică veche de pe APU și GPU (PS4 Pro)','Aplicare pastă termică nouă premium (Thermal Grizzly Kryonaut / Arctic MX-6)','Înlocuire pad-uri termice pe memorii și chipuri secundare dacă e cazul','Reasamblare și testare temperaturi'];
+const lapPasi = ['Diagnosticare termică inițială — HWMonitor/HWiNFO sub load 100%','Dezasamblare laptop — acces la sistemul de răcire','Fotografiere stare inițială — documentare vizuală praf și pastă veche','Curățare radiator și ventilator','Îndepărtare pastă termică veche — curățare CPU, GPU, heatpipe','Aplicare pastă / metal lichid nou','Reasamblare','Diagnosticare termică finală — comparație temperaturi înainte/după'];
+const temps = [['PS5 (APU sub load)','88–95°C','65–72°C'],['PS4 Pro (APU sub load)','90–97°C','68–75°C'],['Laptop gaming (CPU)','95–102°C (throttling)','72–82°C'],['MacBook Pro M2','85–92°C','62–70°C']];
+const preturi = [['PlayStation 5','Metal lichid + curățare completă','200–280 lei'],['PS4 / PS4 Pro','Pastă termică + curățare completă','150–200 lei'],['Xbox Series X/S','Pastă termică + curățare ventilator','150–200 lei'],['Laptop standard','Curățare + pastă termică CPU/GPU','100–180 lei'],['Laptop gaming','Curățare + pastă/metal lichid + pad-uri','180–280 lei'],['MacBook Air / Pro','Curățare + pastă / metal lichid','200–350 lei']];
+---
+<Base title="Mentenanță Profesională — Înlocuire Pastă Termică & Metal Lichid PS4, PS5, Laptop" description="Mentenanță profesională cu înlocuire pastă termică sau metal lichid pentru PS4, PS5, Xbox, laptopuri și MacBook în București, Sector 6. Diagnostic gratuit." schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Mentenanță Profesională — Pastă Termică &amp; Metal Lichid</h1>
+  <p class="lead">Consola sau laptopul tău se supraîncălzește, ventilatorul face zgomot sau performanțele au scăzut vizibil? De cele mai multe ori, o mentenanță profesională cu înlocuire de pastă termică sau metal lichid rezolvă complet problema. Efectuăm mentenanță completă pentru PS4, PS5, Xbox, laptopuri și MacBook-uri în Militari, Sector 6.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>🌡️ Pastă Termică vs. Metal Lichid — Ce Alegem?</h2>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Pastă Termică Standard</h3>
+      <p style="margin-bottom:10px">Pasta termică clasică (ex: Arctic MX-6, Thermal Grizzly Kryonaut) este soluția standard pentru transferul de căldură între procesor și sistemul de răcire. Se usucă în timp și trebuie înlocuită periodic.</p>
+      <ul class="checks"><li>Potrivită pentru laptopuri de birou și console mai vechi</li><li>Conductivitate termică: 4–12 W/m·K</li><li>Durată recomandată: 2–3 ani</li><li>Sigură pentru orice procesor sau GPU</li></ul>
+    </div>
+    <div class="card" style="border:2px solid var(--blue)">
+      <h3>Metal Lichid (Liquid Metal)</h3>
+      <p style="margin-bottom:10px">Metalul lichid (ex: Thermal Grizzly Conductonaut) este soluția premium pentru conductivitate termică maximă. Este utilizat de fabricanți ca Sony pe anumite modele PS5.</p>
+      <ul class="checks"><li>Conductivitate termică: 73–80 W/m·K (de 6–10× mai bun)</li><li>Potrivit pentru PS5, PS4 Pro, laptopuri gaming, MacBook Pro</li><li>⚠️ Necesită aplicare profesională — este conductiv electric</li><li>⚠️ Incompatibil cu contacte de aluminiu neprotejate</li></ul>
+    </div>
+  </div>
+</section>
+<section class="sec">
+  <h2>🎮 Mentenanță PS5 — Înlocuire Metal Lichid</h2>
+  <p>PlayStation 5 utilizează nativ metal lichid între APU și heatpipe. Metalul lichid se poate deplasa în timp dacă consola este ținută în poziții nerecomandate sau dacă a existat o intervenție anterioară necorespunzătoare.</p>
+  <h3>Procesul de Mentenanță PS5 — Pas cu Pas</h3>
+  <div class="steps">{psPasi.map((p, i) => <div class="step"><span class="n">{i + 1}</span><span>{p}</span></div>)}</div>
+</section>
+<section class="sec">
+  <h2>🎮 Mentenanță PS4 / PS4 Pro — Înlocuire Pastă Termică</h2>
+  <p>PS4 și PS4 Pro utilizează pastă termică standard. După 3–5 ani de utilizare, pasta se usucă complet, iar temperaturile pot depăși 90°C, cauzând opriri automate, zgomot excesiv și degradarea performanțelor.</p>
+  <h3>Semne că PS4-ul are nevoie de mentenanță</h3>
+  <ul class="checks">
+    <li>🔊 Ventilator foarte zgomotos — la turație maximă chiar și în meniu</li>
+    <li>🌡️ Consola se oprește singură în mijlocul jocului (protecție termică)</li>
+    <li>⚡ Lag și FPS drop din cauza thermal throttling</li>
+    <li>💨 Aer fierbinte ieșind chiar fără efort de procesare</li>
+    <li>📅 Nu a mai fost curățată de 2+ ani</li>
+  </ul>
+  <h3>Procesul de Mentenanță PS4 — Pas cu Pas</h3>
+  <div class="steps">{ps4Pasi.map((p, i) => <div class="step"><span class="n">{i + 1}</span><span>{p}</span></div>)}</div>
+</section>
+<section class="sec">
+  <h2>💻 Mentenanță Laptopuri — Pastă Termică &amp; Metal Lichid</h2>
+  <p>Laptopurile sunt cel mai frecvent afectate de pasta termică uscată. Facem mentenanță pentru Dell, HP, Lenovo, Asus, Acer, MSI, Samsung, Huawei, LG Gram, MacBook Air și MacBook Pro.</p>
+  <h3>Tipuri de intervenție pentru laptopuri</h3>
+  <ul class="checks">
+    <li>🔄 <strong>Înlocuire pastă termică standard</strong> — CPU și GPU, pastă premium Thermal Grizzly / Arctic</li>
+    <li>⚡ <strong>Înlocuire cu metal lichid</strong> — laptopuri gaming (MSI, Asus ROG, Lenovo Legion) și MacBook Pro M-series</li>
+    <li>🧹 <strong>Curățare completă sistem răcire</strong> — desfundare radiator, curățare ventilator, verificare heatpipe</li>
+    <li>🔧 <strong>Înlocuire pad-uri termice</strong> pe memorii RAM, VRAM, chipset, SSD NVMe</li>
+    <li>📊 <strong>Raport termic înainte/după</strong> — temperaturi CPU/GPU sub load complet</li>
+  </ul>
+  <h3>Procesul de Mentenanță Laptop — Pas cu Pas</h3>
+  <div class="steps">{lapPasi.map((p, i) => <div class="step"><span class="n">{i + 1}</span><span>{p}</span></div>)}</div>
+</section>
+<section class="sec">
+  <h2>📊 Rezultate Reale — Temperaturi Înainte și După</h2>
+  <div class="grid g4">
+    {temps.map(t => <div class="card" style="text-align:center"><strong style="color:var(--navy);font-size:14.5px">{t[0]}</strong><div style="font-size:13px;color:var(--mut);margin-top:8px">Înainte</div><div style="font-size:19px;font-weight:800;color:#c0392b">{t[1]}</div><div style="font-size:13px;color:var(--mut);margin-top:6px">După</div><div style="font-size:19px;font-weight:800;color:var(--green)">{t[2]}</div><div style="margin-top:6px;font-size:13px;color:var(--green);font-weight:700">🟢 reducere ~20–25°C</div></div>)}
+  </div>
+</section>
+<section class="sec">
+  <h2>💰 Prețuri Mentenanță Profesională</h2>
+  {preturi.map(p => <div class="price-row"><span><strong style="color:var(--navy)">{p[0]}</strong> — {p[1]}</span><b>{p[2]}</b></div>)}
+  <p style="margin-top:12px" class="note-warn">⚠️ Diagnosticarea este gratuită. Prețul final se stabilește după inspecție.</p>
+</section>
+<section class="sec">
+  <h2>✅ De Ce Marcus Electronics pentru Mentenanță?</h2>
+  <ul class="checks">
+    <li>🔬 <strong>Pastă și metal lichid premium</strong> — Thermal Grizzly Kryonaut, Arctic MX-6, Conductonaut</li>
+    <li>📸 <strong>Documentare foto a procesului</strong> — fotografiem echipamentul la cerere</li>
+    <li>📊 <strong>Raport temperaturi inclus</strong> — valori CPU/GPU înainte și după</li>
+    <li>🔧 <strong>Experiență pe toate modelele</strong> — PS4, PS5, Xbox, laptopuri gaming, MacBook</li>
+    <li>⚙️ <strong>Pad-uri termice incluse</strong> dacă sunt necesare</li>
+    <li>🛡️ <strong>Garanție 6 luni</strong> la intervenția de mentenanță</li>
+  </ul>
+</section>
+<ContactCard />
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🌡️ Echipament Supraîncălzit? Sunați-ne!" />
+</div>
+</Base>
