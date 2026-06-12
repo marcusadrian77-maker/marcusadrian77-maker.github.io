@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Reparatii MacBook Bucuresti | Service Apple Profesional" description="Service profesional reparatii MacBook Air si MacBook Pro in Bucuresti, Sector 6. Placa de baza, ecran, baterie, tastatura. Diagnosticare gratuita. Suna acum!">
+<div class="hero"><div class="wrap">
+  <h1>Reparații MacBook București</h1>
+  <p class="lead">Service specializat reparații MacBook Air, MacBook Pro și iMac în București, Sector 6. Diagnosticare gratuită, piese originale, garanție la toate intervențiile.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Modele MacBook Reparate</h2>
+  <p>Reparăm toate modelele Apple: <strong>MacBook Air (M1, M2, Intel), MacBook Pro (13″, 14″, 16″), iMac, Mac Mini</strong>. Experiență de peste 30 ani în reparații electronice.</p>
+</section>
+<section class="sec">
+  <h2>Servicii de Reparații MacBook</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Înlocuire ecran MacBook</strong><span>Reparare sau înlocuire display Retina crăpat sau cu linii</span></div>
+    <div class="card-soft"><strong>Reparare placă de bază</strong><span>Diagnoza și repararea defecțiunilor la nivel de chip</span></div>
+    <div class="card-soft"><strong>Înlocuire baterie</strong><span>Baterie originală sau de calitate OEM cu garanție</span></div>
+    <div class="card-soft"><strong>Reparare tastatură</strong><span>Butterfly sau Magic Keyboard</span></div>
+    <div class="card-soft"><strong>Upgrade SSD</strong><span>Mărire stocare pentru performanță optimă</span></div>
+    <div class="card-soft"><strong>Port MagSafe / USB-C</strong><span>Înlocuire completă sau reparare</span></div>
+  </div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Pentru lista completă de intervenții și prețuri orientative, vezi și <a href="/reparatii-macbook-sector-6/">pagina detaliată Service MacBook Sector 6</a>.</p>
+</section>
+<section class="sec">
+  <h2>De Ce Să Alegi Marcus Electronics?</h2>
+  <ul class="checks">
+    <li><strong>30 ani de experiență</strong> — electroniști dedicați, experiență vastă în produse Apple</li>
+    <li><strong>Garanție 6–12 luni</strong> — la toate reparațiile, în funcție de model</li>
+    <li><strong>Diagnosticare gratuită</strong> — verificare gratuită fără costuri</li>
+  </ul>
+</section>
+<Cta titlu="🍎 MacBook Defect? Sunați-ne!" />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-boxe-active/">reparații boxe active</a>, <a href="/reparatii-cuptoare-cu-microunde/">reparații cuptoare microunde</a>.</p>
+</div>
+</Base>
