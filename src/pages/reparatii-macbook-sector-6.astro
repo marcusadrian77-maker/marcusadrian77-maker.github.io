@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import ContactCard from '../components/ContactCard.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Reparați MacBook cu chip M1, M2 sau M3?', a: 'Da, reparăm toate generațiile Apple Silicon, inclusiv MacBook Air M1/M2/M3 și MacBook Pro cu chip M1 Pro, M1 Max, M2 Pro, M2 Max, M3 Pro și M3 Max. Avem echipamente specializate pentru lucrul pe aceste plăci de bază.' },
+ { q: 'Se pierd datele în urma reparației?', a: 'Reparațiile hardware nu afectează datele stocate. Totuși, îți recomandăm să faci un backup înainte de a aduce echipamentul, mai ales dacă MacBook-ul funcționează parțial. Dacă există risc de pierdere a datelor, te vom anunța în prealabil.' },
+ { q: 'Cât durează reparația unui MacBook?', a: 'Reparațiile simple (baterie, tastatură) se finalizează de obicei în 1–2 zile. Reparațiile complexe la nivel de placă de bază pot dura 3–7 zile lucrătoare, în funcție de disponibilitatea pieselor.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire baterie MacBook Air/Pro','350–600 lei'],['Înlocuire display MacBook','600–1500 lei'],['Reparații placă de bază','300–800 lei'],['Înlocuire tastatură','400–900 lei'],['Curățare după apă vărsată','250–500 lei']];
+---
+<Base title="Service MacBook Sector 6 București — Reparații Apple | Marcus Electronics" description="Cauți un service MacBook Sector 6 cu tehnicieni specializați în Apple? Reparăm MacBook Air, MacBook Pro și iMac la nivel de componentă. Diagnostic gratuit." schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Service MacBook Sector 6 București</h1>
+  <p class="lead">Cauți un service MacBook Sector 6 cu tehnicieni specializați în Apple? La Marcus Electronics din Militari, reparăm MacBook Air, MacBook Pro și iMac la nivel de componentă — cel mai mic cost posibil, garanție 6–12 luni, diagnostic gratuit.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>🍎 Modele Apple pe care le Reparăm</h2>
+  <div class="grid g4">
+    <div class="card-soft"><strong>MacBook Air</strong><span>M1, M2, M3, Intel (toate generațiile)</span></div>
+    <div class="card-soft"><strong>MacBook Pro</strong><span>13″, 14″, 16″, Intel și Apple Silicon</span></div>
+    <div class="card-soft"><strong>iMac</strong><span>21.5″ și 27″, toate generațiile</span></div>
+    <div class="card-soft"><strong>Mac Mini</strong><span>Intel și M1/M2</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>🔧 Tipuri de Reparații MacBook Efectuate</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Reparații placă de bază</strong><span>La nivel de chip, condensatori, circuit de alimentare</span></div>
+    <div class="card-soft"><strong>Înlocuire baterie</strong><span>Baterii originale sau certificate, calibrare inclusă</span></div>
+    <div class="card-soft"><strong>Înlocuire display</strong><span>Panouri Retina, reparare backlight, dungi ecran</span></div>
+    <div class="card-soft"><strong>Tastatură defectă</strong><span>Butterfly sau Magic Keyboard, taste lipite/blocate</span></div>
+    <div class="card-soft"><strong>MacBook ud / apă vărsată</strong><span>Curățare urgentă ultrasonică</span></div>
+    <div class="card-soft"><strong>MacBook nu pornește</strong><span>Diagnosticare circuit alimentare, SMC, T2 chip</span></div>
+    <div class="card-soft"><strong>Upgrade SSD</strong><span>Mărire spațiu stocare pe modele compatibile</span></div>
+    <div class="card-soft"><strong>Port MagSafe / USB-C defect</strong><span>Reparare sau înlocuire conector</span></div>
+    <div class="card-soft"><strong>Ventilator / supraîncălzire</strong><span>Înlocuire fan, pastă termică</span></div>
+    <div class="card-soft"><strong>Touch Bar defect</strong><span>Reparare sau înlocuire Touch Bar MacBook Pro</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>💰 Prețuri Orientative Reparații MacBook</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+</section>
+<section class="sec">
+  <h2>⭐ De Ce Marcus Electronics pentru Service MacBook?</h2>
+  <ul class="checks">
+    <li><strong>Reparare la nivel de chip</strong> — nu înlocuim placa de bază întreagă</li>
+    <li><strong>Diagnostic gratuit</strong> — evaluare completă fără costuri</li>
+    <li><strong>Garanție 6–12 luni</strong> la toate reparațiile</li>
+    <li><strong>Piese certificate prin parteneriat ASWO</strong> — cel mai mare importator european de componente</li>
+    <li><strong>Tehnicieni specializați Apple</strong> cu experiență pe toate generațiile</li>
+    <li><strong>Membri EURAS</strong> — acces la scheme electronice și suport tehnic internațional</li>
+  </ul>
+</section>
+<ContactCard titlu="📞 Program și Contact Service MacBook" />
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🍎 MacBook Defect? Sunați-ne!" />
+</div>
+</Base>
