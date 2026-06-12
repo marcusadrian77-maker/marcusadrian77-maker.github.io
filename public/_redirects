@@ -1,0 +1,8 @@
+# Redirect 301 mostenit din WordPress (Rank Math)
+/reparatii-laptopuri/ /reparatii-laptopuri-bucuresti/ 301
+/reparatii-laptopuri /reparatii-laptopuri-bucuresti/ 301
+# Slugul vechi al homepage-ului
+/acasa/ / 301
+/acasa / 301
+# FAQ duplicat istoric
+/intrebari-frecvente-faq/ /intrebari-frecvente-faq-2/ 301
