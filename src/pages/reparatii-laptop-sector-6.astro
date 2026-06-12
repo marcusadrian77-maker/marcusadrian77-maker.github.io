@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import ContactCard from '../components/ContactCard.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Cât durează reparația unui laptop?', a: 'Majoritatea reparațiilor se finalizează în 24–72 de ore. Reparațiile complexe la nivel de placă de bază pot dura 3–5 zile lucrătoare. Vei fi anunțat telefonic de îndată ce laptopul este gata.' },
+ { q: 'Trebuie să fac programare?', a: 'Nu este necesară programare. Poți veni direct în program. Este recomandat să suni în prealabil pentru a ne descrie problema.' },
+ { q: 'Ce se întâmplă dacă laptopul nu poate fi reparat?', a: 'Dacă laptopul nu poate fi reparat sau costul depășește valoarea lui, îți comunicăm acest lucru după diagnosticare și nu percepem niciun cost. Diagnosticarea este complet gratuită.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire ecran laptop','250–600 lei'],['Reparații placă de bază','200–600 lei'],['Înlocuire tastatură','150–350 lei'],['Înlocuire baterie','150–400 lei'],['Curățare sistem răcire','100–200 lei'],['Upgrade SSD/RAM','50–100 lei (manoperă)']];
+---
+<Base title="Reparații Laptop Sector 6 București | Marcus Electronics" description="Cauți un service de reparații laptop Sector 6 rapid și profesionist? Reparăm laptopuri din toate brandurile, cu diagnostic gratuit și garanție 6–12 luni." schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Laptop Sector 6 București</h1>
+  <p class="lead">Cauți un service de reparații laptop Sector 6 rapid și profesionist? La Marcus Electronics reparăm laptopuri din toate brandurile, cu diagnostic gratuit și garanție 6–12 luni. Atelierul nostru se află în Militari, Sector 6 — acces ușor din toată zona.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>🔧 Ce Reparații de Laptop Efectuăm</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Ecran spart / display defect</strong><span>Înlocuire panou LCD/LED, reparare cablu video</span></div>
+    <div class="card-soft"><strong>Placă de bază defectă</strong><span>Reparare la nivel de componentă (chip BGA, condensatori)</span></div>
+    <div class="card-soft"><strong>Baterie moartă</strong><span>Înlocuire baterie originală sau compatibilă</span></div>
+    <div class="card-soft"><strong>Tastatură defectă</strong><span>Înlocuire tastatură, taste lipsă, tastatură udă</span></div>
+    <div class="card-soft"><strong>Supraîncălzire</strong><span>Curățare sistem răcire, pastă termică, ventilator</span></div>
+    <div class="card-soft"><strong>Nu pornește</strong><span>Diagnosticare sursă alimentare, BIOS, plăci</span></div>
+    <div class="card-soft"><strong>Upgrade SSD / RAM</strong><span>Înlocuire HDD cu SSD, mărire memorie RAM</span></div>
+    <div class="card-soft"><strong>Instalare Windows / recuperare date</strong><span>Reinstalare sistem, backup date</span></div>
+    <div class="card-soft"><strong>Port USB / HDMI / Jack defect</strong><span>Înlocuire sau lipire conector</span></div>
+    <div class="card-soft"><strong>Apă vărsată pe laptop</strong><span>Curățare urgentă, reparare componentă afectată</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>💻 Branduri de Laptop pe care le Reparăm</h2>
+  <p>Reparăm laptopuri <strong>Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Huawei MateBook, LG Gram</strong> și orice alt brand. Lucrăm atât cu laptopuri de birou, cât și cu laptopuri gaming și ultrabook-uri.</p>
+</section>
+<section class="sec">
+  <h2>💰 Prețuri Orientative Reparații Laptop</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+</section>
+<section class="sec">
+  <h2>⭐ De Ce Să Alegi Marcus Electronics?</h2>
+  <ul class="checks">
+    <li><strong>Diagnostic gratuit</strong> — plătești doar dacă accepți reparația</li>
+    <li><strong>Garanție 6–12 luni</strong> la toate intervențiile</li>
+    <li><strong>Reparare la nivel de componentă</strong> — reparăm strict ce este defect</li>
+    <li><strong>Piese originale</strong> certificate prin parteneriat ASWO</li>
+    <li><strong>Peste 25 ani experiență</strong> în reparații electronice</li>
+    <li><strong>Membri EURAS</strong> — acces la resurse tehnice internaționale</li>
+  </ul>
+</section>
+<ContactCard />
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="💻 Laptop Defect? Sunați-ne!" />
+</div>
+</Base>
