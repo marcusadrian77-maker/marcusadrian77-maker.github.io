@@ -1,0 +1,10 @@
+---
+import { SITE } from '../data/site';
+const { titlu = 'Aparat defect? Sunați-ne acum!', text = 'Diagnostic gratuit și intervenție rapidă, de regulă în aceeași zi.' } = Astro.props;
+---
+<div class="cta">
+  <div class="t">{titlu}</div>
+  <p>{text}</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div>
