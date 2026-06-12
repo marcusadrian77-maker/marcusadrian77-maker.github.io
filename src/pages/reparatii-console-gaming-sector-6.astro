@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import ContactCard from '../components/ContactCard.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Cât costă repararea unui PS5?', a: 'Costul depinde de defecțiunea identificată. Diagnosticarea este gratuită. Cele mai comune reparații (înlocuire port HDMI, curățare sistem răcire) costă între 150 și 400 lei. Reparațiile complexe la nivel de APU pot depăși 500 lei. Prețul exact îl comunicăm după diagnosticare.' },
+ { q: 'Reparați consola fără să pierd datele de joc?', a: 'Da, marea majoritate a reparațiilor hardware nu afectează datele salvate pe consolă. Dacă există riscuri, te informăm în avans și îți recomandăm să faci un backup în cloud (PlayStation Plus / Xbox Game Pass) înainte de service.' },
+ { q: 'Cât durează repararea unei console?', a: 'Reparațiile simple (curățare, port HDMI, drift controller) se finalizează în 1–2 zile lucrătoare. Reparațiile complexe la nivel de placă de bază pot dura 3–5 zile. Vei fi anunțat imediat ce consola este gata.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire port HDMI PS5/Xbox','250–400 lei'],['Curățare ventilator + pastă termică PS5','150–250 lei'],['Reparare placă de bază consolă','300–700 lei'],['Înlocuire joystick / reparare drift','100–200 lei'],['Înlocuire display Nintendo Switch','300–500 lei']];
+---
+<Base title="Reparații Console Gaming Sector 6 — PS5, Xbox, Nintendo Switch | Marcus Electronics" description="Consola ta are probleme? Reparăm PlayStation 5, PS4, Xbox Series X/S, Xbox One și Nintendo Switch în Sector 6 București. Diagnostic gratuit, garanție 6–12 luni." schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Console Gaming Sector 6</h1>
+  <p class="lead">Consola ta are probleme? La Marcus Electronics din Militari, Sector 6 București, reparăm PlayStation 5, PS4, Xbox Series X/S, Xbox One și Nintendo Switch. Diagnostic gratuit, garanție 6–12 luni, intervenție rapidă.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>🎮 Console pe care le Reparăm</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>PlayStation 5 (PS5)</strong><span>Standard, Digital Edition, Slim</span></div>
+    <div class="card-soft"><strong>PlayStation 4</strong><span>PS4 / PS4 Pro / PS4 Slim</span></div>
+    <div class="card-soft"><strong>Xbox Series X / S</strong><span>Toate modelele</span></div>
+    <div class="card-soft"><strong>Xbox One</strong><span>One / One S / One X</span></div>
+    <div class="card-soft"><strong>Nintendo Switch</strong><span>Switch / Lite / OLED</span></div>
+    <div class="card-soft"><strong>Controllere / Manete</strong><span>DualSense, DualShock, Xbox Controller</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>🔧 Defecțiuni Frecvente</h2>
+  <h3>Reparații PlayStation 5</h3>
+  <ul class="checks"><li><strong>PS5 nu pornește / BLOD</strong> — reparare circuit alimentare, APU</li><li><strong>Port HDMI PS5 defect</strong> — înlocuire conector HDMI</li><li><strong>Supraîncălzire PS5</strong> — curățare ventilator, înlocuire pastă termică</li><li><strong>Cititor disc PS5 defect</strong> — nu citește discuri, zgomot mecanic</li><li><strong>Drift controller DualSense</strong> — înlocuire joystick analogic</li></ul>
+  <h3>Reparații Xbox Series X/S</h3>
+  <ul class="checks"><li><strong>Xbox nu pornește</strong> — diagnosticare alimentare, placă de bază</li><li><strong>Port HDMI Xbox defect</strong> — reparare sau înlocuire conector</li><li><strong>Supraîncălzire / oprire automată</strong> — curățare sistem răcire</li><li><strong>Drift controller Xbox</strong> — înlocuire potentiometru joystick</li></ul>
+  <h3>Reparații Nintendo Switch</h3>
+  <ul class="checks"><li><strong>Ecran crăpat / display defect</strong> — înlocuire display LCD/OLED</li><li><strong>Joy-Con drift</strong> — înlocuire joystick, reparare flex</li><li><strong>Switch nu se încarcă</strong> — reparare port USB-C, circuit alimentare</li><li><strong>Dock Switch defect</strong> — reparare sau înlocuire dock</li></ul>
+</section>
+<section class="sec">
+  <h2>💰 Prețuri Orientative</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+</section>
+<section class="sec">
+  <h2>⭐ De Ce Marcus Electronics?</h2>
+  <ul class="checks">
+    <li><strong>Diagnostic gratuit</strong> pentru orice consolă</li>
+    <li><strong>Reparare la nivel de componentă</strong> — costuri semnificativ mai mici</li>
+    <li><strong>Garanție 6–12 luni</strong> la toate intervențiile</li>
+    <li><strong>Piese originale și certificate</strong> prin parteneriat ASWO</li>
+    <li><strong>Tehnicieni cu experiență</strong> pe toate platformele gaming</li>
+  </ul>
+</section>
+<ContactCard />
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🎮 Consolă Defectă? Sunați-ne!" />
+</div>
+</Base>
