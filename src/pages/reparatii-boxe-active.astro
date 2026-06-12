@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const pa = [
+ ['Behringer','Eurolive B108D, B110D, B112D, B115D, B208D, B212D, B215D, B315D, B318S-X'],
+ ['Mackie','Thump 8/12/15/15A/18S, SRM350/450/550/650/1550, DRM315/515'],
+ ['JBL Professional','EON 306P/308P/310/510/515/610/615, PRX412M/415M/425/735/815/835, PRX818S'],
+ ['QSC','K8/K8.2/K10/K10.2/K12/K12.2/K15, KW122/153/181, KS112/118/212C'],
+ ['RCF','ART 310-A/312-A/315-A/735-A/745-A MK4, ART 910/912/915-A, NX 910/915-A, HDL 20-A'],
+ ['Electro-Voice','ZLX-8P/12P/15P, ETX-10P/12P/15P/18SP, ELX200-10P/12P/15P/18SP, EVERSE 8/12'],
+ ['dB Technologies','Opera 10/12/15, DVX D10HP/D12HP/D15HP, ES 602/802/1202, LVX 8/10/12/15'],
+ ['Yamaha PA','DXR8/10/12/15, DXS12/15, DBR10/12/15, MSR100/250/400'],
+ ['HK Audio','Linear 3/5, Lucas 2K15, Nano 300, Sonar 110/112/115 Xi, PR:O 112/115 FD2'],
+ ['Alto Professional','TS308/310/312/315/318S, TS408/410/412/415/418S, TX212/TX215'],
+ ['Turbosound','iQ10/12/15/18B, Milan M10/M12/M15, Inspire iP1000/2000/3000'],
+ ['Dynacord','Cobra 4, D-Lite 2200, L 600 FD, L 900 FD'],
+ ['LD Systems','MAUI 5, MAUI 11, MAUI 28, Dave 8/10/12 XS/G3, Mix 6/10 G3'],
+];
+const studio = [
+ ['Yamaha Studio','HS5, HS7, HS8, HS8S, MSP3, MSP5, MSP7, MSP10'],
+ ['Genelec','8010/8020/8030/8040/8050, 8330/8340/8350/8360, 1030/1032, M030/M040'],
+ ['Adam Audio','T5V, T7V, T8V, T10S, A3X, A5X, A7X, A8X, A77X, S2V, S3V, S5V, S5H'],
+ ['KRK','Rokit 5/7/8 G3/G4, Classic 5/7/8, VXT6/8, Expose E8B'],
+ ['Focal','Alpha 50/65/80/Twin, Solo6 Be, Twin6 Be, SM9, CMS 40/50/65'],
+ ['PreSonus','Eris E3.5, E5, E5 XT, E7 XT, E8 XT, E44, E66, Studio 24c'],
+ ['Mackie Studio','MR5 MK3, MR6 MK3, MR8 MK3, HR824 MK2, HR626'],
+ ['Neumann','KH 80 DSP, KH 120 A, KH 310 A'],
+ ['Eve Audio','SC203, SC204, SC205, SC207, SC208, SC305, SC307, SC308'],
+];
+const hifi = [
+ ['Denon','AVR-X1700H/X2700H/X3700H/X4700H/X6700H, PMA-600NE/800NE/1600NE/2500NE'],
+ ['Yamaha','RX-V385/485/585/685/V6A/A2A, A-S301/501/701/801/1100/2100/3200, R-N602/803D'],
+ ['Pioneer','VSX-534/835/935, SC-LX701/801/901, A-10AE/20AE/30AE/40AE/50DAE/70DAE'],
+ ['Onkyo','TX-SR393/494/595, TX-NR696/797/5100/6100/7100, A-9110/9150/9310/9510'],
+ ['Marantz','SR5015/6015/7015/8015, AV7706/AV8805, PM5005/6006/6007/7000N/8006/10'],
+ ['NAD','C316BEE/326BEE/356BEE/372/375BEE/388/399, M10/M22/M32/M33, T 758/778'],
+ ['Cambridge Audio','AXA25/35, CXA61/81, Azur 351A/551A/651A/751A, Edge A/W, Topaz AM5/AM10'],
+ ['Sony','STR-DH590/DH790, STR-DN1080, STR-AZ1000ES, TA-A1ES, STR-ZA5000ES'],
+ ['Kenwood','KA-7100, KA-9100, KR-9600, KR-7600, M-909, L-07M, L-08M (vintage)'],
+ ['Sansui','AU-717, AU-919, AU-D11, G-9000, G-22000 (vintage)'],
+ ['Technics','SU-V75, SU-V85, SU-G700, SU-8080 (vintage)'],
+];
+const power = [
+ ['Crown (Harman)','XLS 1002/1502/2002/2502, XTi 1002/2002/4002/6002, CDi 1000/2000, DCi 2|300/2|600/2|1250'],
+ ['Lab.Gruppen','FP 1400/2400/3400/6400/10000Q, C 10:4X/20:4X/28:4X, IPD 1200/2400'],
+ ['Powersoft','X4/X8/X4L/X8L, Ottocanali 8K4/12K4, Duecanali 3004/5604/9004, K3/K6/K8'],
+ ['Dynacord','SL 1800/2400, L 1300/2400/3600 FD, C 1600/2400 FDi, CL 1800/2400 FDz'],
+ ['QSC Pro','PLX 1104/1804/2402/3102, RMX 2450a/4050HD, CX302/502/702, PL218/236/380'],
+ ['Behringer Pro','iNuke NU1000/3000/6000/12000DSP, EP1500/2000/4000, KM750/1700/1900'],
+ ['Crest Audio','CA4, CA6, CA9, CC4000, CC5500, CPX900, CPX1500, Pro 5001, Pro 8001'],
+];
+---
+<Base title="Reparatii Boxe Active Bucuresti | Service Audio Profesional" description="Servicii profesionale de reparatii boxe active si amplificatoare in Bucuresti. Experienta 30 ani, garantie 6-12 luni, diagnosticare gratuita. Suna acum!">
+<div class="hero"><div class="wrap">
+  <h1>Reparații Boxe Active și Amplificatoare</h1>
+  <p class="lead">Reparăm boxe active PA, monitoare de studio și amplificatoare audio în București, Sector 6 Militari. 30 ani experiență în audio profesional și HiFi. Diagnostic gratuit, garanție 6–12 luni, reparăm în aceeași zi.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>🔊 Boxe Active PA — Branduri și Modele Reparate</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Brand</th><th>Modele reprezentative</th></tr></thead><tbody>
+    {pa.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td></tr>)}
+  </tbody></table></div>
+</section>
+<section class="sec">
+  <h2>🎚️ Monitoare Studio — Branduri și Modele Reparate</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Brand</th><th>Modele reprezentative</th></tr></thead><tbody>
+    {studio.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td></tr>)}
+  </tbody></table></div>
+</section>
+<section class="sec">
+  <h2>📻 Amplificatoare HiFi &amp; AV — Branduri și Modele Reparate</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Brand</th><th>Modele reprezentative</th></tr></thead><tbody>
+    {hifi.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td></tr>)}
+  </tbody></table></div>
+</section>
+<section class="sec">
+  <h2>⚡ Amplificatoare de Putere Profesionale — Modele Reparate</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Brand</th><th>Modele reprezentative</th></tr></thead><tbody>
+    {power.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td></tr>)}
+  </tbody></table></div>
+</section>
+<section class="sec">
+  <h2>🔧 Defecțiuni Frecvente — Ce Reparăm</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>🔴 Boxă activă intră în protecție</strong><span>Amplificator final defect, scurtcircuit difuzor</span></div>
+    <div class="card-soft"><strong>🔴 Amplificator nu pornește</strong><span>Sursă SMPS, condensatoare filtraj, fuzibil intern</span></div>
+    <div class="card-soft"><strong>🔴 Distorsiune, zumzet 50Hz</strong><span>Condensatoare electrolit uzate, masă defectă</span></div>
+    <div class="card-soft"><strong>🔴 Canal mut</strong><span>Tranzistoare finale pe un canal, releu ieșire</span></div>
+    <div class="card-soft"><strong>🔴 Tweeter ars</strong><span>Înlocuire driver compresie sau tweeter silk dome</span></div>
+    <div class="card-soft"><strong>🔴 Woofer cu voce defectă</strong><span>Rebobinare bobină mobilă, înlocuire difuzor</span></div>
+    <div class="card-soft"><strong>🔴 DSP blocat / firmware corupt</strong><span>Resetare, reflashare</span></div>
+    <div class="card-soft"><strong>🔴 Ventilator zgomotos</strong><span>Curățare sau înlocuire</span></div>
+    <div class="card-soft"><strong>🔴 Mufă XLR / jack ruptă</strong><span>Înlocuire conector</span></div>
+  </div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Vezi și <a href="/reparatii-boxe-active-amplificatoare/">pagina extinsă cu toate modelele reparate</a>.</p>
+</section>
+<Cta titlu="🔊 Boxă sau Amplificator Defect? Sunați-ne!" />
+</div>
+</Base>
