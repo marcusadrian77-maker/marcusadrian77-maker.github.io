@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+const faqPret = [
+ { q: 'Diagnosticarea este cu adevărat gratuită?', a: 'Da, diagnosticarea este 100% gratuită. Nu vei plăti nimic pentru evaluarea echipamentului. Plătești doar dacă accepți oferta de reparație și lucrarea este efectuată. Dacă refuzi, primești echipamentul înapoi fără niciun cost.' },
+ { q: 'Cum aflu prețul înainte să las echipamentul?', a: 'Ne poți contacta telefonic sau pe WhatsApp și ne descrii defecțiunea. Îți dăm o estimare orientativă. Prețul exact se stabilește după diagnosticarea fizică a echipamentului, pe care o facem gratuit. Nicio reparație nu se face fără acordul tău prealabil.' },
+ { q: 'Ce modalități de plată acceptați?', a: 'Acceptăm plata în numerar (cash). Pentru plata cu card, te rugăm să confirmi telefonic disponibilitatea în ziua ridicării echipamentului.' },
+];
+const faqGarantie = [
+ { q: 'Ce garanție oferă Marcus Electronics?', a: 'Oferim garanție 6–12 luni la toate reparațiile efectuate, în funcție de tipul intervenției și vechimea echipamentului. Garanția acoperă aceeași defecțiune. Garanția se acordă scris, odată cu echipamentul ridicat.' },
+ { q: 'Cât durează o reparație?', a: 'Durata depinde de complexitatea defecțiunii:<ul><li><strong>Reparații simple</strong> (baterie, port, tastatură, curățare) — 1–2 zile lucrătoare</li><li><strong>Reparații medii</strong> (display, backlight, sursă alimentare) — 2–4 zile lucrătoare</li><li><strong>Reparații complexe</strong> (placă de bază, chip BGA, APU) — 4–7 zile lucrătoare</li></ul>Vei fi anunțat telefonic de îndată ce echipamentul este gata.' },
+ { q: 'Ce se întâmplă dacă echipamentul nu poate fi reparat?', a: 'Dacă echipamentul nu poate fi reparat sau costul reparației nu este rentabil, îți comunicăm acest lucru după diagnosticare și îți returnăm echipamentul fără niciun cost. Diagnosticarea rămâne gratuită indiferent de rezultat.' },
+ { q: 'Reparați echipamente vechi sau din producători mai puțin cunoscuți?', a: 'Da, reparăm echipamente din toate brandurile și generațiile, inclusiv mărci mai puțin cunoscute (televizoare NEI, Star-Light, Finlux, laptopuri de branduri locale etc.). Prin parteneriatul cu ASWO avem acces la peste 500.000 de referințe de piese.' },
+];
+const faqLocatie = [
+ { q: 'Unde vă aflați? Cum ajung la voi?', a: 'Ne găsești la <strong>Str. Moinești 7, bl. 134 A, cartier Militari, Sector 6, București</strong>. Suntem aproape de stația de metrou Gorjului (linia M4) și accesibili din toată zona Militari–Drumul Taberei–Crângași.' },
+ { q: 'Reparați televizoarele la domiciliu?', a: 'Da! Reparăm televizoarele la domiciliul dvs. în București și Ilfov — tehnicianul vine direct acasă, fără costuri de transport. Marea majoritate a defecțiunilor TV se pot rezolva pe loc. Suni, descriem problema, stabilim o oră și tehnicianul vine la tine.' },
+ { q: 'Reparați laptopurile sau alte echipamente la domiciliu?', a: 'Laptopurile, MacBook-urile, consolele, monitoarele, boxele și cuptoarele se repară exclusiv la sediul nostru din Militari, Sector 6. Avem echipamente de laborator specializate necesare pentru diagnosticarea și repararea corectă a acestor dispozitive.' },
+ { q: 'Trebuie să fac programare în avans?', a: 'Nu este necesară programare. Poți veni direct în program. Este recomandat să ne contactezi în prealabil pe telefon sau WhatsApp pentru a ne descrie problema — astfel pregătim echipa și estimăm rapid costul reparației.' },
+ { q: 'Aveți autorizație pentru service electronice?', a: 'Da, SC Marcus Electronics SRL este o firmă autorizată, certificată ca „firmă de încredere" de o companie independentă de testare a calității serviciilor din 2016 și până în prezent. Suntem parteneri oficiali ASWO și membri ai comunității internaționale EURAS.' },
+ { q: 'Puteți repara echipamente aduse din alte sectoare ale Bucureștiului?', a: 'Absolut. Acceptăm echipamente din toată București și Ilfov. Mulți clienți vin la noi din Sector 1, 2, 3, 4, 5, precum și din Ilfov (Voluntari, Pantelimon, Pipera, Otopeni etc.). Pentru televizoare, oferim deplasare la domiciliu în toată București și Ilfov.' },
+];
+const allFaq = [...faqPret, ...faqGarantie, ...faqLocatie];
+const schemaFaq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, ' ') } })),
+};
+---
+<Base title="FAQ - Intrebari Frecvente Reparatii Electronice Bucuresti" description="Ai întrebări despre serviciile de reparații ale Marcus Electronics? Găsești aici răspunsurile la cele mai frecvente întrebări ale clienților noștri." schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Întrebări Frecvente (FAQ)</h1>
+  <p class="lead">Ai întrebări despre serviciile de reparații ale Marcus Electronics? Găsești mai jos răspunsurile la cele mai frecvente întrebări ale clienților noștri din Sectorul 6, București.</p>
+</div></div>
+<div class="wrap">
+<section class="sec"><h2>💰 Întrebări despre Preț și Plată</h2><Faq items={faqPret} /></section>
+<section class="sec"><h2>🔧 Întrebări despre Reparații și Garanție</h2><Faq items={faqGarantie} /></section>
+<section class="sec"><h2>📍 Întrebări despre Servicii și Locație</h2><Faq items={faqLocatie} /></section>
+<Cta titlu="Nu ți-ai găsit răspunsul?" text="Sună-ne sau scrie-ne pe WhatsApp — răspundem rapid." />
+</div>
+</Base>
