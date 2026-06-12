@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import ContactCard from '../components/ContactCard.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const faq = [
+ { q: 'Merită reparat un monitor sau e mai bine să cumpăr unul nou?', a: 'Depinde de tipul defecțiunii și de valoarea monitorului. Un monitor gaming de 1000+ lei sau un monitor profesional de culori merită reparat. Defecțiunile de alimentare sau backlight costă de obicei 150–350 lei — mult mai puțin decât un monitor nou echivalent. Îți facem o evaluare gratuită și îți prezentăm costul înainte de orice intervenție.' },
+ { q: 'Reparați monitoare gaming cu refresh rate mare (144Hz, 240Hz)?', a: 'Da, reparăm monitoare gaming de orice tip, inclusiv cele cu refresh rate ridicat, G-Sync, FreeSync și HDR. Avem experiență pe modelele Asus ROG, AOC Gaming, MSI MAG și Samsung Odyssey.' },
+];
+const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const preturi = [['Diagnosticare','GRATUITĂ'],['Reparare sursă alimentare monitor','150–350 lei'],['Reparare backlight LED / invertor','150–300 lei'],['Reparare placă T-CON','200–400 lei'],['Înlocuire panou LCD','300–800 lei'],['Înlocuire conector HDMI/DP','100–200 lei']];
+---
+<Base title="Reparații Monitoare LCD Sector 6 București | Marcus Electronics" description="Monitorul tău are probleme de imagine, iluminare sau nu mai pornește? Reparăm monitoare LCD de toate tipurile în Militari, Sector 6 — gaming, 4K, curbate." schemaExtra={schemaFaq}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Monitoare LCD Sector 6</h1>
+  <p class="lead">Monitorul tău are probleme de imagine, iluminare sau nu mai pornește? La Marcus Electronics din Militari, Sector 6 București, reparăm monitoare LCD de toate tipurile — gaming, profesionale, 4K, curbate — la prețuri corecte și cu garanție 6–12 luni.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>🖥️ Tipuri de Monitoare pe care le Reparăm</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Monitoare gaming</strong><span>144Hz, 165Hz, 240Hz, 1ms, G-Sync, FreeSync</span></div>
+    <div class="card-soft"><strong>Monitoare 4K / 2K (QHD)</strong><span>Toate dimensiunile</span></div>
+    <div class="card-soft"><strong>Monitoare curbate</strong><span>Ultrawide, 21:9, 32:9</span></div>
+    <div class="card-soft"><strong>Monitoare profesionale</strong><span>Calibrare culori, IPS, OLED</span></div>
+    <div class="card-soft"><strong>Monitoare TV / smart monitor</strong><span>Toate brandurile</span></div>
+  </div>
+  <h3>Branduri acceptate</h3>
+  <p style="font-size:15px;color:var(--mut)">Samsung, LG, Dell, Asus ROG/TUF, AOC, Philips, BenQ, HP, Acer, MSI, Iiyama, ViewSonic, Lenovo, NEC, Eizo și orice alt producător.</p>
+</section>
+<section class="sec">
+  <h2>🔧 Defecțiuni Frecvente pe care le Reparăm</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Monitorul nu pornește</strong><span>Sursă de alimentare, condensatori, mosfet-uri</span></div>
+    <div class="card-soft"><strong>Ecran negru cu LED-uri active</strong><span>Backlight LED, invertor</span></div>
+    <div class="card-soft"><strong>Dungi verticale / orizontale</strong><span>Placă T-CON, cablu LVDS</span></div>
+    <div class="card-soft"><strong>Imagini fantomă / ghosting</strong><span>Diagnosticare panou sau cabluri</span></div>
+    <div class="card-soft"><strong>Culori denaturate</strong><span>Circuit video, cabluri</span></div>
+    <div class="card-soft"><strong>Flickering / pâlpâire</strong><span>Backlight, condensatori alimentare</span></div>
+    <div class="card-soft"><strong>Pixeli morți / zone negre</strong><span>Evaluare panou, înlocuire dacă e cazul</span></div>
+    <div class="card-soft"><strong>Port HDMI / DP / VGA defect</strong><span>Reparare sau înlocuire conector</span></div>
+    <div class="card-soft"><strong>Stand sau carcasă deteriorată</strong><span>Reparare mecanică</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>💰 Prețuri Orientative</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+</section>
+<section class="sec">
+  <h2>⭐ De Ce Marcus Electronics?</h2>
+  <ul class="checks">
+    <li><strong>Diagnostic gratuit</strong> — evaluare completă, fără costuri</li>
+    <li><strong>Reparare la nivel de componentă</strong> — economii semnificative</li>
+    <li><strong>Garanție 6–12 luni</strong></li>
+    <li><strong>Piese originale</strong> prin parteneriat ASWO</li>
+    <li><strong>Experiență pe toate tipurile</strong>, inclusiv gaming de înaltă performanță</li>
+  </ul>
+</section>
+<ContactCard />
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🖥️ Monitor Defect? Sunați-ne!" />
+</div>
+</Base>
