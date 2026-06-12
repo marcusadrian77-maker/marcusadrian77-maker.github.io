@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Reparatii Monitoare LCD Bucuresti | Service Rapid Sector 6" description="Reparatii profesionale monitoare LCD si LED in Bucuresti. Diagnosticare gratuita, garantie 6-12 luni. Acer, Samsung, LG, Dell, HP, Asus. Suna acum!">
+<div class="hero"><div class="wrap">
+  <h1>Reparații Monitoare LCD București</h1>
+  <p class="lead">Servicii profesionale de reparații monitoare LCD și LED în București, Sector 6. Diagnoză gratuită, intervenție rapidă, garanție la toate reparațiile.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Mărci de Monitoare Reparate</h2>
+  <p>Reparăm monitoare de la: <strong>Acer, AOC, Asus, BenQ, Dell, HP, Iiyama, LG, NEC, Philips, Samsung, ViewSonic</strong> și alte mărci.</p>
+</section>
+<section class="sec">
+  <h2>Servicii de Reparații Monitoare LCD</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Monitor nu pornește</strong><span>Reparare sursă de alimentare sau condensatoare arse</span></div>
+    <div class="card-soft"><strong>Ecran negru / fără imagine</strong><span>Reparare invertor, backlight sau placă logică</span></div>
+    <div class="card-soft"><strong>Pixeli morți sau linii pe ecran</strong><span>Diagnosticare și înlocuire panel LCD/LED</span></div>
+    <div class="card-soft"><strong>Imagine distorsionată</strong><span>Reparare placă de control sau cabluri video</span></div>
+    <div class="card-soft"><strong>Butoane nefuncționale</strong><span>Reparare sau înlocuire taste control</span></div>
+  </div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Pentru monitoare gaming (144Hz+), 4K și curbate, vezi și <a href="/reparatii-monitoare-sector-6/">pagina detaliată Reparații Monitoare Sector 6</a>.</p>
+</section>
+<section class="sec">
+  <h2>De Ce Să Ne Alegeți?</h2>
+  <ul class="checks">
+    <li><strong>30 ani experiență</strong> — echipă calificată, personal specializat</li>
+    <li><strong>Garanție 6–12 luni</strong> — piese de calitate, garanție la toate reparațiile</li>
+    <li><strong>Diagnosticare gratuită</strong> — aflați defecțiunea fără costuri suplimentare</li>
+  </ul>
+</section>
+<Cta titlu="🖥️ Monitor Defect? Sunați-ne!" />
+</div>
+</Base>
