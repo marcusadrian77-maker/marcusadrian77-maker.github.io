@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE, NAV_SERVICII, SCHEMA_LOCALBUSINESS } from '../data/site';
+import { IMG } from '../data/images';
 export interface Props { title: string; description: string; schemaExtra?: object | null; }
 const { title, description, schemaExtra = null } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
@@ -27,14 +28,7 @@ const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 <header class="site-header">
   <div class="wrap hd">
     <a class="logo" href="/" aria-label="Marcus Electronics — Acasă">
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="3" y="7" width="42" height="28" rx="4" fill="#14365d"/>
-        <rect x="7" y="11" width="34" height="20" rx="2" fill="#0a6ebd"/>
-        <path d="M17 21h4l2-5 3 10 2-5h4" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <rect x="16" y="39" width="16" height="3" rx="1.5" fill="#14365d"/>
-        <rect x="22" y="35" width="4" height="5" fill="#14365d"/>
-      </svg>
-      <span>Marcus Electronics<small>Reparații Electronice</small></span>
+      <img src={IMG.logo} alt="Marcus Electronics" width="168" height="42" />
     </a>
     <input type="checkbox" id="nav-open" class="nav-toggle" aria-hidden="true" />
     <label for="nav-open" class="burger" aria-label="Deschide meniul"><span></span><span></span><span></span></label>
