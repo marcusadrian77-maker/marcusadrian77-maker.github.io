@@ -1,7 +1,7 @@
 // Imagini refolosite din site-ul vechi (se vor re-găzdui în repo înainte de mutarea domeniului).
 const U = 'https://www.reparatiielectronice.ro/wp-content/uploads/';
 export const IMG = {
-  logo: U + '2024/01/logo-marcus-5.png',
+  logo: U + '2022/08/logo-marcus-5.png',
   hero: U + '2022/08/it-services-04.jpg',
   heroAlt: U + '2022/08/it-services-10.jpg',
   tehnician: U + '2022/08/depanator-tv-3-min.jpg',
