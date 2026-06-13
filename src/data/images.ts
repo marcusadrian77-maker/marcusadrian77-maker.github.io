@@ -1,17 +1,16 @@
-// Imagini refolosite din site-ul vechi (se vor re-găzdui în repo înainte de mutarea domeniului).
-const U = 'https://www.reparatiielectronice.ro/wp-content/uploads/';
+// Imagini găzduite local în /public/img (descărcate din site-ul vechi prin workflow-ul fetch-images).
 export const IMG = {
-  logo: U + '2022/08/logo-marcus-5.png',
-  hero: U + '2022/08/it-services-04.jpg',
-  heroAlt: U + '2022/08/it-services-10.jpg',
-  tehnician: U + '2022/08/depanator-tv-3-min.jpg',
-  firma: U + '2022/08/Firma-de-incredere.png',
-  tv: U + '2025/11/televizor.jpg',
-  laptop: U + '2022/08/Laptop-scaled.jpg',
-  macbook: U + '2022/08/Macbook-Pro.jpg',
-  consola: U + '2025/10/game-console-repair.jpeg',
-  boxe: U + '2022/08/Boxe-active.jpg',
-  monitor: U + '2022/08/monitor-1.jpg',
-  cuptor: U + '2022/08/cuptor-microunde.jpg',
-  amplificator: U + '2026/05/amplificator-modern.jpg',
+  logo: '/img/logo.png',
+  hero: '/img/hero.jpg',
+  heroAlt: '/img/hero.jpg',
+  tehnician: '/img/tehnician.jpg',
+  firma: '/img/firma.png',
+  tv: '/img/tv.jpg',
+  laptop: '/img/laptop.jpg',
+  macbook: '/img/macbook.jpg',
+  consola: '/img/consola.jpg',
+  boxe: '/img/boxe.jpg',
+  monitor: '/img/monitor.jpg',
+  cuptor: '/img/cuptor.jpg',
+  amplificator: '/img/amplificator.jpg',
 };
