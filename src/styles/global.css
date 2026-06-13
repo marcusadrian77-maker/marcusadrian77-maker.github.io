@@ -137,24 +137,3 @@ a.card.has-img:hover{transform:translateY(-2px);transition:.15s}
 .trust-badge img{width:66px;height:66px;object-fit:contain;flex:none}
 .section-head{text-align:center;max-width:700px;margin:0 auto 4px}
 .section-head p{color:var(--mut);font-size:15.5px}
-
-/* ===== BUTOANE FIXE Suna + WhatsApp ===== */
-.floatcta{position:fixed;z-index:70;right:18px;bottom:18px;display:flex;flex-direction:column;gap:14px}
-.fc{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:27px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.28);transition:transform .15s}
-.fc:hover{transform:scale(1.08)}
-.fc .lbl{display:none}
-.fc-call{background:#0a6ebd}
-.fc-wa{background:#25d366}
-.fc::before{content:'';position:absolute;width:60px;height:60px;border-radius:50%;z-index:-1;animation:fcpulse 2s infinite}
-.fc-call::before{background:#0a6ebd;opacity:.55}
-.fc-wa::before{background:#25d366;opacity:.55}
-@keyframes fcpulse{0%{transform:scale(1);opacity:.55}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
-@media (max-width:600px){
-  .floatcta{left:0;right:0;bottom:0;flex-direction:row;gap:0;box-shadow:0 -2px 12px rgba(0,0,0,.18)}
-  .fc{width:50%;height:56px;border-radius:0;font-size:16px;font-weight:800;gap:9px;box-shadow:none}
-  .fc:hover{transform:none}
-  .fc .lbl{display:inline}
-  .fc::before{display:none}
-  body{padding-bottom:56px}
-  .floatcta + footer,footer{margin-bottom:0}
-}
