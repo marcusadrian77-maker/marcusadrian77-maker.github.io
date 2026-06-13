@@ -122,7 +122,7 @@ table.tb tr:last-child td{border-bottom:0}
 .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(135deg,rgba(11,33,58,.93),rgba(10,110,189,.84)),var(--hero-img,none);background-size:cover;background-position:center;z-index:0}
 .hero .wrap{position:relative;z-index:1}
 .hero .pills span{backdrop-filter:blur(3px)}
-.card.has-img{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.card.has-img{position:relative;padding:0;overflow:hidden;display:flex;flex-direction:column}
 .card.has-img .ph{height:158px;background-size:cover;background-position:center;background-color:#dce6f2;position:relative}
 .card.has-img .bd{padding:16px 18px}
 .card.has-img .bd h3{margin:2px 0 8px;font-size:17.5px}
