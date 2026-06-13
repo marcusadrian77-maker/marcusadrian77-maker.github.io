@@ -1,0 +1,46 @@
+name: Fetch & host images
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download images from old site
+        run: |
+          mkdir -p raw public/img
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/logo-marcus-5.png" -o "raw/logo.png" && echo "ok logo.png"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/Firma-de-incredere.png" -o "raw/firma.png" && echo "ok firma.png"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/it-services-04.jpg" -o "raw/hero.jpg" && echo "ok hero.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/depanator-tv-3-min.jpg" -o "raw/tehnician.jpg" && echo "ok tehnician.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2025/11/televizor.jpg" -o "raw/tv.jpg" && echo "ok tv.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/Laptop-scaled.jpg" -o "raw/laptop.jpg" && echo "ok laptop.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/Macbook-Pro.jpg" -o "raw/macbook.jpg" && echo "ok macbook.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2025/10/game-console-repair.jpeg" -o "raw/consola.jpg" && echo "ok consola.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/Boxe-active.jpg" -o "raw/boxe.jpg" && echo "ok boxe.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/monitor-1.jpg" -o "raw/monitor.jpg" && echo "ok monitor.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2022/08/cuptor-microunde.jpg" -o "raw/cuptor.jpg" && echo "ok cuptor.jpg"
+          curl -fsSL "https://www.reparatiielectronice.ro/wp-content/uploads/2026/05/amplificator-modern.jpg" -o "raw/amplificator.jpg" && echo "ok amplificator.jpg"
+      - name: Optimize
+        run: |
+          convert "raw/logo.png" -resize "480x480>" -strip "public/img/logo.png" || cp "raw/logo.png" "public/img/logo.png"
+          convert "raw/firma.png" -resize "480x480>" -strip "public/img/firma.png" || cp "raw/firma.png" "public/img/firma.png"
+          convert "raw/hero.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/hero.jpg" || cp "raw/hero.jpg" "public/img/hero.jpg"
+          convert "raw/tehnician.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/tehnician.jpg" || cp "raw/tehnician.jpg" "public/img/tehnician.jpg"
+          convert "raw/tv.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/tv.jpg" || cp "raw/tv.jpg" "public/img/tv.jpg"
+          convert "raw/laptop.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/laptop.jpg" || cp "raw/laptop.jpg" "public/img/laptop.jpg"
+          convert "raw/macbook.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/macbook.jpg" || cp "raw/macbook.jpg" "public/img/macbook.jpg"
+          convert "raw/consola.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/consola.jpg" || cp "raw/consola.jpg" "public/img/consola.jpg"
+          convert "raw/boxe.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/boxe.jpg" || cp "raw/boxe.jpg" "public/img/boxe.jpg"
+          convert "raw/monitor.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/monitor.jpg" || cp "raw/monitor.jpg" "public/img/monitor.jpg"
+          convert "raw/cuptor.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/cuptor.jpg" || cp "raw/cuptor.jpg" "public/img/cuptor.jpg"
+          convert "raw/amplificator.jpg" -resize "1100x1100>" -strip -quality 82 "public/img/amplificator.jpg" || cp "raw/amplificator.jpg" "public/img/amplificator.jpg"
+      - name: Commit images
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add public/img
+          git commit -m "Host site images in public/img" || echo "no changes"
+          git push
