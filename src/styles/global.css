@@ -115,3 +115,5 @@ table.tb td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align
 table.tb tr:last-child td{border-bottom:0}
 .crumbs{font-size:13px;color:var(--mut);padding:14px 0 0}
 .crumbs a{color:var(--mut)}
+
+/* probe */
