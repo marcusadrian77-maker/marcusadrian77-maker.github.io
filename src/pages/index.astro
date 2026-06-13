@@ -2,9 +2,21 @@
 import Base from '../layouts/Base.astro';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import { IMG } from '../data/images';
+const echip = [
+  { img: IMG.tv, ico: '📺', t: 'Televizoare', href: '/reparatii-televizoare/', d: 'Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp. LED, OLED, QLED, Smart TV. Reparații și la domiciliu!' },
+  { img: IMG.laptop, ico: '💻', t: 'Laptopuri', href: '/reparatii-laptopuri-bucuresti/', d: 'Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Huawei. Gaming, ultrabook, business.' },
+  { img: IMG.macbook, ico: '🍎', t: 'MacBook & iMac', href: '/reparatii-macbook/', d: 'MacBook Air M1/M2/M3, MacBook Pro, iMac, Mac Mini. Reparații la nivel de chip.' },
+  { img: IMG.consola, ico: '🎮', t: 'Console Gaming', href: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/', d: 'PS4, PS5, Xbox One, Xbox Series X/S, Nintendo Switch. BLOD, HDMI, supraîncălzire.' },
+  { img: IMG.boxe, ico: '🔊', t: 'Boxe Active', href: '/reparatii-boxe-active/', d: 'Behringer, JBL, Yamaha, Mackie, QSC, RCF. Amplificatoare, sisteme PA.' },
+  { img: IMG.monitor, ico: '🖥️', t: 'Monitoare LCD', href: '/reparatii-monitoare-lcd/', d: 'Samsung, LG, Dell, Asus, AOC, Philips, BenQ. Gaming, profesionale, 4K, curbate.' },
+  { img: IMG.cuptor, ico: '🔥', t: 'Cuptoare Microunde', href: '/reparatii-cuptoare-cu-microunde/', d: 'Electrolux, Samsung, LG, AEG, Whirlpool, Bosch, Daewoo, Panasonic.' },
+  { img: IMG.amplificator, ico: '🎵', t: 'Amplificatoare', href: '/reparatii-boxe-active/', d: 'Denon, Yamaha, Pioneer, Onkyo, Marantz, NAD. Receivere AV, stereo HiFi.' },
+  { img: IMG.tehnician, ico: '🌡️', t: 'Mentenanță Pastă Termică', href: '/mentenanta-profesionala-pasta-termica/', d: 'Înlocuire pastă termică și metal lichid pentru PS4, PS5, Xbox, laptopuri și MacBook.' },
+];
 ---
 <Base title="Reparatii Electronice Sector 6 Bucuresti Reparatii TV Laptop" description="Atelier de reparații electronice în sectorul 6 pentru televizoare, monitoare, laptopuri, Macbook Air, Macbook Pro, IMac, boxe active, amplificatoare">
-<div class="hero">
+<div class="hero" style={'--hero-img:url(' + IMG.hero + ')'}>
   <div class="wrap">
     <span class="badge">REPARAȚII ELECTRONICE BUCUREȘTI</span>
     <h1>Reparații Electronice Sector 6 — TV, Laptop, MacBook, Console</h1>
@@ -12,7 +24,7 @@ import { SITE } from '../data/site';
     <div class="pills"><span>✅ Diagnostic gratuit</span><span>🛡️ Garanție 6–12 luni</span><span>⚡ Reparăm în aceeași zi</span><span>🚚 Deplasare gratuită la TV</span></div>
     <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
     <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
-    <p style="margin:16px auto 0;font-size:13.5px;opacity:.9;max-width:640px">📱 Pentru o mai bună comunicare — trimiteți pe WhatsApp modelul televizorului de pe eticheta din spatele aparatului. Vă mulțumim!</p>
+    <p style="margin:16px auto 0;font-size:13.5px;opacity:.9;max-width:640px">📱 Trimiteți pe WhatsApp modelul televizorului de pe eticheta din spatele aparatului. Vă mulțumim!</p>
   </div>
 </div>
 <div class="wrap">
@@ -21,66 +33,66 @@ import { SITE } from '../data/site';
     <div class="stat"><b>25+</b><i>Ani experiență</i></div>
     <div class="stat"><b>10.000+</b><i>Echipamente reparate</i></div>
     <div class="stat"><b>4.9/5</b><i>Rating mediu</i></div>
-    <div class="stat"><b>85%</b><i>Reparații în aceeași zi</i></div>
-    <div class="stat"><b>8+</b><i>Tipuri de electronice</i></div>
+    <div class="stat"><b>85%</b><i>În aceeași zi</i></div>
+    <div class="stat"><b>8+</b><i>Tipuri electronice</i></div>
     <div class="stat"><b>6–12</b><i>Luni garanție</i></div>
   </div>
 </section>
 <section class="sec">
-  <h2>Despre Noi</h2>
-  <p>Suntem o echipă tânără și dinamică, capabilă să facă față noilor provocări și cerințe din domeniul reparațiilor electronice. Punem preț pe calitatea și promptitudinea serviciilor oferite și tratăm fiecare client cu maximă seriozitate și profesionalism.</p>
-  <p>Service-ul nostru dispune de un laborator propriu în București, dotat cu echipamente de ultimă generație pentru a diagnostica și rezolva orice tip de defecțiune apărută la echipamentele electronice pe care le reparăm. <strong>{SITE.firma}</strong> înseamnă profesionalism, seriozitate, încredere și competență. <a href="/despre-noi/">Citește mai mult →</a></p>
-</section>
-<section class="sec">
-  <h2>Echipamente pe care le Reparăm</h2>
-  <div class="grid g3">
-    <div class="card"><div class="ico">📺</div><h3><a href="/reparatii-televizoare/">Televizoare</a></h3><p>Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp, Toshiba, Grundig. LED, OLED, QLED, Smart TV. <strong>Reparații și la domiciliu!</strong></p></div>
-    <div class="card"><div class="ico">💻</div><h3><a href="/reparatii-laptopuri-bucuresti/">Laptopuri</a></h3><p>Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Huawei MateBook. Gaming, ultrabook, business.</p></div>
-    <div class="card"><div class="ico">🍎</div><h3><a href="/reparatii-macbook/">MacBook &amp; iMac</a></h3><p>MacBook Air M1/M2/M3, MacBook Pro 13″/14″/16″, iMac 21.5″/27″, Mac Mini. Reparații la nivel de chip.</p></div>
-    <div class="card"><div class="ico">🎮</div><h3><a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">Console Gaming</a></h3><p>PlayStation 4, PS4 Pro, PlayStation 5, Xbox One, Xbox Series X/S, Nintendo Switch. BLOD, HDMI, supraîncălzire.</p></div>
-    <div class="card"><div class="ico">🔊</div><h3><a href="/reparatii-boxe-active/">Boxe Active</a></h3><p>Behringer, JBL, Bose, Yamaha, Mackie, PreSonus, QSC, Dynacord. Amplificatoare, sisteme PA.</p></div>
-    <div class="card"><div class="ico">🖥️</div><h3><a href="/reparatii-monitoare-lcd/">Monitoare LCD</a></h3><p>Samsung, LG, Dell, Asus, AOC, Philips, BenQ, HP, Acer, Iiyama. Gaming, profesionale, 4K, curbate.</p></div>
-    <div class="card"><div class="ico">🔥</div><h3><a href="/reparatii-cuptoare-cu-microunde/">Cuptoare Microunde</a></h3><p>Electrolux, Samsung, LG, AEG, Indesit, Zanussi, Whirlpool, Gorenje, Bosch, Daewoo.</p></div>
-    <div class="card"><div class="ico">🎵</div><h3><a href="/reparatii-boxe-active/">Amplificatoare</a></h3><p>Denon, Yamaha, Pioneer, Onkyo, Marantz, Sony, NAD, Cambridge Audio. Receivere AV, stereo.</p></div>
-    <div class="card"><div class="ico">🌡️</div><h3><a href="/mentenanta-profesionala-pasta-termica/">Mentenanță Pastă Termică</a></h3><p>Înlocuire pastă termică și metal lichid pentru PS4, PS5, Xbox, laptopuri și MacBook.</p></div>
+  <div class="split">
+    <div>
+      <h2 style="margin-top:0">Despre Marcus Electronics</h2>
+      <p>Suntem o echipă tânără și dinamică, capabilă să facă față noilor provocări din domeniul reparațiilor electronice. Punem preț pe calitatea și promptitudinea serviciilor și tratăm fiecare client cu maximă seriozitate.</p>
+      <p>Dispunem de un laborator propriu în București, dotat cu echipamente de ultimă generație pentru a diagnostica și rezolva orice defecțiune. <strong>{SITE.firma}</strong> înseamnă profesionalism, seriozitate, încredere și competență.</p>
+      <a class="btn btn-blue" href="/despre-noi/" style="margin-left:0">Despre noi →</a>
+    </div>
+    <div class="imgwrap"><img src={IMG.tehnician} alt="Tehnician reparații electronice Marcus Electronics" loading="lazy" /></div>
   </div>
 </section>
 <section class="sec">
-  <h2>Ce Probleme Putem Rezolva?</h2>
-  <div class="grid g3">
-    <div class="card-soft"><strong>Display crăpat</strong><span>Ecran spart sau defect? Nu-i problemă, îl înlocuim.</span></div>
-    <div class="card-soft"><strong>Apă vărsată</strong><span>Reparăm sau înlocuim placa de bază udată cu lichid.</span></div>
-    <div class="card-soft"><strong>Boxe defecte</strong><span>Sistemul pornește dar nu se aude? Avem soluția potrivită.</span></div>
-    <div class="card-soft"><strong>Dungi pe ecran</strong><span>Dungile verticale pe mijlocul ecranului sunt semne clare că e nevoie de depanare TV.</span></div>
-    <div class="card-soft"><strong>Baterie moartă</strong><span>Bateria nu se încarcă corect sau a murit? O schimbăm rapid.</span></div>
+  <div class="section-head"><h2>Echipamente pe care le Reparăm</h2><p>De la televizoare la console și sisteme audio profesionale — reparăm la nivel de componentă, cu diagnostic gratuit.</p></div>
+  <div class="grid g3" style="margin-top:18px">
+    {echip.map(e => (
+      <a class="card has-img" href={e.href}>
+        <div class="ph" style={'background-image:url(' + e.img + ')'}></div>
+        <div class="ico">{e.ico}</div>
+        <div class="bd"><h3>{e.t}</h3><p>{e.d}</p></div>
+      </a>
+    ))}
+  </div>
+</section>
+<section class="sec">
+  <div class="section-head"><h2>Ce Probleme Putem Rezolva?</h2></div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card-soft"><strong>Display crăpat</strong><span>Ecran spart sau defect? Îl înlocuim.</span></div>
+    <div class="card-soft"><strong>Apă vărsată</strong><span>Reparăm sau înlocuim placa de bază udată.</span></div>
+    <div class="card-soft"><strong>Boxe defecte</strong><span>Pornește dar nu se aude? Avem soluția.</span></div>
+    <div class="card-soft"><strong>Dungi pe ecran</strong><span>Dungi verticale = nevoie de depanare TV.</span></div>
+    <div class="card-soft"><strong>Baterie moartă</strong><span>Nu se încarcă sau a murit? O schimbăm.</span></div>
     <div class="card-soft"><strong>Nu pornește</strong><span>Sursă defectă, condensatori arși — diagnosticăm gratuit.</span></div>
-  </div>
-</section>
-<section class="sec">
-  <h2>De Ce Cu Noi — 10 Motive</h2>
-  <p>Peste 30 de ani de experiență pentru a vă oferi servicii de calitate la prețuri corecte. Echipă calificată, oameni specializați, dedicați și profesioniști în tot ceea ce fac. Aparatură modernă și piese de calitate. Servicii de reparații diversificate. Service autorizat pentru reparații electronice. Rapizi și foarte corecți. Disponibilitate maximă și consultanță specializată pentru toată gama de servicii oferită.</p>
-</section>
-<section class="sec">
-  <h2>Cum Să Procedați</h2>
-  <div class="steps">
-    <div class="step"><span class="n">1</span><span><strong>Sunați-ne sau trimiteți-ne un mesaj.</strong> Menționați marca echipamentului, cum se comportă și de când îl folosiți. Cel mai bine este să atașați poze cu modelul dvs.</span></div>
-    <div class="step"><span class="n">2</span><span><strong>Faceți-ne o vizită.</strong> Echipamentul trebuie adus la sediul nostru — iar dacă e televizor, tehnicianul poate veni la dvs. acasă.</span></div>
-    <div class="step"><span class="n">3</span><span><strong>După constatare stabilim când este gata reparația.</strong> Știm cât de necesare vă sunt echipamentele, de aceea facem tot ce se poate pentru rezolvări cât mai rapide.</span></div>
   </div>
 </section>
 <section class="sec">
   <h2>Suntem o Firmă de Încredere</h2>
   <div class="grid g2">
-    <div class="card"><div class="ico">🏅</div><h3>Certificați de 10 ani</h3><p>Suntem certificați de o companie independentă de testare a calității serviciilor ca firmă de încredere începând cu 2016 și până în prezent.</p></div>
-    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Toate reparațiile realizate în service-ul nostru beneficiază de o garanție de 6–12 luni în funcție de vechimea echipamentului.</p></div>
+    <div class="trust-badge"><img src={IMG.firma} alt="Firmă de încredere" loading="lazy" /><div><strong style="color:var(--navy)">Certificați de 10 ani</strong><div style="font-size:14px;color:var(--mut)">Firmă de încredere din 2016 până în prezent, atestat de o companie independentă de testare a calității.</div></div></div>
+    <div class="trust-badge"><div style="font-size:42px">🛡️</div><div><strong style="color:var(--navy)">Garanție 6–12 luni</strong><div style="font-size:14px;color:var(--mut)">Toate reparațiile beneficiază de garanție scrisă, în funcție de vechimea echipamentului.</div></div></div>
   </div>
 </section>
 <section class="sec">
-  <h2>Ce Spun Clienții Noștri</h2>
-  <div class="grid g3">
-    <div class="card"><p>★★★★★<br/>„Am reparat un sistem audio Logitech care avea sursa arsă. Totul ok, mulțumit."</p></div>
-    <div class="card"><p>★★★★★<br/>„În 2 ore mi-au rezolvat problema. Super profi, merită să apelați la ei."</p></div>
-    <div class="card"><p>★★★★★<br/>„Recomand! Personal amabil și profesionist! Am să revin la voi. PS: Televizorul nu mai pierde posturile."</p></div>
+  <div class="section-head"><h2>Cum Să Procedați</h2></div>
+  <div class="steps" style="margin-top:16px">
+    <div class="step"><span class="n">1</span><span><strong>Sunați-ne sau scrieți pe WhatsApp.</strong> Menționați marca echipamentului, cum se comportă și de când. Cel mai bine atașați poze.</span></div>
+    <div class="step"><span class="n">2</span><span><strong>Aduceți echipamentul</strong> la sediu — iar dacă e televizor, tehnicianul vine la dvs. acasă.</span></div>
+    <div class="step"><span class="n">3</span><span><strong>Stabilim când e gata.</strong> Facem tot ce se poate pentru rezolvări cât mai rapide.</span></div>
+  </div>
+</section>
+<section class="sec">
+  <div class="section-head"><h2>Ce Spun Clienții Noștri</h2></div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><p style="color:#f5a623;margin:0 0 6px">★★★★★</p><p style="margin:0">„Am reparat un sistem audio Logitech care avea sursa arsă. Totul ok, mulțumit."</p></div>
+    <div class="card"><p style="color:#f5a623;margin:0 0 6px">★★★★★</p><p style="margin:0">„În 2 ore mi-au rezolvat problema. Super profi, merită să apelați la ei."</p></div>
+    <div class="card"><p style="color:#f5a623;margin:0 0 6px">★★★★★</p><p style="margin:0">„Recomand! Personal amabil și profesionist! Televizorul nu mai pierde posturile."</p></div>
   </div>
 </section>
 <Cta titlu="Aparat Defect? Sunați-ne Acum!" text="Diagnostic gratuit — vă răspundem rapid la telefon sau pe WhatsApp." />
