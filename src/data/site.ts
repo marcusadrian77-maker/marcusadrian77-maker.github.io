@@ -8,7 +8,7 @@ export const SITE = {
   email: 'reparatielectronice@yahoo.com',
   adresa: 'Str. Moinești 7, bl. 134 A, Militari, Sector 6, București',
   adresaScurta: 'Militari, Sector 6, București',
-  program: 'Luni–Sâmbătă: 09:00–20:00',
+  program: 'Luni–Vineri: 10:00–19:00',
   zonaDomiciliu: 'București și Ilfov',
 };
 export const NAV_SERVICII = [
@@ -39,6 +39,6 @@ export const SCHEMA_LOCALBUSINESS = {
   email: 'reparatielectronice@yahoo.com',
   priceRange: '$$',
   address: { '@type': 'PostalAddress', streetAddress: 'Str. Moinești 7, bl. 134 A', addressLocality: 'București', addressRegion: 'Sector 6', addressCountry: 'RO' },
-  openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '09:00', closes: '20:00' },
+  openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '10:00', closes: '19:00' },
   areaServed: ['București', 'Ilfov'],
 };
