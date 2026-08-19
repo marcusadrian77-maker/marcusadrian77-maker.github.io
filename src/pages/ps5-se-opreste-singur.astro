@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = 'PS5 Se Oprește Singur: Supraîncălzire, Cauze și Soluții | Ghid';
+const desc = 'PlayStation 5 se oprește singur în timpul jocului sau se supraîncălzește? Cauze frecvente, ce puteți face acasă și când e nevoie de mentenanță profesională. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'De ce se oprește PS5 singur în timpul jocului?', a: 'Cea mai frecventă cauză este supraîncălzirea: praful acumulat în radiator și pasta termică (metal lichid) degradată împiedică răcirea, iar consola se oprește ca să se protejeze. Mai rar, cauza este sursa de alimentare sau un defect pe placa de bază.' },
+ { q: 'Cât durează o mentenanță completă de PS5?', a: 'În atelierul nostru, curățarea completă cu înlocuirea metalului lichid durează de regulă 24–48 de ore, inclusiv testele de temperatură înainte de predare.' },
+ { q: 'Pot să curăț singur consola PS5?', a: 'Exteriorul și grilajele, da — cu aspirare ușoară. Dezasamblarea completă însă implică metalul lichid de pe procesor, care poate provoca scurtcircuit dacă ajunge pe componente. Curățarea internă e bine să rămână pe mâna unui service.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'PS5 se oprește singur: supraîncălzire, cauze și soluții', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Mentenanță Console', item: SITE.domeniu + '/mentenanta-console-ps4-ps5-xbox/' },
+   { '@type': 'ListItem', position: 3, name: 'PS5 se oprește singur', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>PS5 Se Oprește Singur: Supraîncălzire, Cauze și Soluții</h1>
+  <p class="lead">Consola se stinge în mijlocul jocului, ventilatorul urlă sau apare mesajul de supraîncălzire? Iată de ce se întâmplă și cum se rezolvă corect.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Semnele clasice ale supraîncălzirii la PS5</h2>
+  <ul class="checks">
+    <li>Consola se oprește brusc în jocuri solicitante, după 20–60 de minute</li>
+    <li>Apare mesajul „PS5 este prea fierbinte. Închideți consola”</li>
+    <li>Ventilatorul devine foarte zgomotos chiar și în meniu</li>
+    <li>Aerul evacuat prin grilaj este fierbinte, nu doar cald</li>
+    <li>Performanța scade: framerate instabil, jocuri care se blochează</li>
+  </ul>
+  <p>PS5 se protejează singură: când procesorul depășește temperatura sigură, consola se stinge. Oprirea nu este defectul — este simptomul.</p>
+</section>
+<section class="sec">
+  <h2>Cauza principală: praful și metalul lichid degradat</h2>
+  <p>PS5 folosește metal lichid între procesor și radiator, o soluție excelentă când e nouă, dar care în 2–4 ani migrează și se degradează, mai ales dacă consola a stat vertical. În paralel, radiatorul cu lamele fine adună praf, puf de animale și scame, iar fluxul de aer scade dramatic. Combinația celor două duce la temperaturi cu 20–30°C peste normal.</p>
+  <p>Alte cauze, mai rare: sursa de alimentare internă slăbită (consola se stinge fără avertisment de temperatură, chiar și în meniu), firmware corupt sau un defect pe placa de bază apărut după o supratensiune.</p>
+</section>
+<section class="sec">
+  <h2>Ce puteți face acasă, fără riscuri</h2>
+  <ul class="checks">
+    <li><strong>Poziționare.</strong> Lăsați cel puțin 10 cm liberi în jurul consolei; nu o țineți în dulapuri TV închise sau lipită de perete.</li>
+    <li><strong>Curățare exterioară.</strong> Aspirați ușor grilajele de admisie și evacuare, cu consola oprită.</li>
+    <li><strong>Colectoarele de praf.</strong> Sub capacele laterale ale PS5 există două orificii de colectare a prafului — se pot aspira fără a desface nimic.</li>
+    <li><strong>Baza de date.</strong> Porniți în Safe Mode și rulați „Rebuild Database” dacă apar și blocări de software.</li>
+  </ul>
+  <p>Ce <strong>nu</strong> recomandăm: dezasamblarea completă pe cont propriu. Metalul lichid de pe procesor este conductiv electric — o picătură ajunsă pe componente înseamnă scurtcircuit și o reparație mult mai scumpă decât mentenanța.</p>
+</section>
+<section class="sec">
+  <h2>Mentenanța profesională: ce facem noi</h2>
+  <p>La atelierul nostru din Militari, Sector 6, mentenanța completă de PS5 include: dezasamblare totală, curățarea radiatorului și a ventilatorului, înlocuirea metalului lichid cu material nou de calitate, curățarea plăcii de bază, reasamblare și teste de temperatură sub sarcină. Consola pleacă de la noi cu temperaturi de funcționare normale și cu garanție pentru lucrare.</p>
+  <p>Detalii complete și prețuri pe pagina de <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console PS4, PS5, Xbox</a>. Reparăm și <a href="/reparatii-controllere-ps4-ps5-xbox/">controllere DualSense cu drift</a>, porturi HDMI rupte și console care nu mai pornesc deloc — vezi <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">toate serviciile pentru console</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="🎮 PS5 se supraîncălzește? Adu-o la mentenanță!" text="Curățare completă + metal lichid nou, gata în 24–48h, cu teste de temperatură la predare. Sună sau scrie pe WhatsApp." />
+</div>
+</Base>
