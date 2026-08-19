@@ -22,8 +22,37 @@ const title = tip === 'sector'
 const desc = tip === 'sector'
   ? 'Reparații televizoare Sector ' + data.nr + ' București la domiciliu. Tehnicianul vine acasă la tine! Samsung, LG, Sony, Philips. Diagnostic gratuit. Sună acum: 0765.461.357'
   : 'Service televizoare ' + data.nume + ' în București — reparații la domiciliu sau în atelier, Sector 6 Militari. Diagnostic gratuit, garanție 6–12 luni. ☎ 0765.461.357';
+
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const numeServiciu = tip === 'sector' ? 'Reparații TV Sector ' + data.nr + ' București' : 'Reparații TV ' + data.nume + ' București';
+const schemaExtra = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      serviceType: 'Reparații televizoare la domiciliu',
+      name: numeServiciu,
+      url: canonical,
+      description: desc,
+      ...(tip === 'brand' ? { brand: { '@type': 'Brand', name: data.nume } } : {}),
+      areaServed: tip === 'sector'
+        ? { '@type': 'AdministrativeArea', name: 'Sector ' + data.nr + ', București' }
+        : [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+      provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+      offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+        { '@type': 'ListItem', position: 2, name: tip === 'sector' ? 'Reparații TV pe Sectoare' : 'Reparații Televizoare', item: SITE.domeniu + (tip === 'sector' ? '/reparatii-tv-sectoare/' : '/reparatii-televizoare/') },
+        { '@type': 'ListItem', position: 3, name: numeServiciu, item: canonical },
+      ],
+    },
+  ],
+};
 ---
-<Base title={title} description={desc}>
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
 {tip === 'sector' ? (
 <>
 <div class="hero"><div class="wrap">
