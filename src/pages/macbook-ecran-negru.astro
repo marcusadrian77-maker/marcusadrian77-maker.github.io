@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = 'MacBook Ecran Negru: Cauze și Soluții | Ghid Complet 2026';
+const desc = 'MacBook-ul pornește dar ecranul rămâne negru? Ghid pas cu pas: resetări SMC/NVRAM, cauze hardware frecvente și când e nevoie de service specializat. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'MacBook-ul face sunetul de pornire dar ecranul e negru. Ce înseamnă?', a: 'Placa de bază funcționează, dar imaginea nu ajunge la ecran. Cauzele tipice: iluminarea ecranului (backlight) defectă, cablul de ecran (flex) deteriorat sau chip-ul video. Verificați cu o lanternă înclinată spre ecran — dacă se ghicește imaginea, este backlight-ul.' },
+ { q: 'Cât costă reparația unui MacBook cu ecran negru?', a: 'Depinde de cauză: un cablu flex sau o reparație de backlight costă semnificativ mai puțin decât înlocuirea ecranului complet. Diagnosticarea la noi este gratuită și vă dăm prețul exact înainte.' },
+ { q: 'Reparați și MacBook-uri mai vechi, care nu mai au suport Apple?', a: 'Da — lucrăm la nivel de componentă pe placa de bază, inclusiv pe modele din 2012–2017 pentru care Apple nu mai oferă piese. De multe ori acestea sunt cele mai rentabile reparații.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'MacBook ecran negru: cauze și soluții', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'MacBook ecran negru', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>MacBook cu Ecran Negru: Cauze și Soluții</h1>
+  <p class="lead">Laptopul pare că pornește — se aude ventilatorul, tastatura se luminează — dar ecranul rămâne negru? Parcurgeți pașii de mai jos înainte de a-l duce la service.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Pasul 1: Verificările de bază</h2>
+  <ul class="checks">
+    <li><strong>Încărcare.</strong> Conectați încărcătorul original și așteptați 10 minute — o baterie complet descărcată poate ține ecranul negru câteva minute chiar și în priză.</li>
+    <li><strong>Luminozitate.</strong> Apăsați tasta de mărire a luminozității (F2) de mai multe ori — se întâmplă mai des decât credeți.</li>
+    <li><strong>Repornire forțată.</strong> Țineți apăsat butonul de pornire 10 secunde, apoi porniți din nou.</li>
+    <li><strong>Testul lanternei.</strong> Într-o cameră întunecată, îndreptați o lanternă spre ecran, în unghi. Dacă distingeți vag imaginea (dock, ferestre), ecranul funcționează dar iluminarea (backlight) e defectă — un defect hardware clasic, reparabil.</li>
+    <li><strong>Monitor extern.</strong> Conectați un monitor sau televizor prin HDMI/USB-C. Dacă pe extern apare imaginea, problema e la ansamblul de ecran, nu la placa video.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Pasul 2: Resetările software (Mac-uri cu Intel)</h2>
+  <p><strong>Resetare SMC:</strong> opriți MacBook-ul, țineți apăsate Shift + Control + Option (stânga) + butonul de pornire timp de 10 secunde, eliberați și porniți. SMC controlează alimentarea și iluminarea ecranului.</p>
+  <p><strong>Resetare NVRAM/PRAM:</strong> porniți și țineți imediat apăsate Option + Command + P + R timp de ~20 de secunde. NVRAM stochează setări de afișaj care se pot corupe.</p>
+  <p>La modelele cu chip Apple Silicon (M1–M4) aceste resetări nu există — echivalentul este oprirea completă și repornirea după 30 de secunde.</p>
+</section>
+<section class="sec">
+  <h2>Cauzele hardware pe care le vedem cel mai des</h2>
+  <ul class="checks">
+    <li><strong>Backlight defect</strong> — circuitul de iluminare de pe placa de bază sau LED-urile ecranului; frecvent la modelele 2016–2020 („flexgate”: cablul de backlight prea scurt se uzează la deschideri repetate).</li>
+    <li><strong>Cablu flex de ecran</strong> — imagine care apare doar la anumite unghiuri de deschidere a capacului.</li>
+    <li><strong>Contact cu lichid</strong> — chiar și o stropire veche corodează în timp liniile de alimentare ale ecranului.</li>
+    <li><strong>Chip video / placă de bază</strong> — la modelele mai vechi cu GPU dedicat; se repară la nivel de componentă, cu stație de reballing.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Cum vă putem ajuta</h2>
+  <p>În atelierul nostru din Militari, Sector 6, diagnosticăm gratuit orice MacBook — Air sau Pro, Intel sau Apple Silicon — și reparăm la nivel de componentă: backlight, cabluri flex, plăci de bază după contact cu lichid, înlocuiri de ecran complet. Nu înlocuim piese „în bloc” dacă defectul se poate repara punctual, ceea ce ține costul jos. Toate lucrările au garanție scrisă.</p>
+  <p>Detalii pe pagina <a href="/reparatii-macbook/">Reparații MacBook București</a>; dacă sunteți din zonă, vedeți și <a href="/reparatii-macbook-sector-6/">service MacBook Sector 6</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="💻 MacBook cu ecran negru? Adu-l la diagnosticare gratuită!" text="Îți spunem exact ce are și cât costă, înainte de orice reparație. Sună sau scrie pe WhatsApp." />
+</div>
+</Base>
