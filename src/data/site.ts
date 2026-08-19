@@ -20,6 +20,7 @@ export const NAV_SERVICII = [
   { href: '/reparatii-boxe-active/', label: 'Boxe Active & Amplificatoare' },
   { href: '/reparatii-monitoare-lcd/', label: 'Reparații Monitoare' },
   { href: '/reparatii-cuptoare-cu-microunde/', label: 'Cuptoare cu Microunde' },
+  { href: '/mentenanta-periodica/', label: 'Mentenanță Periodică Laptop & Console' },
   { href: '/mentenanta-profesionala-pasta-termica/', label: 'Mentenanță Pastă Termică' },
 ];
 export const NAV = [
