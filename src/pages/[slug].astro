@@ -75,6 +75,10 @@ const schemaExtra = {
   </ul>
 </section>
 <section class="sec">
+  <h2>Serviciul nostru în Sectorul {data.nr}</h2>
+  {data.local.map(par => <p>{par}</p>)}
+</section>
+<section class="sec">
   <h2>Cartiere din Sectorul {data.nr} Deservite</h2>
   <div class="grid g4">{data.pins.map(p => <div class="card-soft"><strong>📍 {p}</strong></div>)}</div>
 </section>
@@ -88,6 +92,10 @@ const schemaExtra = {
     <div class="card"><div class="ico">🔌</div><h3>Conectivitate</h3><p>Porturi HDMI/USB defecte, antenă, Ethernet.</p></div>
     
   </div>
+</section>
+<section class="sec">
+  <h2>Intervenții recente în Sectorul {data.nr}</h2>
+  <ul class="checks">{data.cazuri.map(c => <li>{c}</li>)}</ul>
 </section>
 <section class="sec">
   <h2>De Ce Să Ne Alegeți?</h2>
