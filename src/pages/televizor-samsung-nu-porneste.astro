@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = 'Televizor Samsung Nu Pornește: Cauze și Soluții | Ghid 2026';
+const desc = 'Televizorul Samsung nu pornește sau LED-ul roșu clipește? Ghid complet: cauze frecvente, ce puteți verifica singur acasă și când e nevoie de service. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'De ce clipește LED-ul roșu la televizorul Samsung?', a: 'Numărul de clipiri este un cod de eroare: de regulă indică o problemă la sursa de alimentare sau la placa principală. 2–6 clipiri repetate înseamnă aproape întotdeauna o defecțiune internă care necesită service.' },
+ { q: 'Cât costă reparația unui televizor Samsung care nu pornește?', a: 'Cele mai frecvente cauze (sursa de alimentare, condensatori) se repară la un cost mult mai mic decât un televizor nou. Diagnosticarea este gratuită — vă spunem prețul exact înainte de orice intervenție.' },
+ { q: 'Merită reparat sau cumpăr altul nou?', a: 'Dacă defectul este pe sursă sau pe placa principală, aproape întotdeauna merită reparat. Dacă panoul (ecranul) este defect la un model vechi, de obicei nu — și vă spunem asta direct la diagnosticare.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Televizor Samsung nu pornește: cauze și soluții', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații TV Samsung', item: SITE.domeniu + '/reparatii-tv-samsung/' },
+   { '@type': 'ListItem', position: 3, name: 'Televizor Samsung nu pornește', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul Samsung Nu Pornește: Cauze și Soluții</h1>
+  <p class="lead">Ecran negru, LED care clipește sau niciun semn de viață? Iată ce puteți verifica singur în 5 minute și când este cazul să chemați un tehnician.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Pasul 1: Verificările simple, pe care le puteți face singur</h2>
+  <p>Înainte de a suna la service, eliminați cauzele banale. Ele rezolvă o parte surprinzător de mare din cazuri:</p>
+  <ul class="checks">
+    <li><strong>Priza și cablul de alimentare.</strong> Băgați alt aparat în aceeași priză. Verificați cablul la ambele capete — la unele modele Samsung se desprinde ușor din spatele televizorului.</li>
+    <li><strong>Telecomanda.</strong> Porniți televizorul din butonul fizic (sub logo sau pe spatele carcasei, în dreapta jos). Dacă pornește, problema e telecomanda sau senzorul, nu televizorul.</li>
+    <li><strong>Resetare electrică.</strong> Scoateți televizorul din priză, țineți apăsat butonul de pornire 30 de secunde, așteptați 2 minute și reconectați. Descarcă condensatorii și resetează electronica.</li>
+    <li><strong>Prelungitoare și prize inteligente.</strong> Conectați televizorul direct la priză — prelungitoarele ieftine sau prizele smart defecte sunt o cauză clasică.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Pasul 2: Interpretați ce vedeți</h2>
+  <p><strong>LED-ul roșu clipește repetat.</strong> Clipirile sunt un cod de eroare: la Samsung, un ciclu de 2–6 clipiri indică de regulă sursa de alimentare sau placa principală. Numărați clipirile și spuneți-ne la telefon — de multe ori putem estima defectul înainte de vizită.</p>
+  <p><strong>LED-ul stă aprins, dar ecranul rămâne negru.</strong> Televizorul primește curent, dar nu afișează. Cauze frecvente: iluminarea LED (backlight) arsă — verificați cu o lanternă lipită de ecran dacă se ghicește imaginea — sau placa T-CON.</p>
+  <p><strong>Niciun LED, nicio reacție.</strong> Sursa de alimentare nu mai livrează tensiune. La modelele Samsung produse între 2010 și 2018, cei mai frecvenți vinovați sunt condensatorii electrolitici umflați — o reparație rapidă și ieftină, făcută pe loc.</p>
+  <p><strong>Pornește și se stinge imediat / se aude un clic repetat.</strong> Circuitul de protecție detectează un scurtcircuit și oprește pornirea. Necesită diagnosticare cu aparatură de măsură.</p>
+  <p><strong>Rămâne blocat în logo-ul Samsung.</strong> Software-ul (memoria eMMC) este corupt — se rezolvă prin rescrierea memoriei cu un programator specializat, în atelier.</p>
+</section>
+<section class="sec">
+  <h2>Ce NU vă recomandăm să faceți</h2>
+  <p>Nu desfaceți carcasa: sursa de alimentare păstrează tensiuni periculoase și după scoaterea din priză, iar o intervenție neatentă transformă o reparație ieftină într-una scumpă. Nu comandați plăci „la ghici” de pe internet — fără diagnosticare, șansa să nimeriți piesa corectă este mică, iar plăcile vândute ca „testate” sunt adesea la fel de defecte.</p>
+</section>
+<section class="sec">
+  <h2>Cum decurge reparația la noi</h2>
+  <p>Venim la domiciliu oriunde în București, diagnosticarea și deplasarea sunt gratuite, iar majoritatea defectelor de sursă și backlight se repară pe loc, în fața dumneavoastră. Lucrăm la nivel de componentă — schimbăm condensatorul sau dioda defectă, nu placa întreagă — ceea ce ține prețul jos. Pentru rescrieri de memorie sau lucrări de panou, transportăm televizorul gratuit la atelierul nostru din Militari și înapoi. Toate reparațiile au garanție scrisă 6–12 luni.</p>
+  <p>Mai multe despre defectele specifice mărcii găsiți pe pagina <a href="/reparatii-tv-samsung/">Reparații TV Samsung București</a>, iar prețurile orientative pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="📺 Televizorul Samsung tot nu pornește? Sunați-ne!" text="Diagnostic gratuit la domiciliu, în aceeași zi. Spuneți-ne modelul și ce ați observat — vă orientăm din prima." />
+</div>
+</Base>
