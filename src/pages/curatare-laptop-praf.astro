@@ -52,6 +52,73 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <li>Curățarea contactelor și verificarea conectorilor</li>
     <li>Teste de temperatură sub sarcină, înainte și după — vedeți diferența în grade</li>
   </ul>
+  <p>Serviciul se face în atelierul nostru din Militari, Sector 6 — detalii pe pagina de <a href="/mentenanta-profesionala-pasta-termica/">mentenanță profesională și pastă termică</a>. Dacă laptopul are deja alte probleme (nu pornește, ecran defect, baterie umflată), vedeți <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a> — diagnosticarea este gratuită. Pentru intervalele recomandate pe fiecare tip de aparat, vezi <a href="/mentenanta-periodica/">programul de mentenanță periodică pentru laptopuri și console</a>.</p>
+</section>
+<section class="sec">
+  <h2>Cum să țineți praful departe mai mult timp</h2>
+  <p>Folosiți laptopul pe suprafețe tari, nu pe pat sau pături (textilele blochează admisia și „hrănesc” interiorul cu scame). Aspirați ușor grilajele o dată pe lună. Dacă aveți animale de companie, scurtați intervalul de curățare profesională la un an. Și nu ignorați zgomotul de ventilator — este primul semnal, cu luni înainte de opririle bruște.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="💨 Laptopul se încinge? Programează o curățare!" text="Curățare completă + pastă termică nouă, cu teste de temperatură la predare. Sună sau scrie pe WhatsApp." />
+</div>
+</Base>
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = 'Curățare Laptop de Praf: Cât de Des și De Ce Contează | Ghid';
+const desc = 'Laptopul se încinge, ventilatorul e zgomotos sau se oprește singur? Ghid despre curățarea de praf și pasta termică: la ce interval se face și ce riști dacă o amâni. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cât de des trebuie curățat laptopul de praf?', a: 'Recomandat: o dată la 12–18 luni pentru utilizare normală și o dată pe an dacă lucrați intens (gaming, randare) sau aveți animale de companie. Pasta termică se înlocuiește de regulă la 1–2 ani.' },
+ { q: 'Cât durează curățarea profesională?', a: 'În atelierul nostru, curățarea completă cu înlocuirea pastei termice durează de obicei o zi lucrătoare, cu teste de temperatură înainte de predare.' },
+ { q: 'Pot să curăț laptopul singur, cu spray de aer comprimat?', a: 'Suflarea prin grilaje fără dezasamblare împinge de multe ori praful mai adânc și poate roti ventilatorul peste turația sigură. Curățarea corectă presupune dezasamblare, curățarea radiatorului și pastă termică nouă.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Curățare laptop de praf: cât de des și de ce contează', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Mentenanță Profesională', item: SITE.domeniu + '/mentenanta-profesionala-pasta-termica/' },
+   { '@type': 'ListItem', position: 3, name: 'Curățare laptop de praf', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Curățarea Laptopului de Praf: Cât de Des și De Ce Contează</h1>
+  <p class="lead">Praful este cauza numărul unu a supraîncălzirii și a defectării premature a laptopurilor. Iată cum îl recunoașteți la timp și ce presupune o curățare făcută corect.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Semnele că laptopul are nevoie de curățare</h2>
+  <ul class="checks">
+    <li>Ventilatorul merge tare și des, chiar la sarcini mici (browser, YouTube)</li>
+    <li>Carcasa e fierbinte deasupra tastaturii sau dedesubt</li>
+    <li>Laptopul își reduce singur performanța (thermal throttling) — totul „se mișcă greu” când e cald</li>
+    <li>Se oprește brusc în sarcină — jocuri, video-call, randări</li>
+    <li>Aer puțin sau deloc prin grilajul de evacuare, uneori cu miros de încins</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ce se întâmplă în interior</h2>
+  <p>Ventilatorul laptopului trage aer prin partea de jos și îl împinge printr-un radiator cu lamele foarte fine. În 1–2 ani, lamele se înfundă cu un strat de praf și scame ca o pâslă, iar aerul nu mai trece. În paralel, pasta termică dintre procesor și radiator se usucă și își pierde conductivitatea. Rezultatul: temperaturi cu 20–30°C mai mari, performanță redusă și uzură accelerată — de la baterie (căldura îi scurtează viața) până la lipiturile de pe placa de bază.</p>
+  <p>O curățare la timp costă puțin. Un chip video desprins din cauza supraîncălzirii cronice costă de multe ori mai mult — iar uneori laptopul nu mai merită reparat deloc.</p>
+</section>
+<section class="sec">
+  <h2>Ce include curățarea profesională la noi</h2>
+  <ul class="checks">
+    <li>Dezasamblare completă și curățarea radiatorului, ventilatorului și a plăcii de bază</li>
+    <li>Înlocuirea pastei termice cu pastă de calitate (și a padurilor termice unde e cazul)</li>
+    <li>Curățarea contactelor și verificarea conectorilor</li>
+    <li>Teste de temperatură sub sarcină, înainte și după — vedeți diferența în grade</li>
+  </ul>
   <p>Serviciul se face în atelierul nostru din Militari, Sector 6 — detalii pe pagina de <a href="/mentenanta-profesionala-pasta-termica/">mentenanță profesională și pastă termică</a>. Dacă laptopul are deja alte probleme (nu pornește, ecran defect, baterie umflată), vedeți <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a> — diagnosticarea este gratuită.</p>
 </section>
 <section class="sec">
