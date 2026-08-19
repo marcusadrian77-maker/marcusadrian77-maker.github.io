@@ -19,10 +19,10 @@ export default defineConfig({
     // Sluguri vechi de servicii
     '/reparatii-laptopuri-3/': '/reparatii-laptopuri-bucuresti/',
     '/service-reparatii-console-playstation/': '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/',
-    // Articole de blog disparute la relansare -> pagina de serviciu pe aceeasi tema
-    '/2026/05/05/televizor-samsung-nu-porneste-cauze-solutii/': '/reparatii-tv-samsung/',
-    '/2026/05/07/curatare-laptop-praf-cat-de-des-de-ce-conteaza/': '/mentenanta-profesionala-pasta-termica/',
-    '/2026/05/14/ps5-se-opreste-singur-supraincalzire-cauze-solutii/': '/mentenanta-console-ps4-ps5-xbox/',
-    '/2026/05/16/macbook-ecran-negru-cauze-solutii/': '/reparatii-macbook/',
+    // Articole de blog disparute la relansare -> ghidurile noi pe aceeasi tema
+    '/2026/05/05/televizor-samsung-nu-porneste-cauze-solutii/': '/televizor-samsung-nu-porneste/',
+    '/2026/05/07/curatare-laptop-praf-cat-de-des-de-ce-conteaza/': '/curatare-laptop-praf/',
+    '/2026/05/14/ps5-se-opreste-singur-supraincalzire-cauze-solutii/': '/ps5-se-opreste-singur/',
+    '/2026/05/16/macbook-ecran-negru-cauze-solutii/': '/macbook-ecran-negru/',
   },
 });
