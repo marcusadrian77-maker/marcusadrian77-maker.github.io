@@ -1,10 +1,40 @@
 export const SECTOARE = [
- { nr: 1, zone: 'Băneasa, Pipera, Aviatorilor, Floreasca, Dorobanți, Herăstrău', pins: ['Băneasa','Pipera','Aviatorilor','Floreasca','Dorobanți','Herăstrău','Victoriei','Romană','Calea Victoriei'] },
- { nr: 2, zone: 'Colentina, Pantelimon, Obor, Iancului', pins: ['Colentina','Pantelimon','Obor','Moșilor','Iancului','Tei','Fundeni','Balta Albă','Floreasca'] },
- { nr: 3, zone: 'Titan, Vitan, Dristor, Dudești, Balta Albă, Timpuri Noi', pins: ['Titan','Vitan','Dristor','Dudești','Balta Albă','Timpuri Noi','IOR','Pallady'] },
- { nr: 4, zone: 'Berceni, Olteniței, Văcărești, Progresul, Metalurgiei', pins: ['Berceni','Olteniței','Văcărești','Progresul','Metalurgiei','Giurgiului','Tineretului','Brâncoveanu','Pieptănari'] },
- { nr: 5, zone: 'Rahova, Ferentari, Cotroceni, 13 Septembrie, Sebastian', pins: ['Rahova','Ferentari','Cotroceni','13 Septembrie','Sebastian','Panduri','Calea Rahovei','Dealul Spirii'] },
- { nr: 6, zone: 'Militari, Drumul Taberei, Giulești', pins: ['Tot Sectorul 6','Militari','Drumul Taberei','Crângași','Giulești','Ghencea','Lujerului','Gorjului','Politehnica','Prelungirea Ghencea'], home: true },
+ { nr: 1, zone: 'Băneasa, Pipera, Aviatorilor, Floreasca, Dorobanți, Herăstrău', pins: ['Băneasa','Pipera','Aviatorilor','Floreasca','Dorobanți','Herăstrău','Victoriei','Romană','Calea Victoriei'],
+   local: [
+     'Sectorul 1 este zona în care întâlnim cele mai multe televizoare premium: OLED-uri și QLED-uri de diagonală mare, în apartamentele din Herăstrău, Floreasca și Aviatorilor, în ansamblurile noi din Pipera și în casele din Băneasa și Domenii. Lucrăm frecvent pe modele high-end Samsung Neo QLED, LG OLED evo și Sony Bravia XR, unde înlocuirea plăcii întregi ar fi nejustificat de scumpă — reparăm la nivel de componentă.',
+     'Venim la domiciliu oriunde în Sectorul 1, de la Gara de Nord și Calea Victoriei până în Pipera, cu programare la oră fixă, ca să nu așteptați. Pentru televizoarele care necesită lucrări de atelier (rescriere eMMC, reballing, lucru pe panou), transportul dus-întors este gratuit.',
+   ],
+   cazuri: ['OLED 65″ cu pixeli stinși pe o zonă a ecranului — reparație T-CON în atelier','QLED care nu mai pornește după furtună — sursă și circuit de protecție înlocuite pe loc','Smart TV blocat în logo la pornire — rescriere memorie eMMC cu programatorul'] },
+ { nr: 2, zone: 'Colentina, Pantelimon, Obor, Iancului', pins: ['Colentina','Pantelimon','Obor','Moșilor','Iancului','Tei','Fundeni','Balta Albă','Floreasca'],
+   local: [
+     'În Sectorul 2 ajungem zilnic: cartierele dense de blocuri din Colentina, Pantelimon, Tei și Iancului ne aduc constant solicitări, de la garsoniere de pe Șoseaua Colentina până la casele din zona Fundeni și Plumbuita. Cele mai frecvente intervenții aici sunt pe televizoare LED Samsung și LG de 40–55″, la care cedează iluminarea (backlight) sau sursa de alimentare.',
+     'Reparația se face de regulă pe loc, în apartament — schimbarea baretelor LED sau a condensatorilor din sursă durează sub două ore. Dacă e nevoie de atelier, transportăm gratuit televizorul dus-întors, iar la predare primiți garanție scrisă 6–12 luni.',
+   ],
+   cazuri: ['LED 50″ cu imagine care dispare după câteva secunde — barete LED înlocuite la domiciliu','TV care pornește greu, „dă din prima doar când e cald” — condensatori sursă schimbați pe loc','Televizor lovit de supratensiune pe Șos. Pantelimon — sursă + diode de protecție'] },
+ { nr: 3, zone: 'Titan, Vitan, Dristor, Dudești, Balta Albă, Timpuri Noi', pins: ['Titan','Vitan','Dristor','Dudești','Balta Albă','Timpuri Noi','IOR','Pallady'],
+   local: [
+     'Sectorul 3 este cel mai populat sector al Capitalei și, pentru noi, zona cu cele mai multe programări: Titan, Balta Albă, Dristor și Vitan concentrează mii de blocuri, iar în ansamblurile noi de pe Theodor Pallady intervenim constant pe televizoare cumpărate în ultimii ani, încă neieșite din perioada în care merită reparate.',
+     'Datorită cererii mari, în Sectorul 3 avem de obicei intervenții în aceeași zi — sunați dimineața, ajungem după-amiaza. Reparăm pe loc în majoritatea cazurilor, iar pentru lucrările de atelier transportul este gratuit, inclusiv pentru diagonalele mari.',
+   ],
+   cazuri: ['Smart TV din ansamblurile noi Pallady cu Wi-Fi căzut — modul de rețea reparat','LED 55″ din Titan cu jumătate de ecran întunecată — difuzor de lumină și barete LED','TV cu HDMI ars după conectarea consolei — circuit HDMI reparat la nivel de componentă'] },
+ { nr: 4, zone: 'Berceni, Olteniței, Văcărești, Progresul, Metalurgiei', pins: ['Berceni','Olteniței','Văcărești','Progresul','Metalurgiei','Giurgiului','Tineretului','Brâncoveanu','Pieptănari'],
+   local: [
+     'În Sectorul 4 lucrăm atât în blocurile consacrate din Berceni, Brâncoveanu și Tineretului, cât și în ansamblurile rezidențiale noi din zona Metalurgiei și Grand Arena. Pe Șoseaua Olteniței și Giurgiului avem trasee zilnice, așa că programarea se face rapid, adesea pentru aceeași zi.',
+     'Aici întâlnim des televizoare LED de generație medie la care apar defecte tipice de sursă și backlight după 4–6 ani de folosire — exact reparațiile pe care le facem pe loc, în fața dumneavoastră, cu piese aduse în trusa de service. Pentru orice lucrare de atelier, transportul rămâne gratuit.',
+   ],
+   cazuri: ['TV care se stinge singur după 10–15 minute — sursă supraîncălzită, condensatori schimbați','LED 43″ fără imagine dar cu sunet — barete LED înlocuite în apartament, în Berceni','Telecomandă și senzor IR nefuncționale — senzor înlocuit pe loc'] },
+ { nr: 5, zone: 'Rahova, Ferentari, Cotroceni, 13 Septembrie, Sebastian', pins: ['Rahova','Ferentari','Cotroceni','13 Septembrie','Sebastian','Panduri','Calea Rahovei','Dealul Spirii'],
+   local: [
+     'Sectorul 5 înseamnă pentru noi un mix aparte: apartamentele elegante din Cotroceni și 13 Septembrie, blocurile din Rahova și Sebastian și casele de pe străzile dintre Calea Rahovei și Panduri. Fiind sectorul vecin cu atelierul nostru din Militari, timpul de ajungere este scurt — de multe ori sub două ore de la apel.',
+     'Reparăm orice marcă și orice generație, de la televizoare LED recente până la aparate mai vechi la care alți service-uri refuză intervenția. Diagnosticarea este gratuită la domiciliu, iar dacă reparația necesită atelierul, ducem și aducem televizorul fără niciun cost.',
+   ],
+   cazuri: ['OLED din Cotroceni cu benzi verticale — reparație T-CON în atelier, transport gratuit','LED 40″ din Rahova care nu mai pornește deloc — sursă reparată pe loc','TV vechi cu sunet distorsionat — placă audio reparată la nivel de componentă'] },
+ { nr: 6, zone: 'Militari, Drumul Taberei, Giulești', pins: ['Tot Sectorul 6','Militari','Drumul Taberei','Crângași','Giulești','Ghencea','Lujerului','Gorjului','Politehnica','Prelungirea Ghencea'], home: true,
+   local: [
+     'Sectorul 6 este acasă pentru noi: atelierul Marcus Electronics se află pe Strada Moinești 7, în Militari, la câteva minute de Lujerului, Gorjului și Apusului. De aici acoperim cel mai rapid Drumul Taberei, Crângașiul, Giuleștiul și Prelungirea Ghencea — de regulă ajungem în maximum două ore, iar dacă preferați, puteți aduce televizorul direct la atelier, fără programare.',
+     'Fiind sectorul nostru, aici facem și cele mai complexe lucrări: rescriere eMMC, reparații T-CON, lucru pe panouri și recondiționări de plăci — totul în atelierul propriu, cu aparatură de măsură profesională. Vecinii din Militari și Drumul Taberei ne cunosc de peste 25 de ani.',
+   ],
+   cazuri: ['Aduse direct la atelier: televizoare cu defecte complexe de placă principală','Smart TV blocat în logo — rescriere eMMC în atelier, gata în 24–48h','LED 55″ din Drumul Taberei fără imagine — barete LED montate la domiciliu'] },
 ];
 export const BRANDURI = [
  { slug: 'samsung', nume: 'Samsung', titluSite: 'Reparații TV Samsung București | Service Televizoare Samsung',
