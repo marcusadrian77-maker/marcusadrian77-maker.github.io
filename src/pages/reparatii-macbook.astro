@@ -2,40 +2,99 @@
 import Base from '../layouts/Base.astro';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+const title = 'Reparații MacBook București | Service Apple la Nivel de Componentă';
+const desc = 'Service MacBook Air și Pro în București: placă de bază, ecran, baterie, tastatură, daune de lichid. Diagnosticare GRATUITĂ, garanție 6–12 luni. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cât costă diagnosticarea unui MacBook?', a: 'Nimic — diagnosticarea este gratuită, indiferent dacă acceptați sau nu reparația. Vă comunicăm defectul exact și prețul ferm înainte de orice intervenție, iar prețul nu se modifică pe parcurs.' },
+ { q: 'Cât durează o reparație de MacBook?', a: 'Intervențiile uzuale (baterie, ecran, tastatură, port de încărcare) se fac de regulă în 24–48 de ore. Reparațiile de placă de bază durează în general 2–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
+ { q: 'Reparați plăci de bază sau doar le înlocuiți?', a: 'Le reparăm la nivel de componentă: identificăm circuitul defect la microscop și înlocuim exact piesa arsă — un condensator, un controler de alimentare, un mosfet. Așa costul rămâne o fracțiune din prețul unei plăci noi.' },
+ { q: 'Am vărsat lichid pe MacBook. Ce fac?', a: 'Opriți-l imediat, nu-l puneți la încărcat și nu-l porniți „să vedeți dacă merge” — coroziunea avansează cu fiecare oră sub tensiune. Aduceți-l cât mai repede la atelier; cu cât intervenim mai devreme, cu atât șansele de recuperare completă sunt mai mari.' },
+ { q: 'Datele mele sunt în siguranță în timpul reparației?', a: 'Da. Nu accesăm fișierele personale, iar la reparațiile de placă facem tot posibilul să păstrăm datele intacte. La modelele Apple Silicon, unde SSD-ul este lipit pe placă, recomandăm un backup înainte de intervenție dacă laptopul mai pornește.' },
+ { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în garanție, îl rezolvăm fără costuri suplimentare.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Reparații MacBook', name: 'Reparații MacBook București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Servicii', item: SITE.domeniu + '/servicii/' },
+   { '@type': 'ListItem', position: 3, name: 'Reparații MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
 ---
-<Base title="Reparatii MacBook Bucuresti | Service Apple Profesional" description="Service profesional reparatii MacBook Air si MacBook Pro in Bucuresti, Sector 6. Placa de baza, ecran, baterie, tastatura. Diagnosticare gratuita. Suna acum!">
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
 <div class="hero"><div class="wrap">
+  <span class="badge">🍎 SERVICE APPLE · LA NIVEL DE COMPONENTĂ</span>
   <h1>Reparații MacBook București</h1>
-  <p class="lead">Service specializat reparații MacBook Air, MacBook Pro și iMac în București, Sector 6. Diagnosticare gratuită, piese originale, garanție la toate intervențiile.</p>
+  <p class="lead">Reparăm placa, nu o aruncăm. Service MacBook Air și MacBook Pro în atelierul nostru din Militari, Sector 6 — de la înlocuiri de ecran și baterie până la microsoldering pe plăci declarate „moarte” de alte service-uri.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🛡️ Garanție scrisă 6–12 luni</span><span>💰 Preț ferm, comunicat înainte</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
 <div class="wrap">
 <section class="sec">
-  <h2>Modele MacBook Reparate</h2>
-  <p>Reparăm toate modelele Apple: <strong>MacBook Air (M1, M2, Intel), MacBook Pro (13″, 14″, 16″), iMac, Mac Mini</strong>. Experiență de peste 30 ani în reparații electronice.</p>
+  <h2>Reparăm la Nivel de Componentă — Diferența Care Contează</h2>
+  <p>Majoritatea service-urilor „repară” un MacBook înlocuind subansamble întregi: placă de bază nouă pentru un condensator ars, top case complet pentru o tastatură cu două taste moarte. Rezultatul este o factură de multe ori cât jumătate din valoarea laptopului.</p>
+  <p>Noi lucrăm altfel: diagnosticăm placa la microscop, cu schemă electronică și aparatură de măsură, identificăm exact componenta defectă și o înlocuim prin microsoldering. Un circuit de încărcare reparat punctual costă o fracțiune din prețul unei plăci noi — iar laptopul dumneavoastră își păstrează datele și seria originală. Cu peste 30 de ani de experiență în electronică, recuperăm frecvent plăci pe care alte ateliere le-au declarat nereparabile.</p>
 </section>
 <section class="sec">
   <h2>Servicii de Reparații MacBook</h2>
   <div class="grid g3">
-    <div class="card-soft"><strong>Înlocuire ecran MacBook</strong><span>Reparare sau înlocuire display Retina crăpat sau cu linii</span></div>
-    <div class="card-soft"><strong>Reparare placă de bază</strong><span>Diagnoza și repararea defecțiunilor la nivel de chip</span></div>
-    <div class="card-soft"><strong>Înlocuire baterie</strong><span>Baterie originală sau de calitate OEM cu garanție</span></div>
-    <div class="card-soft"><strong>Reparare tastatură</strong><span>Butterfly sau Magic Keyboard</span></div>
-    <div class="card-soft"><strong>Upgrade SSD</strong><span>Mărire stocare pentru performanță optimă</span></div>
-    <div class="card-soft"><strong>Port MagSafe / USB-C</strong><span>Înlocuire completă sau reparare</span></div>
+    <div class="card"><div class="ico">🔬</div><h3>Reparații placă de bază</h3><p>Microsoldering la microscop: circuite de alimentare și încărcare, controlere USB-C, linii de tensiune în scurt, chip-uri BGA. Recuperăm și plăci „moarte”.</p></div>
+    <div class="card"><div class="ico">💧</div><h3>Daune de lichid</h3><p>Curățare profesională după contact cu apă sau cafea, tratarea coroziunii, înlocuirea componentelor afectate. Cu cât ajunge mai repede la noi, cu atât mai bine.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>Ecran și backlight</h3><p>Înlocuire display Retina crăpat sau cu linii, reparare backlight („flexgate” la modelele 2016–2020), cabluri flex de ecran.</p></div>
+    <div class="card"><div class="ico">🔋</div><h3>Înlocuire baterie</h3><p>Baterii de calitate cu montaj corect și calibrare. Recomandată la baterii umflate — nu amânați: o baterie umflată presează trackpadul și carcasa.</p></div>
+    <div class="card"><div class="ico">⌨️</div><h3>Tastatură și trackpad</h3><p>Înlocuire tastaturi Butterfly sau Magic Keyboard, taste individuale, trackpad-uri nefuncționale, inclusiv după lichid.</p></div>
+    <div class="card"><div class="ico">🔌</div><h3>Port MagSafe / USB-C</h3><p>Reparare sau înlocuire porturi de încărcare uzate ori arse, mufe slăbite, probleme de încărcare intermitentă.</p></div>
+    <div class="card"><div class="ico">💾</div><h3>SSD, date și software</h3><p>Upgrade SSD la modelele compatibile, reinstalare macOS, recuperare de date acolo unde hardware-ul o permite.</p></div>
+    <div class="card"><div class="ico">🌡️</div><h3>Mentenanță termică</h3><p>Curățare de praf, pastă termică nouă, ventilatoare — pentru MacBook-uri care se încing sau își reduc performanța.</p></div>
+    <div class="card"><div class="ico">🖥</div><h3>iMac și Mac Mini</h3><p>Aceleași reparații la nivel de componentă și pentru desktop-urile Apple: alimentare, placă de bază, stocare.</p></div>
   </div>
-  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Pentru lista completă de intervenții și prețuri orientative, vezi și <a href="/reparatii-macbook-sector-6/">pagina detaliată Service MacBook Sector 6</a>.</p>
 </section>
 <section class="sec">
-  <h2>De Ce Să Alegi Marcus Electronics?</h2>
+  <h2>Defecțiuni Frecvente pe Care le Rezolvăm</h2>
   <ul class="checks">
-    <li><strong>30 ani de experiență</strong> — electroniști dedicați, experiență vastă în produse Apple</li>
-    <li><strong>Garanție 6–12 luni</strong> — la toate reparațiile, în funcție de model</li>
-    <li><strong>Diagnosticare gratuită</strong> — verificare gratuită fără costuri</li>
+    <li><strong>Nu pornește deloc / nu se încarcă</strong> — circuit de alimentare sau încărcare defect, reparat punctual pe placă</li>
+    <li><strong>Ecran negru dar funcționează</strong> — backlight sau cablu flex; vezi și <a href="/macbook-ecran-negru/">ghidul nostru despre MacBook cu ecran negru</a></li>
+    <li><strong>S-a oprit după contact cu lichid</strong> — curățare, tratarea coroziunii, înlocuirea componentelor arse</li>
+    <li><strong>Se încinge și merge greu</strong> — mentenanță termică completă, pastă nouă, curățare ventilatoare</li>
+    <li><strong>Taste care nu răspund sau se repetă</strong> — service tastatură, curățare sau înlocuire</li>
+    <li><strong>Baterie umflată sau descărcare rapidă</strong> — înlocuire cu verificarea circuitului de încărcare</li>
+    <li><strong>Repornește singur / se blochează</strong> — diagnosticare placă, memorie, SSD, software</li>
   </ul>
 </section>
-<Cta titlu="🍎 MacBook Defect? Sunați-ne!" />
-<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-boxe-active/">reparații boxe active</a>, <a href="/reparatii-cuptoare-cu-microunde/">reparații cuptoare microunde</a>.</p>
+<section class="sec">
+  <h2>Modele pe Care Lucrăm</h2>
+  <p>Reparăm toate generațiile: <strong>MacBook Air</strong> (Intel, M1, M2, M3, M4), <strong>MacBook Pro</strong> 13″, 14″, 15″ și 16″ (Intel și Apple Silicon), plus <strong>iMac</strong> și <strong>Mac Mini</strong>. Lucrăm inclusiv pe modele mai vechi (2012–2017), pentru care Apple nu mai oferă suport — de multe ori acestea sunt cele mai rentabile reparații, pentru că alternativa „schimbăm placa” nu mai există.</p>
+</section>
+<section class="sec">
+  <h2>Cum Decurge Reparația</h2>
+  <ol>
+    <li><strong>Ne contactați.</strong> Telefonic sau pe WhatsApp — descrieți problema și modelul (îl găsiți pe spatele carcasei sau în „Despre acest Mac”).</li>
+    <li><strong>Diagnosticare gratuită.</strong> Aduceți laptopul la atelierul din Str. Moinești 7, Militari. Îl verificăm și vă spunem exact ce are și cât costă reparația — fără nicio obligație.</li>
+    <li><strong>Reparația.</strong> Doar după acordul dumneavoastră, la prețul comunicat. Intervențiile uzuale durează 24–48h, reparațiile de placă 2–5 zile lucrătoare.</li>
+    <li><strong>Predare cu garanție.</strong> Testăm complet aparatul și îl predați cu garanție scrisă 6–12 luni pentru piesă și manoperă.</li>
+  </ol>
+</section>
+<section class="sec">
+  <h2>De Ce Marcus Electronics?</h2>
+  <div class="grid g4">
+    <div class="card"><div class="ico">🔍</div><h3>Diagnoză GRATUITĂ</h3><p>La noi diagnosticarea nu costă nimic, indiferent de decizie — la multe service-uri Apple din București se plătește 180–200 lei.</p></div>
+    <div class="card"><div class="ico">🔬</div><h3>Microsoldering real</h3><p>Reparăm componenta defectă la microscop, nu vindem plăci și subansamble întregi.</p></div>
+    <div class="card"><div class="ico">💰</div><h3>Preț ferm înainte</h3><p>Aflați costul exact înainte să acceptați reparația. Fără surprize la ridicare.</p></div>
+    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Garanție scrisă pentru toate intervențiile, piesă și manoperă.</p></div>
+  </div>
+  <p style="margin-top:12px">Atelierul se află în <strong>Militari, Sector 6</strong> (Str. Moinești 7) — dacă sunteți din zonă, vedeți și pagina <a href="/reparatii-macbook-sector-6/">Service MacBook Sector 6</a>. Program: {SITE.program}.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări Frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="🍎 MacBook Defect? Sunați-ne pentru Diagnosticare Gratuită!" text="Spuneți-ne modelul și simptomele — vă orientăm din prima privind reparația și costul estimativ." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/mentenanta-profesionala-pasta-termica/">mentenanță și pastă termică</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-boxe-active/">reparații boxe active</a>.</p>
 </div>
 </Base>
