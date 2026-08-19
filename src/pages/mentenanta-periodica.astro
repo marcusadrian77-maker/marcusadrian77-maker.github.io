@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+const title = 'Mentenanță Periodică Laptopuri și Console București | Program Preventiv';
+const desc = 'Întreținere periodică pentru laptopuri, MacBook și console PS4, PS5, Xbox în București: intervale recomandate, curățare + pastă termică, raport de temperaturi. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const intervale = [
+ ['Laptop de birou / multimedia', '12–18 luni', 'Curățare + pastă termică CPU/GPU', '100–180 lei'],
+ ['Laptop gaming (MSI, ROG, Legion)', '12 luni', 'Curățare + pastă/metal lichid + pad-uri', '180–280 lei'],
+ ['MacBook Air / Pro', '12–18 luni', 'Curățare + pastă / metal lichid', '200–350 lei'],
+ ['PlayStation 4 / PS4 Pro', 'anual (pastă la 2–3 ani)', 'Curățare completă + pastă termică', '150–200 lei'],
+ ['PlayStation 5', '12–18 luni', 'Curățare + verificare/înlocuire metal lichid', '200–280 lei'],
+ ['Xbox One / Series S/X', '12–18 luni', 'Curățare completă + pastă termică', '150–200 lei'],
+];
+const faq = [
+ { q: 'De ce să fac mentenanță dacă aparatul încă funcționează?', a: 'Exact acesta este momentul potrivit. Mentenanța este ca igiena dentară: o faci ca să NU ajungi la probleme. Praful și pasta termică uscată nu opresc aparatul din prima zi — îl uzează treptat, iar când apar simptomele (zgomot, opriri, throttling), degradarea este deja avansată.' },
+ { q: 'Ce risc dacă amân mentenanța?', a: 'Supraîncălzirea cronică scurtează viața bateriei, usucă lagărele ventilatorului și, în cazurile grave, desprinde chip-urile BGA de pe placă (defectul clasic de chip video). O curățare de 150 de lei previne o reparație de placă de câteva sute de lei — sau un aparat nereparabil.' },
+ { q: 'Cât durează o mentenanță completă?', a: 'De regulă 2–4 ore. Aduceți aparatul dimineața la atelierul din Militari și îl ridicați în aceeași zi, cu raport de temperaturi înainte/după.' },
+ { q: 'Aveți grijă de mai multe echipamente deodată?', a: 'Da — dacă aduceți laptopul și consola împreună, le programăm în aceeași zi. Pentru firme cu mai multe laptopuri facem programe de întreținere periodică la interval stabilit; sunați-ne pentru o ofertă.' },
+ { q: 'Mentenanța afectează garanția aparatului?', a: 'La echipamentele aflate încă în garanția producătorului, deschiderea carcasei o poate anula — verificați întâi condițiile. Pentru aparatele ieșite din garanție, mentenanța la noi vine cu garanția noastră scrisă pentru intervenție.' },
+ { q: 'Cum știu dacă aparatul meu are nevoie ACUM de mentenanță?', a: 'Semnele clare: ventilator zgomotos la sarcini mici, carcasă fierbinte, opriri bruște în joc sau la randare, performanță scăzută când se încălzește, aer fierbinte la evacuare. Dacă bifați oricare dintre ele, nu mai e „preventiv” — e necesar.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Mentenanță periodică echipamente electronice', name: 'Mentenanță Periodică Laptopuri și Console București', url: canonical, description: desc,
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Servicii', item: SITE.domeniu + '/servicii/' },
+   { '@type': 'ListItem', position: 3, name: 'Mentenanță Periodică', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🛠️ ÎNTREȚINERE PREVENTIVĂ · LAPTOPURI & CONSOLE</span>
+  <h1>Mentenanță Periodică — Laptopuri și Console</h1>
+  <p class="lead">Mentenanța este pentru electronice ce este spălatul pe dinți pentru sănătate: ieftină, rapidă și mult mai plăcută decât alternativa. Un program simplu de întreținere ține laptopul și consola la temperaturi normale ani de zile — și previne exact reparațiile scumpe.</p>
+  <div class="pills"><span>🔍 Diagnostic termic GRATUIT</span><span>📊 Raport temperaturi înainte/după</span><span>⏱️ Gata în aceeași zi</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>De Ce Contează Mentenanța Periodică</h2>
+  <p>Orice laptop sau consolă se răcește printr-un radiator cu lamele fine și un ventilator. În 12–18 luni, radiatorul se înfundă cu praf ca o pâslă, iar pasta termică dintre procesor și radiator se usucă și nu mai transferă căldura. Aparatul nu se strică imediat — dar rulează constant cu 20–30°C peste temperatura normală.</p>
+  <p>Căldura cronică este uzura invizibilă: scurtează viața bateriei, usucă lagărele ventilatorului, îmbătrânește condensatorii și, în final, poate desprinde chip-urile de pe placă — defectul clasic „chip video mort”, o reparație de câteva sute de lei sau un aparat bun de aruncat. În atelierul nostru vedem săptămânal echipamente care puteau fi salvate cu o curățare la timp.</p>
+  <p><strong>Matematica e simplă:</strong> o mentenanță costă de la 100–150 de lei o dată pe an. O reparație de placă de bază cauzată de supraîncălzire cronică costă de câteva ori mai mult — iar uneori nu mai există reparație.</p>
+</section>
+<section class="sec">
+  <h2>La Ce Interval? Recomandările Noastre pe Tip de Aparat</h2>
+  <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:15px">
+    <thead><tr style="border-bottom:2px solid var(--navy);text-align:left"><th style="padding:8px 6px">Echipament</th><th style="padding:8px 6px">Interval recomandat</th><th style="padding:8px 6px">Ce includem</th><th style="padding:8px 6px;text-align:right">Preț orientativ</th></tr></thead>
+    <tbody>
+      {intervale.map(r => <tr style="border-bottom:1px solid #e6ecf4"><td style="padding:9px 6px"><strong>{r[0]}</strong></td><td style="padding:9px 6px">{r[1]}</td><td style="padding:9px 6px">{r[2]}</td><td style="padding:9px 6px;text-align:right;white-space:nowrap"><b>{r[3]}</b></td></tr>)}
+    </tbody>
+  </table>
+  <p style="font-size:14px;color:var(--mut)">Scurtați intervalul cu ~30% dacă aveți animale de companie, fumați în încăpere sau folosiți aparatul intens (gaming zilnic, randare, minerit de sarcini grele). Diagnosticarea este gratuită — prețul exact îl aflați înainte de intervenție.</p>
+</section>
+<section class="sec">
+  <h2>Semnele Că Nu Mai E „Preventiv” — E Urgent</h2>
+  <ul class="checks">
+    <li>🔊 Ventilatorul urlă chiar și la navigare pe internet sau în meniul consolei</li>
+    <li>🔥 Carcasa e fierbinte la atingere, aerul evacuat frige</li>
+    <li>⏱️ Performanța scade după 20–30 de minute de utilizare (thermal throttling)</li>
+    <li>⛔ Opriri bruște în joc, la video-call sau la randare</li>
+    <li>📅 Nu a mai fost curățat niciodată sau de peste 2 ani</li>
+  </ul>
+  <p>Dacă ați bifat măcar una, programați mentenanța acum — fiecare lună în plus la temperaturi mari înseamnă uzură ireversibilă.</p>
+</section>
+<section class="sec">
+  <h2>Ce Include o Mentenanță Completă la Marcus Electronics</h2>
+  <ol>
+    <li><strong>Diagnostic termic inițial.</strong> Măsurăm temperaturile sub sarcină, ca să avem punctul de plecare.</li>
+    <li><strong>Dezasamblare și curățare profesională.</strong> Radiator, ventilator, placă de bază — manual și cu aer comprimat, nu „suflat prin grilaj”.</li>
+    <li><strong>Pastă termică sau metal lichid nou.</strong> Materiale premium (Thermal Grizzly, Arctic), plus pad-uri termice unde e cazul.</li>
+    <li><strong>Verificări conexe.</strong> Conectori, lagărele ventilatorului, starea bateriei la laptopuri, unitatea optică la console.</li>
+    <li><strong>Test sub sarcină + raport.</strong> Primiți temperaturile înainte/după — diferența tipică este de 15–25°C.</li>
+  </ol>
+  <p>Detalii tehnice complete pe paginile dedicate: <a href="/mentenanta-profesionala-pasta-termica/">pastă termică &amp; metal lichid (procesul pas cu pas)</a> și <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console PS4, PS5, Xbox</a>. Dacă vreți să înțelegeți fenomenul, citiți ghidul nostru despre <a href="/curatare-laptop-praf/">curățarea laptopului de praf</a> sau despre <a href="/ps5-se-opreste-singur/">PS5 care se oprește singur</a>.</p>
+</section>
+<section class="sec">
+  <h2>Pentru Cine Este Programul de Mentenanță</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🎮</div><h3>Gameri</h3><p>Consolă + laptop gaming verificate anual: FPS stabil, zero opriri în mijlocul sesiunii, ventilatoare silențioase.</p></div>
+    <div class="card"><div class="ico">💼</div><h3>Profesioniști</h3><p>Laptopul de lucru nu are voie să cadă la un deadline. Mentenanța anuală elimină surprizele și prelungește viața aparatului.</p></div>
+    <div class="card"><div class="ico">🏢</div><h3>Firme mici</h3><p>Întreținem parcuri de laptopuri la interval stabilit, cu evidența intervențiilor. Sunați-ne pentru o ofertă pe volum.</p></div>
+  </div>
+  <p style="margin-top:12px">Aduceți laptopul și consola împreună — le programăm în aceeași zi, la atelierul din <strong>Str. Moinești 7, Militari, Sector 6</strong>. Program: {SITE.program}.</p>
+</section>
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🛠️ Programează Mentenanța — Previne, Nu Repara!" text="Sună sau scrie pe WhatsApp: spune-ne ce aparat ai și când l-ai curățat ultima dată, iar noi îți spunem dacă e momentul." />
+</div>
+</Base>
