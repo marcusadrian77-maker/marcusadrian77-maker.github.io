@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf } from '../data/schema';
+const schemaSEO = graf(breadcrumb([{ name: 'Politica de Confidențialitate', url: '/politica-de-confidentialitate/' }]));
 ---
-<Base title="Politică de Confidențialitate | Marcus Electronics București" description="Politica de confidențialitate Marcus Electronics — cum colectăm, folosim și protejăm datele dumneavoastră personale.">
+<Base title="Politică de Confidențialitate | Marcus Electronics București" description="Politica de confidențialitate Marcus Electronics — ce date colectăm, cum le folosim, cât le păstrăm și cum îți protejăm datele personale." schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap"><h1>Politică de Confidențialitate</h1><p class="lead">Ultima actualizare: Mai 2026</p></div></div>
 <div class="wrap"><section class="sec" style="max-width:820px">
 <h2>1. Cine suntem</h2>
