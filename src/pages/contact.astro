@@ -1,8 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf, pagina } from '../data/schema';
+const desc = "Contactează service-ul Marcus Electronics din București, Sector 6 Militari. Reparații TV la domiciliu și laptopuri în atelier. ☎ 0765.461.357";
+const schemaSEO = graf(pagina('ContactPage', { nume: 'Contact Marcus Electronics', url: '/contact/', desc }), breadcrumb([{ name: 'Contact', url: '/contact/' }]));
 ---
-<Base title="Contact Service Electronice București | Marcus Electronics – 0765.461.357" description="Contactează service-ul Marcus Electronics din București, Sector 6 Militari. Reparații TV la domiciliu și laptopuri în atelier. ☎ 0765.461.357">
+<Base title="Contact Service Electronice București | 0765.461.357" description="Contactează service-ul Marcus Electronics din București, Sector 6 Militari. Reparații TV la domiciliu și laptopuri în atelier. ☎ 0765.461.357" schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Contact — Marcus Electronics</h1>
   <p class="lead">Aveți un echipament defect? Contactați service-ul nostru de reparații electronice din Sector 6, București.</p>
