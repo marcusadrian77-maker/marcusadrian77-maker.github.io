@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
-const title = 'Reparații MacBook București | Service Apple la Nivel de Componentă';
+const title = 'Reparații MacBook București | Service Apple Specializat';
 const desc = 'Service MacBook Air și Pro în București: placă de bază, ecran, baterie, tastatură, daune de lichid. Diagnosticare GRATUITĂ, garanție 6–12 luni. ☎ 0765.461.357';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
@@ -26,7 +27,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ] };
 ---
-<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
 <div class="hero"><div class="wrap">
   <span class="badge">🍎 SERVICE APPLE · LA NIVEL DE COMPONENTĂ</span>
   <h1>Reparații MacBook București</h1>
