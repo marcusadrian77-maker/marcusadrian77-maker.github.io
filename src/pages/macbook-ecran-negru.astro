@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 const title = 'MacBook Ecran Negru: Cauze și Soluții | Ghid Complet 2026';
-const desc = 'MacBook-ul pornește dar ecranul rămâne negru? Ghid pas cu pas: resetări SMC/NVRAM, cauze hardware frecvente și când e nevoie de service specializat. ☎ 0765.461.357';
+const desc = 'MacBook-ul pornește dar ecranul rămâne negru? Ghid pas cu pas: resetări SMC/NVRAM, cauze hardware și când e nevoie de service. ☎ 0765.461.357';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'MacBook-ul face sunetul de pornire dar ecranul e negru. Ce înseamnă?', a: 'Placa de bază funcționează, dar imaginea nu ajunge la ecran. Cauzele tipice: iluminarea ecranului (backlight) defectă, cablul de ecran (flex) deteriorat sau chip-ul video. Verificați cu o lanternă înclinată spre ecran — dacă se ghicește imaginea, este backlight-ul.' },
@@ -20,7 +21,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ] };
 ---
-<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
 <div class="hero"><div class="wrap">
   <span class="badge">📘 GHID PRACTIC</span>
   <h1>MacBook cu Ecran Negru: Cauze și Soluții</h1>
