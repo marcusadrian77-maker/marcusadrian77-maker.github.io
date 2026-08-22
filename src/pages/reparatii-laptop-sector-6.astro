@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
@@ -11,8 +12,11 @@ const faq = [
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire ecran laptop','250–600 lei'],['Reparații placă de bază','200–600 lei'],['Înlocuire tastatură','150–350 lei'],['Înlocuire baterie','150–400 lei'],['Curățare sistem răcire','100–200 lei'],['Upgrade SSD/RAM','50–100 lei (manoperă)']];
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Cauți un service de reparații laptop Sector 6 rapid și profesionist? Reparăm laptopuri din toate brandurile, cu diagnostic gratuit și garanție 6–12 luni.";
+const schemaSEO = graf(serviciu({ nume: 'Reparații laptopuri Sector 6', tip: 'Reparații laptopuri', url: '/reparatii-laptop-sector-6/', desc , sector: 6 }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }, { name: 'Sector 6', url: '/reparatii-laptop-sector-6/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Reparații Laptop Sector 6 București | Marcus Electronics" description="Cauți un service de reparații laptop Sector 6 rapid și profesionist? Reparăm laptopuri din toate brandurile, cu diagnostic gratuit și garanție 6–12 luni." schemaExtra={schemaFaq}>
+<Base title="Reparații Laptop Sector 6 București | Marcus Electronics" description="Cauți un service de reparații laptop Sector 6 rapid și profesionist? Reparăm laptopuri din toate brandurile, cu diagnostic gratuit și garanție 6–12 luni." schemaExtra={schemaSEO} image={IMG.ogLaptop}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Laptop Sector 6 București</h1>
   <p class="lead">Cauți un service de reparații laptop Sector 6 rapid și profesionist? La Marcus Electronics reparăm laptopuri din toate brandurile, cu diagnostic gratuit și garanție 6–12 luni. Atelierul nostru se află în Militari, Sector 6 — acces ușor din toată zona.</p>
