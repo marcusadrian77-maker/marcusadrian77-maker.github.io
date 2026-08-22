@@ -1,10 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
-const title = 'Mentenanță Periodică Laptopuri și Console București | Program Preventiv';
-const desc = 'Întreținere periodică pentru laptopuri, MacBook și console PS4, PS5, Xbox în București: intervale recomandate, curățare + pastă termică, raport de temperaturi. Diagnostic gratuit.';
+const title = 'Mentenanță Periodică Laptop și Console | București';
+const desc = 'Întreținere periodică pentru laptopuri, MacBook și console PS4, PS5, Xbox în București: intervale recomandate, curățare + pastă termică, raport de temperaturi.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const intervale = [
  ['Laptop de birou / multimedia', '12–18 luni', 'Curățare + pastă termică CPU/GPU', '100–180 lei'],
@@ -34,7 +35,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ] };
 ---
-<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogLaptop}>
 <div class="hero"><div class="wrap">
   <span class="badge">🛠️ ÎNTREȚINERE PREVENTIVĂ · LAPTOPURI & CONSOLE</span>
   <h1>Mentenanță Periodică — Laptopuri și Console</h1>
