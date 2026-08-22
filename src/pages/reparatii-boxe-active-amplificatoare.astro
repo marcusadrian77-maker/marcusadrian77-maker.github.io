@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
@@ -49,8 +50,11 @@ const power = [
  ['⚡ QSC','GX3–GX7, PLX 1104–3102, PLX3, RMX 2450a, RMX 4050HD, CX302–CX902, PL218–PL9.0.'],
  ['⚡ Electro-Voice și Bosch','EV Q44–Q1212, CP3000S, Tour Pro 2000. Bosch: LBB1990–LBB1994, PLM 2-250–8-250.'],
 ];
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și profesionale în București, Sector 6 Militari. Diagnostic gratuit.";
+const schemaSEO = graf(serviciu({ nume: 'Reparații boxe active și amplificatoare', tip: 'Reparații audio', url: '/reparatii-boxe-active-amplificatoare/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Boxe Active', url: '/reparatii-boxe-active/' }, { name: 'Boxe și Amplificatoare', url: '/reparatii-boxe-active-amplificatoare/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Reparații Boxe Active și Amplificatoare București | Marcus Electronics" description="Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și profesionale în București, Sector 6 Militari. Diagnostic gratuit." schemaExtra={schemaFaq}>
+<Base title="Reparații Boxe Active și Amplificatoare București" description="Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și profesionale în București, Sector 6 Militari. Diagnostic gratuit." schemaExtra={schemaSEO} image={IMG.ogBoxe}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Boxe Active și Amplificatoare — Sector 6</h1>
   <p class="lead">Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și amplificatoare profesionale în București, Sector 6 Militari. Reparăm la nivel de componentă electronică — nu înlocuim module întregi. Diagnostic gratuit, garanție 6–12 luni, reparăm în aceeași zi.</p>

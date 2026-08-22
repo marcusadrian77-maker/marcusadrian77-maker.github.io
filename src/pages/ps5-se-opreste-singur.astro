@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 const title = 'PS5 Se Oprește Singur: Supraîncălzire, Cauze și Soluții | Ghid';
-const desc = 'PlayStation 5 se oprește singur în timpul jocului sau se supraîncălzește? Cauze frecvente, ce puteți face acasă și când e nevoie de mentenanță profesională. ☎ 0765.461.357';
+const desc = 'PS5 se oprește singur în timpul jocului sau se supraîncălzește? Cauze frecvente, ce poți face acasă și când e nevoie de mentenanță. ☎ 0765.461.357';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'De ce se oprește PS5 singur în timpul jocului?', a: 'Cea mai frecventă cauză este supraîncălzirea: praful acumulat în radiator și pasta termică (metal lichid) degradată împiedică răcirea, iar consola se oprește ca să se protejeze. Mai rar, cauza este sursa de alimentare sau un defect pe placa de bază.' },
@@ -20,7 +21,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ] };
 ---
-<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogConsola}>
 <div class="hero"><div class="wrap">
   <span class="badge">📘 GHID PRACTIC</span>
   <h1>PS5 Se Oprește Singur: Supraîncălzire, Cauze și Soluții</h1>

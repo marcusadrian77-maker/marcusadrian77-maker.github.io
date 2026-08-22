@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 const title = 'Televizor Samsung Nu Pornește: Cauze și Soluții | Ghid 2026';
-const desc = 'Televizorul Samsung nu pornește sau LED-ul roșu clipește? Ghid complet: cauze frecvente, ce puteți verifica singur acasă și când e nevoie de service. ☎ 0765.461.357';
+const desc = 'Televizorul Samsung nu pornește sau LED-ul roșu clipește? Cauze frecvente, ce poți verifica singur acasă și când e nevoie de service. ☎ 0765.461.357';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'De ce clipește LED-ul roșu la televizorul Samsung?', a: 'Numărul de clipiri este un cod de eroare: de regulă indică o problemă la sursa de alimentare sau la placa principală. 2–6 clipiri repetate înseamnă aproape întotdeauna o defecțiune internă care necesită service.' },
@@ -20,7 +21,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ] };
 ---
-<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
 <div class="hero"><div class="wrap">
   <span class="badge">📘 GHID PRACTIC</span>
   <h1>Televizorul Samsung Nu Pornește: Cauze și Soluții</h1>

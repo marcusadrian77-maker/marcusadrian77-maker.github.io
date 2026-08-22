@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
@@ -11,8 +12,11 @@ const faq = [
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire baterie MacBook Air/Pro','350–600 lei'],['Înlocuire display MacBook','600–1500 lei'],['Reparații placă de bază','300–800 lei'],['Înlocuire tastatură','400–900 lei'],['Curățare după apă vărsată','250–500 lei']];
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Cauți un service MacBook Sector 6 cu tehnicieni specializați în Apple? Reparăm MacBook Air, MacBook Pro și iMac la nivel de componentă. Diagnostic gratuit.";
+const schemaSEO = graf(serviciu({ nume: 'Reparații MacBook Sector 6', tip: 'Reparații MacBook și iMac', url: '/reparatii-macbook-sector-6/', desc , sector: 6 }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații MacBook', url: '/reparatii-macbook/' }, { name: 'Sector 6', url: '/reparatii-macbook-sector-6/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Service MacBook Sector 6 București — Reparații Apple | Marcus Electronics" description="Cauți un service MacBook Sector 6 cu tehnicieni specializați în Apple? Reparăm MacBook Air, MacBook Pro și iMac la nivel de componentă. Diagnostic gratuit." schemaExtra={schemaFaq}>
+<Base title="Service MacBook Sector 6 | Reparații Apple București" description="Cauți un service MacBook Sector 6 cu tehnicieni specializați în Apple? Reparăm MacBook Air, MacBook Pro și iMac la nivel de componentă. Diagnostic gratuit." schemaExtra={schemaSEO} image={IMG.ogMacbook}>
 <div class="hero"><div class="wrap">
   <h1>Service MacBook Sector 6 București</h1>
   <p class="lead">Cauți un service MacBook Sector 6 cu tehnicieni specializați în Apple? La Marcus Electronics din Militari, reparăm MacBook Air, MacBook Pro și iMac la nivel de componentă — cel mai mic cost posibil, garanție 6–12 luni, diagnostic gratuit.</p>

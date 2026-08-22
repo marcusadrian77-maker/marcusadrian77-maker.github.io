@@ -1,9 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Reparatii profesionale monitoare LCD si LED in Bucuresti. Diagnosticare gratuita, garantie 6-12 luni. Acer, Samsung, LG, Dell, HP, Asus. Suna acum!";
+const schemaSEO = graf(serviciu({ nume: 'Reparații monitoare LCD București', tip: 'Reparații monitoare', url: '/reparatii-monitoare-lcd/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Monitoare', url: '/reparatii-monitoare-lcd/' }]));
 ---
-<Base title="Reparatii Monitoare LCD Bucuresti | Service Rapid Sector 6" description="Reparatii profesionale monitoare LCD si LED in Bucuresti. Diagnosticare gratuita, garantie 6-12 luni. Acer, Samsung, LG, Dell, HP, Asus. Suna acum!">
+<Base title="Reparatii Monitoare LCD Bucuresti | Service Rapid Sector 6" description="Reparatii profesionale monitoare LCD si LED in Bucuresti. Diagnosticare gratuita, garantie 6-12 luni. Acer, Samsung, LG, Dell, HP, Asus. Suna acum!" image={IMG.ogMonitor} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Monitoare LCD București</h1>
   <p class="lead">Servicii profesionale de reparații monitoare LCD și LED în București, Sector 6. Diagnoză gratuită, intervenție rapidă, garanție la toate reparațiile.</p>

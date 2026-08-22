@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
@@ -11,8 +12,11 @@ const faq = [
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire port HDMI PS5/Xbox','250–400 lei'],['Curățare ventilator + pastă termică PS5','150–250 lei'],['Reparare placă de bază consolă','300–700 lei'],['Înlocuire joystick / reparare drift','100–200 lei'],['Înlocuire display Nintendo Switch','300–500 lei']];
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Consola ta are probleme? Reparăm PlayStation 5, PS4, Xbox Series X/S, Xbox One și Nintendo Switch în Sector 6 București. Diagnostic gratuit, garanție 6–12 luni.";
+const schemaSEO = graf(serviciu({ nume: 'Reparații console gaming Sector 6', tip: 'Reparații console gaming', url: '/reparatii-console-gaming-sector-6/', desc , sector: 6 }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Sector 6', url: '/reparatii-console-gaming-sector-6/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Reparații Console Gaming Sector 6 — PS5, Xbox, Nintendo Switch | Marcus Electronics" description="Consola ta are probleme? Reparăm PlayStation 5, PS4, Xbox Series X/S, Xbox One și Nintendo Switch în Sector 6 București. Diagnostic gratuit, garanție 6–12 luni." schemaExtra={schemaFaq}>
+<Base title="Reparații Console Gaming Sector 6 | PS5, Xbox, Switch" description="Consola ta are probleme? Reparăm PlayStation 5, PS4, Xbox Series X/S, Xbox One și Nintendo Switch în Sector 6 București. Diagnostic gratuit, garanție 6–12 luni." schemaExtra={schemaSEO} image={IMG.ogConsola}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Console Gaming Sector 6</h1>
   <p class="lead">Consola ta are probleme? La Marcus Electronics din Militari, Sector 6 București, reparăm PlayStation 5, PS4, Xbox Series X/S, Xbox One și Nintendo Switch. Diagnostic gratuit, garanție 6–12 luni, intervenție rapidă.</p>

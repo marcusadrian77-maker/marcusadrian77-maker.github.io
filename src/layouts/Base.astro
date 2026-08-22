@@ -2,9 +2,10 @@
 import '../styles/global.css';
 import { SITE, NAV_SERVICII, SCHEMA_LOCALBUSINESS } from '../data/site';
 import { IMG } from '../data/images';
-export interface Props { title: string; description: string; schemaExtra?: object | null; }
-const { title, description, schemaExtra = null } = Astro.props;
+export interface Props { title: string; description: string; schemaExtra?: object | null; image?: string; }
+const { title, description, schemaExtra = null, image = IMG.ogDefault } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const ogImage = new URL(image, SITE.domeniu).href;
 ---
 <!doctype html>
 <html lang="ro">
@@ -19,6 +20,15 @@ const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:locale" content="ro_RO" />
+<meta property="og:site_name" content={SITE.nume} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
 <meta name="theme-color" content="#14365d" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <script type="application/ld+json" set:html={JSON.stringify(SCHEMA_LOCALBUSINESS)} />

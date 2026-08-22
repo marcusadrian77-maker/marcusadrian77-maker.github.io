@@ -13,4 +13,13 @@ export const IMG = {
   monitor: '/img/monitor.jpg',
   cuptor: '/img/cuptor.jpg',
   amplificator: '/img/amplificator.jpg',
+  // Imagini Open Graph 1200x630 (partajare pe WhatsApp, Facebook, X)
+  ogDefault: '/img/og-default.jpg',
+  ogTv: '/img/og-tv.jpg',
+  ogLaptop: '/img/og-laptop.jpg',
+  ogMacbook: '/img/og-macbook.jpg',
+  ogConsola: '/img/og-consola.jpg',
+  ogBoxe: '/img/og-boxe.jpg',
+  ogMonitor: '/img/og-monitor.jpg',
+  ogCuptor: '/img/og-cuptor.jpg',
 };

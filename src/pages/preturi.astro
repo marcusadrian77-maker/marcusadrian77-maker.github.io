@@ -1,8 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cta from '../components/Cta.astro';
+import { breadcrumb, graf, pagina } from '../data/schema';
+const desc = "Prețuri transparente pentru reparații TV, laptopuri, MacBook, console, boxe și monitoare în București. Diagnostic gratuit. Garanție 6-12 luni. ☎ 0765.461.357";
+const schemaSEO = graf(pagina('WebPage', { nume: 'Prețuri reparații electronice', url: '/preturi/', desc }), breadcrumb([{ name: 'Prețuri', url: '/preturi/' }]));
 ---
-<Base title="Prețuri Reparații Electronice București | Marcus Electronics" description="Prețuri transparente pentru reparații TV, laptopuri, MacBook, console, boxe și monitoare în București. Diagnostic gratuit. Garanție 6-12 luni. ☎ 0765.461.357">
+<Base title="Prețuri Reparații Electronice București | Marcus Electronics" description="Prețuri transparente pentru reparații TV, laptopuri, MacBook, console, boxe și monitoare în București. Diagnostic gratuit. Garanție 6-12 luni. ☎ 0765.461.357" schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Prețuri Reparații TV la Domiciliu</h1>
   <p class="lead">Transparență totală — știi cât costă înainte de a începe. Fără surprize, fără costuri ascunse.</p>

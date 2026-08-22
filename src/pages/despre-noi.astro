@@ -1,8 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cta from '../components/Cta.astro';
+import { breadcrumb, graf, pagina } from '../data/schema';
+const desc = "Marcus Electronics — service de reparații electronice cu 25 de ani experiență în București, Sector 6 Militari. TV, laptopuri, MacBook, console.";
+const schemaSEO = graf(pagina('AboutPage', { nume: 'Despre Marcus Electronics', url: '/despre-noi/', desc }), breadcrumb([{ name: 'Despre Noi', url: '/despre-noi/' }]));
 ---
-<Base title="Despre Noi | Marcus Electronics – Service Reparații Electronice București" description="Aflați mai multe despre Marcus Electronics, service de reparații electronice cu 25 ani experiență în București, Sector 6 Militari. TV, laptopuri, MacBook, console.">
+<Base title="Despre Noi | Service Reparații Electronice București" description="Marcus Electronics — service de reparații electronice cu 25 de ani experiență în București, Sector 6 Militari. TV, laptopuri, MacBook, console." schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Despre Marcus Electronics</h1>
   <p class="lead" style="font-style:italic">„Reparăm TV-uri. Salvăm seri de filme. De 25 de ani."</p>

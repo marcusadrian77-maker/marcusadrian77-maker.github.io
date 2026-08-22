@@ -1,8 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
+import { graf } from '../data/schema';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 import { IMG } from '../data/images';
+const schemaSEO = graf({
+  '@type': 'WebSite',
+  name: 'Marcus Electronics',
+  alternateName: 'Reparații Electronice București',
+  url: 'https://www.reparatiielectronice.ro/',
+  inLanguage: 'ro-RO',
+  publisher: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', url: 'https://www.reparatiielectronice.ro/' },
+});
 const echip = [
   { img: IMG.tv, ico: '📺', t: 'Televizoare', href: '/reparatii-televizoare/', d: 'Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp. LED, OLED, QLED, Smart TV. Reparații și la domiciliu!' },
   { img: IMG.laptop, ico: '💻', t: 'Laptopuri', href: '/reparatii-laptopuri-bucuresti/', d: 'Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Huawei. Gaming, ultrabook, business.' },
@@ -15,7 +24,7 @@ const echip = [
   { img: IMG.tehnician, ico: '🌡️', t: 'Mentenanță Pastă Termică', href: '/mentenanta-profesionala-pasta-termica/', d: 'Înlocuire pastă termică și metal lichid pentru PS4, PS5, Xbox, laptopuri și MacBook.' },
 ];
 ---
-<Base title="Reparatii Electronice Sector 6 Bucuresti Reparatii TV Laptop" description="Atelier de reparații electronice în sectorul 6 pentru televizoare, monitoare, laptopuri, Macbook Air, Macbook Pro, IMac, boxe active, amplificatoare">
+<Base title="Reparatii Electronice Sector 6 Bucuresti Reparatii TV Laptop" description="Atelier de reparații electronice în sectorul 6 pentru televizoare, monitoare, laptopuri, Macbook Air, Macbook Pro, IMac, boxe active, amplificatoare" image={IMG.ogDefault} schemaExtra={schemaSEO}>
 <div class="hero" style={'--hero-img:url(' + IMG.hero + ')'}>
   <div class="wrap">
     <span class="badge">REPARAȚII ELECTRONICE BUCUREȘTI</span>

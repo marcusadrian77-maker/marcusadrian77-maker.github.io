@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
@@ -11,8 +12,11 @@ const faq = [
  { q: 'Unde vă găsesc? Faceți și ridicare de la domiciliu?', a: 'Service-ul nostru este în Sector 6, București – Militari. Consolele pot fi aduse personal sau expediate prin curier. Sunați la 0765.461.357 pentru detalii.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Service reparații console gaming PS4, PS5, Xbox One/Series X/S, Nintendo Switch în București. Diagnostic gratuit, piese originale, garanție. ☎ 0765.461.357";
+const schemaSEO = graf(serviciu({ nume: 'Reparații console gaming București', tip: 'Reparații console gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Reparații Console Gaming PS4 PS5 Xbox | Service București Sector 6" description="Service reparații console gaming PS4, PS5, Xbox One/Series X/S, Nintendo Switch în București. Diagnostic gratuit, piese originale, garanție. ☎ 0765.461.357" schemaExtra={schemaFaq}>
+<Base title="Reparații Console PS4, PS5, Xbox București | Sector 6" description="Service reparații console gaming PS4, PS5, Xbox One/Series X/S, Nintendo Switch în București. Diagnostic gratuit, piese originale, garanție. ☎ 0765.461.357" schemaExtra={schemaSEO} image={IMG.ogConsola}>
 <div class="hero"><div class="wrap">
   <span class="badge">SERVICE BUCUREȘTI — SECTOR 6</span>
   <h1>Reparații &amp; Mentenanță Console Gaming</h1>

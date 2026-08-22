@@ -1,9 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!";
+const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]));
 ---
-<Base title="Reparatii Controllere PS4 PS5 Xbox Bucuresti | Service Rapid" description="Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!">
+<Base title="Reparatii Controllere PS4 PS5 Xbox Bucuresti | Service Rapid" description="Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!" image={IMG.ogConsola} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Controllere PS4, PS5, Xbox</h1>
   <p class="lead">Servicii profesionale de reparații controllere pentru PlayStation 4, PlayStation 5 și Xbox. Rezolvăm rapid orice defecțiune: drift joystick, butoane blocate, port USB defect sau probleme de conectare.</p>

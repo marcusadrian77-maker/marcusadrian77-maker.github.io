@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
@@ -9,8 +10,11 @@ const faq = [
  { q: 'Merită să repar un cuptor cu microunde vechi?', a: 'Da, în general repararea este mult mai economică decât achiziționarea unui aparat nou, mai ales pentru defecțiuni comune.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Reparații cuptoare cu microunde în București – Samsung, LG, Whirlpool, Bosch, Panasonic. Service în atelier, diagnostic gratuit. ☎ 0765.461.357";
+const schemaSEO = graf(serviciu({ nume: 'Reparații cuptoare cu microunde', tip: 'Reparații electrocasnice', url: '/reparatii-cuptoare-cu-microunde/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Cuptoare cu Microunde', url: '/reparatii-cuptoare-cu-microunde/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Reparații Cuptoare cu Microunde București | Service Rapid Sector 6" description="Reparații cuptoare cu microunde în București – Samsung, LG, Whirlpool, Electrolux, Bosch, Panasonic. Service în atelier, diagnostic gratuit, garanție. ☎ 0765.461.357" schemaExtra={schemaFaq}>
+<Base title="Reparații Cuptoare cu Microunde București | Sector 6" description="Reparații cuptoare cu microunde în București – Samsung, LG, Whirlpool, Bosch, Panasonic. Service în atelier, diagnostic gratuit. ☎ 0765.461.357" schemaExtra={schemaSEO} image={IMG.ogCuptor}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Cuptoare cu Microunde București</h1>
   <p class="lead">Servicii profesionale de reparații cuptoare cu microunde în București, Sector 6. Diagnosticare gratuită, intervenție rapidă, garanție la toate reparațiile.</p>

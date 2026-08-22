@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf } from '../data/schema';
+const schemaSEO = graf(breadcrumb([{ name: 'Termeni și Condiții', url: '/termeni-si-conditii/' }]));
 ---
-<Base title="Termeni și Condiții | Marcus Electronics București" description="Termenii și condițiile serviciilor de reparații electronice Marcus Electronics București — proces de reparație, garanție, prețuri și plată.">
+<Base title="Termeni și Condiții | Marcus Electronics București" description="Termenii și condițiile serviciilor de reparații electronice Marcus Electronics București — proces de reparație, garanție, prețuri și plată." schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap"><h1>Termeni și Condiții</h1><p class="lead">Ultima actualizare: Mai 2026</p></div></div>
 <div class="wrap"><section class="sec" style="max-width:820px">
 <h2>1. Informații generale</h2>

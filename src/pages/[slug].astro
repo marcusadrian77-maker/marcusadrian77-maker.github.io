@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 import { SECTOARE, BRANDURI } from '../data/sectoare';
@@ -17,7 +18,7 @@ export function getStaticPaths() {
 const { tip, data } = Astro.props;
 const isS6 = tip === 'sector' && data.nr === 6;
 const title = tip === 'sector'
-  ? (isS6 ? 'Reparații TV Sector 6 Militari București | Service Televizoare La Domiciliu' : 'Reparații TV Sector ' + data.nr + ' București | Service Televizoare La Domiciliu')
+  ? (isS6 ? 'Reparații TV Sector 6 Militari | Service La Domiciliu' : 'Reparații TV Sector ' + data.nr + ' București | Service La Domiciliu')
   : data.titluSite;
 const desc = tip === 'sector'
   ? 'Reparații televizoare Sector ' + data.nr + ' București la domiciliu. Tehnicianul vine acasă la tine! Samsung, LG, Sony, Philips. Diagnostic gratuit. Sună acum: 0765.461.357'
@@ -52,7 +53,7 @@ const schemaExtra = {
   ],
 };
 ---
-<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<Base title={title} description={desc} image={IMG.ogTv} schemaExtra={schemaExtra}>
 {tip === 'sector' ? (
 <>
 <div class="hero"><div class="wrap">

@@ -1,10 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 import { SECTOARE, BRANDURI } from '../data/sectoare';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Service televizoare la domiciliu în toate cele 6 sectoare ale Bucureștiului. Alege sectorul tău sau marca televizorului. Diagnostic gratuit. ☎ 0765.461.357";
+const schemaSEO = graf(serviciu({ nume: 'Reparații TV la domiciliu în București', tip: 'Reparații televizoare la domiciliu', url: '/reparatii-tv-sectoare/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Televizoare', url: '/reparatii-televizoare/' }, { name: 'TV pe Sectoare', url: '/reparatii-tv-sectoare/' }]));
 ---
-<Base title="Reparații TV pe Sectoare în București | Marcus Electronics" description="Service televizoare la domiciliu în toate cele 6 sectoare ale Bucureștiului. Alege sectorul tău sau marca televizorului. Diagnostic gratuit. ☎ 0765.461.357">
+<Base title="Reparații TV pe Sectoare în București | Marcus Electronics" description="Service televizoare la domiciliu în toate cele 6 sectoare ale Bucureștiului. Alege sectorul tău sau marca televizorului. Diagnostic gratuit. ☎ 0765.461.357" image={IMG.ogTv} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <span class="badge">📍 ACOPERIM TOT BUCUREȘTIUL</span>
   <h1>Reparații TV pe Sectoare în București</h1>

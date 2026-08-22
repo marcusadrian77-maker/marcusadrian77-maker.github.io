@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
@@ -10,8 +11,11 @@ const faq = [
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const preturi = [['Diagnosticare','GRATUITĂ'],['Reparare sursă alimentare monitor','150–350 lei'],['Reparare backlight LED / invertor','150–300 lei'],['Reparare placă T-CON','200–400 lei'],['Înlocuire panou LCD','300–800 lei'],['Înlocuire conector HDMI/DP','100–200 lei']];
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Monitorul tău are probleme de imagine, iluminare sau nu mai pornește? Reparăm monitoare LCD de toate tipurile în Militari, Sector 6 — gaming, 4K, curbate.";
+const schemaSEO = graf(serviciu({ nume: 'Reparații monitoare Sector 6', tip: 'Reparații monitoare', url: '/reparatii-monitoare-sector-6/', desc , sector: 6 }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Monitoare', url: '/reparatii-monitoare-lcd/' }, { name: 'Sector 6', url: '/reparatii-monitoare-sector-6/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Reparații Monitoare LCD Sector 6 București | Marcus Electronics" description="Monitorul tău are probleme de imagine, iluminare sau nu mai pornește? Reparăm monitoare LCD de toate tipurile în Militari, Sector 6 — gaming, 4K, curbate." schemaExtra={schemaFaq}>
+<Base title="Reparații Monitoare LCD Sector 6 | Service București" description="Monitorul tău are probleme de imagine, iluminare sau nu mai pornește? Reparăm monitoare LCD de toate tipurile în Militari, Sector 6 — gaming, 4K, curbate." schemaExtra={schemaSEO} image={IMG.ogMonitor}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Monitoare LCD Sector 6</h1>
   <p class="lead">Monitorul tău are probleme de imagine, iluminare sau nu mai pornește? La Marcus Electronics din Militari, Sector 6 București, reparăm monitoare LCD de toate tipurile — gaming, profesionale, 4K, curbate — la prețuri corecte și cu garanție 6–12 luni.</p>
