@@ -1,9 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Service profesional reparații televizoare LED, LCD, OLED și Smart TV în București. Samsung, LG, Sony, Philips. Diagnostic gratuit, garanție 6–12 luni.";
+const schemaSEO = graf(serviciu({ nume: 'Reparații televizoare București', tip: 'Reparații televizoare', url: '/reparatii-televizoare/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Televizoare', url: '/reparatii-televizoare/' }]));
 ---
-<Base title="Reparatii Televizoare Bucuresti | Service TV Rapid Sector 6" description="Service profesional reparatii televizoare LED, LCD, OLED, Smart TV in Bucuresti. Samsung, LG, Sony, Philips. Diagnosticare gratuita, garantie 6-12 luni. Suna acum!">
+<Base title="Reparații Televizoare București | Service TV Sector 6" description="Service profesional reparații televizoare LED, LCD, OLED și Smart TV în București. Samsung, LG, Sony, Philips. Diagnostic gratuit, garanție 6–12 luni." image={IMG.ogTv} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Televizoare București</h1>
   <p class="lead">Service profesional reparații televizoare LED, LCD, OLED, QLED și Smart TV în București, Sector 6. Diagnosticare gratuită, intervenție rapidă, garanție 6–12 luni.</p>
