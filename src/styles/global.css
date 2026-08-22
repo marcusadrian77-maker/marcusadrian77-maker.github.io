@@ -157,3 +157,12 @@ a.card.has-img:hover{transform:translateY(-2px);transition:.15s}
   .fc::before{display:none}
   body{padding-bottom:56px}
 }
+
+/* CIFRE CHEIE */
+.cifre{background:#fff;border-bottom:1px solid #e3ebf3}
+.cifre-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:18px 18px}
+.cif{background:#f4f8fd;border:1px solid #dfeafa;border-radius:12px;padding:14px 16px;text-align:center}
+.cif b{display:block;font-size:26px;color:var(--navy);letter-spacing:-.5px;line-height:1.15}
+.cif span{display:block;font-size:13.5px;color:#5b6675;margin-top:2px}
+@media (max-width:900px){.cifre-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cifre-grid{grid-template-columns:1fr;gap:8px;padding:12px 18px}.cif{padding:10px 14px}.cif b{font-size:21px}}
