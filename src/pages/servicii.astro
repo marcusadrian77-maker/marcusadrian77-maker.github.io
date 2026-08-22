@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, pagina } from '../data/schema';
@@ -13,6 +14,7 @@ const schemaSEO = graf(pagina('CollectionPage', { nume: 'Servicii reparații ele
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
+<Cifre />
 <div class="wrap">
 <section class="sec">
   <h2>📺 Reparații Televizoare</h2>

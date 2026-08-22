@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
 import Cta from '../components/Cta.astro';
 import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
@@ -27,6 +28,7 @@ const schemaSEO = graf(serviciu({ nume: 'Înlocuire pastă termică și metal li
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
+<Cifre />
 <div class="wrap">
 <section class="sec">
   <h2>🌡️ Pastă Termică vs. Metal Lichid — Ce Alegem?</h2>

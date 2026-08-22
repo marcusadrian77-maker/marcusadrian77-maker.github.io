@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
@@ -44,6 +45,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
+<Cifre />
 <div class="wrap">
 <section class="sec">
   <h2>De Ce Contează Mentenanța Periodică</h2>

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, pagina } from '../data/schema';
 const desc = "Contactează service-ul Marcus Electronics din București, Sector 6 Militari. Reparații TV la domiciliu și laptopuri în atelier. ☎ 0765.461.357";
@@ -12,6 +13,7 @@ const schemaSEO = graf(pagina('ContactPage', { nume: 'Contact Marcus Electronics
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
+<Cifre />
 <div class="wrap">
 <section class="sec">
   <div class="grid g2" style="margin-top:26px">

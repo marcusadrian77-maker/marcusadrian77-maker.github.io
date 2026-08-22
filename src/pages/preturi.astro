@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
 import Cta from '../components/Cta.astro';
 import { breadcrumb, graf, pagina } from '../data/schema';
 const desc = "Prețuri transparente pentru reparații TV, laptopuri, MacBook, console, boxe și monitoare în București. Diagnostic gratuit. Garanție 6-12 luni. ☎ 0765.461.357";
@@ -10,6 +11,7 @@ const schemaSEO = graf(pagina('WebPage', { nume: 'Prețuri reparații electronic
   <h1>Prețuri Reparații TV la Domiciliu</h1>
   <p class="lead">Transparență totală — știi cât costă înainte de a începe. Fără surprize, fără costuri ascunse.</p>
 </div></div>
+<Cifre />
 <div class="wrap">
 <section class="sec">
   <div class="grid g4" style="margin-top:26px">

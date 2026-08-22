@@ -1,0 +1,14 @@
+---
+// Banda cu cifre-cheie, afișată sub hero pe paginile principale.
+const CIFRE = [
+  { nr: '30.000+', txt: 'piese pe stoc, gata de montaj' },
+  { nr: 'ASWO', txt: 'partener oficial — cel mai mare importator de componente electronice din Europa' },
+  { nr: '6–12 luni', txt: 'garanție scrisă la orice reparație' },
+  { nr: '25+ ani', txt: 'de experiență în reparații electronice' },
+];
+---
+<section class="cifre" aria-label="Cifre cheie">
+  <div class="wrap cifre-grid">
+    {CIFRE.map(c => <div class="cif"><b>{c.nr}</b><span>{c.txt}</span></div>)}
+  </div>
+</section>
