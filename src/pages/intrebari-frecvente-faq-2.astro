@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { breadcrumb, graf } from '../data/schema';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 const faqPret = [
@@ -22,13 +23,12 @@ const faqLocatie = [
  { q: 'Puteți repara echipamente aduse din alte sectoare ale Bucureștiului?', a: 'Absolut. Acceptăm echipamente din toată București și Ilfov. Mulți clienți vin la noi din Sector 1, 2, 3, 4, 5, precum și din Ilfov (Voluntari, Pantelimon, Pipera, Otopeni etc.). Pentru televizoare, oferim deplasare la domiciliu în toată București și Ilfov.' },
 ];
 const allFaq = [...faqPret, ...faqGarantie, ...faqLocatie];
-const schemaFaq = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: allFaq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, ' ') } })),
-};
+const schemaFaq = graf(
+  { '@type': 'FAQPage', mainEntity: allFaq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, ' ') } })) },
+  breadcrumb([{ name: 'Întrebări Frecvente', url: '/intrebari-frecvente-faq-2/' }]),
+);
 ---
-<Base title="FAQ - Intrebari Frecvente Reparatii Electronice Bucuresti" description="Ai întrebări despre serviciile de reparații ale Marcus Electronics? Găsești aici răspunsurile la cele mai frecvente întrebări ale clienților noștri." schemaExtra={schemaFaq}>
+<Base title="Întrebări Frecvente | Reparații Electronice București" description="Ai întrebări despre serviciile de reparații ale Marcus Electronics? Găsești aici răspunsurile la cele mai frecvente întrebări ale clienților noștri." schemaExtra={schemaFaq}>
 <div class="hero"><div class="wrap">
   <h1>Întrebări Frecvente (FAQ)</h1>
   <p class="lead">Ai întrebări despre serviciile de reparații ale Marcus Electronics? Găsești mai jos răspunsurile la cele mai frecvente întrebări ale clienților noștri din Sectorul 6, București.</p>
