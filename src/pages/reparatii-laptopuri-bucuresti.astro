@@ -1,9 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Service laptopuri București – Dell, HP, Lenovo, Asus, Acer, MSI, Apple. Reparații ecran, tastatură, baterie, placă de bază. ☎ 0765.461.357";
+const schemaSEO = graf(serviciu({ nume: 'Reparații laptopuri București', tip: 'Reparații laptopuri', url: '/reparatii-laptopuri-bucuresti/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }]));
 ---
-<Base title="Reparații Laptopuri București | Service Laptop Rapid – Marcus Electronics" description="Service laptopuri București – Dell, HP, Lenovo, Asus, Acer, MSI, Apple MacBook. Reparații rapide în atelier: ecran, tastatură, baterie, placă de bază. ☎ 0765.461.357">
+<Base title="Reparații Laptopuri București | Service Laptop Rapid" description="Service laptopuri București – Dell, HP, Lenovo, Asus, Acer, MSI, Apple. Reparații ecran, tastatură, baterie, placă de bază. ☎ 0765.461.357" image={IMG.ogLaptop} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <span class="badge">💻 SERVICE LAPTOP — MILITARI, SECTOR 6</span>
   <h1>Reparații Laptopuri București</h1>
