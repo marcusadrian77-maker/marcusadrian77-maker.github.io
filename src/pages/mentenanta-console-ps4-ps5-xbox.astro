@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
@@ -10,8 +11,11 @@ const faq = [
  { q: 'Oferiți mentenanță la domiciliu pentru console?', a: 'Mentenanța se realizează în atelierul nostru din Sectorul 6 București, Str. Moinești nr. 7. Puteți aduce consola personal sau trimite prin curier.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const desc = "Servicii profesionale de mentenanta si curatare console PS4, PS5, Xbox in Bucuresti. Pasta termala, curatare praf. Garantie. Suna acum!";
+const schemaSEO = graf(serviciu({ nume: 'Mentenanță console PS4, PS5, Xbox', tip: 'Mentenanță console gaming', url: '/mentenanta-console-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Mentenanță Console', url: '/mentenanta-console-ps4-ps5-xbox/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Mentenanta Console PS4 PS5 Xbox Bucuresti | Curatare Profesionala" description="Servicii profesionale de mentenanta si curatare console PS4, PS5, Xbox in Bucuresti. Pasta termala, curatare praf. Garantie. Suna acum!" schemaExtra={schemaFaq}>
+<Base title="Mentenanță Console PS4, PS5, Xbox | Curățare București" description="Servicii profesionale de mentenanta si curatare console PS4, PS5, Xbox in Bucuresti. Pasta termala, curatare praf. Garantie. Suna acum!" schemaExtra={schemaSEO} image={IMG.ogConsola}>
 <div class="hero"><div class="wrap">
   <h1>Mentenanță Console PS4, PS5, Xbox</h1>
   <p class="lead">Servicii complete de mentenanță preventivă și curativă pentru PlayStation 4, PlayStation 5 și Xbox — durată de viață mai lungă a consolei și experiență de gaming superioară.</p>
