@@ -2,8 +2,11 @@
 import Base from '../layouts/Base.astro';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf, pagina } from '../data/schema';
+const desc = "Servicii complete de reparații electronice în București Sector 6: televizoare la domiciliu, laptopuri, MacBook, console, boxe, monitoare, cuptoare în atelier.";
+const schemaSEO = graf(pagina('CollectionPage', { nume: 'Servicii reparații electronice', url: '/servicii/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }]));
 ---
-<Base title="Servicii Reparații Electronice Sector 6 București | Marcus Electronics" description="Servicii complete de reparații electronice în București Sector 6: televizoare la domiciliu, laptopuri, MacBook, console, boxe, monitoare, cuptoare în atelier.">
+<Base title="Servicii Reparații Electronice București | Sector 6 Militari" description="Servicii complete de reparații electronice în București Sector 6: televizoare la domiciliu, laptopuri, MacBook, console, boxe, monitoare, cuptoare în atelier." schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Servicii Reparații Electronice</h1>
   <p class="lead">La Marcus Electronics, reparăm o gamă largă de echipamente electronice. Reparațiile de televizoare le efectuăm și la domiciliu — tehnicianul vine direct la dvs. acasă. Laptopurile, MacBook-urile, consolele, monitoarele, boxele și cuptoarele se repară la sediul nostru din Militari, Sector 6, pentru o diagnosticare completă în laborator.</p>
