@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 const title = 'Curățare Laptop de Praf: Cât de Des și De Ce Contează | Ghid';
-const desc = 'Laptopul se încinge, ventilatorul e zgomotos sau se oprește singur? Ghid despre curățarea de praf și pasta termică: la ce interval se face și ce riști dacă o amâni. ☎ 0765.461.357';
+const desc = 'Laptopul se încinge, ventilatorul e zgomotos sau se oprește singur? La ce interval se face curățarea de praf și pasta termică și ce riști dacă o amâni.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'Cât de des trebuie curățat laptopul de praf?', a: 'Recomandat: o dată la 12–18 luni pentru utilizare normală și o dată pe an dacă lucrați intens (gaming, randare) sau aveți animale de companie. Pasta termică se înlocuiește de regulă la 1–2 ani.' },
@@ -20,7 +21,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ] };
 ---
-<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogLaptop}>
 <div class="hero"><div class="wrap">
   <span class="badge">📘 GHID PRACTIC</span>
   <h1>Curățarea Laptopului de Praf: Cât de Des și De Ce Contează</h1>
