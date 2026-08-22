@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
@@ -14,6 +15,7 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații monitoare LCD București', t
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
+<Cifre />
 <div class="wrap">
 <section class="sec">
   <h2>Mărci de Monitoare Reparate</h2>
