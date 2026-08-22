@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE } from '../data/site';
+import { breadcrumb, graf } from '../data/schema';
+const schemaSEO = graf(breadcrumb([{ name: 'GDPR', url: '/gdpr/' }]));
 ---
-<Base title="GDPR – Protecția Datelor Personale | Marcus Electronics" description="Drepturile tale conform GDPR la Marcus Electronics București — ce date prelucrăm, de ce și cum îți exerciți drepturile.">
+<Base title="GDPR – Protecția Datelor Personale | Marcus Electronics" description="Drepturile tale conform GDPR la Marcus Electronics București — ce date prelucrăm, în ce scop și cum îți exerciți drepturile prevăzute de lege." schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap"><h1>GDPR – Protecția Datelor Personale</h1><p class="lead">Ultima actualizare: Mai 2026</p></div></div>
 <div class="wrap"><section class="sec" style="max-width:820px">
 <h2>Ce este GDPR?</h2>
