@@ -43,3 +43,6 @@ export const SCHEMA_LOCALBUSINESS = {
   openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '10:00', closes: '19:00' },
   areaServed: ['București', 'Ilfov'],
 };
+
+// test
+// test
