@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparatii TV LED si OLED Bucuresti | Service Televizoare';
+const desc = 'Reparatii profesionale televizoare LED, OLED, QLED si Mini-LED in Bucuresti. Toate brandurile, diagnosticare GRATUITA la domiciliu, garantie 6-12 luni. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Care este diferenta dintre LED, OLED si QLED?', a: 'LED foloseste retroiluminare cu diode (edge-lit sau direct-lit), OLED are pixeli care emit propria lumina (contrast infinit, negru perfect), iar QLED (Samsung) este un panou LED imbunatatit cu un strat de puncte cuantice pentru culori mai vii. Fiecare tehnologie are defecte specifice pe care le cunoastem si le reparam.' },
+ { q: 'Se poate repara burn-in-ul la un televizor OLED?', a: 'Burn-in-ul minor (retentie de imagine) se poate atenua prin cicluri de refresh integrate in televizor. Burn-in-ul permanent este un defect al panelului OLED si nu poate fi eliminat complet, dar poate fi redus vizibil. La diagnosticare evaluam gravitatea si va sfatuim sincer daca merita interventia.' },
+ { q: 'Cat costa inlocuirea barelor LED?', a: 'Pretul variaza in functie de diagonala si numarul de bare. Pentru televizoare de 32-43 inch, inlocuirea barelor LED costa de regula intre 200 si 400 lei (piese + manopera). La diagonale mai mari (55-65 inch), costul creste proportional. Diagnosticarea este gratuita.' },
+ { q: 'Televizorul meu LED are zone intunecate pe ecran. Ce poate fi?', a: 'Zonele intunecate indica de obicei una sau mai multe LED-uri arse pe barele de retroiluminare. Cand un LED se arde, intreaga zona pe care o acopera ramane intunecata. Inlocuim barele defecte si verificam driverul de backlight pentru a preveni recurenta.' },
+ { q: 'Merita reparat un televizor LED vechi de 8-10 ani?', a: 'Depinde de defect si de diagonala. Un televizor de 55 inch cu o problema de sursa sau backlight se repara la o fractiune din pretul unuia nou — si merita absolut. Daca panoul este deteriorat fizic, de obicei nu merita. Va spunem sincer la diagnosticare ce recomandare avem.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparatii TV LED si OLED Bucuresti', tip: 'Reparatii televizoare LED OLED', url: '/reparatii-tv-led-bucuresti/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparatii Televizoare', url: '/reparatii-televizoare/' }, { name: 'Reparatii TV LED', url: '/reparatii-tv-led-bucuresti/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📺 SERVICE TV LED · OLED · QLED · MINI-LED</span>
+  <h1>Reparatii TV LED si OLED Bucuresti</h1>
+  <p class="lead">Reparam televizoare cu orice tehnologie de afisare: LED edge-lit si direct-lit, OLED, QLED, Mini-LED si NanoCell. Diagnosticare gratuita la domiciliu, reparatie la nivel de componenta si garantie scrisa 6-12 luni.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITA</span><span>🛡️ Garantie 6-12 luni</span><span>🏠 Service la domiciliu</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Tehnologii TV pe Care le Reparam</h2>
+  <p>Fiecare tip de televizor are defecte specifice tehnologiei sale. Le cunoastem pe toate si stim exact unde sa cautam problema:</p>
+  <div class="grid g3">
+    <div class="card"><div class="ico">💡</div><h3>LED Edge-lit</h3><p>Iluminare pe margini — cel mai raspandit tip. Defecte frecvente: bare LED arse (zone intunecate), difuzor deteriorat (pete de lumina), driver de backlight defect. Reparatie rapida, cost accesibil.</p></div>
+    <div class="card"><div class="ico">🔆</div><h3>LED Direct-lit / Full Array</h3><p>LED-uri distribuite pe toata suprafata. Mai multe bare inseamna mai multe puncte potentiale de defect, dar si o reparatie mai precisa — inlocuim doar bara afectata, nu toate.</p></div>
+    <div class="card"><div class="ico">🌑</div><h3>OLED</h3><p>Pixeli auto-emitatori, negru perfect. Defecte specifice: burn-in (retentie permanenta de imagine), placa T-CON, sursa de alimentare, probleme cu panoul la modelele mai vechi.</p></div>
+    <div class="card"><div class="ico">🎨</div><h3>QLED (Quantum Dot)</h3><p>Tehnologie Samsung cu puncte cuantice. Defecte similare LED-ului clasic plus: pierderea calibrarii culorilor, probleme specifice One Connect Box la modelele premium.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>Mini-LED</h3><p>Sute de zone locale de iluminare. Defecte: blooming excesiv (defect de driver), zone locale care nu se sting complet, probleme de firmware la controlul zonelor.</p></div>
+    <div class="card"><div class="ico">🔵</div><h3>NanoCell / QNED</h3><p>Tehnologii LG cu filtrare avansata a culorilor. Defecte similare LED-ului direct-lit, plus probleme specifice de uniformitate a panolului si driver T-CON.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Defecte Frecvente per Tehnologie</h2>
+  <h3>Iluminare LED Arsa (Edge-lit si Direct-lit)</h3>
+  <p>Cel mai frecvent defect la televizoarele LED: una sau mai multe diode de pe barele de retroiluminare se ard, creand zone intunecate pe ecran. Televizorul poate parea ca nu porneste daca toate barele sunt afectate. Diagnosticam cu aparatura de masura, inlocuim barele defecte si verificam driverul de backlight. Reparatia se face de regula in 1-2 zile.</p>
+  <h3>Burn-in OLED</h3>
+  <p>Imaginea „fantoma" ramasa permanent pe ecran — logo-uri de posturi TV, bara de taskuri. La televizoarele OLED LG, Samsung si Sony, evaluam gradul de burn-in si va sfatuim onest: retentia minora se poate atenua, burn-in-ul sever la un model vechi de obicei nu justifica costul interventiei.</p>
+  <h3>Condensatori Defecti pe Sursa de Alimentare</h3>
+  <p>Comun tuturor tehnologiilor, mai ales la modelele fabricate intre 2010-2018. Televizorul nu porneste, LED-ul clipeste sau se stinge imediat dupa pornire. Inlocuim condensatorii umflati — o reparatie rapida si ieftina care prelungeste viata televizorului cu ani.</p>
+  <h3>Placa Principala si Memoria eMMC</h3>
+  <p>Televizorul se blocheaza in logo, reporneste continuu sau nu incarca aplicatiile smart. Rescriem memoria eMMC cu programator specializat sau reparam circuitele de alimentare de pe placa principala.</p>
+</section>
+<section class="sec">
+  <h2>Toate Brandurile, un Singur Service</h2>
+  <p>Lucram pe televizoare de la toate producatorii majori. Consultati paginile dedicate pentru detalii specifice fiecarui brand:</p>
+  <ul class="checks">
+    <li><a href="/reparatii-tv-samsung/">Reparatii TV Samsung</a> — QLED, Neo QLED, Crystal UHD, The Frame</li>
+    <li><a href="/reparatii-tv-lg/">Reparatii TV LG</a> — OLED, NanoCell, QNED, UHD</li>
+    <li><a href="/reparatii-tv-sony/">Reparatii TV Sony</a> — BRAVIA XR, OLED, LED</li>
+    <li><a href="/reparatii-tv-philips/">Reparatii TV Philips</a> — Ambilight, LED, OLED</li>
+    <li><a href="/reparatii-tv-horizon/">Reparatii TV Horizon</a> — LED, Smart TV</li>
+    <li><a href="/reparatii-tv-allview/">Reparatii TV Allview</a> — LED, Android TV</li>
+    <li><a href="/reparatii-tv-hisense/">Reparatii TV Hisense</a> — VIDAA, ULED, Mini-LED</li>
+  </ul>
+  <p>Serviciul nostru acopera <a href="/reparatii-tv-sectoare/">toate sectoarele din Bucuresti</a> cu deplasare gratuita. Preturile orientative le gasiti pe <a href="/preturi/">pagina de preturi</a>.</p>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="📺 Televizorul LED nu mai functioneaza corect? Sunati-ne!" text="Diagnosticare gratuita la domiciliu in Bucuresti. Spuneti-ne marca, diagonala si simptomele — va orientam imediat." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-televizoare/">reparatii televizoare</a>, <a href="/reparatii-laptopuri-bucuresti/">reparatii laptopuri</a>, <a href="/reparatii-monitoare-lcd/">reparatii monitoare</a>, <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparatii console</a>.</p>
+</div>
+</Base>

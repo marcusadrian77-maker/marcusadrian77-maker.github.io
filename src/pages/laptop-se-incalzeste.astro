@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Laptop Se Incalzeste Excesiv: Cauze si Solutii | Ghid 2026';
+const desc = 'Laptopul se incalzeste, face zgomot sau se opreste singur? Cauze frecvente, ce poti verifica acasa si cand e nevoie de curatare profesionala. Diagnosticare GRATUITA. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cat de fierbinte e prea fierbinte pentru un laptop?', a: 'In utilizare normala (browsing, Office), procesorul ar trebui sa stea sub 70°C. La jocuri sau randare poate ajunge la 85-90°C fara probleme. Peste 95°C, laptopul incepe sa-si reduca performanta (throttling), iar peste 100°C se opreste singur pentru protectie. Daca atingeti carcasa si este inconfortabil de fierbinte in utilizare normala, este un semn ca necesita mentenanta.' },
+ { q: 'Cat de des trebuie schimbata pasta termica?', a: 'Recomandam schimbarea pastei termice la fiecare 2-3 ani pentru laptopuri de birou si la 1-2 ani pentru cele de gaming folosite intens. Pasta termica se usuca in timp si isi pierde capacitatea de transfer termic, ceea ce duce la temperaturi tot mai ridicate.' },
+ { q: 'Pot curata singur ventilatorul laptopului?', a: 'Puteti sufla aer comprimat prin fantele de ventilatie fara a deschide laptopul — aceasta ajuta temporar. Insa pentru o curatare completa (care include demontarea ventilatorului, curatarea disipatorului si inlocuirea pastei termice) recomandam service-ul profesional, mai ales daca laptopul este in garantie sau nu aveti experienta cu demontarea.' },
+ { q: 'Laptopul se opreste singur din cauza caldurii. Este periculos?', a: 'Oprirea este de fapt un mecanism de protectie — procesorul se protejeaza impotriva deteriorarii permanente. Insa daca continuati sa-l folositi in aceasta stare fara sa rezolvati cauza, riscati deteriorarea componentelor pe termen lung. Recomandam sa-l aduceti la curatare cat mai curand.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Laptop se incalzeste excesiv: cauze si solutii', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasa', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparatii Laptopuri', item: SITE.domeniu + '/reparatii-laptopuri-bucuresti/' },
+   { '@type': 'ListItem', position: 3, name: 'Laptop se incalzeste', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogLaptop}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Laptopul Se Incalzeste Excesiv: Cauze si Solutii</h1>
+  <p class="lead">Laptopul arde la atingere, ventilatorul urla constant sau se opreste singur? In acest ghid va explicam de ce se intampla, ce puteti face singur acasa si cand este momentul sa apelati la curatare profesionala.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Simptomele Supraincalzirii</h2>
+  <p>Inainte de a cauta cauza, identificati daca laptopul chiar se supraincalzeste sau functioneaza normal. Semnele clare ale unei probleme termice sunt:</p>
+  <ul class="checks">
+    <li><strong>Carcasa fierbinte la atingere</strong> — in special zona de deasupra tastaturii si partea inferioara, in dreptul procesorului</li>
+    <li><strong>Ventilatorul functioneaza la turatie maxima constant</strong> — chiar si in repaus sau la sarcini usoare (browsing, editare documente)</li>
+    <li><strong>Performanta scazuta brusc</strong> — laptopul „se trage" la jocuri sau la programe care inainte mergeau bine (throttling termic)</li>
+    <li><strong>Se opreste singur fara avertisment</strong> — protectia termica taie alimentarea cand temperatura depaseste limita critica</li>
+    <li><strong>Ecranul ingheata sau apar artefacte grafice</strong> — placa video se supraincalzeste si isi reduce frecventa sau genereaza erori</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Cauzele Principale ale Supraincalzirii</h2>
+  <h3>1. Pasta termica uscata sau deteriorata</h3>
+  <p>Pasta termica este substanta aplicata intre procesor si radiatorul (heatsink-ul) de racire. Rolul ei este sa transfere caldura de la chip la radiator. In timp (2-4 ani), pasta se usuca, se crapacaneaza si isi pierde eficienta. Temperatura procesorului creste cu 10-20°C doar din aceasta cauza. Solutia: <a href="/mentenanta-profesionala-pasta-termica/">inlocuirea pastei termice</a> cu una de calitate — o interventie rapida, cu efect imediat si dramatic.</p>
+  <h3>2. Ventilatii blocate cu praf si scame</h3>
+  <p>Praful se acumuleaza pe radiatorul de racire si pe paletele ventilatorului, formand in timp un „covor" care blocheaza fluxul de aer. Un laptop folosit 2-3 ani fara curatare poate avea radiatorul blocat 80-90%. <a href="/curatare-laptop-praf/">Curatarea profesionala</a> implica demontarea completa, curatarea cu aer comprimat si alcool izopropilic, si reasamblarea corecta.</p>
+  <h3>3. Ventilatorul defect sau uzat</h3>
+  <p>Rulmenti uzati (ventilator care face zgomot de raaait sau tacanit), palete rupte sau motor ars. Ventilatorul nu mai evacueaza caldura suficient. Inlocuim ventilatorul cu unul compatibil, testat la turatie corecta.</p>
+  <h3>4. Mediul de utilizare</h3>
+  <p>Folosirea laptopului pe pat, canapea sau perna blocheaza fantele de ventilatie de pe partea inferioara. Suprafetele moi impiedica circulatia aerului si pot creste temperatura cu 15-25°C. Folositi intotdeauna laptopul pe o suprafata tare si plana.</p>
+  <h3>5. Software si procese in fundal</h3>
+  <p>Uneori cauza nu este hardware-ul, ci un program care consuma 100% din procesor in fundal: un antivirus in scanare, o actualizare Windows blocata, malware. Verificati Task Manager (Ctrl+Shift+Esc) si inchideti procesele suspecte.</p>
+</section>
+<section class="sec">
+  <h2>Ce Puteti Face Singur Acasa</h2>
+  <ol>
+    <li><strong>Verificati suprafata.</strong> Mutati laptopul pe un birou sau o masa. Niciodata pe pat sau perna.</li>
+    <li><strong>Curatati fantele de ventilatie.</strong> Suflati aer comprimat (spray) prin fantele laterale sau din spate, fara a deschide laptopul.</li>
+    <li><strong>Verificati procesele.</strong> Deschideti Task Manager si cautati procese cu consum mare de CPU. Inchideti-le sau reporniti laptopul.</li>
+    <li><strong>Folositi un cooler extern.</strong> O baza de racire cu ventilatoare poate reduce temperatura cu 5-10°C — nu rezolva cauza, dar ajuta temporar.</li>
+    <li><strong>Verificati setarile de putere.</strong> Schimbati planul de alimentare pe „Echilibrat" in loc de „Performanta inalta" daca nu aveti nevoie de putere maxima.</li>
+  </ol>
+</section>
+<section class="sec">
+  <h2>Cand Este Momentul sa Veniti la Service</h2>
+  <p>Daca masurile de mai sus nu ajuta, laptopul necesita mentenanta profesionala. Semnele clare ca trebuie sa apelati la un tehnician:</p>
+  <ul class="checks">
+    <li>Laptopul se opreste singur in mod repetat</li>
+    <li>Ventilatorul face zgomot anormal (tacanit, scraasnit, vibratii)</li>
+    <li>Temperaturile depasesc 90°C in utilizare normala (verificati cu HWMonitor sau Core Temp)</li>
+    <li>Nu a fost niciodata curatat profesional (peste 2-3 ani de utilizare)</li>
+    <li>Performanta a scazut treptat in ultimele luni</li>
+  </ul>
+  <p>La Marcus Electronics, <a href="/reparatii-laptopuri-bucuresti/">mentenanta termica</a> include curatare completa de praf, inlocuire pasta termica de calitate, verificare ventilator si testare la sarcina. Lucram pe toate brandurile: HP, Lenovo, Dell, ASUS, Acer, MSI, si bineinteles <a href="/reparatii-macbook/">MacBook</a>.</p>
+  <p>Pentru un program de <a href="/mentenanta-periodica/">mentenanta periodica</a> care previne supraincalzirea, va recomandam sa consultati pagina dedicata.</p>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🌡️ Laptopul se incalzeste? Aduceti-l pentru mentenanta!" text="Curatare profesionala, pasta termica noua si verificare completa. Diagnosticare gratuita — sunati sau scrieti pe WhatsApp." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/curatare-laptop-praf/">curatare laptop de praf</a>, <a href="/mentenanta-profesionala-pasta-termica/">pasta termica profesionala</a>, <a href="/reparatii-laptopuri-bucuresti/">reparatii laptopuri</a>, <a href="/reparatii-macbook/">reparatii MacBook</a>.</p>
+</div>
+</Base>

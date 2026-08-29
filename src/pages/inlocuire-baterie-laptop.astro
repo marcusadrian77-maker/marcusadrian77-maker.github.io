@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Inlocuire Baterie Laptop Bucuresti | Service Baterii Laptop';
+const desc = 'Inlocuire baterie laptop in Bucuresti: baterii originale si compatibile, toate brandurile. Baterie umflata? Nu amana! Diagnosticare GRATUITA, garantie. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cat costa inlocuirea bateriei la un laptop?', a: 'Pretul depinde de marca si modelul laptopului. Bateriile compatibile de calitate pentru modele populare (HP, Lenovo, Dell, ASUS) pornesc de la 200-350 lei cu montaj. Bateriile pentru MacBook si modele premium sunt mai scumpe. La diagnosticare va comunicam pretul exact si tipul bateriei recomandate.' },
+ { q: 'Cat dureaza inlocuirea bateriei?', a: 'La laptopurile cu baterie accesibila (majoritatea modelelor business si mai vechi), inlocuirea se face in 30-60 de minute. La modelele cu baterie lipita sau integrate in carcasa (MacBook, ultrabook-uri subtiri), procedura dureaza 1-2 ore. De regula, predati laptopul in aceeasi zi.' },
+ { q: 'Bateria laptopului s-a umflat. Este periculos?', a: 'Da, o baterie umflata este un risc real. Gazele acumulate in interiorul celulelor litiu-ion pot duce la incendiu sau explozie in cazuri extreme. Nu apasati pe bateria umflata, nu incercati sa o perforati si aduceti laptopul la service cat mai curand. Nu il lasati la incarcat nesupravegheat pana la inlocuire.' },
+ { q: 'Pot folosi laptopul doar pe incarcator, fara baterie?', a: 'Tehnic, da — majoritatea laptopurilor functioneaza conectate la priza chiar si fara baterie. Dar nu recomandam sa amanati inlocuirea: laptopul pierde protectia la caderi de tensiune (se opreste brutal la orice fluctuatie), iar la modelele cu baterie lipita, absenta bateriei nu este o optiune.' },
+ { q: 'Cum prelungesc viata bateriei noi?', a: 'Evitati descarcarea completa frecventa — incarcati cand ajunge la 20-30%. Nu tineti laptopul permanent la 100% pe incarcator (multe modele au un mod de protectie in BIOS care limiteaza la 80%). Evitati temperaturile extreme. Majoritatea bateriilor moderne rezista 500-800 de cicluri de incarcare-descarcare inainte de degradare semnificativa.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Inlocuire Baterie Laptop Bucuresti', tip: 'Inlocuire baterie laptop', url: '/inlocuire-baterie-laptop/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparatii Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }, { name: 'Inlocuire Baterie Laptop', url: '/inlocuire-baterie-laptop/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogLaptop}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🔋 INLOCUIRE BATERIE LAPTOP</span>
+  <h1>Inlocuire Baterie Laptop Bucuresti</h1>
+  <p class="lead">Bateria laptopului nu mai tine, se descarca in 30 de minute sau s-a umflat? Inlocuim baterii pentru toate brandurile cu piese de calitate, montaj profesional si garantie scrisa. Baterie umflata? Nu amana — aduceti laptopul imediat.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITA</span><span>🛡️ Garantie 6-12 luni</span><span>💰 Pret ferm, comunicat inainte</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Semne ca Bateria Trebuie Inlocuita</h2>
+  <p>Bateriile litiu-ion au o durata de viata limitata (de regula 2-4 ani sau 500-800 de cicluri de incarcare). Iata semnele ca bateria trebuie inlocuita:</p>
+  <ul class="checks">
+    <li><strong>Autonomia a scazut dramatic</strong> — laptopul tine 30-60 de minute in loc de 4-6 ore. O baterie sanatoasa isi pastreaza cel putin 80% din capacitate in primii 2 ani.</li>
+    <li><strong>Bateria s-a umflat</strong> — carcasa se ridica, trackpad-ul devine greu de apasat, spatiu vizibil intre capac si baza. <strong>Nu ignorati acest semn</strong> — este un risc de siguranta.</li>
+    <li><strong>Laptopul se opreste brusc</strong> — indica un nivel mai mare de uzura decat bateria care „nu mai tine". Bateria raporteaza un procent gresit si se stinge brusc la 30-40%.</li>
+    <li><strong>Nu se mai incarca deloc</strong> — LED-ul de incarcare nu se aprinde sau bateria ramane la 0%. Poate fi bateria sau circuitul de incarcare — diagnosticam exact cauza.</li>
+    <li><strong>Laptopul functioneaza doar pe incarcator</strong> — bateria nu mai livreaza curent. Necesita inlocuire.</li>
+    <li><strong>Windows afiseaza „Consider replacing your battery"</strong> — sistemul de operare a detectat o degradare semnificativa a bateriei.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Pericolul Bateriilor Umflate</h2>
+  <p>O baterie umflata nu este doar o inconvenienta — este un risc real de siguranta. Celulele litiu-ion isi pierd integritatea, gazele se acumuleaza si presiunea creste. In cazuri extreme, bateria se poate aprinde sau exploda.</p>
+  <p><strong>Ce sa faceti imediat:</strong></p>
+  <ol>
+    <li>Nu mai folositi laptopul pe baterie — deconectati-l si nu il mai porniti daca bateria este vizibil deformata.</li>
+    <li>Nu apasati pe zona umflata si nu incercati sa perforati bateria.</li>
+    <li>Nu lasati laptopul la incarcat nesupravegheat.</li>
+    <li>Aduceti laptopul la service cat mai curand — noi eliminam bateria in siguranta si o inlocuim.</li>
+  </ol>
+  <p>La <a href="/reparatii-laptopuri-bucuresti/">atelierul nostru</a>, gestionam bateriile umflate in conditii de siguranta si le predam la reciclare conform normelor. Inlocuirea se face de regula in aceeasi zi.</p>
+</section>
+<section class="sec">
+  <h2>Branduri si Compatibilitate</h2>
+  <p>Inlocuim baterii pentru toate brandurile majore de laptopuri:</p>
+  <div class="grid g3">
+    <div class="card"><div class="ico">💻</div><h3>HP / Compaq</h3><p>Seria ProBook, EliteBook, Pavilion, Envy, Spectre. Baterii interne si externe, inclusiv modelele cu baterie lipita.</p></div>
+    <div class="card"><div class="ico">💻</div><h3>Lenovo / ThinkPad</h3><p>ThinkPad, IdeaPad, Yoga, Legion. Baterii interne si externe. Modele ThinkPad mai vechi cu baterie detasabila — cele mai simple inlocuiri.</p></div>
+    <div class="card"><div class="ico">💻</div><h3>Dell</h3><p>Latitude, Inspiron, XPS, Vostro. Baterii integrate cu montaj profesional si calibrare.</p></div>
+    <div class="card"><div class="ico">💻</div><h3>ASUS</h3><p>ZenBook, VivoBook, ROG, TUF Gaming. Baterii interne la modelele mai noi, cu montaj atent al carcasei subtiri.</p></div>
+    <div class="card"><div class="ico">💻</div><h3>Acer</h3><p>Aspire, Swift, Nitro, Predator. Baterii compatibile testate si cu garantie.</p></div>
+    <div class="card"><div class="ico">🍎</div><h3>Apple MacBook</h3><p>MacBook Air si Pro, toate generatiile. Baterii cu montaj specializat — vezi <a href="/reparatii-macbook/">pagina dedicata MacBook</a>.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Cum Decurge Inlocuirea</h2>
+  <ol>
+    <li><strong>Ne contactati.</strong> Spuneti-ne marca, modelul exact (se gaseste pe eticheta de pe spatele laptopului) si ce simptome observati.</li>
+    <li><strong>Aduceti laptopul la atelier.</strong> Str. Moinesti 7, Militari, <a href="/reparatii-laptop-sector-6/">Sector 6</a>. Program: {SITE.program}.</li>
+    <li><strong>Diagnosticare gratuita.</strong> Verificam bateria si circuitul de incarcare. Va comunicam pretul ferm si termenul — fara obligatie.</li>
+    <li><strong>Inlocuirea.</strong> Montam bateria noua, calibram si testam autonomia.</li>
+    <li><strong>Predare cu garantie 6-12 luni</strong> pentru baterie si manopera.</li>
+  </ol>
+  <p>Preturile orientative le gasiti pe <a href="/preturi/">pagina de preturi</a>. Pentru <a href="/mentenanta-periodica/">mentenanta periodica</a> care include si verificarea starii bateriei, consultati pagina dedicata.</p>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🔋 Baterie de Laptop Uzata sau Umflata? Aduceti-l la Noi!" text="Inlocuire rapida, piese de calitate, garantie scrisa. Sunati sau scrieti pe WhatsApp pentru pretul exact." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparatii laptopuri</a>, <a href="/reparatii-macbook/">reparatii MacBook</a>, <a href="/reparatii-laptop-sector-6/">service laptop Sector 6</a>, <a href="/mentenanta-periodica/">mentenanta periodica</a>.</p>
+</div>
+</Base>

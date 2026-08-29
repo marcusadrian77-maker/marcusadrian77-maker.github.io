@@ -6,9 +6,11 @@ import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
 const faq = [
- { q: 'Cât costă reparația unui cuptor cu microunde?', a: 'Prețul variază în funcție de defecțiune. Diagnosticarea este gratuită și vă comunicăm costul înainte de reparație.' },
- { q: 'Cât durează reparația cuptorului cu microunde?', a: 'Majoritatea reparațiilor se efectuează în 24–48 ore de la depunerea aparatului.' },
- { q: 'Merită să repar un cuptor cu microunde vechi?', a: 'Da, în general repararea este mult mai economică decât achiziționarea unui aparat nou, mai ales pentru defecțiuni comune.' },
+ { q: 'Cât costă reparația unui cuptor cu microunde?', a: 'Prețul variază în funcție de defecțiune. Diagnosticarea este gratuită și vă comunicăm costul înainte de reparație. Orientativ: reparațiile simple (siguranțe, condensatoare) pornesc de la 50 lei, iar înlocuirea magnetronului poate ajunge la 150–300 lei.' },
+ { q: 'Cât durează reparația cuptorului cu microunde?', a: 'Majoritatea reparațiilor se efectuează în 24–48 ore de la depunerea aparatului. Reparațiile simple pot fi gata chiar în aceeași zi.' },
+ { q: 'Merită să repar un cuptor cu microunde vechi?', a: 'Da, în general repararea este mult mai economică decât achiziționarea unui aparat nou, mai ales pentru defecțiuni comune. Un cuptor nou de calitate costă 400–1.500 lei, în timp ce majoritatea reparațiilor se încadrează sub 300 lei.' },
+ { q: 'Reparați cuptoare cu microunde cu funcție de grill sau convecție?', a: 'Da, reparăm toate tipurile de cuptoare cu microunde: simple, cu grill, cu convecție și cuptoare combinate. Indiferent de complexitate, diagnosticarea este gratuită.' },
+ { q: 'Ce garanție oferiți pentru reparația cuptorului?', a: 'Oferim garanție scrisă de 6–12 luni pentru toate reparațiile efectuate, atât pentru manoperă cât și pentru piesele de schimb înlocuite.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 import { breadcrumb, graf, serviciu } from '../data/schema';
@@ -39,6 +41,55 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații cuptoare cu microunde', tip:
     <div class="card-soft"><strong>Platoul nu se rotește</strong><span>Reparare motor platou sau cuplaj</span></div>
   </div>
 </section>
+
+<section class="sec">
+  <h2>Când Merită Reparat Cuptorul cu Microunde?</h2>
+  <p>Un cuptor cu microunde nou de calitate medie costă între 400 și 1.500 lei. În schimb, majoritatea reparațiilor frecvente se încadrează sub 300 lei. Iată o comparație orientativă:</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Reparație</h3>
+      <ul class="checks">
+        <li>Înlocuire siguranță: 50 – 80 lei</li>
+        <li>Înlocuire condensator: 60 – 120 lei</li>
+        <li>Înlocuire magnetron: 150 – 300 lei</li>
+        <li>Reparare panou de control: 80 – 200 lei</li>
+        <li>Reparare motor platou: 50 – 100 lei</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Cuptor Nou</h3>
+      <ul class="checks">
+        <li>Model simplu (20L): 300 – 500 lei</li>
+        <li>Model cu grill (23–25L): 500 – 900 lei</li>
+        <li>Model cu convecție: 700 – 1.500 lei</li>
+        <li>Model premium (încorporabil): 1.000 – 3.000 lei</li>
+      </ul>
+    </div>
+  </div>
+  <p>Regula generală: dacă reparația costă sub 50% din prețul unui aparat nou echivalent, merită reparat. Dacă cuptorul are mai mult de 10 ani și necesită înlocuirea mai multor componente, vă recomandăm sincer achiziționarea unuia nou. Diagnosticarea este gratuită, așa că puteți lua o decizie informată fără niciun cost.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum Funcționează Procesul?</h2>
+  <div class="grid g3">
+    <div class="card" style="text-align:center">
+      <div class="ico">1️⃣</div>
+      <h3>Aduceți Cuptorul</h3>
+      <p>Aduceți cuptorul la atelierul nostru din Sector 6 sau sunați pentru programare. Recepția se face rapid, cu înregistrarea simptomelor și a datelor aparatului.</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="ico">2️⃣</div>
+      <h3>Diagnosticare Gratuită</h3>
+      <p>Tehnicianul verifică aparatul complet: siguranțe, condensatoare, magnetron, panou de control. Vă comunicăm defecțiunea exactă și prețul fix al reparației.</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="ico">3️⃣</div>
+      <h3>Reparație cu Garanție</h3>
+      <p>Cu acordul dumneavoastră, efectuăm reparația (de obicei în 24–48 ore). Predăm aparatul testat, cu garanție scrisă de 6–12 luni.</p>
+    </div>
+  </div>
+</section>
+
 <section class="sec">
   <h2>De Ce Să Alegeți Service-ul Nostru?</h2>
   <ul class="checks">
@@ -47,11 +98,49 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații cuptoare cu microunde', tip:
     <li><strong>Garanție 6–12 luni</strong> — la toate reparațiile efectuate</li>
     <li><strong>Piese originale</strong> — folosim piese de calitate pentru reparații durabile</li>
   </ul>
+  <p>Prețuri detaliate pentru toate echipamentele găsiți pe pagina de <a href="/preturi/">prețuri reparații</a>. Pentru întrebări suplimentare, vizitați secțiunea de <a href="/intrebari-frecvente-faq-2/">întrebări frecvente</a> sau <a href="/contact/">contactați-ne</a> direct.</p>
 </section>
+
+<section class="sec">
+  <h2>Sfaturi pentru Utilizarea Corectă a Cuptorului cu Microunde</h2>
+  <p>Multe defecțiuni ale cuptoarelor cu microunde pot fi prevenite prin utilizarea corectă:</p>
+  <ul class="checks">
+    <li><strong>Nu porniți cuptorul gol</strong> — microundele emise de magnetron nu au ce absorbi și se reflectă înapoi, ceea ce poate deteriora magnetronul și placa de ghidaj unde</li>
+    <li><strong>Nu introduceți obiecte metalice</strong> — folia de aluminiu, farfurii cu margine metalică sau tacâmuri provoacă arcuri electrice care pot avaria interiorul</li>
+    <li><strong>Curățați regulat interiorul</strong> — resturile de mâncare carbonizate pot provoca scântei și deteriorarea suprafeței interioare</li>
+    <li><strong>Verificați garnitura ușii</strong> — o garnitură deteriorată poate permite scurgerea microundelor și poate activa siguranțele de protecție</li>
+  </ul>
+  <p>Dacă respectați aceste sfaturi simple, cuptorul dumneavoastră cu microunde poate funcționa fără probleme 8–15 ani. Și dacă totuși apare o defecțiune, suntem aici — toate <a href="/servicii/">serviciile noastre</a> includ diagnosticare gratuită.</p>
+</section>
+
 <section class="sec">
   <h2>Întrebări Frecvente</h2>
   <Faq items={faq} />
 </section>
+
+<section class="sec">
+  <h2>Alte Servicii Marcus Electronics</h2>
+  <p>Pe lângă cuptoare cu microunde, oferim reparații profesionale pentru o gamă largă de echipamente electronice:</p>
+  <div class="grid g3">
+    <a class="card" href="/reparatii-televizoare/" style="text-decoration:none">
+      <div class="ico">📺</div>
+      <h3>Reparații TV</h3>
+      <p>Service televizoare la domiciliu — Samsung, LG, Sony, Philips și alte mărci. Diagnostic gratuit.</p>
+    </a>
+    <a class="card" href="/reparatii-laptopuri-bucuresti/" style="text-decoration:none">
+      <div class="ico">💻</div>
+      <h3>Reparații Laptopuri</h3>
+      <p>Reparații laptopuri orice marcă, curățare de praf, înlocuire ecran, tastatură, baterie.</p>
+    </a>
+    <a class="card" href="/reparatii-console-gaming-sector-6/" style="text-decoration:none">
+      <div class="ico">🎮</div>
+      <h3>Reparații Console</h3>
+      <p>Service PS4, PS5, Xbox One, Xbox Series. Reparații controllere, mentenanță, curățare.</p>
+    </a>
+  </div>
+  <p style="margin-top:14px">Toate <a href="/servicii/">serviciile noastre</a> includ diagnosticare gratuită și garanție scrisă.</p>
+</section>
+
 <Cta titlu="🔌 Cuptor cu Microunde Defect? Sunați-ne!" text="Aduceți cuptorul la service-ul nostru din Sector 6 București. Diagnosticare gratuită!" />
 </div>
 </Base>

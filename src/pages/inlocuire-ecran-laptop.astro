@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Inlocuire Ecran Laptop Bucuresti | Service Display LCD/IPS/OLED';
+const desc = 'Inlocuire ecran laptop spart sau defect in Bucuresti: LCD, IPS, OLED, toate brandurile si diagonalele. Diagnosticare GRATUITA, garantie 6-12 luni. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cat costa inlocuirea ecranului la un laptop?', a: 'Pretul depinde de tipul panelului (TN, IPS, OLED), diagonala, rezolutia si modelul laptopului. Ecranele TN/IPS standard (15.6 inch, Full HD) pornesc de la 300-400 lei cu montaj. Ecranele OLED sau de inalta rezolutie (4K) sunt mai scumpe. La diagnosticare va comunicam pretul exact, ferm.' },
+ { q: 'Cat dureaza inlocuirea ecranului?', a: 'Daca avem ecranul compatibil in stoc, inlocuirea se face in aceeasi zi sau in maxim 24 de ore. Daca ecranul trebuie comandat (modele mai rare sau OLED), poate dura 3-7 zile lucratoare. Va comunicam termenul exact la diagnosticare.' },
+ { q: 'Cum stiu daca ecranul trebuie inlocuit sau se poate repara?', a: 'Un ecran spart (crapaturi vizibile, pete negre, linii de impact) trebuie inlocuit — nu se repara. Un ecran cu flickering, dungi subtiri sau culori alterate poate avea o problema de cablu flex sau de placa video, nu de panou — si aceasta se poate repara fara inlocuire. La diagnosticare identificam cauza exacta.' },
+ { q: 'Pot pune un ecran mai bun decat originalul?', a: 'In multe cazuri, da. Daca laptopul a venit cu un panou TN (unghiuri de vizualizare slabe, culori spalacite), de multe ori putem monta un panou IPS compatibil — cu culori mai bune si unghiuri largi de vizualizare — la un pret similar sau putin mai mare.' },
+ { q: 'Ecranul laptopului palpaie (flickering). Trebuie inlocuit?', a: 'Nu neaparat. Flickering-ul poate fi cauzat de un cablu flex deteriorat, de un invertor defect (la modelele mai vechi cu CCFL) sau de o problema software (driver de placa video). Diagnosticam cauza exacta inainte de a recomanda inlocuirea.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Inlocuire Ecran Laptop Bucuresti', tip: 'Inlocuire ecran laptop', url: '/inlocuire-ecran-laptop/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparatii Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }, { name: 'Inlocuire Ecran Laptop', url: '/inlocuire-ecran-laptop/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogLaptop}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🖥️ INLOCUIRE ECRAN LAPTOP</span>
+  <h1>Inlocuire Ecran Laptop Bucuresti</h1>
+  <p class="lead">Ecran de laptop spart, cu linii, pete negre sau care palpaie? Inlocuim display-uri LCD, IPS si OLED pentru toate brandurile si diagonalele, cu piese compatibile testate si garantie scrisa.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITA</span><span>🛡️ Garantie 6-12 luni</span><span>💰 Pret ferm, comunicat inainte</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Tipuri de Ecrane pe Care le Inlocuim</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">📐</div><h3>Ecrane TN (Twisted Nematic)</h3><p>Cele mai raspandite la laptopurile de buget si mai vechi. Unghiuri de vizualizare limitate, culori mai putin fidele. Avantaj: pret accesibil la inlocuire. Posibilitate de upgrade la IPS.</p></div>
+    <div class="card"><div class="ico">🎨</div><h3>Ecrane IPS (In-Plane Switching)</h3><p>Standard pentru laptopurile mid-range si business: unghiuri largi de vizualizare, culori fidele. Disponibile in Full HD si 2K. Cele mai frecvente inlocuiri pe care le facem.</p></div>
+    <div class="card"><div class="ico">🌑</div><h3>Ecrane OLED / AMOLED</h3><p>Contrast infinit, negru perfect, culori vibrante. Prezente pe laptopuri premium (ASUS ZenBook, Lenovo Yoga, HP Spectre, MacBook Pro). Inlocuire cu panou original sau compatibil de aceeasi calitate.</p></div>
+    <div class="card"><div class="ico">✋</div><h3>Ecrane Touchscreen</h3><p>Laptopuri 2-in-1 si convertibile cu ecran tactil. Inlocuirea include panoul LCD si digitizer-ul tactil — fie separat (daca este posibil), fie ca modul complet.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Diagonale si Compatibilitate</h2>
+  <p>Inlocuim ecrane de la 11.6 inch (netbook-uri, Chromebook-uri) pana la 17.3 inch (laptopuri desktop replacement si gaming). Diagonalele cele mai frecvente:</p>
+  <ul class="checks">
+    <li><strong>13.3 inch / 14 inch</strong> — laptopuri ultrabook si business (Lenovo ThinkPad, Dell Latitude, HP EliteBook, <a href="/reparatii-macbook/">MacBook Air/Pro</a>)</li>
+    <li><strong>15.6 inch</strong> — cea mai populara diagonala, prezenta pe laptopuri de toate categoriile</li>
+    <li><strong>16 inch / 16.1 inch</strong> — format mai nou, frecvent la laptopurile de gaming si la MacBook Pro 16</li>
+    <li><strong>17.3 inch</strong> — laptopuri desktop replacement, modele gaming ASUS ROG, MSI, Lenovo Legion</li>
+  </ul>
+  <p>Fiecare model de laptop are un cod de panou specific (de exemplu N156HCA-EAB sau LP140WF8-SPR1). Identificam codul exact prin demontarea ecranului si comandam piesa compatibila — garantand potrivirea perfecta ca dimensiune, conectori si rezolutie.</p>
+</section>
+<section class="sec">
+  <h2>Cand Trebuie Inlocuit Ecranul</h2>
+  <ul class="checks">
+    <li><strong>Ecran spart sau crapat</strong> — dupa impact, cadere sau presiune pe capac. Crapaturile nu se repara, ecranul trebuie inlocuit.</li>
+    <li><strong>Pete negre care se extind</strong> — lichid (cristale lichide) scurs in interiorul panelului dupa un impact. Inlocuire necesara.</li>
+    <li><strong>Linii colorate verticale sau orizontale</strong> — pot fi de la panou (inlocuire) sau de la cablul flex (reparatie mai simpla). Diagnosticam cauza.</li>
+    <li><strong>Ecran complet negru dar laptopul functioneaza</strong> — poate fi panoul, backlight-ul, cablul flex sau placa video. La <a href="/reparatii-laptopuri-bucuresti/">laptopurile obisnuite</a> si la <a href="/reparatii-macbook/">MacBook</a>, verificam toate cauzele posibile inainte de a recomanda inlocuirea.</li>
+    <li><strong>Culori distorsionate sau ecran ingalbenist</strong> — panou in degradare. Daca nu este o setare software, inlocuirea este solutia.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Cum Decurge Inlocuirea</h2>
+  <ol>
+    <li><strong>Ne contactati.</strong> Spuneti-ne marca, modelul exact si ce s-a intamplat cu ecranul.</li>
+    <li><strong>Aduceti laptopul la atelier.</strong> Str. Moinesti 7, Militari, <a href="/reparatii-laptop-sector-6/">Sector 6</a>. Program: {SITE.program}.</li>
+    <li><strong>Diagnosticare gratuita.</strong> Verificam daca problema este panoul, cablul flex sau alta componenta. Va comunicam pretul ferm.</li>
+    <li><strong>Inlocuirea.</strong> Daca avem ecranul in stoc — in aceeasi zi. Daca trebuie comandat — 3-7 zile lucratoare.</li>
+    <li><strong>Testare si predare cu garantie 6-12 luni.</strong></li>
+  </ol>
+  <p>Preturile orientative pentru toate serviciile noastre de laptop le gasiti pe <a href="/preturi/">pagina de preturi</a>.</p>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🖥️ Ecran de Laptop Spart? Aduceti-l pentru Diagnostic Gratuit!" text="Va spunem pretul exact si termenul de inlocuire inainte de orice interventie. Sunati sau scrieti pe WhatsApp." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparatii laptopuri</a>, <a href="/reparatii-macbook/">reparatii MacBook</a>, <a href="/reparatii-laptop-sector-6/">service laptop Sector 6</a>, <a href="/preturi/">preturi</a>.</p>
+</div>
+</Base>

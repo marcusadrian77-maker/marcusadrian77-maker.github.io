@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparatii TV Hisense Bucuresti | Service Televizoare Hisense';
+const desc = 'Reparatii profesionale televizoare Hisense in Bucuresti: VIDAA, ULED, Mini-LED. Diagnosticare GRATUITA la domiciliu, garantie 6-12 luni. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Reparati televizoare Hisense cu sistem VIDAA?', a: 'Da. VIDAA este sistemul de operare folosit de Hisense pe majoritatea televizoarelor smart. Rezolvam probleme de software (blocare in logo, aplicatii care nu se incarca, actualizari esuate) prin rescriere firmware sau memorie eMMC, precum si toate defectele hardware.' },
+ { q: 'Cat costa reparatia unui televizor Hisense?', a: 'Depinde de defect. Reparatiile de sursa de alimentare (cele mai frecvente) pornesc de la 150 lei, iar cele de backlight de la 200 lei. Diagnosticarea este gratuita — aflati pretul exact inainte de a decide, fara nicio obligatie.' },
+ { q: 'Gasiti piese pentru televizoarele Hisense?', a: 'Da. Hisense este un producator mare la nivel mondial si piesele sunt disponibile: surse de alimentare, placi principale, bare LED, placi T-CON. Pentru componentele individuale (condensatori, tranzistori, drivere LED) folosim componente de calitate din stoc propriu.' },
+ { q: 'Televizorul Hisense a ramas blocat in logo. Ce pot face?', a: 'Incercati o resetare electrica: scoateti televizorul din priza, asteptati 5 minute, apoi reconectati. Daca se blocheaza in continuare, memoria eMMC este probabil corupta si necesita rescriere cu programator specializat — o interventie pe care o facem frecvent in atelier.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparatii TV Hisense Bucuresti', tip: 'Reparatii televizoare Hisense', url: '/reparatii-tv-hisense/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparatii Televizoare', url: '/reparatii-televizoare/' }, { name: 'Reparatii TV Hisense', url: '/reparatii-tv-hisense/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📺 SERVICE HISENSE BUCURESTI</span>
+  <h1>Reparatii TV Hisense Bucuresti</h1>
+  <p class="lead">Service profesional pentru televizoare Hisense in Bucuresti: modele VIDAA, ULED, Mini-LED si Laser TV. Diagnosticare gratuita la domiciliu, reparatie la nivel de componenta si garantie scrisa 6-12 luni.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITA</span><span>🛡️ Garantie 6-12 luni</span><span>🏠 Deplasare la domiciliu</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>De Ce Hisense Necesita Service Specializat</h2>
+  <p>Hisense a crescut rapid pe piata din Romania, oferind televizoare cu raport calitate-pret excelent. Modele precum seria A6, A7, U7 si U8 sunt foarte populare, dar nu toate service-urile din Bucuresti au experienta si piesele necesare pentru ele. La Marcus Electronics cunoastem arhitectura electronica a televizoarelor Hisense si avem acces la piese compatibile pentru toate seriile.</p>
+  <p>Hisense foloseste platforma VIDAA ca sistem de operare pe majoritatea modelelor, iar unele modele vin cu Google TV sau Roku. Stim sa lucram cu toate variantele, atat la nivel hardware cat si software.</p>
+</section>
+<section class="sec">
+  <h2>Modele si Tehnologii Hisense</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">📺</div><h3>Hisense VIDAA</h3><p>Seria A6, A7 cu sistem VIDAA. Defecte frecvente: memorie eMMC corupta (blocat in logo), probleme WiFi, sursa de alimentare defecta, condensatori umflati.</p></div>
+    <div class="card"><div class="ico">🎨</div><h3>Hisense ULED</h3><p>Seria U7, U8 cu tehnologie ULED (quantum dot + local dimming). Defecte: zone locale nefunctionale, driver de backlight defect, probleme de uniformitate.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>Hisense Mini-LED</h3><p>Modele premium cu sute de zone de iluminare. Defecte: blooming excesiv, zone care nu se sting, probleme de firmware la controlul zonelor locale.</p></div>
+    <div class="card"><div class="ico">🔴</div><h3>Hisense Laser TV</h3><p>Proiectoare laser cu ecran special. Defecte: sursa laser, probleme de aliniere, alimentare. Interventii mai complexe, realizate in atelier.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Defectiuni Frecvente la Televizoarele Hisense</h2>
+  <ul class="checks">
+    <li><strong>Nu porneste, LED-ul clipeste</strong> — sursa de alimentare defecta, cel mai frecvent condensatori electrolitici umflati sau uscati. Reparatie rapida, cost accesibil.</li>
+    <li><strong>Blocat in logo-ul Hisense / VIDAA</strong> — memoria eMMC corupta. Rescriem firmware-ul cu programator specializat in atelier.</li>
+    <li><strong>Ecran negru dar se aude sunet</strong> — bare LED arse (backlight defect). Inlocuim barele arse si verificam driverul de backlight.</li>
+    <li><strong>Linii orizontale sau verticale pe ecran</strong> — placa T-CON defecta sau cablul LVDS deteriorat. Diagnosticam si reparam la nivel de componenta.</li>
+    <li><strong>Nu se conecteaza la WiFi sau pierde conexiunea</strong> — modul WiFi defect sau probleme software VIDAA. Inlocuim modulul sau rescriem software-ul.</li>
+    <li><strong>Telecomanda nu raspunde</strong> — senzorul IR defect sau placa de butoane nefunctionala. Verificam si inlocuim componenta afectata.</li>
+    <li><strong>Sunet distorsionat sau fara sunet</strong> — amplificator audio defect sau difuzoare arse. Reparam sau inlocuim componenta audio.</li>
+  </ul>
+  <p>Simptome similare apar si la alte branduri — consultati si <a href="/televizor-samsung-nu-porneste/">ghidul pentru Samsung care nu porneste</a> pentru comparatie.</p>
+</section>
+<section class="sec">
+  <h2>Cum Decurge Reparatia</h2>
+  <ol>
+    <li><strong>Ne contactati.</strong> Sunati sau scrieti pe WhatsApp — spuneti-ne modelul (se gaseste pe eticheta din spatele televizorului) si descrieti problema.</li>
+    <li><strong>Deplasare gratuita.</strong> Venim la domiciliu oriunde in <a href="/reparatii-tv-sectoare/">Bucuresti si Ilfov</a>. Diagnosticarea si deplasarea sunt gratuite.</li>
+    <li><strong>Diagnosticare si pret ferm.</strong> Identificam defectul exact si va comunicam pretul inainte de orice interventie — fara obligatie.</li>
+    <li><strong>Reparatia.</strong> Majoritatea problemelor de sursa se repara pe loc. Interventiile complexe (eMMC, backlight) necesita transport gratuit la atelier.</li>
+    <li><strong>Garantie scrisa.</strong> Toate reparatiile au garantie 6-12 luni, piesa si manopera.</li>
+  </ol>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="📺 Televizor Hisense Defect? Sunati-ne!" text="Diagnosticare gratuita la domiciliu in Bucuresti. Spuneti-ne modelul si ce ati observat — va orientam imediat." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-televizoare/">reparatii televizoare</a>, <a href="/reparatii-tv-samsung/">reparatii TV Samsung</a>, <a href="/reparatii-tv-lg/">reparatii TV LG</a>, <a href="/reparatii-tv-sony/">reparatii TV Sony</a>, <a href="/preturi/">preturi</a>.</p>
+</div>
+</Base>

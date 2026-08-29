@@ -27,6 +27,16 @@ const desc = tip === 'sector'
 
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const numeServiciu = tip === 'sector' ? 'Reparații TV Sector ' + data.nr + ' București' : 'Reparații TV ' + data.nume + ' București';
+
+const faqSchema = tip === 'brand' && data.faq?.length ? {
+  '@type': 'FAQPage',
+  mainEntity: data.faq.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+} : null;
+
 const schemaExtra = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -51,6 +61,7 @@ const schemaExtra = {
         { '@type': 'ListItem', position: 3, name: numeServiciu, item: canonical },
       ],
     },
+    ...(faqSchema ? [faqSchema] : []),
   ],
 };
 ---
@@ -93,12 +104,23 @@ const schemaExtra = {
     <div class="card"><div class="ico">⚡</div><h3>TV nu pornește</h3><p>Sursă de alimentare, condensatori devalorizați, circuit de tensiune; Smart TV blocat — rescriere eMMC cu programator specializat.</p></div>
     <div class="card"><div class="ico">📱</div><h3>Smart TV</h3><p>Probleme Wi-Fi, Android/Tizen/WebOS, actualizări.</p></div>
     <div class="card"><div class="ico">🔌</div><h3>Conectivitate</h3><p>Porturi HDMI/USB defecte, antenă, Ethernet.</p></div>
-    
+
   </div>
 </section>
 <section class="sec">
   <h2>Intervenții recente în Sectorul {data.nr}</h2>
   <ul class="checks">{data.cazuri.map(c => <li>{c}</li>)}</ul>
+</section>
+<section class="sec">
+  <h2>Mărci de televizoare reparate în Sectorul {data.nr}</h2>
+  <p>Reparăm televizoare de orice marcă în Sectorul {data.nr}. Iată brandurile pe care le reparăm cel mai frecvent:</p>
+  <div class="grid g4">
+    {BRANDURI.map(b => (
+      <a href={'/reparatii-tv-' + b.slug + '/'} class="card-soft" style="text-decoration:none;color:inherit">
+        <strong>📺 Reparații TV {b.nume}</strong>
+      </a>
+    ))}
+  </div>
 </section>
 <section class="sec">
   <h2>De Ce Să Ne Alegeți?</h2>
@@ -110,6 +132,16 @@ const schemaExtra = {
     <div class="card"><div class="ico">⚡</div><h3>Intervenție Rapidă</h3><p>Ajungem în 2–4 ore de la apel.</p></div>
     <div class="card"><div class="ico">🎓</div><h3>25+ Ani Experiență</h3><p>Echipă cu experiență vastă în reparații TV.</p></div>
   </div>
+</section>
+<section class="sec">
+  <h2>Ghiduri utile pentru problemele TV</h2>
+  <p>Am pregătit câteva ghiduri detaliate pentru cele mai frecvente probleme ale televizoarelor. Dacă televizorul tău prezintă unul din simptomele de mai jos, citește ghidul corespunzător sau sună-ne direct:</p>
+  <ul class="checks">
+    <li><a href="/televizor-samsung-nu-porneste/">Televizorul Samsung nu pornește</a> — ghid complet de diagnosticare</li>
+    <li><a href="/ps5-se-opreste-singur/">PS5 se oprește singur</a> — cauze și soluții pentru consolele conectate la TV</li>
+    <li><a href="/reparatii-televizoare/">Reparații televizoare București</a> — toate serviciile noastre TV</li>
+    <li><a href="/reparatii-tv-sectoare/">Reparații TV pe sectoare</a> — acoperire în tot Bucureștiul</li>
+  </ul>
 </section>
 {isS6 && <section class="sec"><div class="note-green">🏠 <strong>Atelierul nostru este chiar în Sectorul 6</strong> — Str. Moinești 7, Militari. Pe lângă reparații TV la domiciliu, aici reparăm și <a href="/reparatii-laptop-sector-6/" style="color:#0a7d43">laptopuri</a>, <a href="/reparatii-macbook-sector-6/" style="color:#0a7d43">MacBook</a>, <a href="/reparatii-console-gaming-sector-6/" style="color:#0a7d43">console</a>, <a href="/reparatii-monitoare-sector-6/" style="color:#0a7d43">monitoare</a> și <a href="/reparatii-boxe-active-amplificatoare/" style="color:#0a7d43">boxe &amp; amplificatoare</a>.</div></section>}
 <section class="sec">
@@ -139,6 +171,19 @@ const schemaExtra = {
   <p>{data.game}</p>
 </section>
 <section class="sec">
+  <h2>Când merită reparat vs. cumpărat nou?</h2>
+  <p>O întrebare frecventă pe care o primim: „Merită să repar televizorul {data.nume} sau e mai bine să cumpăr altul?" Răspunsul depinde de câțiva factori: diagonala (cu cât este mai mare, cu atât reparația se justifică mai mult), vârsta televizorului (sub 7–8 ani, de regulă merită reparat) și tipul defecțiunii. Reparațiile de sursă de alimentare, backlight și conectivitate sunt aproape întotdeauna mai avantajoase decât achiziția unui televizor nou — costul este de 3–5 ori mai mic. Chiar și intervențiile mai complexe, precum rescrierea eMMC sau reparația T-CON, rămân economice la televizoarele de 50″ și peste. La diagnosticarea gratuită vă spunem sincer dacă reparația se justifică sau nu — nu începem nicio lucrare fără acordul dumneavoastră.</p>
+</section>
+<section class="sec">
+  <h2>Ghiduri utile</h2>
+  <p>Am pregătit ghiduri detaliate pentru cele mai frecvente probleme. Consultați-le pentru o primă orientare sau sunați-ne direct pentru diagnostic gratuit:</p>
+  <ul class="checks">
+    {data.ghidLink && <li><a href={data.ghidLink}>Televizorul {data.nume} nu pornește</a> — ghid complet de diagnosticare pas cu pas</li>}
+    <li><a href="/reparatii-televizoare/">Reparații televizoare București</a> — toate serviciile noastre de reparații TV</li>
+    <li><a href="/reparatii-tv-sectoare/">Reparații TV pe sectoare</a> — acoperire în tot Bucureștiul, fără taxă de deplasare</li>
+  </ul>
+</section>
+<section class="sec">
   <h2>De Ce Să Ne Alegeți?</h2>
   <div class="grid g4">
     <div class="card"><div class="ico">🏠</div><h3>Reparații la domiciliu</h3><p>Tehnicianul vine la tine acasă în București, fără taxă de deplasare.</p></div>
@@ -147,6 +192,19 @@ const schemaExtra = {
     <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Garanție scrisă pentru toate intervențiile noastre.</p></div>
   </div>
 </section>
+{data.faq?.length > 0 && (
+<section class="sec">
+  <h2>Întrebări Frecvente — Reparații TV {data.nume}</h2>
+  <div class="faq-list">
+    {data.faq.map(f => (
+      <details class="faq-item">
+        <summary><strong>{f.q}</strong></summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
+)}
 <section class="sec">
   <p style="font-size:14.5px;color:var(--mut)">Reparăm și alte branduri: {BRANDURI.filter(b => b.slug !== data.slug).map((b, i) => <span>{i > 0 && ' · '}<a href={'/reparatii-tv-' + b.slug + '/'}>{b.nume}</a></span>)} — sau vezi <a href="/reparatii-televizoare/">toate serviciile TV</a>.</p>
 </section>

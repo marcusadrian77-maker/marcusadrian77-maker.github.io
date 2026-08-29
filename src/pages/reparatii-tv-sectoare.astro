@@ -25,12 +25,75 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații TV la domiciliu în Bucureș
     {SECTOARE.map(s => <a class="card" href={'/reparatii-tv-sector-' + s.nr + '/'} style="text-decoration:none"><div class="ico">📍</div><h3>Sector {s.nr}</h3><p>{s.zone}</p></a>)}
   </div>
 </section>
+
+<section class="sec">
+  <h2>Service TV în Fiecare Sector</h2>
+  <p>Acoperim toate cele 6 sectoare ale Bucureștiului cu service la domiciliu. Indiferent de zona în care locuiți, un tehnician specializat ajunge la dumneavoastră de regulă în aceeași zi.</p>
+
+  <h3><a href="/reparatii-tv-sector-1/">Sector 1</a> — Băneasa, Aviatorilor, Herăstrău, Dorobanți</h3>
+  <p>Sector 1 este una dintre cele mai mari zone rezidențiale din București. Intervenim la domiciliu în toate cartierele, de la vilele din Băneasa până la blocurile din Piața Victoriei. Mulți clienți din acest sector au televizoare premium (OLED, QLED) de dimensiuni mari, pentru care avem piese și experiență dedicată.</p>
+
+  <h3><a href="/reparatii-tv-sector-2/">Sector 2</a> — Colentina, Obor, Pantelimon, Iancului</h3>
+  <p>Intervenim rapid în toată zona de est a Bucureștiului. Sectorul 2 are o densitate ridicată de cartiere rezidențiale, ceea ce ne permite planificarea eficientă a deplasărilor. Clienții din Pantelimon, Colentina sau Obor beneficiază de aceleași condiții ca restul orașului: diagnostic gratuit și reparație la domiciliu.</p>
+
+  <h3><a href="/reparatii-tv-sector-3/">Sector 3</a> — Dristor, Titan, Berceni, Unirii</h3>
+  <p>Sectorul 3, cel mai populat din București, generează un volum mare de solicitări. Avem tehnician dedicat pentru zona Titan–Dristor–Berceni și asigurăm deplasare rapidă. Televizoarele LED și LCD din blocurile acestor cartiere sunt cele mai frecvent reparate.</p>
+
+  <h3><a href="/reparatii-tv-sector-4/">Sector 4</a> — Berceni, Tineretului, Olteanu, Șerban Vodă</h3>
+  <p>Acoperim întreg Sectorul 4, de la Piața Unirii până la periferie. Zona este accesibilă și permite intervenții rapide. Cele mai frecvente probleme în acest sector: surse de alimentare defecte și strip-uri LED care nu mai funcționează.</p>
+
+  <h3><a href="/reparatii-tv-sector-5/">Sector 5</a> — Rahova, Ferentari, 13 Septembrie, Cotroceni</h3>
+  <p>Servicii complete de reparații TV la domiciliu în Sectorul 5. De la apartamentele din Cotroceni la blocurile din Rahova, ajungem peste tot. Diagnosticăm și reparăm la fața locului sau, dacă e nevoie, transportăm televizorul la atelier fără niciun cost suplimentar.</p>
+
+  <h3><a href="/reparatii-tv-sector-6/">Sector 6</a> — Militari, Drumul Taberei, Crângași, Giulești</h3>
+  <p>Atelierul nostru principal se află în Sectorul 6, în zona Militari. Acest lucru ne oferă un avantaj special pentru clienții din sector: timp de răspuns foarte scurt și posibilitatea de a aduce televizorul direct la atelier pentru diagnosticare imediată. Sectorul 6 este zona noastră de bază, cu cei mai mulți clienți fideli.</p>
+</section>
+
 <section class="sec">
   <h2>Reparații TV pe Branduri</h2>
   <div class="grid g3">
     {BRANDURI.map(b => <a class="card" href={'/reparatii-tv-' + b.slug + '/'} style="text-decoration:none"><div class="ico">📺</div><h3>{b.nume}</h3><p>Service specializat televizoare {b.nume} — la domiciliu sau în atelier.</p></a>)}
   </div>
+  <p style="margin-top:14px">Nu ați găsit marca dumneavoastră? Reparăm televizoare de orice marcă. <a href="/contact/">Contactați-ne</a> pentru detalii.</p>
 </section>
+
+<section class="sec">
+  <h2>De Ce Reparații la Domiciliu?</h2>
+  <p>Televizoarele moderne sunt fragile și greu de transportat. Un TV de 55″ sau 65″ cântărește 15–25 kg și este extrem de vulnerabil la șocuri mecanice — un mic impact poate deteriora panoul LED/OLED iremediabil. De aceea, service-ul la domiciliu este cea mai sigură opțiune:</p>
+  <ul class="checks">
+    <li><strong>Zero risc de transport</strong> — televizorul rămâne acasă, nu riscați deteriorarea în mașină sau pe scări</li>
+    <li><strong>Confort total</strong> — nu trebuie să demontați TV-ul de pe perete sau din mobilier, o facem noi</li>
+    <li><strong>Reparație în fața dumneavoastră</strong> — vedeți exact ce se face și puteți pune întrebări pe loc</li>
+    <li><strong>Rapiditate</strong> — de regulă, intervenim în aceeași zi sau a doua zi; multe reparații se finalizează pe loc, în 1–2 ore</li>
+    <li><strong>Fără costuri suplimentare</strong> — deplasarea și diagnosticarea sunt gratuite în tot Bucureștiul</li>
+  </ul>
+  <p>Dacă reparația necesită atelier (cazuri rare, precum înlocuirea panoului sau microsuduri pe placa de bază), ridicăm televizorul, îl transportăm în siguranță și îl readucem după finalizare — fără niciun cost de transport.</p>
+</section>
+
+<section class="sec">
+  <h2>Cele Mai Frecvente Defecțiuni TV pe Care le Reparăm</h2>
+  <p>Indiferent de sectorul în care locuiți, problemele televizoarelor sunt similare. Cele mai frecvente solicitări pe care le primim:</p>
+  <ul class="checks">
+    <li><strong>TV-ul nu pornește</strong> — de obicei o sursă de alimentare defectă sau condensatoare umflate, reparabil la domiciliu în majoritatea cazurilor</li>
+    <li><strong>Ecran întunecat cu sunet funcțional</strong> — strip-uri LED sau backlight defect, una dintre cele mai răspândite probleme</li>
+    <li><strong>Linii orizontale sau verticale pe ecran</strong> — placă T-Con defectă sau conexiune deteriorată între panou și placă</li>
+    <li><strong>Imagine cu artefacte sau pixeli morți</strong> — problemă de panou sau de conexiune, diagnosticabilă rapid</li>
+    <li><strong>Smart TV lent sau blocat</strong> — probleme software, actualizare firmware sau resetare fabrică</li>
+    <li><strong>Porturi HDMI nefuncționale</strong> — reparare sau înlocuire port, frecventă la console de gaming conectate</li>
+  </ul>
+  <p>Nu sunteți siguri ce are televizorul? Nu este nevoie — diagnosticarea este gratuită și vă spunem exact ce problemă are și cât costă reparația, înainte de a începe orice intervenție.</p>
+</section>
+
+<section class="sec">
+  <h2>Ghiduri Utile</h2>
+  <p>Înainte de a suna la service, verificați dacă problema poate fi rezolvată simplu. Am scris ghiduri detaliate pentru cele mai frecvente situații:</p>
+  <ul class="checks">
+    <li><a href="/televizor-samsung-nu-porneste/">Televizorul Samsung nu pornește</a> — cauze posibile și pași de verificare</li>
+    <li><a href="/preturi/">Prețuri reparații TV</a> — orientative, pe categorii de intervenție</li>
+    <li><a href="/reparatii-televizoare/">Reparații televizoare</a> — pagina principală cu toate serviciile TV</li>
+  </ul>
+</section>
+
 <Cta titlu="📺 Televizor Defect? Sunați-ne!" text="Diagnostic gratuit și intervenție rapidă în tot Bucureștiul, de regulă în aceeași zi." />
 </div>
 </Base>

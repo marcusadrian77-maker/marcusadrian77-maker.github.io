@@ -2,10 +2,17 @@
 import Base from '../layouts/Base.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
 const desc = "Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!";
 const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]));
+const faq = [
+ { q: 'Cât durează reparația unui controller?', a: 'Majoritatea reparațiilor de controllere se finalizează în aceeași zi. Înlocuirea joystick-urilor sau a butoanelor durează de obicei 1–2 ore, iar reparațiile mai complexe (placă de bază, triggere adaptive PS5) pot necesita până la 24 de ore.' },
+ { q: 'Se poate repara drift-ul de joystick sau trebuie înlocuit controllerul?', a: 'Da, drift-ul se repară prin înlocuirea modulului de joystick analog. Este o intervenție frecventă, cu piese disponibile pe stoc, și costă semnificativ mai puțin decât un controller nou (care poate ajunge la 250–350 lei).' },
+ { q: 'Oferiți garanție pentru reparațiile de controllere?', a: 'Da, toate reparațiile de controllere beneficiază de garanție scrisă de 3 luni. Dacă problema reapare în perioada de garanție, o remediem gratuit.' },
+];
+const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
 <Base title="Reparatii Controllere PS4 PS5 Xbox Bucuresti | Service Rapid" description="Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!" image={IMG.ogConsola} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
@@ -27,6 +34,23 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox',
     <div class="card-soft"><strong>Touchpad defect (PS4/PS5)</strong><span>Touchpad-ul nu răspunde la atingere</span></div>
   </div>
 </section>
+
+<section class="sec">
+  <h2>Tipuri de Defecțiuni și Soluții</h2>
+
+  <h3>Drift Joystick (Stick Analogic)</h3>
+  <p>Drift-ul este cea mai răspândită problemă la controllere, afectând atât DualShock 4, DualSense, cât și controllerele Xbox. Se manifestă prin mișcarea involuntară a personajului sau a camerei, chiar când nu atingeți joystick-ul. Cauza este uzura mecanică a modulului analogic — un potențiometru care se degradează în timp prin utilizare intensă. Soluția este înlocuirea modulului analog complet cu unul nou, de calitate superioară. Intervenția durează de obicei sub o oră.</p>
+
+  <h3>Butoane și Triggere Defecte</h3>
+  <p>Butoanele (X, O, A, B etc.) pot deveni nereactive sau pot rămâne apăsate din cauza acumulării de murdărie sub membrană sau a deteriorării contactelor de cauciuc. Triggerele L2/R2 (PS4/PS5) și LT/RT (Xbox) se pot rupe mecanic sau pierd revenirea elastică. La controllerele DualSense de PS5, triggerele adaptive au un mecanism intern complex care poate necesita înlocuirea motorului sau a angrenajelor.</p>
+
+  <h3>Probleme de Conectare Bluetooth / Wireless</h3>
+  <p>Dacă controllerul nu se mai conectează la consolă wireless, nu se sincronizează sau pierde conexiunea frecvent, cauza poate fi antena Bluetooth deteriorată, modulul wireless defect sau o problemă de firmware. Diagnosticăm exact componenta afectată și o reparăm sau înlocuim. Uneori, o simplă resetare a controllerului (butonul reset din spate) poate rezolva problema — încercați acest pas înainte de a aduce controllerul la service.</p>
+
+  <h3>Probleme de Alimentare și Baterie</h3>
+  <p>Controllerele care nu se încarcă, se descarcă rapid sau nu pornesc deloc pot avea bateria uzată (după 2–3 ani de utilizare intensă), portul USB/USB-C deteriorat mecanic sau o problemă pe placa de bază. Înlocuirea bateriei sau repararea portului de încărcare sunt intervenții rapide și accesibile.</p>
+</section>
+
 <section class="sec">
   <div class="grid g3">
     <div class="card"><h3>Controller PS4 (DualShock 4)</h3><ul class="checks"><li>Înlocuire module joystick analog (L3/R3) — remedierea drift-ului</li><li>Înlocuire butoane (X, O, triunghi, pătrat, L1, L2, R1, R2)</li><li>Reparare port Micro-USB</li><li>Înlocuire baterie Li-Ion</li><li>Reparare touchpad și placă de bază</li></ul></div>
@@ -34,6 +58,30 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox',
     <div class="card"><h3>Controller Xbox (One / Series X|S)</h3><ul class="checks"><li>Înlocuire module joystick analog — drift Xbox</li><li>Înlocuire butoane (A, B, X, Y, LB, RB, LT, RT)</li><li>Reparare port USB / Micro-USB și baterie</li><li>Reparare vibrații și curățare generală</li></ul></div>
   </div>
 </section>
+
+<section class="sec">
+  <h2>Prețuri Orientative Reparații Controllere</h2>
+  <div class="grid g3">
+    <div class="card">
+      <h3>🟢 Reparații Simple</h3>
+      <p style="font-size:22px;font-weight:800;color:var(--green);margin-bottom:10px">30 – 80 lei</p>
+      <ul class="checks"><li>Curățare internă completă</li><li>Înlocuire butoane sau membrane</li><li>Resetare software / firmware</li></ul>
+    </div>
+    <div class="card">
+      <h3>🟡 Reparații Medii</h3>
+      <p style="font-size:22px;font-weight:800;color:#b8860b;margin-bottom:10px">80 – 150 lei</p>
+      <ul class="checks"><li>Înlocuire module joystick (drift)</li><li>Înlocuire baterie</li><li>Reparare port USB / USB-C</li><li>Reparare triggere L2/R2, LT/RT</li></ul>
+    </div>
+    <div class="card">
+      <h3>🔴 Reparații Complexe</h3>
+      <p style="font-size:22px;font-weight:800;color:#c0392b;margin-bottom:10px">150 – 250 lei</p>
+      <ul class="checks"><li>Reparare placă de bază</li><li>Reparare triggere adaptive DualSense</li><li>Reparare modul Bluetooth</li><li>Înlocuire touchpad complet</li></ul>
+    </div>
+  </div>
+  <p style="margin-top:14px" class="note-warn">⚠️ Prețuri orientative. Diagnosticarea este gratuită, iar prețul final este stabilit cu acordul dumneavoastră. Un controller nou DualSense costă 250–350 lei, iar un controller Xbox — 200–300 lei, deci reparația este aproape întotdeauna varianta mai economică.</p>
+  <p style="font-size:14px;color:var(--mut)">Pentru o vedere de ansamblu a prețurilor, vizitați pagina de <a href="/preturi/">prețuri reparații</a>.</p>
+</section>
+
 <section class="sec">
   <h2>De Ce Să Alegi Marcus Electronics?</h2>
   <ul class="checks">
@@ -42,8 +90,35 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox',
     <li>Garanție 3 luni pentru manoperă</li>
     <li>Timp de reparație rapid — de obicei în aceeași zi</li>
   </ul>
-  <p style="font-size:14px;color:var(--mut)">Alte servicii pentru console: <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparații console PlayStation și Xbox</a>, <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>.</p>
+  <p style="font-size:14px;color:var(--mut)">Alte servicii pentru console: <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparații console PlayStation și Xbox</a>, <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>, <a href="/ps5-se-opreste-singur/">ghid PS5 se oprește singur</a>.</p>
 </section>
+
+<section class="sec">
+  <h2>Cum Funcționează Procesul de Reparație</h2>
+  <div class="grid g3">
+    <div class="card" style="text-align:center">
+      <div class="ico">1️⃣</div>
+      <h3>Aduceți Controllerul</h3>
+      <p>Veniți la atelierul nostru din Sector 6 sau trimiteți controllerul prin curier. Ne descrieți simptomele și verificăm aparatul pe loc.</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="ico">2️⃣</div>
+      <h3>Diagnosticare Gratuită</h3>
+      <p>Testăm controllerul complet — joystick-uri, butoane, triggere, conectivitate, baterie. Vă comunicăm exact ce trebuie reparat și cât costă.</p>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="ico">3️⃣</div>
+      <h3>Reparație Rapidă</h3>
+      <p>Cu acordul dumneavoastră, efectuăm reparația (de obicei în aceeași zi). Testăm controllerul în joc înainte de predare și oferim garanție scrisă de 3 luni.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+
 <Cta titlu="🕹️ Controller Defect? Sunați-ne!" />
 </div>
 </Base>

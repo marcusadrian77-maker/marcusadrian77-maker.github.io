@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparatii Monitoare Gaming Bucuresti | ASUS ROG, MSI, BenQ, LG';
+const desc = 'Reparatii profesionale monitoare gaming 144Hz+ in Bucuresti: ASUS ROG, MSI, BenQ, AOC, LG UltraGear, Samsung Odyssey. Diagnosticare GRATUITA, garantie. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Se pot repara pixelii morti pe un monitor gaming?', a: 'Pixelii morti permanenti (negri) nu pot fi reparati — sunt un defect fizic al panelului. Insa pixelii „blocati" (ramasi pe o culoare) pot fi uneori recuperati prin metode software de stimulare. La diagnosticare va spunem exact ce aveti si daca merita interventia.' },
+ { q: 'Cat costa reparatia unui monitor gaming?', a: 'Depinde de defect. Problemele de alimentare sau backlight pornesc de la 150 lei, inlocuirea unui cablu intern sau port HDMI/DisplayPort de la 120 lei. Reparatiile de placa principala variaza in functie de complexitate. Diagnosticarea este gratuita — aflati pretul exact inainte de a decide.' },
+ { q: 'Pot repara ghosting-ul sau input lag-ul ridicat?', a: 'Daca ghosting-ul sau input lag-ul au aparut brusc (nu au existat de la cumparare), cauza poate fi un cablu defect, un port deteriorat sau o problema de firmware. Acestea se pot repara. Daca monitorul a avut aceste caracteristici de la inceput, este o limitare a panelului si nu poate fi imbunatatit prin reparatie.' },
+ { q: 'Reparati monitoare cu panou curbat?', a: 'Da. Lucram pe toate tipurile de panouri: plate si curbate (1000R, 1500R, 1800R), VA, IPS si TN, de la 24 la 49 de inch. Panourile curbate necesita atentie suplimentara la demontare, dar procesul de reparatie este similar.' },
+ { q: 'Monitorul meu are backlight bleed. Se poate rezolva?', a: 'Backlight bleed minor este normal la panelurile IPS si nu poate fi eliminat complet. Daca este excesiv sau a aparut brusc, poate indica o problema mecanica (cadru deformat) sau un defect al difuzorului de lumina, care se pot corecta in atelier.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparatii Monitoare Gaming Bucuresti', tip: 'Reparatii monitoare gaming', url: '/reparatii-monitoare-gaming/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparatii Monitoare', url: '/reparatii-monitoare-lcd/' }, { name: 'Monitoare Gaming', url: '/reparatii-monitoare-gaming/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogMonitor}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🎮 SERVICE MONITOARE GAMING</span>
+  <h1>Reparatii Monitoare Gaming Bucuresti</h1>
+  <p class="lead">Monitorul gaming nu mai afiseaza corect, are ghosting, pixeli morti sau nu porneste? Reparam monitoare de gaming de la toate brandurile majore — ASUS ROG, MSI, BenQ, AOC, LG UltraGear si Samsung Odyssey — cu diagnosticare gratuita si garantie scrisa.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITA</span><span>🛡️ Garantie scrisa 6-12 luni</span><span>💰 Pret ferm, comunicat inainte</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>De Ce Monitoarele Gaming Necesita Service Specializat</h2>
+  <p>Monitoarele de gaming sunt mai complexe decat cele de birou: panouri cu rata de refresh de 144Hz, 240Hz sau chiar 360Hz, tehnologii adaptive sync (G-Sync, FreeSync Premium), iluminare cu zone locale si electronica optimizata pentru latenta minima. O reparatie corecta necesita intelegerea acestor tehnologii si aparatura de testare adecvata.</p>
+  <p>La Marcus Electronics lucram la nivel de componenta: identificam exact piesa defecta si o inlocuim, in loc sa vindem placi intregi sau sa va trimitem la producator. Rezultatul: reparatie mai rapida, cost mai mic si monitor care functioneaza ca nou. Mai multe despre serviciile noastre generale de monitoare gasiti pe pagina <a href="/reparatii-monitoare-lcd/">Reparatii Monitoare LCD</a>.</p>
+</section>
+<section class="sec">
+  <h2>Branduri si Modele pe Care Lucram</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🖥️</div><h3>ASUS ROG Swift / Strix</h3><p>Seria ROG Swift (PG279, PG348, PG32UQX) si Strix (XG27, XG32). Probleme frecvente: placa de alimentare, port DisplayPort, panou IPS cu backlight bleed.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>MSI Optix / MAG</h3><p>Seria Optix (MAG274, MPG341), panouri VA curbate. Defecte tipice: pixeli blocati pe panoul VA, OSD nefunctional, alimentare.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>BenQ ZOWIE / Mobiuz</h3><p>Monitoare esports BenQ ZOWIE (XL2411, XL2546) si Mobiuz (EX2710, EX3210). Probleme: senzor de lumina, placa de control, cabluri interne.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>AOC Gaming</h3><p>Seria AOC C24G1, CQ27G2, AG273QXP. Defecte frecvente: sursa interna, backlight, port HDMI deteriorat.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>LG UltraGear</h3><p>Seria UltraGear (27GP850, 32GQ950, 27GR95QE OLED). Probleme: burn-in la OLED, placa T-CON, Nano IPS cu uniformitate scazuta.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>Samsung Odyssey</h3><p>Seria Odyssey (G5, G7, G9, Neo G9). Defecte: flickering pe panoul VA curbat, probleme de firmware, sursa de alimentare pentru modelele ultrawide.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Defectiuni Frecvente la Monitoarele Gaming</h2>
+  <ul class="checks">
+    <li><strong>Ghosting si artefacte vizuale</strong> — pot fi cauzate de un cablu DisplayPort/HDMI defect, port deteriorat sau problema la placa T-CON. Daca au aparut brusc, se pot repara.</li>
+    <li><strong>Input lag crescut brusc</strong> — de obicei o problema de firmware sau de procesare a semnalului pe placa principala. Verificam si resetam electronica.</li>
+    <li><strong>Pixeli morti sau blocati</strong> — pixelii blocati (pe o culoare) pot fi uneori recuperati; cei morti (negri) sunt un defect permanent al panelului.</li>
+    <li><strong>Backlight bleed excesiv</strong> — poate fi corectat in anumite cazuri prin reglarea cadrului intern sau inlocuirea difuzorului de lumina.</li>
+    <li><strong>Flickering sau palpaire</strong> — frecvent la modelele Samsung Odyssey curbate, cauzat de condensatori defecti pe sursa sau probleme de firmware.</li>
+    <li><strong>Nu porneste sau se opreste singur</strong> — sursa de alimentare interna, cel mai frecvent condensatori electrolitici sau drivere MOSFET arse.</li>
+    <li><strong>Port HDMI sau DisplayPort deteriorat</strong> — porturi uzate sau arse dupa o supratensiune. Le inlocuim cu porturi noi prin microsoldare.</li>
+    <li><strong>OSD (meniu) nefunctional sau butoane care nu raspund</strong> — placa de control sau cablul flex intern defect.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Cum Decurge Reparatia</h2>
+  <ol>
+    <li><strong>Ne contactati.</strong> Telefonic sau pe WhatsApp — descrieti problema, marca, modelul si diagonala monitorului.</li>
+    <li><strong>Aduceti monitorul la atelier.</strong> Atelierul nostru se afla in Str. Moinesti 7, Militari, Sector 6. Daca sunteti din zona, vedeti si pagina <a href="/reparatii-monitoare-sector-6/">Reparatii Monitoare Sector 6</a>.</li>
+    <li><strong>Diagnosticare gratuita.</strong> Verificam monitorul cu aparatura profesionala si va comunicam defectul exact si pretul ferm — fara nicio obligatie.</li>
+    <li><strong>Reparatia.</strong> Doar dupa acordul dumneavoastra. Interventiile uzuale dureaza 1-3 zile lucratoare.</li>
+    <li><strong>Predare cu garantie.</strong> Testam complet monitorul (inclusiv la refresh rate nativ) si il predati cu garantie scrisa 6-12 luni.</li>
+  </ol>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🎮 Monitor Gaming Defect? Aduceti-l pentru Diagnostic Gratuit!" text="Spuneti-ne marca, modelul si simptomele — va orientam din prima privind reparatia si costul estimativ." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-monitoare-lcd/">reparatii monitoare LCD</a>, <a href="/reparatii-laptopuri-bucuresti/">reparatii laptopuri</a>, <a href="/reparatii-televizoare/">reparatii televizoare</a>, <a href="/preturi/">preturi</a>.</p>
+</div>
+</Base>

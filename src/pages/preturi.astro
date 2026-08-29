@@ -2,9 +2,17 @@
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
 import Cta from '../components/Cta.astro';
+import Faq from '../components/Faq.astro';
 import { breadcrumb, graf, pagina } from '../data/schema';
 const desc = "Prețuri transparente pentru reparații TV, laptopuri, MacBook, console, boxe și monitoare în București. Diagnostic gratuit. Garanție 6-12 luni. ☎ 0765.461.357";
 const schemaSEO = graf(pagina('WebPage', { nume: 'Prețuri reparații electronice', url: '/preturi/', desc }), breadcrumb([{ name: 'Prețuri', url: '/preturi/' }]));
+const faq = [
+ { q: 'Diagnosticarea este cu adevărat gratuită?', a: 'Da, diagnosticarea este 100% gratuită și fără obligații. Vă comunicăm prețul exact al reparației, iar dacă nu sunteți de acord, nu plătiți nimic — nici măcar transportul.' },
+ { q: 'Ce se întâmplă dacă prețul final este mai mare decât estimarea?', a: 'Prețul comunicat după diagnosticare este fix. Nu adăugăm costuri suplimentare. Dacă în timpul reparației descoperim o problemă suplimentară, vă contactăm pentru aprobare înainte de a continua.' },
+ { q: 'Pot plăti în rate?', a: 'Pentru reparații cu valoare mai mare (peste 500 lei), putem discuta opțiuni de plată eșalonată. Contactați-ne pentru detalii.' },
+ { q: 'Garanția acoperă și piesele de schimb?', a: 'Da, garanția de 6–12 luni acoperă atât manopera, cât și piesele de schimb înlocuite. Dacă piesa cedează în perioada de garanție, o înlocuim gratuit.' },
+];
+const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
 <Base title="Prețuri Reparații Electronice București | Marcus Electronics" description="Prețuri transparente pentru reparații TV, laptopuri, MacBook, console, boxe și monitoare în București. Diagnostic gratuit. Garanție 6-12 luni. ☎ 0765.461.357" schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
@@ -45,8 +53,99 @@ const schemaSEO = graf(pagina('WebPage', { nume: 'Prețuri reparații electronic
     </div>
   </div>
   <p style="margin-top:14px" class="note-warn">⚠️ Aceste prețuri sunt orientative. Prețul final este stabilit după diagnosticare gratuită, cu acordul dumneavoastră.</p>
-  <p style="font-size:14.5px;color:var(--mut)">Prețuri orientative detaliate pentru celelalte echipamente găsiți pe paginile de serviciu: <a href="/reparatii-laptop-sector-6/">laptopuri</a>, <a href="/reparatii-macbook-sector-6/">MacBook</a>, <a href="/reparatii-console-gaming-sector-6/">console</a>, <a href="/reparatii-monitoare-sector-6/">monitoare</a>, <a href="/mentenanta-profesionala-pasta-termica/">mentenanță pastă termică</a>.</p>
 </section>
+
+<section class="sec">
+  <h2>Prețuri Orientative pe Categorii de Echipamente</h2>
+
+  <h3><a href="/reparatii-laptopuri-bucuresti/">Reparații Laptopuri</a></h3>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Curățare + pastă termică</strong><span>80 – 150 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire ecran / display</strong><span>200 – 600 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire tastatură</strong><span>100 – 300 lei</span></div>
+    <div class="card-soft"><strong>Reparare placă de bază</strong><span>200 – 500 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire baterie</strong><span>100 – 250 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire port de alimentare</strong><span>80 – 200 lei</span></div>
+  </div>
+
+  <h3 style="margin-top:24px"><a href="/reparatii-macbook-sector-6/">Reparații MacBook</a></h3>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Curățare + pastă termică</strong><span>100 – 200 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire ecran Retina</strong><span>500 – 1.500 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire baterie</strong><span>200 – 500 lei</span></div>
+    <div class="card-soft"><strong>Reparare placă logic</strong><span>300 – 800 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire tastatură Butterfly / Magic</strong><span>300 – 700 lei</span></div>
+    <div class="card-soft"><strong>Reparare port USB-C / MagSafe</strong><span>150 – 350 lei</span></div>
+  </div>
+
+  <h3 style="margin-top:24px"><a href="/reparatii-console-gaming-sector-6/">Reparații Console (PS4 / PS5 / Xbox)</a></h3>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Curățare + pastă termică consolă</strong><span>80 – 150 lei</span></div>
+    <div class="card-soft"><strong>Reparare controller (drift, butoane)</strong><span>50 – 120 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire cititor disc</strong><span>150 – 350 lei</span></div>
+    <div class="card-soft"><strong>Reparare port HDMI</strong><span>100 – 250 lei</span></div>
+    <div class="card-soft"><strong>Reparare sursă de alimentare</strong><span>100 – 300 lei</span></div>
+  </div>
+
+  <h3 style="margin-top:24px"><a href="/reparatii-monitoare-sector-6/">Reparații Monitoare</a></h3>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Reparare sursă de alimentare</strong><span>80 – 200 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire backlight / LED-uri</strong><span>100 – 300 lei</span></div>
+    <div class="card-soft"><strong>Reparare placă de bază</strong><span>100 – 350 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire panou LCD</strong><span>200 – 600 lei</span></div>
+  </div>
+
+  <h3 style="margin-top:24px">Reparații Boxe și Soundbar-uri</h3>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Reparare amplificator intern</strong><span>80 – 200 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire difuzor</strong><span>50 – 150 lei</span></div>
+    <div class="card-soft"><strong>Reparare Bluetooth / conectivitate</strong><span>60 – 150 lei</span></div>
+    <div class="card-soft"><strong>Reparare port alimentare / baterie</strong><span>50 – 120 lei</span></div>
+  </div>
+
+  <h3 style="margin-top:24px"><a href="/reparatii-cuptoare-cu-microunde/">Reparații Cuptoare cu Microunde</a></h3>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Înlocuire siguranță / condensator</strong><span>50 – 120 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire magnetron</strong><span>150 – 300 lei</span></div>
+    <div class="card-soft"><strong>Reparare panou de control / display</strong><span>80 – 200 lei</span></div>
+    <div class="card-soft"><strong>Reparare motor platou / balamale ușă</strong><span>50 – 120 lei</span></div>
+  </div>
+
+  <p style="margin-top:14px" class="note-warn">⚠️ Toate prețurile de mai sus sunt orientative. Prețul final depinde de marca, modelul și tipul exact al defecțiunii. Diagnosticarea este întotdeauna gratuită.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce Include Prețul?</h2>
+  <p>Fiecare reparație la Marcus Electronics include următoarele, fără costuri suplimentare:</p>
+  <div class="grid g2">
+    <div class="card-soft"><strong>Diagnosticare gratuită</strong><span>Verificăm aparatul, identificăm problema exactă și vă comunicăm prețul fix înainte de a începe. Dacă nu doriți reparația, nu plătiți nimic.</span></div>
+    <div class="card-soft"><strong>Piese de schimb incluse în preț</strong><span>Prețul comunicat conține costul pieselor și al manoperei. Nu există adaosuri separate pentru componente.</span></div>
+    <div class="card-soft"><strong>Garanție scrisă 6–12 luni</strong><span>Primiți garanție scrisă atât pentru manoperă, cât și pentru piesele înlocuite. Dacă defecțiunea reapare, o remediem gratuit.</span></div>
+    <div class="card-soft"><strong>Transport gratuit (TV la domiciliu)</strong><span>Pentru televizoare, venim la domiciliu în tot Bucureștiul fără cost suplimentar. Pentru celelalte echipamente, le aduceți la atelierul nostru din Sector 6.</span></div>
+  </div>
+  <p>Nu percepem taxe de urgență, taxe de program în weekend sau alte costuri ascunse. Prețul pe care îl aprobați este prețul pe care îl plătiți.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări Frecvente despre Prețuri</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <h2>Pagini de Servicii</h2>
+  <p>Pentru detalii complete despre fiecare tip de reparație, vizitați paginile dedicate:</p>
+  <ul class="checks">
+    <li><a href="/reparatii-televizoare/">Reparații televizoare</a> — service TV la domiciliu, toate mărcile</li>
+    <li><a href="/reparatii-laptopuri-bucuresti/">Reparații laptopuri</a> — orice marcă de laptop, în atelier</li>
+    <li><a href="/reparatii-macbook-sector-6/">Reparații MacBook</a> — service Apple specializat</li>
+    <li><a href="/reparatii-console-gaming-sector-6/">Reparații console gaming</a> — PS4, PS5, Xbox One, Xbox Series</li>
+    <li><a href="/reparatii-controllere-ps4-ps5-xbox/">Reparații controllere</a> — drift, butoane, baterie</li>
+    <li><a href="/reparatii-monitoare-sector-6/">Reparații monitoare</a> — orice diagonală și tehnologie</li>
+    <li><a href="/reparatii-cuptoare-cu-microunde/">Reparații cuptoare cu microunde</a> — toate mărcile</li>
+    <li><a href="/mentenanta-profesionala-pasta-termica/">Mentenanță profesională și pastă termică</a> — curățare, pastă termică, întreținere preventivă</li>
+  </ul>
+</section>
+
 <Cta titlu="📞 Programează o Diagnosticare GRATUITĂ!" text="Venim la tine acasă, identificăm problema și îți prezentăm prețul exact. Fără obligații." />
 </div>
 </Base>

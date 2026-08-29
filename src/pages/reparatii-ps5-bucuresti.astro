@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparatii PS5 Bucuresti | Service PlayStation 5 Profesional';
+const desc = 'Reparatii PlayStation 5 in Bucuresti: port HDMI, SSD, overheating, disc drive, DualSense drift, erori software. Diagnosticare GRATUITA, garantie. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cat costa reparatia portului HDMI la PS5?', a: 'Inlocuirea portului HDMI la PlayStation 5 costa de regula intre 200 si 350 lei, in functie de gradul de deteriorare. Portul este lipit pe placa principala si necesita microsoldare profesionala — o interventie pe care o facem frecvent, cu garantie.' },
+ { q: 'PS5-ul meu face zgomot puternic. Ce poate fi?', a: 'Cauza cea mai frecventa este acumularea de praf pe ventilatorul intern si pe radiatorul procesorului. Dupa 1-2 ani de utilizare, praful restrictioneaza fluxul de aer si ventilatorul compenseaza prin turatie maxima. O curatare profesionala cu inlocuire pasta termica rezolva problema complet.' },
+ { q: 'Se poate repara drift-ul la DualSense?', a: 'Da. Drift-ul (miscarea involuntara a stick-ului analogic) se rezolva prin inlocuirea modulului de joystick. Folosim module de calitate si calibram controller-ul dupa inlocuire. Reparatia dureaza de regula o zi.' },
+ { q: 'PS5-ul se opreste singur in timpul jocurilor. Ce fac?', a: 'Oprirea in timpul jocurilor indica de obicei supraincalzire: pasta termica uscata, praf acumulat sau ventilator cu performanta redusa. Mai rar, poate fi o problema pe placa principala. Consultati si <a href="/ps5-se-opreste-singur/">ghidul nostru detaliat despre PS5 care se opreste singur</a>.' },
+ { q: 'Cat dureaza o reparatie de PS5?', a: 'Interventiile uzuale (curatare, pasta termica, DualSense drift) se fac in 24-48 de ore. Reparatiile de port HDMI dureaza 1-2 zile. Interventiile pe placa principala pot necesita 3-5 zile lucratoare, in functie de complexitate.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparatii PS5 Bucuresti', tip: 'Reparatii PlayStation 5', url: '/reparatii-ps5-bucuresti/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparatii Console', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparatii PS5', url: '/reparatii-ps5-bucuresti/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🎮 SERVICE PLAYSTATION 5</span>
+  <h1>Reparatii PS5 Bucuresti</h1>
+  <p class="lead">PlayStation 5 defect? Reparam orice problema: port HDMI ars, SSD nefunctional, supraincalzire, disc drive, DualSense drift si erori de sistem. Diagnosticare gratuita, garantie scrisa, experienta cu sute de console reparate.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITA</span><span>🛡️ Garantie 6-12 luni</span><span>💰 Pret ferm, comunicat inainte</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Servicii de Reparatie PS5</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🔌</div><h3>Reparatie Port HDMI</h3><p>Portul HDMI ars sau deteriorat — nu mai trimite semnal la TV. Il inlocuim prin microsoldare profesionala pe placa principala, cu port nou si testare completa a semnalului 4K/120Hz.</p></div>
+    <div class="card"><div class="ico">💾</div><h3>Probleme SSD</h3><p>SSD intern defect, erori de citire/scriere, consola nu mai porneste sau nu instaleaza jocuri. Diagnosticam si, daca este cazul, inlocuim SSD-ul intern cu unul compatibil NVMe.</p></div>
+    <div class="card"><div class="ico">🌡️</div><h3>Supraincalzire si Zgomot</h3><p>Curatare completa de praf, inlocuire pasta termica si pad-uri termice, verificare ventilator. Consola revine la temperaturi si niveluri de zgomot normale.</p></div>
+    <div class="card"><div class="ico">💿</div><h3>Disc Drive</h3><p>Nu citeste discuri, scoate discuri singur, face zgomot la citire. Curatare lentila laser, inlocuire motor sau drive complet la modelele cu disc.</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>DualSense Drift</h3><p>Stick-ul analogic se misca singur sau nu raspunde corect. Inlocuim modulul de joystick cu unul nou, calibram si testam. Lucram si pe <a href="/reparatii-controllere-ps4-ps5-xbox/">controllere PS4 si Xbox</a>.</p></div>
+    <div class="card"><div class="ico">⚙️</div><h3>Erori Software si Sistem</h3><p>Erori CE, NW sau SU, consola blocata in Safe Mode, probleme de actualizare. Reinstalam firmware-ul si verificam integritatea hardware-ului.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Probleme Frecvente si Cum le Rezolvam</h2>
+  <h3>Portul HDMI — Cea Mai Frecventa Reparatie PS5</h3>
+  <p>Portul HDMI al PS5 este vulnerabil la deteriorari mecanice (cablu fortat, consola mutata cu cablul conectat) si la supratensiuni. Simptomele: ecran negru la TV, semnal intermitent, imagine cu artefacte sau lipsa totala a semnalului video. Inlocuim portul prin microsoldare la microscop, cu port HDMI 2.1 compatibil, si testam semnalul la rezolutie completa 4K/120Hz.</p>
+  <h3>Supraincalzirea — Prevenire si Rezolvare</h3>
+  <p>PS5-ul se opreste singur, ventilatorul urla sau consola devine fierbinte la atingere? Dupa 1-2 ani de utilizare, praful acumulat si pasta termica uscata reduc dramatic eficienta racirii. Curatarea profesionala include demontare completa, curatare cu aer comprimat si alcool izopropilic, inlocuire pasta termica si pad-uri termice, si verificare ventilator. Rezultatul: temperatura scade cu 15-25°C. Consultati si <a href="/ps5-se-opreste-singur/">ghidul nostru despre PS5 care se opreste singur</a> pentru mai multe detalii.</p>
+  <h3>DualSense — Drift si Alte Probleme</h3>
+  <p>Drift-ul stick-ului analogic este cea mai frecventa problema a controller-ului DualSense. Se manifesta prin miscari involuntare ale personajului sau camerei in joc. Cauza: uzura mecanica a potentiometrului din modulul de joystick. Alte probleme frecvente: trigger-uri adaptive care nu mai functioneaza, butoane care nu raspund, baterie descarcata rapid. Le rezolvam pe toate in <a href="/reparatii-controllere-ps4-ps5-xbox/">atelierul nostru de controllere</a>.</p>
+  <h3>Coduri de Eroare Frecvente</h3>
+  <ul class="checks">
+    <li><strong>CE-108255-1</strong> — eroare de aplicatie/joc. Poate indica SSD cu sectoare defecte sau problema de memorie RAM.</li>
+    <li><strong>CE-100005-6</strong> — eroare la instalarea jocului. SSD plin, defect sau probleme de firmware.</li>
+    <li><strong>NW-102308-4</strong> — eroare de retea. Verificam modulul WiFi si conexiunea.</li>
+    <li><strong>SU-101312-8</strong> — eroare de actualizare sistem. Poate necesita reinstalare completa a firmware-ului.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Mentenanta Preventiva PS5</h2>
+  <p>Recomandam o <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanta profesionala</a> la fiecare 12-18 luni de utilizare: curatare de praf, verificare pasta termica si inspectie generala. Previne supraincalzirea, prelungeste durata de viata a consolei si mentine nivelul de zgomot scazut. Costul mentenantei este mult mai mic decat o reparatie necesara din cauza supraincalzirii cronice.</p>
+</section>
+<section class="sec">
+  <h2>Cum Decurge Procesul</h2>
+  <ol>
+    <li><strong>Ne contactati</strong> — telefonic sau pe WhatsApp. Descrieti problema si modelul (PS5 Standard sau Digital Edition).</li>
+    <li><strong>Aduceti consola.</strong> Atelierul nostru se afla in Str. Moinesti 7, Militari, <a href="/reparatii-console-gaming-sector-6/">Sector 6</a>. Program: {SITE.program}.</li>
+    <li><strong>Diagnosticare gratuita.</strong> Verificam consola complet si va spunem exact ce are si cat costa reparatia — fara obligatie.</li>
+    <li><strong>Reparatia.</strong> Doar dupa acordul dumneavoastra, la pretul comunicat.</li>
+    <li><strong>Predare cu garantie scrisa 6-12 luni.</strong></li>
+  </ol>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🎮 PS5 Defect? Aduceti-l la Diagnosticare Gratuita!" text="Spuneti-ne problema si modelul — va orientam din prima privind reparatia si costul estimativ." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparatii console gaming</a>, <a href="/reparatii-controllere-ps4-ps5-xbox/">reparatii controllere</a>, <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanta console</a>, <a href="/reparatii-televizoare/">reparatii televizoare</a>.</p>
+</div>
+</Base>

@@ -10,6 +10,8 @@ const faq = [
  { q: 'Cât de des trebuie curățat laptopul de praf?', a: 'Recomandat: o dată la 12–18 luni pentru utilizare normală și o dată pe an dacă lucrați intens (gaming, randare) sau aveți animale de companie. Pasta termică se înlocuiește de regulă la 1–2 ani.' },
  { q: 'Cât durează curățarea profesională?', a: 'În atelierul nostru, curățarea completă cu înlocuirea pastei termice durează de obicei o zi lucrătoare, cu teste de temperatură înainte de predare.' },
  { q: 'Pot să curăț laptopul singur, cu spray de aer comprimat?', a: 'Suflarea prin grilaje fără dezasamblare împinge de multe ori praful mai adânc și poate roti ventilatorul peste turația sigură. Curățarea corectă presupune dezasamblare, curățarea radiatorului și pastă termică nouă.' },
+ { q: 'Cât costă curățarea profesională?', a: 'Curățarea completă cu înlocuirea pastei termice pornește de la 80 lei și variază în funcție de modelul laptopului. Laptopurile cu sisteme de răcire mai complexe (gaming, MacBook Pro) pot necesita un preț ușor mai mare. Detalii pe pagina de prețuri.' },
+ { q: 'Curățarea laptopului poate rezolva și alte probleme?', a: 'Da, de multe ori. Supraîncălzirea cronică cauzată de praf poate genera opriri bruște, performanță redusă (throttling), zgomot excesiv al ventilatorului și chiar deteriorarea bateriei. O curățare la timp rezolvă toate aceste simptome și previne defecțiuni costisitoare.' },
 ];
 const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'Article', headline: 'Curățare laptop de praf: cât de des și de ce contează', description: desc, url: canonical, inLanguage: 'ro',
@@ -30,35 +32,78 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
 <div class="wrap">
+
 <section class="sec">
-  <h2>Semnele că laptopul are nevoie de curățare</h2>
-  <ul class="checks">
-    <li>Ventilatorul merge tare și des, chiar la sarcini mici (browser, YouTube)</li>
-    <li>Carcasa e fierbinte deasupra tastaturii sau dedesubt</li>
-    <li>Laptopul își reduce singur performanța (thermal throttling) — totul „se mișcă greu” când e cald</li>
-    <li>Se oprește brusc în sarcină — jocuri, video-call, randări</li>
-    <li>Aer puțin sau deloc prin grilajul de evacuare, uneori cu miros de încins</li>
-  </ul>
+  <h2>Semne Că Laptopul Tău Are Nevoie de Curățare</h2>
+  <p>Nu trebuie să fii specialist ca să recunoști un laptop înfundat cu praf. Iată cele mai clare semnale de alarmă, de la cele ușoare la cele grave:</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Ventilator zgomotos</strong><span>Se aude tare și des, chiar la sarcini ușoare — browser, YouTube, documente. Acesta este primul semn, cu luni înainte de probleme serioase.</span></div>
+    <div class="card-soft"><strong>Carcasă fierbinte</strong><span>Zona deasupra tastaturii sau partea de jos a laptopului sunt excesiv de calde la atingere. Suprafața ar trebui să fie călduță, nu fierbinte.</span></div>
+    <div class="card-soft"><strong>Performanță redusă (throttling)</strong><span>Totul „se mișcă greu" când laptopul e cald — procesorul reduce automat frecvența pentru a se proteja de supraîncălzire.</span></div>
+    <div class="card-soft"><strong>Opriri bruște</strong><span>Laptopul se oprește singur în sarcină (jocuri, video-call, randări). Este protecția termică de ultimă instanță — înseamnă temperaturi critice.</span></div>
+    <div class="card-soft"><strong>Aer slab sau absent la grilaj</strong><span>Puțin sau deloc aer prin grilajul de evacuare, uneori cu miros de plastic încins. Radiatorul este aproape complet blocat.</span></div>
+    <div class="card-soft"><strong>Baterie se descarcă rapid</strong><span>Căldura accelerează degradarea chimică a bateriei. Dacă autonomia a scăzut brusc, supraîncălzirea poate fi cauza.</span></div>
+  </div>
+  <p>Dacă observați oricare dintre aceste simptome, nu așteptați. O curățare la timp costă 80–150 lei. O reparație de placă de bază deteriorată de supraîncălzire cronică poate depăși 300–500 lei — iar uneori laptopul nu mai merită reparat.</p>
 </section>
+
 <section class="sec">
   <h2>Ce se întâmplă în interior</h2>
   <p>Ventilatorul laptopului trage aer prin partea de jos și îl împinge printr-un radiator cu lamele foarte fine. În 1–2 ani, lamele se înfundă cu un strat de praf și scame ca o pâslă, iar aerul nu mai trece. În paralel, pasta termică dintre procesor și radiator se usucă și își pierde conductivitatea. Rezultatul: temperaturi cu 20–30°C mai mari, performanță redusă și uzură accelerată — de la baterie (căldura îi scurtează viața) până la lipiturile de pe placa de bază.</p>
   <p>O curățare la timp costă puțin. Un chip video desprins din cauza supraîncălzirii cronice costă de multe ori mai mult — iar uneori laptopul nu mai merită reparat deloc.</p>
 </section>
+
 <section class="sec">
-  <h2>Ce include curățarea profesională la noi</h2>
-  <ul class="checks">
-    <li>Dezasamblare completă și curățarea radiatorului, ventilatorului și a plăcii de bază</li>
-    <li>Înlocuirea pastei termice cu pastă de calitate (și a padurilor termice unde e cazul)</li>
-    <li>Curățarea contactelor și verificarea conectorilor</li>
-    <li>Teste de temperatură sub sarcină, înainte și după — vedeți diferența în grade</li>
-  </ul>
-  <p>Serviciul se face în atelierul nostru din Militari, Sector 6 — detalii pe pagina de <a href="/mentenanta-profesionala-pasta-termica/">mentenanță profesională și pastă termică</a>. Dacă laptopul are deja alte probleme (nu pornește, ecran defect, baterie umflată), vedeți <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a> — diagnosticarea este gratuită. Pentru intervalele recomandate pe fiecare tip de aparat, vezi <a href="/mentenanta-periodica/">programul de mentenanță periodică pentru laptopuri și console</a>.</p>
+  <h2>Ce Include Curățarea Profesională la Noi</h2>
+  <p>La Marcus Electronics, curățarea nu înseamnă doar „suflat aer". Iată exact ce facem, pas cu pas:</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Dezasamblare și Curățare</h3>
+      <ul class="checks">
+        <li>Dezasamblare completă a laptopului (capac inferior, ventilatoare, radiator)</li>
+        <li>Curățarea lamelelor radiatorului — eliminăm stratul de praf compactat care blochează fluxul de aer</li>
+        <li>Curățarea completă a ventilatorului — pale, motor, axe</li>
+        <li>Curățarea plăcii de bază cu aer comprimat de precizie și pensule antistatice</li>
+        <li>Curățarea contactelor și verificarea conectorilor interni</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Pastă Termică și Teste</h3>
+      <ul class="checks">
+        <li>Îndepărtarea completă a pastei termice vechi de pe procesor și GPU</li>
+        <li>Aplicarea pastei termice noi, de calitate profesională</li>
+        <li>Înlocuirea padurilor termice (thermal pads) acolo unde este cazul</li>
+        <li>Reasamblare cu verificarea tuturor conectorilor și șuruburilor</li>
+        <li>Teste de temperatură sub sarcină — măsurăm înainte și după, ca să vedeți diferența exactă în grade</li>
+      </ul>
+    </div>
+  </div>
+  <p>Serviciul se face în atelierul nostru din Militari, Sector 6. Timpul de execuție este de obicei o zi lucrătoare. Detalii complete pe pagina de <a href="/mentenanta-profesionala-pasta-termica/">mentenanță profesională și pastă termică</a>.</p>
 </section>
+
+<section class="sec">
+  <h2>Curățare Laptop vs. Curățare MacBook</h2>
+  <p>MacBook-urile Apple necesită o abordare specială: șuruburi Pentalobe, componente lipite pe placa logic, ventilatoare cu design proprietar și, la modelele mai noi, lipici termic care necesită curățare atentă. Avem experiență cu toate generațiile de MacBook, inclusiv MacBook Air (M1/M2/M3) și MacBook Pro (Intel și Apple Silicon). Pentru detalii despre serviciile Apple, vizitați pagina de <a href="/reparatii-macbook/">reparații MacBook</a>.</p>
+  <p>Laptopurile de gaming (ASUS ROG, MSI, Lenovo Legion, Acer Predator) au sisteme de răcire mai complexe — deseori cu două ventilatoare și conducte de căldură (heat pipes) multiple. Acestea necesită o curățare mai minuțioasă, dar beneficiile sunt și mai mari: diferența de temperatură poate fi de 25–35°C după o curățare completă.</p>
+</section>
+
 <section class="sec">
   <h2>Cum să țineți praful departe mai mult timp</h2>
-  <p>Folosiți laptopul pe suprafețe tari, nu pe pat sau pături (textilele blochează admisia și „hrănesc” interiorul cu scame). Aspirați ușor grilajele o dată pe lună. Dacă aveți animale de companie, scurtați intervalul de curățare profesională la un an. Și nu ignorați zgomotul de ventilator — este primul semnal, cu luni înainte de opririle bruște.</p>
+  <p>Folosiți laptopul pe suprafețe tari, nu pe pat sau pături (textilele blochează admisia și „hrănesc" interiorul cu scame). Aspirați ușor grilajele o dată pe lună. Dacă aveți animale de companie, scurtați intervalul de curățare profesională la un an. Și nu ignorați zgomotul de ventilator — este primul semnal, cu luni înainte de opririle bruște.</p>
 </section>
+
+<section class="sec">
+  <h2>Servicii Complementare</h2>
+  <p>Dacă laptopul are și alte probleme pe lângă supraîncălzire, le putem rezolva în aceeași vizită la atelier:</p>
+  <ul class="checks">
+    <li><a href="/reparatii-laptopuri-bucuresti/">Reparații laptopuri București</a> — ecran, tastatură, placă de bază, port de alimentare (diagnosticare gratuită)</li>
+    <li><a href="/reparatii-macbook/">Reparații MacBook</a> — service specializat Apple pentru toate modelurile</li>
+    <li><a href="/reparatii-laptop-sector-6/">Reparații laptop Sector 6</a> — atelierul nostru din Militari</li>
+    <li><a href="/mentenanta-periodica/">Program de mentenanță periodică</a> — intervale recomandate pentru fiecare tip de aparat</li>
+    <li><a href="/mentenanta-profesionala-pasta-termica/">Mentenanță profesională și pastă termică</a> — pagina completă a serviciului</li>
+  </ul>
+</section>
+
 <section class="sec">
   <h2>Întrebări frecvente</h2>
   {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}

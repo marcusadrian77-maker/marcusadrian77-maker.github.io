@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Televizor LG Nu Porneste: Cauze si Solutii | Ghid 2026';
+const desc = 'Televizorul LG nu porneste sau LED-ul clipeste? Cauze frecvente, ce poti verifica singur acasa si cand e nevoie de service profesional. Diagnosticare GRATUITA. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'De ce clipeste LED-ul rosu la televizorul LG?', a: 'La televizoarele LG, numarul de clipiri ale LED-ului indica un cod de eroare specific. De exemplu, 3 clipiri sugereaza o problema la sursa de alimentare, iar 6 clipiri indica de regula o defectiune a placii principale. Notati numarul de clipiri si sunati-ne — putem estima defectul inainte de vizita.' },
+ { q: 'Cat costa reparatia unui televizor LG care nu porneste?', a: 'Depinde de cauza defectului. Problemele de sursa (condensatori umflati, diode arse) sunt cele mai ieftine — de regula intre 150 si 350 lei. Placa principala poate costa mai mult, dar tot considerabil mai putin decat un televizor nou. Diagnosticarea este gratuita.' },
+ { q: 'Televizorul LG porneste si se opreste imediat. Ce poate fi?', a: 'Cel mai frecvent, circuitul de protectie detecteaza un scurtcircuit sau o supratensiune si opreste televizorul. Cauzele pot fi: bara LED arsa, condensatori defecti pe sursa sau placa T-CON defecta. Necesita diagnosticare cu aparatura de masura.' },
+ { q: 'Pot reseta televizorul LG din fabricatie fara telecomanda?', a: 'Da. La majoritatea modelelor LG, tineti apasat butonul de pornire de pe televizor (nu de pe telecomanda) timp de 10-15 secunde. Alternativ, scoateti televizorul din priza, asteptati 2 minute, apoi reconectati — aceasta reseteaza electronica.' },
+ { q: 'Merita reparat un televizor LG vechi?', a: 'In majoritatea cazurilor, da. Daca defectul este pe sursa sau pe placa principala, reparatia costa o fractiune din pretul unui televizor nou. Daca panoul (ecranul) este fizic deteriorat la un model vechi, de obicei nu merita — si va spunem asta sincer la diagnosticare.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Televizor LG nu porneste: cauze si solutii', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasa', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparatii TV LG', item: SITE.domeniu + '/reparatii-tv-lg/' },
+   { '@type': 'ListItem', position: 3, name: 'Televizor LG nu porneste', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul LG Nu Porneste: Cauze si Solutii</h1>
+  <p class="lead">Ecran negru, LED rosu care clipeste sau niciun semn de viata? In acest ghid va explicam ce puteti verifica singur in 5 minute, ce inseamna codurile LED-ului si cand este momentul sa apelati la un tehnician.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Verificari Rapide Inainte de a Suna la Service</h2>
+  <p>Inainte de a programa o vizita, parcurgeti aceste verificari simple care rezolva surprinzator de multe cazuri:</p>
+  <ul class="checks">
+    <li><strong>Priza si cablul de alimentare.</strong> Conectati alt aparat la aceeasi priza pentru a va asigura ca exista curent. Verificati cablul de alimentare la ambele capete — la unele modele LG, conectorul se slabeste in timp.</li>
+    <li><strong>Telecomanda Magic Remote.</strong> Incercati sa porniti televizorul din butonul fizic (de obicei sub logo-ul LG, pe partea inferioara). Daca porneste, problema este telecomanda sau senzorul IR, nu televizorul in sine.</li>
+    <li><strong>Resetare electrica (soft reset).</strong> Scoateti televizorul din priza, tineti apasat butonul de pornire de pe carcasa timp de 30 de secunde, asteptati 2 minute si reconectati. Aceasta procedura descarca condensatorii si reseteaza circuitele interne.</li>
+    <li><strong>Prelungitoare si stabilizatoare.</strong> Conectati televizorul direct la priza de perete — un prelungitor defect sau un stabilizator subdimensionat sunt cauze frecvente de nepornire.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Codurile LED-ului: Ce Inseamna Clipirile</h2>
+  <p>Televizoarele LG folosesc LED-ul de standby ca sistem de diagnosticare. Numarul de clipiri consecutive, urmate de o pauza, indica tipul defectului:</p>
+  <ul class="checks">
+    <li><strong>2 clipiri</strong> — problema la sursa de alimentare, de regula condensatori electrolitici umflati sau uscati. Este cea mai frecventa si mai ieftina reparatie.</li>
+    <li><strong>3 clipiri</strong> — circuit de alimentare secundar defect sau protectie activata de un scurtcircuit pe una dintre barele LED.</li>
+    <li><strong>4 clipiri</strong> — de regula indica o problema la iluminarea de fundal (backlight). Verificati cu o lanterna lipita de ecran daca se vede vag imaginea.</li>
+    <li><strong>5-6 clipiri</strong> — placa principala (main board) sau placa T-CON. Necesita diagnosticare la nivel de componenta.</li>
+    <li><strong>LED-ul sta aprins continuu, dar ecranul ramane negru</strong> — televizorul primeste curent si porneste, dar nu afiseaza imagine. Cauze: iluminare LED arsa, cablu LVDS sau placa T-CON.</li>
+    <li><strong>Niciun LED, nicio reactie</strong> — sursa de alimentare nu mai livreaza tensiune deloc. La modelele LG din 2012-2019, vinovatii frecventi sunt condensatorii electrolitici umflati — o <a href="/reparatii-televizoare/">reparatie rapida si accesibila</a>.</li>
+  </ul>
+  <p>Notati numarul exact de clipiri si spuneti-ne cand sunati — de multe ori putem estima problema si costul chiar la telefon.</p>
+</section>
+<section class="sec">
+  <h2>Cauze Frecvente si Cum le Rezolvam</h2>
+  <h3>Sursa de alimentare</h3>
+  <p>Cel mai frecvent vinovat la televizoarele LG care nu pornesc. Condensatorii electrolitici isi pierd capacitatea in timp (mai ales la modelele fabricate intre 2010 si 2018), iar sursa nu mai poate livra tensiunile necesare. Reparatia consta in inlocuirea condensatorilor defecti — o interventie rapida, pe care o facem la domiciliu, in fata dumneavoastra.</p>
+  <h3>Iluminarea LED (Backlight)</h3>
+  <p>Televizorul pare ca nu porneste, dar de fapt porneste fara imagine vizibila. Barele LED care asigura iluminarea de fundal se ard — fie individual, fie in serie. Inlocuim barele defecte cu piese compatibile si verificam driverul de backlight pentru a preveni recurenta.</p>
+  <h3>Placa principala (Main Board)</h3>
+  <p>Procesorul, memoria eMMC sau circuitele de alimentare de pe placa principala pot ceda. La televizoarele LG cu webOS, blocarea in logo sau repornirile continue indica de obicei o memorie eMMC corupta, pe care o rescriem cu programator specializat.</p>
+  <h3>Placa T-CON</h3>
+  <p>Aceasta placa controleaza panoul si poate cauza ecran negru, linii colorate sau lipsa totala a imaginii. O diagnosticam prin masuratori electrice si, unde este posibil, o reparam la nivel de componenta.</p>
+</section>
+<section class="sec">
+  <h2>Ce NU Recomandam sa Faceti</h2>
+  <p>Nu deschideti carcasa televizorului: sursa de alimentare pastreaza tensiuni periculoase chiar si dupa scoaterea din priza. Nu comandati placi de pe internet „la ghici" — fara diagnosticare, sansa sa nimeriti piesa corecta este mica, iar placa noua s-ar putea arde daca defectul real este in alta parte a circuitului.</p>
+</section>
+<section class="sec">
+  <h2>Cum Decurge Reparatia la Marcus Electronics</h2>
+  <p>Venim la domiciliu oriunde in Bucuresti si Ilfov. <strong>Diagnosticarea si deplasarea sunt gratuite.</strong> Majoritatea defectelor de sursa si backlight se repara pe loc, in 30-60 de minute. Pentru interventii mai complexe (rescriere memorie, inlocuire panou T-CON), transportam televizorul gratuit la <a href="/reparatii-tv-sectoare/">atelierul nostru din Militari, Sector 6</a> si inapoi.</p>
+  <p>Toate reparatiile vin cu garanție scrisa 6-12 luni, pentru piesa si manopera. Preturile orientative le gasiti pe <a href="/preturi/">pagina de preturi</a>.</p>
+  <p>Daca aveti un televizor LG de alt brand care nu porneste, consultati si <a href="/televizor-samsung-nu-porneste/">ghidul pentru televizoare Samsung</a> — simptomele si cauzele sunt adesea similare.</p>
+</section>
+<section class="sec">
+  <h2>Modele LG pe Care Lucram Frecvent</h2>
+  <p>Reparam toate tipurile de televizoare LG: <strong>LED</strong>, <strong>NanoCell</strong>, <strong>QNED</strong>, <strong>OLED</strong> (seria C, G, Z) si <strong>UHD</strong>. De la modelele mai vechi cu WebOS 1.0 pana la cele mai recente cu WebOS 24, avem experienta si piesele necesare. Seriile cele mai frecvente in atelierul nostru: LG UN73, LG UP75, LG NANO75, LG OLED C1/C2/C3, LG QNED80.</p>
+  <p>Mai multe despre serviciile noastre pentru marca LG gasiti pe pagina <a href="/reparatii-tv-lg/">Reparatii TV LG Bucuresti</a>.</p>
+</section>
+<section class="sec">
+  <h2>Intrebari Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="📺 Televizorul LG tot nu porneste? Sunati-ne!" text="Diagnostic gratuit la domiciliu, in aceeasi zi. Spuneti-ne modelul si ce ati observat — va orientam din prima." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-televizoare/">reparatii televizoare</a>, <a href="/reparatii-tv-lg/">reparatii TV LG</a>, <a href="/reparatii-tv-sectoare/">reparatii TV pe sectoare</a>, <a href="/reparatii-monitoare-lcd/">reparatii monitoare</a>.</p>
+</div>
+</Base>
