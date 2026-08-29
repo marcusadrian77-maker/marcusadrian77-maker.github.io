@@ -31,6 +31,9 @@ const ogImage = new URL(image, SITE.domeniu).href;
 <meta name="twitter:image" content={ogImage} />
 <meta name="theme-color" content="#14365d" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preload" as="image" href={IMG.hero} fetchpriority="high" />
+<link rel="preconnect" href="https://www.googletagmanager.com" />
+<link rel="dns-prefetch" href="https://www.google-analytics.com" />
 <script type="application/ld+json" set:html={JSON.stringify(SCHEMA_LOCALBUSINESS)} />
 {schemaExtra && <script type="application/ld+json" set:html={JSON.stringify(schemaExtra)} />}
 <!-- Google Analytics 4 -->
@@ -89,11 +92,11 @@ document.addEventListener('click', function (e) {
   <div class="wrap">
     <div class="cols">
       <div>
-        <h4>Marcus Electronics</h4>
+        <h2>Marcus Electronics</h2>
         <p style="margin:0;font-size:14px;">Service de reparații electronice în Militari, Sector 6, București. Reparații TV la domiciliu în {SITE.zonaDomiciliu}; laptopuri, MacBook, console, boxe, monitoare și cuptoare în atelier. Diagnostic gratuit, garanție 6–12 luni.</p>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h2>Contact</h2>
         <ul>
           <li>📍 {SITE.adresa}</li>
           <li>📞 <a href={SITE.telefonHref}>{SITE.telefon}</a></li>
@@ -103,7 +106,7 @@ document.addEventListener('click', function (e) {
         </ul>
       </div>
       <div>
-        <h4>Servicii populare</h4>
+        <h2>Servicii populare</h2>
         <ul>
           <li><a href="/reparatii-televizoare/">Reparații Televizoare</a></li>
           <li><a href="/reparatii-tv-sectoare/">Reparații TV la Domiciliu</a></li>
@@ -113,16 +116,18 @@ document.addEventListener('click', function (e) {
         </ul>
       </div>
       <div>
-        <h4>Ghiduri utile</h4>
+        <h2>Ghiduri utile</h2>
         <ul>
           <li><a href="/televizor-samsung-nu-porneste/">TV Samsung nu pornește</a></li>
+          <li><a href="/televizor-lg-nu-porneste/">TV LG nu pornește</a></li>
           <li><a href="/ps5-se-opreste-singur/">PS5 se oprește singur</a></li>
           <li><a href="/macbook-ecran-negru/">MacBook cu ecran negru</a></li>
           <li><a href="/curatare-laptop-praf/">Curățare laptop de praf</a></li>
+          <li><a href="/laptop-se-incalzeste/">Laptopul se încălzește</a></li>
         </ul>
       </div>
       <div>
-        <h4>Informații</h4>
+        <h2>Informații</h2>
         <ul>
           <li><a href="/despre-noi/">Despre Noi</a></li>
           <li><a href="/preturi/">Prețuri</a></li>
