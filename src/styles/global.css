@@ -1,8 +1,9 @@
 :root{
-  --navy:#14365d; --blue:#0a6ebd; --blue-d:#085a9c; --green:#0a7d43; --wa:#25d366;
+  --navy:#14365d; --blue:#0a6ebd; --blue-d:#085a9c; --green:#0a7d43; --wa:#25d366; --wa-d:#0a7d43;
   --ink:#2b3440; --mut:#5b6675; --line:#e3e9f1; --bg:#f4f8fd; --warn-bg:#fff8e6; --warn-bd:#ffe1a8; --warn-tx:#7a5b00;
   --r:14px; --shadow:0 2px 10px rgba(20,54,93,.07);
 }
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Open Sans',Arial,sans-serif;color:var(--ink);font-size:16.5px;line-height:1.65;background:#fff}
@@ -61,7 +62,7 @@ nav.main .tel:hover{background:var(--blue-d)}
 .btn-white:hover{transform:translateY(-1px)}
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:var(--blue-d)}
-.btn-wa{background:var(--wa);color:#fff}
+.btn-wa{background:var(--wa-d);color:#fff}
 .btn-wa:hover{filter:brightness(.94)}
 main{padding-bottom:30px}
 section.sec{padding:8px 0}
@@ -102,7 +103,7 @@ details.faq .a{padding:0 18px 16px;font-size:15px;color:var(--mut)}
 .cta p{opacity:.95;margin:0 0 16px}
 footer{background:var(--navy);color:#cdd9e6;margin-top:44px;font-size:14.5px}
 footer .cols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));padding:38px 0 26px}
-footer h4{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.3px}
+footer h2,footer h4{color:#fff;font-size:15.5px;margin:0 0 12px;letter-spacing:.3px;line-height:1.3}
 footer a{color:#cdd9e6;text-decoration:none}
 footer a:hover{color:#fff;text-decoration:underline}
 footer ul{list-style:none;margin:0;padding:0}
