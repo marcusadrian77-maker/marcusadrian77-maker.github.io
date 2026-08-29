@@ -8,7 +8,11 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'reparatii-laptop-sector-6/', 'reparatii-macbook-sector-6/', 'reparatii-console-gaming-sector-6/',
  'reparatii-boxe-active-amplificatoare/', 'reparatii-monitoare-sector-6/', 'reparatii-tv-sectoare/',
  'termeni-si-conditii/', 'politica-de-confidentialitate/', 'gdpr/',
- 'televizor-samsung-nu-porneste/', 'ps5-se-opreste-singur/', 'macbook-ecran-negru/', 'curatare-laptop-praf/'];
+ 'televizor-samsung-nu-porneste/', 'ps5-se-opreste-singur/', 'macbook-ecran-negru/', 'curatare-laptop-praf/',
+ 'televizor-lg-nu-porneste/', 'laptop-se-incalzeste/',
+ 'inlocuire-ecran-laptop/', 'inlocuire-baterie-laptop/',
+ 'reparatii-monitoare-gaming/', 'reparatii-ps5-bucuresti/',
+ 'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');
