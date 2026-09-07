@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+
+const marci = [
+ ['JBL', 'Charge 3/4/5/6, Flip 4/5/6/7, Xtreme 2/3/4, Boombox 2/3, Go 2/3/4, Clip 3/4/5, Pulse 4/5, PartyBox 110/310/710, Wind 3'],
+ ['Sony', 'SRS-XB13/XB23/XB33/XB43, SRS-XE200/XE300, ULT Field 1/3/5/7, SRS-XG300/XV500, SRS-XP500/XP700'],
+ ['Anker Soundcore', 'Motion+, Motion Boom, Motion X600, Boom 2, Flare 2, Select 4 Go, Mini 3, Rave Neo 2'],
+ ['Marshall', 'Emberton I/II/III, Willen, Stockwell II, Middleton, Kilburn II, Tufton'],
+ ['Bose', 'SoundLink Flex, SoundLink Micro, SoundLink Revolve I/II, SoundLink Revolve+ I/II, SoundLink Max'],
+ ['Ultimate Ears', 'Wonderboom 2/3/4, Boom 3/4, Megaboom 3/4, Epicboom, Hyperboom'],
+ ['Harman Kardon', 'Onyx Studio 6/7/8, Go+Play 3, Luna, Aura Studio 3/4'],
+ ['Tronsmart', 'Bang, Bang Mini, Bang Max, Element T6 Plus, Element Force, Halo 100/110'],
+ ['Xiaomi / Alte mărci', 'Mi Portable Bluetooth Speaker, Sound Outdoor, Sven PS, Tracer, Kruger&Matz, Blaupunkt'],
+];
+
+const defecte = [
+ ['Nu se mai încarcă', 'Mufa USB-C sau micro-USB desprinsă de pe placă ori uzată mecanic — cel mai frecvent defect la boxele portabile. Se înlocuiește conectorul.'],
+ ['Bateria nu mai ține', 'Acumulatorul Li-Ion s-a degradat după 300–500 de cicluri. Se înlocuiește cu unul de aceeași capacitate, cu protecție.'],
+ ['Baterie umflată', 'Carcasa se bombează sau se desface singură. Se oprește folosirea imediat și se înlocuiește acumulatorul — e și o problemă de siguranță.'],
+ ['Sunet distorsionat sau spart', 'Membrana difuzorului e ruptă sau bobina mobilă e frecată. Se înlocuiește difuzorul.'],
+ ['Nu se mai conectează Bluetooth', 'Modul Bluetooth defect, antenă desprinsă sau firmware blocat. De multe ori se rezolvă fără piese.'],
+ ['Un difuzor mut', 'Amplificator pe un canal defect sau fir desprins de la difuzor.'],
+ ['Se oprește singură', 'Contact prost la baterie, protecție termică sau placă cu microfisuri după o cădere.'],
+ ['A luat apă', 'Se demontează, se curăță plăcile de oxid și se usucă. Cu cât ajunge mai repede la noi, cu atât cresc șansele.'],
+ ['Butoane care nu răspund', 'Microîntrerupătoare uzate sau membrană de cauciuc tocită. Se înlocuiesc.'],
+];
+
+const preturi = [
+ ['Reparare port de alimentare / înlocuire baterie', '50 – 120 lei'],
+ ['Înlocuire difuzor', '50 – 150 lei'],
+ ['Reparare Bluetooth / conectivitate', '60 – 150 lei'],
+ ['Reparare amplificator intern', '80 – 200 lei'],
+];
+
+const faq = [
+ { q: 'Merită reparată o boxă portabilă sau e mai bine să cumpăr alta?', a: 'Depinde de aparat. La o boxă de 150–250 lei, dacă defectul e pe placă, de multe ori nu merită. La o JBL Charge, Xtreme, Boombox, Marshall sau Bose, unde aparatul nou costă 700–2.500 lei, o înlocuire de mufă sau de baterie de 50–120 lei este clar rentabilă. Vă spunem sincer după diagnosticare, care este gratuită.' },
+ { q: 'Cât durează o reparație de boxă portabilă?', a: 'Intervențiile uzuale — mufă de încărcare, baterie, difuzor — se fac de regulă în 24–48 de ore. Dacă e nevoie de o piesă comandată special, vă spunem termenul înainte să începem.' },
+ { q: 'Boxa mea a luat apă. Mai poate fi salvată?', a: 'Deseori da, dar contează timpul. Nu o puneți la încărcat și nu încercați să o porniți — curentul prin plăcile ude face cel mai mare rău. Aduceți-o cât mai repede; o demontăm, curățăm oxidul și o uscăm controlat.' },
+ { q: 'Reparați și boxe fără marcă sau mai ieftine?', a: 'Da, dacă piesele se pot procura. La aparatele foarte ieftine vă spunem din start dacă reparația nu se justifică față de preț — nu vă ținem aparatul degeaba.' },
+ { q: 'Aveți garanție la reparația unei boxe?', a: 'Da, 6–12 luni la manoperă și la piesele montate de noi, în funcție de tipul intervenției. Garanția se dă scris, pe bon.' },
+ { q: 'Trebuie să vin cu încărcătorul?', a: 'Da, dacă îl mai aveți. Ne ajută la testare și uneori problema este chiar în încărcător sau în cablu, nu în boxă.' },
+];
+
+const desc = 'Reparatii boxe portabile si Bluetooth in Bucuresti: JBL, Sony, Marshall, Bose, Anker. Mufa de incarcare, baterie, difuzor. Diagnostic gratuit, garantie 6-12 luni.';
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparatii boxe portabile si Bluetooth', tip: 'Reparatii audio portabil', url: '/reparatii-boxe-portabile-bluetooth/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Boxe', url: '/reparatii-boxe-active/' }, { name: 'Boxe Portabile și Bluetooth', url: '/reparatii-boxe-portabile-bluetooth/' }]),
+  faqSchema
+);
+---
+<Base title="Reparatii Boxe Portabile si Bluetooth Bucuresti | JBL, Sony" description={desc} image={IMG.ogBoxe} schemaExtra={schemaSEO}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Boxe Portabile și Bluetooth</h1>
+  <p class="lead">Reparăm boxe portabile JBL, Sony, Marshall, Bose, Anker Soundcore și Ultimate Ears în București, în atelierul din Militari, Sector 6. Mufă de încărcare, baterie, difuzor, Bluetooth. Diagnostic gratuit, garanție 6–12 luni.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>🔋 Ce reparăm la o boxă portabilă</h2>
+  <p>Boxele Bluetooth se strică aproape întotdeauna în aceleași trei locuri: mufa de încărcare, acumulatorul și difuzorul. Sunt aparate purtate prin geantă, scăpate pe jos și încărcate zilnic, iar mufa USB-C este piesa care cedează prima. Toate trei se rezolvă la nivel de componentă, fără să schimbăm placa — și de aceea reparația costă o fracțiune din prețul unei boxe noi.</p>
+  <p>Lucrăm cu stație de lipit cu aer cald și microscop, ceea ce contează la plăcile mici și dense din boxele portabile, unde o mufă smulsă ia cu ea și traseele de sub ea. Avem peste 30.000 de piese pe stoc și suntem partener ASWO, așa că mufele, acumulatorii și difuzoarele uzuale le avem de regulă la noi.</p>
+  <div class="grid g3">
+    {defecte.map(d => <div class="card-soft"><strong>🔴 {d[0]}</strong><span>{d[1]}</span></div>)}
+  </div>
+</section>
+
+<section class="sec">
+  <h2>🔊 Mărci de boxe portabile pe care le reparăm</h2>
+  <p>Reparăm orice marcă, inclusiv modele care nu apar în listă. Mai jos sunt cele pe care le vedem cel mai des în atelier.</p>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Marcă</th><th>Modele reparate frecvent</th></tr></thead><tbody>
+    {marci.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td></tr>)}
+  </tbody></table></div>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă reparația unei boxe portabile</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Intervenție</th><th>Preț orientativ</th></tr></thead><tbody>
+    {preturi.map(r => <tr><td>{r[0]}</td><td><strong>{r[1]}</strong></td></tr>)}
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ manopera. Valoarea exactă o aflați după diagnosticare, care este gratuită și nu vă obligă la nimic. Vedeți și <a href="/preturi/">lista completă de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>📍 Cum ajunge boxa la noi</h2>
+  <p>Atelierul este în Str. Moinești 7, Militari, Sector 6. Program: {SITE.program}. Boxele portabile se aduc la atelier — sunt mici și se transportă ușor, iar reparația lor cere bancul de lucru și microscopul. Sunați înainte, ca să vă spunem din start dacă defectul descris se rezolvă și cam cât ar costa.</p>
+  <p>Reparăm și <a href="/reparatii-boxe-active/">boxe active PA și monitoare de studio</a>, <a href="/reparatii-boxe-active-amplificatoare/">amplificatoare HiFi și profesionale</a>, precum și <a href="/reparatii-televizoare/">televizoare</a>, <a href="/reparatii-laptopuri-bucuresti/">laptopuri</a> și <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">console</a>. Ne puteți <a href="/contact/">contacta direct</a> pentru o programare.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="🔊 Boxa portabilă nu mai merge? Sunați-ne!" />
+</div>
+</Base>
