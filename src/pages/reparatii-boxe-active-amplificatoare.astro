@@ -51,21 +51,25 @@ const power = [
  ['⚡ Electro-Voice și Bosch','EV Q44–Q1212, CP3000S, Tour Pro 2000. Bosch: LBB1990–LBB1994, PLM 2-250–8-250.'],
 ];
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și profesionale în București, Sector 6 Militari. Diagnostic gratuit.";
-const schemaSEO = graf(serviciu({ nume: 'Reparații boxe active și amplificatoare', tip: 'Reparații audio', url: '/reparatii-boxe-active-amplificatoare/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Boxe Active', url: '/reparatii-boxe-active/' }, { name: 'Boxe și Amplificatoare', url: '/reparatii-boxe-active-amplificatoare/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
+const desc = "Reparații amplificatoare în București: HiFi, receivere AV, amplificatoare profesionale de putere. Denon, Yamaha, Marantz, Crown, Lab.Gruppen. Diagnostic gratuit.";
+const schemaSEO = graf(serviciu({ nume: 'Reparații amplificatoare București', tip: 'Reparații amplificatoare audio', url: '/reparatii-boxe-active-amplificatoare/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Boxe Active', url: '/reparatii-boxe-active/' }, { name: 'Reparații Amplificatoare', url: '/reparatii-boxe-active-amplificatoare/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Reparații Boxe Active și Amplificatoare București" description="Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și profesionale în București, Sector 6 Militari. Diagnostic gratuit." schemaExtra={schemaSEO} image={IMG.ogBoxe}>
+<Base title="Reparații Amplificatoare București | HiFi, AV, Putere" description={desc} schemaExtra={schemaSEO} image={IMG.ogBoxe}>
 <div class="hero"><div class="wrap">
-  <h1>Reparații Boxe Active și Amplificatoare — Sector 6</h1>
-  <p class="lead">Service specializat în reparații boxe active PA, boxe de studio, amplificatoare HiFi și amplificatoare profesionale în București, Sector 6 Militari. Reparăm la nivel de componentă electronică — nu înlocuim module întregi. Diagnostic gratuit, garanție 6–12 luni, reparăm în aceeași zi.</p>
+  <h1>Reparații Amplificatoare București</h1>
+  <p class="lead">Reparăm amplificatoare HiFi, receivere AV de home cinema și amplificatoare profesionale de putere, în atelierul din Militari, Sector 6. Lucrăm la nivel de componentă — tranzistoare finale, condensatoare, relee de ieșire — nu înlocuim module întregi. Diagnostic gratuit, garanție 6–12 luni.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
 <div class="wrap">
-<section class="sec"><h2>🔊 Boxe Active PA — Modele Reparate</h2><div class="grid g2">{pa.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
-<section class="sec"><h2>🎚️ Boxe Active Studio Monitor — Modele Reparate</h2><div class="grid g2">{studio.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
+<section class="sec">
+  <p>Un amplificator bine făcut ține 20–30 de ani, dar are câteva puncte care cedează previzibil: condensatoarele de filtraj din sursă se usucă și apare zumzetul de 50 Hz, releul de ieșire face contact prost și un canal amuțește, iar tranzistoarele finale se ard la un scurtcircuit pe difuzor. Toate se rezolvă la nivel de componentă, la o fracțiune din prețul unui aparat nou echivalent — motiv pentru care merită reparat aproape orice amplificator de calitate, inclusiv cele vintage.</p>
+  <p>Reparăm receivere AV moderne, amplificatoare stereo HiFi, amplificatoare profesionale de putere pentru sonorizări și aparate vintage din anii ’70–’80. Dacă aveți o <strong>boxă activă</strong> defectă, nu un amplificator, mergeți la <a href="/reparatii-boxe-active/">pagina de reparații boxe active</a>, iar pentru boxe Bluetooth portabile la <a href="/reparatii-boxe-portabile-bluetooth/">reparații boxe portabile</a>.</p>
+</section>
 <section class="sec"><h2>📻 Amplificatoare HiFi &amp; Home Cinema — Modele Reparate</h2><div class="grid g2">{hifi.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
 <section class="sec"><h2>⚡ Amplificatoare Profesionale de Putere — Modele Reparate</h2><div class="grid g2">{power.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
+<section class="sec"><h2>🔊 Boxe Active PA — Modele Reparate</h2><div class="grid g2">{pa.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
+<section class="sec"><h2>🎚️ Boxe Active Studio Monitor — Modele Reparate</h2><div class="grid g2">{studio.map(b => <div class="card"><h3 style="margin-top:0">{b[0]}</h3><p>{b[1]}</p></div>)}</div></section>
 <section class="sec">
   <h2>🔧 Defecțiuni Frecvente — Ce Reparăm</h2>
   <div class="grid g3">
