@@ -1,26 +1,90 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Service profesional reparații televizoare LED, LCD, OLED și Smart TV în București. Samsung, LG, Sony, Philips. Diagnostic gratuit, garanție 6–12 luni.";
-const schemaSEO = graf(serviciu({ nume: 'Reparații televizoare București', tip: 'Reparații televizoare', url: '/reparatii-televizoare/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Televizoare', url: '/reparatii-televizoare/' }]));
+const desc = "Reparații televizoare în București, la domiciliu sau în atelier: LED, LCD, OLED, QLED, Smart TV. Toate mărcile. Diagnostic gratuit, garanție 6–12 luni.";
+
+const defecte = [
+  ['Televizorul nu pornește', 'Cel mai frecvent defect. LED-ul de stand-by clipește sau nu se aprinde deloc. În majoritatea cazurilor sunt condensatorii din sursa de alimentare, care se umflă după 4–6 ani. Se înlocuiesc la nivel de componentă, nu se schimbă toată placa. La Smart TV blocate în logo rescriem memoria eMMC cu programator specializat.'],
+  ['Sunet există, imagine nu', 'Se aude clar, dar ecranul rămâne negru. Aproape întotdeauna este backlight-ul: una sau mai multe barete LED din spatele panoului au cedat. Se verifică cu lanterna la un unghi și se înlocuiesc baretele — nu tot televizorul.'],
+  ['Dungi verticale sau orizontale pe ecran', 'Dungi colorate fixe indică placa T-CON sau conexiunea flex spre panou. Dungile late și instabile arată o problemă de panou. Diferența contează mult la preț, de aceea o stabilim înainte să vă comunicăm costul.'],
+  ['Televizorul se stinge singur', 'Se oprește după câteva minute sau intră în restart. Sursa de alimentare cu condensatori uzați, circuitele de protecție care se declanșează sau supraîncălzirea plăcii principale.'],
+  ['Imagine cu pete închise sau umbre', 'Difuzorul de lumină sau lentilele LED s-au deformat de la căldură. Se demontează panoul și se înlocuiesc piesele afectate.'],
+  ['Nu are sunet', 'Amplificatorul audio de pe placa principală sau difuzoarele. Verificăm întâi dacă sunetul iese pe căști sau prin HDMI ARC — asta ne spune unde e problema.'],
+  ['Smart TV nu se conectează la internet', 'Modul WiFi defect, antenă desprinsă sau firmware corupt. Multe cazuri se rezolvă fără piese, prin resoftare.'],
+  ['Nu răspunde la telecomandă', 'Senzorul IR, placa de butoane sau firmware blocat. Testăm întâi telecomanda cu camera telefonului — dacă LED-ul ei nu luminează, problema e la telecomandă, nu la televizor.'],
+  ['Ecran crăpat sau lovit', 'Panoul se înlocuiește, dar costul lui reprezintă 60–80% din prețul unui televizor nou. Vă spunem sincer când nu merită și când merită.'],
+];
+
+const preturi = [
+  ['Diagnosticare', 'GRATUITĂ'],
+  ['Deplasare la domiciliu în București', 'GRATUITĂ'],
+  ['Reparații simple — condensatori sursă, resetare software, firmware', '50 – 150 lei'],
+  ['Reparații medii — sursă de alimentare, placă T-CON, barete LED backlight, port HDMI', '150 – 400 lei'],
+  ['Reparații complexe — placă principală, daune de supratensiune, televizoare 75″+', '400 – 800 lei'],
+  ['Înlocuire panou LED / OLED / QLED', 'de la 800 lei'],
+];
+
+const faq = [
+  { q: 'Reparați televizorul la mine acasă?', a: 'Da, la televizoare venim la domiciliu în tot Bucureștiul și în Ilfov, iar deplasarea este gratuită. Majoritatea reparațiilor de sursă, backlight sau software se fac pe loc, în una–două ore. Dacă defecțiunea cere bancul de lucru — înlocuire de panou, reparație pe placa principală la microscop — luăm televizorul la atelier și îl aducem înapoi tot noi.' },
+  { q: 'Cât costă o reparație de televizor?', a: 'Reparațiile simple (condensatori în sursă, resoftare) sunt între 50 și 150 lei. Cele medii — sursă de alimentare, placă T-CON, barete LED — între 150 și 400 lei. Prețul exact îl aflați după diagnosticare, care este gratuită. Dacă nu vă convine, nu plătiți nimic și nu vă obligă la nimic.' },
+  { q: 'Merită reparat un televizor vechi de 6–8 ani?', a: 'Depinde de defect și de diagonală. La un televizor de 50–65 inch, o reparație de sursă sau de backlight de 150–350 lei este aproape întotdeauna rentabilă, fiindcă panoul — partea scumpă — este intact și mai are ani buni de funcționare. Nu merită doar când panoul este crăpat sau când costul depășește jumătate din prețul unui aparat nou echivalent. Vă spunem deschis în care situație sunteți.' },
+  { q: 'Cât durează reparația unui televizor?', a: 'La domiciliu, intervențiile uzuale se termină în aceeași vizită. În atelier, reparațiile obișnuite durează 24–48 de ore. Dacă e nevoie de o piesă comandată — panou, placă specifică unui model rar — vă comunicăm termenul înainte să începem.' },
+  { q: 'Aveți garanție la reparațiile de televizoare?', a: 'Da, 6–12 luni la manoperă și la piesele montate de noi, în funcție de tipul intervenției. Garanția se dă scris, pe bon. Dacă aceeași defecțiune reapare în perioada de garanție, o remediem gratuit.' },
+  { q: 'Ce trebuie să vă spun când sună?', a: 'Marca și modelul exact — le găsiți pe eticheta din spatele televizorului — și ce face aparatul: nu pornește, clipește LED-ul, are sunet fără imagine, are dungi. Cu informațiile astea vă putem spune din prima ce e cel mai probabil și în ce interval de preț se încadrează. Puteți trimite o poză cu eticheta pe WhatsApp.' },
+  { q: 'Reparați și televizoare care nu mai sunt în garanție sau au fost la alt service?', a: 'Da. Ne ocupăm frecvent de aparate pe care alte service-uri le-au declarat irecuperabile sau la care s-a intervenit deja. Ne uităm la ce s-a făcut înainte și vă spunem cinstit dacă se mai poate salva.' },
+  { q: 'Ce mărci de televizoare reparați?', a: 'Toate mărcile prezente pe piața din România: Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp, Toshiba, Grundig, JVC, Hitachi, Thomson, Nokia, Daewoo, Beko, Vortex, NEI, Finlux, Funai și altele. Avem peste 30.000 de piese pe stoc și suntem partener ASWO, cel mai mare importator de componente din Europa.' },
+];
+
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparații televizoare București', tip: 'Reparații televizoare', url: '/reparatii-televizoare/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Televizoare', url: '/reparatii-televizoare/' }]),
+  faqSchema
+);
 ---
-<Base title="Reparații Televizoare București | Service TV Sector 6" description="Service profesional reparații televizoare LED, LCD, OLED și Smart TV în București. Samsung, LG, Sony, Philips. Diagnostic gratuit, garanție 6–12 luni." image={IMG.ogTv} schemaExtra={schemaSEO}>
+<Base title="Reparații Televizoare București | Service TV la Domiciliu" description={desc} image={IMG.ogTv} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Televizoare București</h1>
-  <p class="lead">Service profesional reparații televizoare LED, LCD, OLED, QLED și Smart TV în București, Sector 6. Diagnosticare gratuită, intervenție rapidă, garanție 6–12 luni.</p>
+  <p class="lead">Reparăm televizoare LED, LCD, OLED, QLED și Smart TV în București — la domiciliu, cu deplasare gratuită, sau în atelierul din Militari, Sector 6. Reparăm la nivel de componentă, nu schimbăm plăci întregi. Diagnosticare gratuită, garanție 6–12 luni.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
 <Cifre />
 <div class="wrap">
+
 <section class="sec">
-  <div class="note-green" style="margin-top:24px"><strong>🏠 Reparăm televizoarele și la domiciliu</strong> — tehnicianul vine la dvs. acasă, oriunde în {SITE.zonaDomiciliu}. Vezi <a href="/reparatii-tv-sectoare/" style="color:#0a7d43;font-weight:700">paginile pe sectoare</a>.</div>
-  <h2>Mărci de Televizoare Reparate</h2>
-  <p>Reparăm televizoare de la: <strong>Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp, Toshiba, Grundig, JVC, Hitachi, Thomson, Nokia, Daewoo, Beko, Vortex, NEI, Finlux, Funai</strong> și alte mărci.</p>
+  <div class="note-green" style="margin-top:24px"><strong>🏠 Venim la dumneavoastră acasă</strong> — pentru televizoare ne deplasăm gratuit în tot Bucureștiul și în {SITE.zonaDomiciliu}. Vezi <a href="/reparatii-tv-sectoare/" style="color:#0a7d43;font-weight:700">paginile pe sectoare</a>.</div>
+  <h2>🔧 Defecțiuni frecvente și ce înseamnă fiecare</h2>
+  <p>După 25 de ani în atelier, aproape orice televizor care intră pe ușă se încadrează într-una dintre situațiile de mai jos. Le explicăm ca să știți la ce să vă așteptați încă de la telefon — nu ca să vă vindem o reparație, ci ca să înțelegeți ce se întâmplă cu aparatul.</p>
+  <div class="grid g3">
+    {defecte.map(d => <div class="card-soft"><strong>🔴 {d[0]}</strong><span>{d[1]}</span></div>)}
+  </div>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă o reparație de televizor</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Tip de intervenție</th><th>Preț orientativ</th></tr></thead><tbody>
+    {preturi.map(r => <tr><td>{r[0]}</td><td><strong>{r[1]}</strong></td></tr>)}
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ manopera și piesele uzuale. Valoarea exactă o aflați după diagnosticare, care este gratuită și nu vă obligă la nimic — dacă nu vă convine, nu plătiți nici măcar deplasarea. Vedeți și <a href="/preturi/">lista completă de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>🤔 Merită reparat sau cumpăr altul?</h2>
+  <p>Este întrebarea pe care o primim cel mai des și răspunsul cinstit e că depinde de două lucruri: <strong>ce s-a stricat</strong> și <strong>cât de mare e televizorul</strong>.</p>
+  <p><strong>Merită aproape întotdeauna</strong> când problema este în sursa de alimentare, în baretele LED de backlight, în placa T-CON sau în software. Astea sunt reparații de 150–400 de lei la un aparat care costă 2.000–5.000 de lei nou, iar panoul — componenta scumpă și cea care determină durata de viață — rămâne intact. Un televizor de 6 ani cu sursa reparată mai merge liniștit încă 5–6 ani.</p>
+  <p><strong>Nu merită</strong> când panoul este crăpat sau lovit, pentru că el singur costă 60–80% dintr-un televizor nou. Nu merită nici la aparatele mici și ieftine, sub 32 de inch, unde manopera se apropie de prețul unuia nou.</p>
+  <p>În toate cazurile vă spunem înainte în care dintre situații vă aflați. Nu începem nicio reparație care nu se justifică economic — preferăm să vă spunem să cumpărați altul decât să plătiți degeaba.</p>
+</section>
+
+<section class="sec">
+  <h2>📺 Mărci de televizoare pe care le reparăm</h2>
+  <p>Reparăm televizoare de la <strong>Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp, Toshiba, Grundig, JVC, Hitachi, Thomson, Nokia, Daewoo, Beko, Vortex, NEI, Finlux, Funai</strong> și alte mărci. Avem peste 30.000 de piese pe stoc și suntem partener ASWO, așa că la majoritatea modelelor piesa există fără să o așteptați săptămâni.</p>
   <div class="grid g4" style="margin:10px 0">
     <a class="card-soft" href="/reparatii-tv-samsung/" style="text-decoration:none"><strong>📺 Samsung</strong><span>QLED, Crystal UHD, The Frame</span></a>
     <a class="card-soft" href="/reparatii-tv-lg/" style="text-decoration:none"><strong>📺 LG</strong><span>OLED evo, QNED, NanoCell</span></a>
@@ -29,39 +93,50 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații televizoare București', tip
     <a class="card-soft" href="/reparatii-tv-panasonic/" style="text-decoration:none"><strong>📺 Panasonic</strong><span>OLED, Viera LED</span></a>
     <a class="card-soft" href="/reparatii-tv-toshiba/" style="text-decoration:none"><strong>📺 Toshiba</strong><span>UHD 4K, Fire TV, VIDAA</span></a>
     <a class="card-soft" href="/reparatii-tv-sharp/" style="text-decoration:none"><strong>📺 Sharp</strong><span>Aquos, Android TV, Roku</span></a>
-    <a class="card-soft" href="/reparatii-tv-sectoare/" style="text-decoration:none"><strong>📍 Pe sectoare</strong><span>Sector 1–6, la domiciliu</span></a>
+    <a class="card-soft" href="/reparatii-tv-hisense/" style="text-decoration:none"><strong>📺 Hisense</strong><span>ULED, Laser TV, VIDAA</span></a>
   </div>
 </section>
+
 <section class="sec">
-  <h2>Servicii Reparații Televizoare</h2>
-  <div class="grid g3">
-    <div class="card-soft"><strong>Televizor nu pornește</strong><span>Reparăm sursa de alimentare (înlocuim condensatorii devalorizați) și placa principală; la Smart TV blocate rescriem memoria eMMC cu programator specializat</span></div>
-    <div class="card-soft"><strong>Imagine cu dungi sau neagră</strong><span>Înlocuire panel sau reparare placă T-CON</span></div>
-    <div class="card-soft"><strong>Televizor se stinge singur</strong><span>Circuite de protecție, condensatoare sau sursă</span></div>
-    <div class="card-soft"><strong>Fără sunet</strong><span>Reparare placă audio sau difuzoare</span></div>
-    <div class="card-soft"><strong>Smart TV nu se conectează</strong><span>Reparare modul WiFi sau software update</span></div>
-    <div class="card-soft"><strong>Ecran crăpat</strong><span>Înlocuire panel LCD/OLED/QLED</span></div>
-  </div>
+  <h2>📋 Cum decurge o reparație</h2>
+  <ol>
+    <li><strong>Ne sunați sau ne scrieți pe WhatsApp.</strong> Ne spuneți marca, modelul de pe eticheta din spate și ce face aparatul. Vă orientăm din prima privind cauza probabilă și intervalul de preț.</li>
+    <li><strong>Stabilim vizita.</strong> Pentru televizoare venim la domiciliu, gratuit, în tot Bucureștiul și în Ilfov, la ora care vă convine.</li>
+    <li><strong>Diagnosticare gratuită.</strong> Verificăm aparatul și vă spunem exact ce are și cât costă. Dacă nu vă convine prețul, nu plătiți nimic, nici deplasarea.</li>
+    <li><strong>Reparația.</strong> Doar după acordul dumneavoastră, la prețul comunicat. Majoritatea intervențiilor se fac pe loc; ce cere banc de lucru luăm la atelier și aducem înapoi.</li>
+    <li><strong>Garanție scrisă 6–12 luni</strong> la manoperă și la piesele montate de noi.</li>
+  </ol>
 </section>
+
 <section class="sec">
-  <h2>De Ce Să Ne Alegeți?</h2>
+  <h2>⭐ De ce să ne alegeți</h2>
   <ul class="checks">
-    <li><strong>25 ani experiență</strong> — experiență vastă în reparații televizoare de toate mărcile</li>
-    <li><strong>Garanție 6–12 luni</strong> — piese de calitate, garanție la toate reparațiile efectuate</li>
-    <li><strong>Diagnosticare gratuită</strong> — verificare și estimare cost fără costuri suplimentare</li>
+    <li><strong>25 de ani de experiență</strong> — reparăm televizoare de toate mărcile și tehnologiile, de la LCD-uri vechi la OLED și QLED</li>
+    <li><strong>Reparăm la nivel de componentă</strong> — schimbăm condensatorul sau bareta LED, nu placa întreagă; de aceea costă de câteva ori mai puțin</li>
+    <li><strong>Peste 30.000 de piese pe stoc</strong> și parteneriat ASWO, cel mai mare importator de componente electronice din Europa</li>
+    <li><strong>Diagnosticare și deplasare gratuite</strong> — aflați ce are televizorul fără să plătiți nimic</li>
+    <li><strong>Garanție 6–12 luni</strong>, scrisă pe bon, la manoperă și la piese</li>
   </ul>
 </section>
+
 <section class="sec">
-  <h2>Ghiduri și Pagini Utile</h2>
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <h2>📚 Ghiduri și pagini utile</h2>
   <ul class="checks">
     <li><a href="/reparatii-tv-led-bucuresti/">Reparații TV LED, OLED și QLED</a> — defecțiunile specifice fiecărei tehnologii de panou</li>
     <li><a href="/televizor-samsung-nu-porneste/">Televizorul Samsung nu pornește</a> — ghid de diagnosticare pas cu pas</li>
     <li><a href="/televizor-lg-nu-porneste/">Televizorul LG nu pornește</a> — LED care clipește și resetare electrică</li>
     <li><a href="/reparatii-tv-hisense/">Reparații TV Hisense</a> — service pentru un brand tot mai frecvent în România</li>
     <li><a href="/reparatii-tv-sectoare/">Reparații TV pe sectoare</a> — acoperire în tot Bucureștiul, fără taxă de deplasare</li>
+    <li><a href="/preturi/">Prețuri reparații TV</a> — grila completă, pe tipuri de intervenție</li>
   </ul>
 </section>
-<Cta titlu="📺 Televizor Defect? Sunați-ne!" />
-<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/reparatii-macbook/">reparații MacBook</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-boxe-active/">reparații boxe active</a>, <a href="/reparatii-cuptoare-cu-microunde/">reparații cuptoare microunde</a>.</p>
+
+<Cta titlu="📺 Televizorul nu mai merge? Sunați-ne!" text="Diagnosticare și deplasare gratuite în tot Bucureștiul. Spuneți-ne marca și ce face aparatul — vă orientăm din prima." />
+<p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/reparatii-macbook/">reparații MacBook</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-boxe-active/">reparații boxe active</a>, <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparații console</a>, <a href="/reparatii-cuptoare-cu-microunde/">reparații cuptoare microunde</a>.</p>
 </div>
 </Base>
