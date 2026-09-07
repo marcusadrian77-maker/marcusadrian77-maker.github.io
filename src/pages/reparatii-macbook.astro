@@ -7,6 +7,15 @@ import { SITE } from '../data/site';
 const title = 'Reparații MacBook București | Service Apple Specializat';
 const desc = 'Service MacBook Air și Pro în București: placă de bază, ecran, baterie, tastatură, daune de lichid. Diagnosticare GRATUITĂ, garanție 6–12 luni. ☎ 0765.461.357';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const preturi = [
+ ['Diagnosticare', 'GRATUITĂ'],
+ ['Curățare + pastă termică', '100 – 200 lei'],
+ ['Înlocuire baterie', '200 – 500 lei'],
+ ['Reparare port USB-C / MagSafe', '150 – 350 lei'],
+ ['Înlocuire tastatură Butterfly / Magic', '300 – 700 lei'],
+ ['Reparare placă logică (microsoldering)', '300 – 800 lei'],
+ ['Înlocuire ecran Retina', '500 – 1.500 lei'],
+];
 const faq = [
  { q: 'Cât costă diagnosticarea unui MacBook?', a: 'Nimic — diagnosticarea este gratuită, indiferent dacă acceptați sau nu reparația. Vă comunicăm defectul exact și prețul ferm înainte de orice intervenție, iar prețul nu se modifică pe parcurs.' },
  { q: 'Cât durează o reparație de MacBook?', a: 'Intervențiile uzuale (baterie, ecran, tastatură, port de încărcare) se fac de regulă în 24–48 de ore. Reparațiile de placă de bază durează în general 2–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
@@ -14,6 +23,10 @@ const faq = [
  { q: 'Am vărsat lichid pe MacBook. Ce fac?', a: 'Opriți-l imediat, nu-l puneți la încărcat și nu-l porniți „să vedeți dacă merge” — coroziunea avansează cu fiecare oră sub tensiune. Aduceți-l cât mai repede la atelier; cu cât intervenim mai devreme, cu atât șansele de recuperare completă sunt mai mari.' },
  { q: 'Datele mele sunt în siguranță în timpul reparației?', a: 'Da. Nu accesăm fișierele personale, iar la reparațiile de placă facem tot posibilul să păstrăm datele intacte. La modelele Apple Silicon, unde SSD-ul este lipit pe placă, recomandăm un backup înainte de intervenție dacă laptopul mai pornește.' },
  { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în garanție, îl rezolvăm fără costuri suplimentare.' },
+ { q: 'Cât costă înlocuirea ecranului la un MacBook?', a: 'Între 500 și 1.500 lei, în funcție de model și de diagonală. Diferența e mare pentru că la modelele recente displayul se livrează ca ansamblu complet, iar la unele probleme (backlight, cablu flex) nu e nevoie de ecran nou deloc — de aceea diagnosticăm întâi și abia apoi dăm prețul.' },
+ { q: 'Îmi pierd garanția Apple dacă reparați voi MacBook-ul?', a: 'Dacă laptopul este încă în garanție Apple, vă recomandăm să mergeți întâi la un service autorizat — orice intervenție externă anulează garanția producătorului. Majoritatea clienților noștri vin cu MacBook-uri ieșite din garanție sau cu defecte pe care Apple le rezolvă doar prin înlocuirea plăcii, la prețuri comparabile cu ale unui laptop nou.' },
+ { q: 'Folosiți piese originale?', a: 'Folosim piese originale sau echivalente de calitate, în funcție de disponibilitate și de bugetul agreat cu dumneavoastră. Vă spunem clar, înainte de reparație, ce tip de piesă montăm. La reparațiile de placă înlocuim componente electronice noi, de la furnizori consacrați, prin parteneriatul nostru ASWO.' },
+ { q: 'Merită reparat un MacBook vechi de 6–8 ani?', a: 'De multe ori da, pentru că un MacBook din 2016–2018 reparat corect mai funcționează ani buni, iar reparația costă o fracțiune dintr-un model nou. Vă spunem sincer dacă nu merită: dacă o placă are coroziune extinsă în mai multe zone, vă recomandăm să nu investiți în ea.' },
 ];
 const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'Service', serviceType: 'Reparații MacBook', name: 'Reparații MacBook București', url: canonical, description: desc,
@@ -69,6 +82,29 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <li><strong>Baterie umflată sau descărcare rapidă</strong> — înlocuire cu verificarea circuitului de încărcare</li>
     <li><strong>Repornește singur / se blochează</strong> — diagnosticare placă, memorie, SSD, software</li>
   </ul>
+</section>
+<section class="sec">
+  <h2>💰 Prețuri Orientative Reparații MacBook</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Intervalele sunt orientative și acoperă manopera plus piesa. Prețul ferm îl aflați după diagnosticare, care e gratuită și nu vă obligă la nimic. Lista completă: <a href="/preturi/">prețuri reparații electronice</a>.</p>
+</section>
+<section class="sec">
+  <h2>Defecte Tipice pe Generații de MacBook</h2>
+  <p>După ani de lucru pe plăci Apple, se vede clar că fiecare generație are „boala” ei. Dacă știți anul și modelul, de multe ori putem estima problema încă de la telefon.</p>
+  <h3>MacBook Pro 2016–2020 — backlight și tastatură Butterfly</h3>
+  <p>Cablul flex al displayului trece peste balamale și se uzează la închiderea capacului. Rezultatul: <strong>bandă luminoasă în partea de jos a ecranului, apoi backlight care se stinge complet</strong> când deschideți laptopul peste un anumit unghi. Se rezolvă fie pe cablu, fie pe circuitul de backlight de pe placă — nu întotdeauna e nevoie de ecran nou.</p>
+  <p>Tot la aceste generații apare tastatura <strong>Butterfly</strong>: taste care se blochează, se repetă sau nu răspund deloc, de la un fir de praf ajuns sub mecanism. Curățarea rezolvă uneori, dar soluția durabilă este înlocuirea ansamblului de tastatură.</p>
+  <h3>MacBook Pro 2018–2019 — „nu dă semne de viață”</h3>
+  <p>Modelele cu cip T2 au un circuit de alimentare sensibil: laptopul nu mai pornește deloc, nu se aprinde niciun LED, iar încărcătorul nu schimbă culoarea. În majoritatea cazurilor este vorba de o linie de tensiune în scurtcircuit sau de un controler de încărcare ars — se repară punctual, la microscop, fără schimbarea plăcii.</p>
+  <h3>MacBook Air și Pro cu M1, M2, M3 — lichid și porturi</h3>
+  <p>Modelele Apple Silicon sunt fiabile electronic, dar au două puncte slabe practice: <strong>porturile USB-C</strong>, care se uzează mecanic de la mii de conectări, și <strong>lichidul vărsat</strong>, care ajunge rapid pe placă pentru că nu mai există aproape niciun spațiu tampon. La aceste modele SSD-ul este lipit pe placă, deci recuperarea datelor depinde de starea plăcii — cu atât mai mult contează să ajungă repede la atelier.</p>
+  <h3>MacBook 2012–2015 — cele mai rentabile reparații</h3>
+  <p>Sunt modelele pentru care Apple nu mai oferă piese, dar care merg impecabil după o reparație corectă. Cel mai des le înlocuim bateria (umflată, care presează trackpadul), le curățăm sistemul de răcire și le reparăm circuitul de încărcare. Costul e mic raportat la câți ani mai funcționează laptopul după.</p>
+</section>
+<section class="sec">
+  <h2>Merită Reparat sau Cumpăr Altul?</h2>
+  <p>Vă răspundem sincer, chiar dacă răspunsul înseamnă că nu facem reparația. Regula pe care o folosim: dacă reparația costă sub o treime din prețul unui MacBook echivalent de pe piața second-hand, merită aproape întotdeauna — mai ales pe modelele Pro, care rămân performante mult după ce ies din suportul Apple.</p>
+  <p>Nu vă recomandăm reparația când placa are coroziune extinsă pe mai multe zone după lichid, când s-au încercat deja intervenții agresive în alte ateliere și pistele de pe placă sunt rupte, sau când costul cumulat (ecran + placă + baterie) se apropie de valoarea laptopului. În aceste cazuri vă spunem direct, iar diagnosticarea rămâne gratuită.</p>
 </section>
 <section class="sec">
   <h2>Modele pe Care Lucrăm</h2>
