@@ -12,7 +12,8 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'televizor-lg-nu-porneste/', 'laptop-se-incalzeste/',
  'inlocuire-ecran-laptop/', 'inlocuire-baterie-laptop/',
  'reparatii-monitoare-gaming/', 'reparatii-ps5-bucuresti/',
- 'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/'];
+ 'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/',
+ 'reparatii-boxe-portabile-bluetooth/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');
