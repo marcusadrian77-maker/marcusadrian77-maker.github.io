@@ -4,11 +4,23 @@ import Cifre from '../components/Cifre.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import Faq from '../components/Faq.astro';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Reparatii profesionale monitoare LCD si LED in Bucuresti. Diagnosticare gratuita, garantie 6-12 luni. Acer, Samsung, LG, Dell, HP, Asus. Suna acum!";
-const schemaSEO = graf(serviciu({ nume: 'Reparații monitoare LCD București', tip: 'Reparații monitoare', url: '/reparatii-monitoare-lcd/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Monitoare', url: '/reparatii-monitoare-lcd/' }]));
+const desc = "Reparații monitoare LCD și LED în București, la nivel de componentă: sursă, backlight, placă de control. Diagnostic gratuit, garanție 6–12 luni.";
+const faq = [
+ { q: 'Monitorul nu pornește deloc. Ce poate fi?', a: 'În cele mai multe cazuri, sursa de alimentare. Condensatorii de pe sursă se degradează în timp și nu mai livrează tensiunea necesară. Se repară prin înlocuirea componentelor afectate, între 80 și 200 de lei. Înainte de a ne suna, verificați cu alt cablu de alimentare și altă priză — sunt cauze banale, dar reale.' },
+ { q: 'Monitorul pornește, LED-ul e aprins, dar ecranul rămâne negru. Ce înseamnă?', a: 'Este simptomul clasic de backlight ars. Verificați ușor: aprindeți o lanternă foarte aproape de ecran și priviți din unghi — dacă se distinge vag imaginea, panoul funcționează și doar iluminarea lipsește. Se rezolvă prin înlocuirea barelor de LED-uri sau repararea driverului, 100–300 de lei.' },
+ { q: 'Cât costă repararea unui monitor?', a: 'Sursa de alimentare 80–200 lei, backlight-ul 100–300 lei, placa de control 100–350 lei, iar panoul 200–600 lei. Toate cu piesă și manoperă incluse. Diagnosticarea e gratuită și nu vă obligă la nimic, deci aflați costul exact înainte de a decide.' },
+ { q: 'Merită reparat un monitor vechi de 6–7 ani?', a: 'Dacă defectul e pe sursă, pe backlight sau pe placa de control, aproape întotdeauna da — reparația costă între 20% și 35% din prețul unui monitor nou echivalent. Dacă panoul e crăpat la un monitor sub 24 de inch, vă spunem sincer că nu merită.' },
+ { q: 'Am pixeli morți. Se pot repara?', a: 'Un pixel complet mort, negru, nu se recuperează — este o celulă defectă din panou. Un pixel „blocat" pe o culoare se poate uneori debloca prin stimulare, dar rezultatul nu e garantat. Câțiva pixeli izolați nu justifică înlocuirea panoului; o zonă întreagă afectată, da.' },
+ { q: 'Cât durează reparația?', a: 'Intervențiile uzuale — sursă, backlight, butoane, port — se fac în 24–48 de ore. Reparațiile pe placa de control durează 2–4 zile lucrătoare, în funcție de piesele necesare.' },
+ { q: 'Reparați și monitoare de firmă, pe bază de factură?', a: 'Da. Lucrăm frecvent cu firme din Sectorul 6 care au 10–30 de monitoare identice și preferă repararea în locul înlocuirii. Emitem factură și putem prelua mai multe aparate odată.' },
+];
+const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const preturi = [['Diagnosticare','GRATUITĂ'],['Reparare sursă de alimentare','80 – 200 lei'],['Reparare butoane / port video','80 – 200 lei'],['Înlocuire backlight / bare LED','100 – 300 lei'],['Reparare placă de bază','100 – 350 lei'],['Înlocuire panou LCD','200 – 600 lei']];
+const schemaSEO = graf(serviciu({ nume: 'Reparații monitoare LCD București', tip: 'Reparații monitoare', url: '/reparatii-monitoare-lcd/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Monitoare', url: '/reparatii-monitoare-lcd/' }]), schemaFaq);
 ---
-<Base title="Reparatii Monitoare LCD Bucuresti | Service Rapid Sector 6" description="Reparatii profesionale monitoare LCD si LED in Bucuresti. Diagnosticare gratuita, garantie 6-12 luni. Acer, Samsung, LG, Dell, HP, Asus. Suna acum!" image={IMG.ogMonitor} schemaExtra={schemaSEO}>
+<Base title="Reparații Monitoare LCD București | Service Sector 6" description={desc} image={IMG.ogMonitor} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Monitoare LCD București</h1>
   <p class="lead">Servicii profesionale de reparații monitoare LCD și LED în București, Sector 6. Diagnoză gratuită, intervenție rapidă, garanție la toate reparațiile.</p>
@@ -33,6 +45,34 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații monitoare LCD București', t
   <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Pentru monitoare gaming (144Hz+), 4K și curbate, vezi și <a href="/reparatii-monitoare-gaming/">pagina dedicată Reparații Monitoare Gaming</a> sau <a href="/reparatii-monitoare-sector-6/">Reparații Monitoare Sector 6</a>.</p>
 </section>
 <section class="sec">
+  <h2>Cele Mai Frecvente Defecte, Explicate</h2>
+
+  <h3>Monitorul nu pornește deloc</h3>
+  <p>Niciun LED aprins, nicio reacție la butonul de pornire. Vinovatul obișnuit este <strong>sursa de alimentare</strong>: condensatorii electrolitici se usucă în timp și nu mai țin tensiunea. Se vede adesea cu ochiul liber — capacul de sus al condensatorului e bombat în loc să fie plat. Îi înlocuim punctual, nu schimbăm toată placa. Înainte de a ne aduce monitorul, testați cu alt cablu de alimentare și în altă priză; la modelele cu alimentator extern, problema e de multe ori chiar în alimentator.</p>
+
+  <h3>Pornește, dar ecranul rămâne negru</h3>
+  <p>LED-ul de stare e aprins, poate apare chiar și mesajul „No signal" pentru o clipă, apoi ecranul devine negru. Aproape sigur e <strong>backlight-ul</strong>. Verificarea o puteți face singur: în cameră întunecată, aprindeți lanterna telefonului foarte aproape de ecran și priviți din unghi. Dacă distingeți vag imaginea, panoul e bun și lipsește doar iluminarea — reparație de 100–300 de lei. Dacă nu se vede absolut nimic, mergem mai departe la placa de control.</p>
+
+  <h3>Dungi, linii sau imagine distorsionată</h3>
+  <p>Liniile verticale subțiri și colorate vin de obicei de la conexiunea dintre placă și panou sau de la placa de control. Cele orizontale, tremurânde, arată mai des o problemă de alimentare. Imaginea cu culori alterate, spălăcite sau cu dominantă verde-roz indică un cablu LVDS/eDP slăbit — se rezolvă prin refacerea contactului, o intervenție ieftină.</p>
+
+  <h3>Se stinge singur după câteva minute</h3>
+  <p>Monitorul funcționează, apoi se stinge brusc și uneori repornește singur. Este circuitul de protecție care detectează o tensiune ieșită din limite. Cauza reală e fie pe sursă, fie o bară de LED-uri cu un led în scurtcircuit. Cu cât ajunge mai repede la noi, cu atât reparația rămâne ieftină — tensiunile instabile ajung în timp și la placa de control.</p>
+
+  <h3>Pixeli morți sau pete pe ecran</h3>
+  <p>Un pixel negru înseamnă o celulă moartă din panou și nu se recuperează. Un pixel blocat pe o culoare poate răspunde uneori la stimulare. Petele deschise, de formă rotundă sau alungită, sunt urme de presiune pe panou — de la un obiect sprijinit de ecran sau de la transport. Nu se repară, dar dacă sunt câteva și în margine, nu justifică înlocuirea panoului.</p>
+
+  <h3>Butoane, port HDMI sau DisplayPort defect</h3>
+  <p>Butoanele de meniu se uzează mecanic, iar porturile video se slăbesc de la conectat și deconectat repetat. Ambele se repară prin microsoldare, fără schimbarea plăcii — 80–200 de lei.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Prețuri Orientative</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Intervalele includ piesa și manopera, cu garanție scrisă 6–12 luni. Prețul ferm îl aflați după diagnosticare, care e gratuită. Grila completă: <a href="/preturi/">prețuri reparații electronice</a>.</p>
+</section>
+
+<section class="sec">
   <h2>Monitoare Gaming, 4K și Curbate</h2>
   <p>Monitoarele gaming moderne — 144Hz, 165Hz sau 240Hz, cu panouri IPS rapide sau VA curbate — au electronică mai complexă decât un monitor de birou obișnuit. Sursele de alimentare lucrează la sarcini mai mari, iar plăcile de control gestionează tehnologii suplimentare precum G-Sync, FreeSync sau HDR. De aici și defecțiunile tipice: monitorul intră în standby fără să afișeze imagine, apar sfâșieri (tearing) la rate mari de refresh sau backlight-ul se stinge parțial după câteva minute de funcționare.</p>
   <p>Reparăm la nivel de componentă modele ASUS ROG, MSI, BenQ, AOC, LG UltraGear, Samsung Odyssey, Gigabyte și Dell Alienware. În cele mai multe cazuri intervenția înseamnă înlocuirea unor condensatoare devalorizate din sursă, refacerea alimentării barelor de LED-uri sau repararea plăcii de control — nu înlocuirea panoului, care ar face reparația nerentabilă. Detaliile complete sunt pe pagina de <a href="/reparatii-monitoare-gaming/">reparații monitoare gaming</a>.</p>
@@ -50,6 +90,27 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații monitoare LCD București', t
     <li><strong>Diagnosticare gratuită</strong> — aflați defecțiunea fără costuri suplimentare</li>
   </ul>
 </section>
+<section class="sec">
+  <h2>Monitoare de Birou și Firme</h2>
+  <p>Cea mai mare parte din monitoarele care ajung la noi nu sunt de gaming, ci monitoare obișnuite de birou — Dell, HP, Lenovo, Acer, Philips, AOC, ViewSonic — de 22, 24 sau 27 de inch, cumpărate în serie de firme. Aici reparația e aproape întotdeauna rentabilă: dacă un birou are douăzeci de monitoare identice și trei nu mai pornesc, costul reparării celor trei e o fracțiune din prețul înlocuirii.</p>
+  <p>Preluăm mai multe aparate odată, le diagnosticăm pe toate și vă dăm o listă cu ce merită reparat și ce nu, cu prețul pentru fiecare. Emitem factură. Lucrăm frecvent așa cu firme din Militari, Politehnica și Grozăvești, unde sunt multe birouri mici.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum Decurge</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><span><strong>Ne scrieți pe WhatsApp</strong> marca, modelul și ce face monitorul. O poză cu ecranul aprins ne ajută mult.</span></div>
+    <div class="step"><span class="n">2</span><span><strong>Aduceți monitorul la atelier</strong>, în Str. Moinești 7, Militari, Sector 6. Program: {SITE.program}.</span></div>
+    <div class="step"><span class="n">3</span><span><strong>Diagnosticare gratuită</strong> și preț ferm, comunicat înainte. Reparăm doar cu acordul dumneavoastră.</span></div>
+    <div class="step"><span class="n">4</span><span><strong>Predare cu garanție scrisă</strong> 6–12 luni, pentru piesă și manoperă.</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+
 <Cta titlu="🖥️ Monitor Defect? Sunați-ne!" />
 </div>
 </Base>
