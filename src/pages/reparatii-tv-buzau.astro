@@ -6,7 +6,7 @@ import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 const title = 'Reparații TV Buzău la Domiciliu | Sâmbăta și Duminica';
-const desc = 'Reparații televizoare la domiciliu în Buzău, sâmbăta și duminica, doar cu programare. Toate mărcile, diagnostic gratuit, garanție 6–12 luni.';
+const desc = 'Reparații televizoare la domiciliu în Buzău, Urziceni și satele de pe DN2, sâmbăta și duminica, cu programare. Diagnostic gratuit, garanție 6–12 luni.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'Când veniți în Buzău?', a: 'Sâmbăta și duminica, doar pe bază de programare. Vă rugăm să ne sunați sau să ne scrieți pe WhatsApp din timpul săptămânii, ca să stabilim ora — deplasările de weekend se organizează dinainte, pe rute.' },
@@ -15,12 +15,13 @@ const faq = [
  { q: 'Cât costă deplasarea în Buzău?', a: 'Ne stabilim de la telefon condițiile exacte, în funcție de zonă și de programarea din ziua respectivă. Diagnosticarea rămâne gratuită, iar prețul reparației îl aflați înainte de a decide — nu începem nimic fără acordul dumneavoastră.' },
  { q: 'Ce trebuie să pregătesc pentru vizită?', a: 'Modelul exact al televizorului, de pe eticheta din spatele aparatului — nu doar marca. Ne ajută enorm dacă ni-l trimiteți în avans pe WhatsApp, împreună cu o descriere a defectului: așa venim cu piesele potrivite și, de multe ori, rezolvăm din prima deplasare.' },
  { q: 'Dacă televizorul nu se poate repara acasă?', a: 'Unele defecte cer microscop, stație de lipit și aparatură de măsură care nu se transportă. În aceste cazuri luăm televizorul cu noi la atelier, îl reparăm și îl aducem înapoi — transportul la televizoare este asigurat de noi.' },
+ { q: 'Veniți și în satele de pe drum, nu doar în Buzău?', a: 'Da. Traseul spre Buzău îl facem oricum, pe DN2, așa că ne putem opri în orice localitate de pe drum — Afumați, Găneasa, Sinești, Movilița, Coșereni, Urziceni, Ciocârlia, Glodeanu Sărat, Mihăilești, Movila Banului, Costești și satele aparținătoare. Dacă sunteți într-un sat apropiat de traseu, dar nu chiar pe el, sunați oricum: un ocol scurt se poate face de cele mai multe ori.' },
  { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în perioada de garanție, revenim fără costuri suplimentare.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'Service', serviceType: 'Reparații televizoare la domiciliu', name: 'Reparații TV la domiciliu Buzău', url: canonical, description: desc,
-   areaServed: { '@type': 'City', name: 'Buzău' },
+   areaServed: [{ '@type': 'City', name: 'Buzău' }, { '@type': 'City', name: 'Urziceni' }, { '@type': 'AdministrativeArea', name: 'Județul Buzău' }, { '@type': 'AdministrativeArea', name: 'Județul Ialomița' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
    provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
    offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' } },
  { '@type': 'BreadcrumbList', itemListElement: [
@@ -34,7 +35,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <div class="hero"><div class="wrap">
   <span class="badge">📍 BUZĂU · LA DOMICILIU</span>
   <h1>Reparații TV la Domiciliu în Buzău</h1>
-  <p class="lead">Venim la dumneavoastră acasă <strong>sâmbăta și duminica</strong>, pe bază de programare. Reparăm televizoare de toate mărcile — LED, LCD, OLED, QLED și Smart TV — cu diagnosticare gratuită și garanție scrisă 6–12 luni.</p>
+  <p class="lead">Venim la dumneavoastră acasă <strong>sâmbăta și duminica</strong>, pe bază de programare — în Buzău și în toate satele și comunele de pe traseul DN2 (E85), între București și Buzău. Reparăm televizoare de toate mărcile — LED, LCD, OLED, QLED și Smart TV — cu diagnosticare gratuită și garanție scrisă 6–12 luni.</p>
   <div class="pills"><span>🗓️ Sâmbătă și duminică</span><span>📞 Doar cu programare</span><span>🔍 Diagnostic gratuit</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
@@ -108,6 +109,22 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <h2>De Ce Merită Reparat</h2>
   <p>Un televizor cu sursa defectă sau cu bare LED arse costă, reparat, o fracțiune din prețul unuia nou — iar aparatul mai funcționează ani buni după. Regula pe care o folosim: dacă reparația trece de o treime din prețul unui televizor echivalent, vă spunem sincer că nu merită. Diagnosticarea rămâne gratuită în ambele cazuri, deci nu plătiți ca să aflați răspunsul.</p>
   <p>Nu recomandăm reparația când panoul e crăpat fizic la un televizor de diagonală mică — acolo piesa e cea mai scumpă componentă din aparat și costul se apropie de al unui model nou.</p>
+</section>
+
+<section class="sec">
+  <h2>📍 Localități Acoperite pe Traseul București – Buzău</h2>
+  <p>Deplasarea de weekend se face pe <strong>DN2 (E85)</strong>, iar drumul îl parcurgem oricum. Asta înseamnă că ne putem opri în orice localitate de pe traseu, nu doar în municipiul Buzău — inclusiv în satele mici, unde de obicei nu ajunge niciun service.</p>
+
+  <h3>Județul Ilfov</h3>
+  <p><strong>Voluntari</strong>, <strong>Afumați</strong>, iar din comuna <strong>Găneasa</strong>: Cozieni, Găneasa, Moara Domnească, Piteasca și Șindrilița.</p>
+
+  <h3>Județul Ialomița</h3>
+  <p>Din comuna <strong>Sinești</strong>: Boteni, Cătrunești, Hagiești, Lilieci, Livedea și Sinești. Din comuna <strong>Movilița</strong>: Bițina-Pământeni, Bițina-Ungureni și Movilița. Comuna <strong>Coșereni</strong>. Orașul <strong>Urziceni</strong>. Din comuna <strong>Ciocârlia</strong>: Ciocârlia și Cotorca.</p>
+
+  <h3>Județul Buzău</h3>
+  <p>Din comuna <strong>Glodeanu Sărat</strong>: Căldărușanca, Glodeanu Sărat, Ileana și Pitulicea. Din comuna <strong>Mihăilești</strong>: Colțăneni, Mărgineanu, Mihăilești și Satu Nou. Din comuna <strong>Movila Banului</strong>: Cioranca, Limpeziș și Movila Banului. Din comuna <strong>Costești</strong>: Budișteni, Costești, Gomoești, Groșani, Pietrosu și Spătaru. Și, bineînțeles, municipiul <strong>Buzău</strong>.</p>
+
+  <p>Dacă locuiți într-un sat care nu apare în listă, dar sunteți aproape de traseu, sunați oricum — de multe ori un ocol de câțiva kilometri se poate face fără probleme, mai ales dacă avem deja o programare în zonă în ziua respectivă.</p>
 </section>
 
 <section class="sec">
