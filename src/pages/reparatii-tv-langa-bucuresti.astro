@@ -6,7 +6,7 @@ import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 const title = 'Reparații TV Lângă București | Ilfov și Județele Vecine';
-const desc = 'Reparații televizoare la domiciliu până la 100 km de București: Ilfov, Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman, Buzău. Cu programare.';
+const desc = 'Reparații TV la domiciliu până la 100 km de București, fără taxă de deplasare: Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman, Buzău.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const judete = [
   { nume: 'Giurgiu', href: '/reparatii-tv-giurgiu/', orase: 'Giurgiu, Bolintin-Vale, Mihăilești', drum: 'DN5 și DN6' },
@@ -23,7 +23,8 @@ const faq = [
   { q: 'Asigurați transportul aparatului?', a: 'Transportul îl asigurăm doar la televizoare. Pentru celelalte aparate nu ne deplasăm și nu preluăm — se aduc la atelierul din Sectorul 6.' },
   { q: 'Trebuie programare?', a: 'Da, pentru orice deplasare în afara Bucureștiului. Programarea ne lasă să grupăm mai multe vizite pe aceeași rută și să venim cu piesele potrivite pregătite, ceea ce înseamnă că rezolvăm de multe ori din prima vizită.' },
   { q: 'În ce zile veniți?', a: 'În timpul săptămânii și în weekend, în funcție de zonă și de programările deja stabilite. Ne spuneți când vă convine și căutăm o zi în care mergem oricum spre dumneavoastră.' },
-  { q: 'Cât costă deplasarea?', a: 'Stabilim condițiile exacte la telefon, în funcție de localitate. Diagnosticarea rămâne gratuită, iar prețul reparației îl aflați înainte de a decide — nu începem nimic fără acordul dumneavoastră.' },
+  { q: 'Cât costă deplasarea?', a: 'Nimic. Nu percepem taxă de deplasare, indiferent de localitate sau de distanță. În schimb, ne deplasăm doar la televizoarele pentru care avem deja piesa pe stoc — altfel am veni degeaba și v-am face și dumneavoastră un drum inutil. De aceea vă cerem modelul exact de pe eticheta din spatele aparatului: îl verificăm în stoc și vă confirmăm la telefon, înainte de a stabili vizita.' },
+  { q: 'Ce se întâmplă dacă nu aveți piesa pentru televizorul meu?', a: 'Vă spunem din start, la telefon, nu după ce ajungem la dumneavoastră. Avem peste 30.000 de piese pe stoc prin parteneriatul ASWO, deci acoperim marea majoritate a modelelor, dar la aparate rare sau foarte vechi piesa poate necesita comandă. În acest caz stabilim împreună: fie așteptăm piesa și venim după ce sosește, fie aduceți televizorul la atelierul din Militari.' },
   { q: 'Merită să vă chem din București pentru un televizor?', a: 'Depinde de defect și de diagonală. La un aparat de 50 de inch sau mai mare, o reparație de sursă sau de backlight costă o fracțiune din prețul unuia nou, deci aproape întotdeauna merită. Vă spunem cinstit la telefon, din descrierea defectului, dacă credem că nu are rost să venim.' },
   { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în garanție, revenim fără costuri suplimentare.' },
 ];
@@ -53,8 +54,8 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <div class="hero"><div class="wrap">
   <span class="badge">📍 PÂNĂ LA 100 KM DE BUCUREȘTI</span>
   <h1>Reparații TV la Domiciliu Lângă București</h1>
-  <p class="lead">Nu ne oprim la marginea orașului. Venim cu televizorul la dumneavoastră acasă în <strong>Ilfov și în județele din jur</strong> — Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman și Buzău — pe bază de programare, în timpul săptămânii sau în weekend.</p>
-  <div class="pills"><span>📞 Cu programare</span><span>🔍 Diagnostic gratuit</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <p class="lead">Nu ne oprim la marginea orașului. Venim cu televizorul la dumneavoastră acasă în <strong>Ilfov și în județele din jur</strong> — Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman și Buzău — <strong>fără taxă de deplasare</strong>, pe bază de programare, în timpul săptămânii sau în weekend.</p>
+  <div class="pills"><span>🚚 Deplasare gratuită</span><span>📞 Cu programare</span><span>🔍 Diagnostic gratuit</span><span>🛡️ Garanție 6–12 luni</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
@@ -81,6 +82,14 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <p>Un televizor de 55 sau 65 de inch cântărește între 15 și 25 de kilograme și e cea mai fragilă piesă de mobilier din casă. Transportul lui într-o mașină obișnuită, pe drumuri de țară, pune panoul — partea cea mai scumpă din aparat — la un risc real. De multe ori, un televizor care ajunge spart la atelier a plecat întreg de acasă.</p>
   <p>În orașele mici și în comune, service-urile de electronice sunt puține, iar cele care există trimit oricum aparatul la București. Așa că drumul se face tot, doar că îl faceți dumneavoastră, cu riscul pe umerii dumneavoastră. Noi preferăm să venim cu aparatura la televizor, nu invers.</p>
   <p>Consecința practică: majoritatea reparațiilor se termină în vizita respectivă, la dumneavoastră acasă, iar televizorul nu se mișcă din living.</p>
+</section>
+
+<section class="sec">
+  <h2>🚚 Deplasarea Nu Costă Nimic — Dar Venim Doar cu Piesa Potrivită</h2>
+  <p>Nu percepem taxă de deplasare. Nici în Ilfov, nici la o sută de kilometri de București. Prețul pe care îl plătiți este strict al reparației, iar diagnosticarea rămâne gratuită.</p>
+  <p>Există însă o condiție, și e în interesul amândurora: <strong>ne deplasăm doar la televizoarele pentru care avem deja piesa pe stoc</strong>. Nu are rost să facem o sută de kilometri ca să constatăm la fața locului că piesa trebuie comandată, iar dumneavoastră să rămâneți cu televizorul stricat și cu o zi pierdută.</p>
+  <p>De asta insistăm pe <strong>modelul exact</strong>, de pe eticheta din spatele aparatului — nu doar marca. Cu modelul și cu descrierea defectului verificăm stocul înainte de a porni la drum și vă confirmăm la telefon. Avem peste 30.000 de piese disponibile prin parteneriatul ASWO, cel mai mare importator de componente electronice din Europa, așa că acoperim marea majoritate a modelelor de pe piață.</p>
+  <p>Dacă piesa nu e pe stoc, aflați asta la telefon, nu la ușă. Atunci vedem împreună ce facem: fie o comandăm și venim după ce sosește, fie aduceți televizorul la atelierul din Militari.</p>
 </section>
 
 <section class="sec">
