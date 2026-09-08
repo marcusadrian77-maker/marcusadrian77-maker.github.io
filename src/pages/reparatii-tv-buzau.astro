@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
@@ -136,6 +137,8 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <section class="sec">
   <p style="font-size:14px;color:var(--mut)">Atelierul nostru este în <strong>Str. Moinești 7, bl. 134 A, Militari, Sector 6, București</strong>. Program atelier: {SITE.program}. În București și Ilfov reparăm televizoarele la domiciliu în cursul săptămânii — vedeți <a href="/reparatii-tv-sectoare/">paginile pe sectoare</a>. Ne deplasăm și în celelalte județe din jurul Bucureștiului: <a href="/reparatii-tv-langa-bucuresti/">vezi toate zonele acoperite</a> și pagina generală de <a href="/reparatii-televizoare/">reparații televizoare</a>.</p>
 </section>
+
+<TrimitePoze />
 
 <Cta titlu="📺 Sunteți din Buzău? Programați-vă acum." text="Sâmbăta și duminica venim la dumneavoastră acasă. Trimiteți-ne modelul televizorului pe WhatsApp și stabilim ziua." />
 </div>

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
@@ -77,6 +78,8 @@ const schemaSEO = graf(
   <h2>Întrebări Frecvente</h2>
   <Faq items={faq} />
 </section>
+<TrimitePoze />
+
 <Cta titlu="📺 Televizorul LED nu mai funcționează corect? Sunați-ne!" text="Diagnosticare gratuită la domiciliu în București. Spuneți-ne marca, diagonală și simptomele — vă orientăm imediat." />
 <p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-mentenanță-console-ps4-ps5-xbox-manete/">reparații console</a>.</p>
 </div>

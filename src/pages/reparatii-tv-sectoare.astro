@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
@@ -101,6 +102,8 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații TV la domiciliu în Bucureș
     <li><a href="/reparatii-televizoare/">Reparații televizoare</a> — pagina principală cu toate serviciile TV</li>
   </ul>
 </section>
+
+<TrimitePoze />
 
 <Cta titlu="📺 Televizor Defect? Sunați-ne!" text="Diagnostic gratuit și intervenție rapidă în tot Bucureștiul, de regulă în aceeași zi." />
 </div>

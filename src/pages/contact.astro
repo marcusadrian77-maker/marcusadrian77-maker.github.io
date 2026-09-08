@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import Cifre from '../components/Cifre.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, pagina } from '../data/schema';
@@ -59,6 +60,8 @@ const schemaSEO = graf(pagina('ContactPage', { nume: 'Contact Marcus Electronics
   <p><strong>Laptopuri, MacBook, console, monitoare, boxe, cuptoare — în atelier.</strong> Aduceți aparatul la sediul din Militari, îl preluăm cu fișă de service și vă comunicăm diagnosticul și prețul înainte de a începe lucrarea. Nu efectuăm nicio intervenție fără acordul dumneavoastră, iar dacă renunțați la reparație nu plătiți diagnosticarea. Tarifele orientative pe categorii sunt în <a href="/preturi/">pagina de prețuri</a>, iar răspunsurile la cele mai frecvente nelămuriri în <a href="/intrebari-frecvente-faq-2/">secțiunea de întrebări frecvente</a>.</p>
   <p>Toate intervențiile vin cu garanție scrisă de 6–12 luni, în funcție de tipul reparației și de piesele folosite.</p>
 </section>
+
+<TrimitePoze />
 </div>
 <script is:inline>
   (function(){

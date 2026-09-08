@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import Cifre from '../components/Cifre.astro';
 import { graf } from '../data/schema';
 import Cta from '../components/Cta.astro';
@@ -34,11 +35,11 @@ const echip = [
     <div class="pills"><span>✅ Diagnostic gratuit</span><span>🛡️ Garanție 6–12 luni</span><span>⚡ Reparăm în aceeași zi</span><span>🚚 Deplasare gratuită la TV</span></div>
     <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
     <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
-    <p style="margin:16px auto 0;font-size:13.5px;opacity:.9;max-width:640px">📱 Trimiteți pe WhatsApp modelul televizorului de pe eticheta din spatele aparatului. Vă mulțumim!</p>
   </div>
 </div>
 <Cifre />
 <div class="wrap">
+<TrimitePoze titlu="📱 Înainte de a ne suna — trimiteți-ne două poze pe WhatsApp" />
 <section class="sec">
   <div class="split">
     <div>

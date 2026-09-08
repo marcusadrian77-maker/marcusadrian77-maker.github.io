@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
@@ -74,6 +75,8 @@ const schemaSEO = graf(
   <h2>Întrebări Frecvente</h2>
   <Faq items={faq} />
 </section>
+<TrimitePoze />
+
 <Cta titlu="📺 Televizor Hisense Defect? Sunați-ne!" text="Diagnosticare gratuită la domiciliu în București. Spuneți-ne modelul și ce ați observat — vă orientăm imediat." />
 <p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-tv-samsung/">reparații TV Samsung</a>, <a href="/reparatii-tv-lg/">reparații TV LG</a>, <a href="/reparatii-tv-sony/">reparații TV Sony</a>, <a href="/preturi/">prețuri</a>.</p>
 </div>

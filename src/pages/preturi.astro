@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import Cifre from '../components/Cifre.astro';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
@@ -151,6 +152,8 @@ const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Qu
     <li><a href="/mentenanta-profesionala-pasta-termica/">Mentenanță profesională și pastă termică</a> — curățare, pastă termică, întreținere preventivă</li>
   </ul>
 </section>
+
+<TrimitePoze titlu="📱 Vreți prețul exact? Trimiteți-ne poze pe WhatsApp" />
 
 <Cta titlu="📞 Programează o Diagnosticare GRATUITĂ!" text="Venim la tine acasă, identificăm problema și îți prezentăm prețul exact. Fără obligații." />
 </div>

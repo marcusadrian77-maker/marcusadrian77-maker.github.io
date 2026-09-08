@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
@@ -89,6 +90,8 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <h2>Întrebări Frecvente</h2>
   <Faq items={faq} />
 </section>
+<TrimitePoze />
+
 <Cta titlu="📺 Televizorul LG tot nu pornește? Sunați-ne!" text="Diagnostic gratuit la domiciliu, în aceeași zi. Spuneți-ne modelul și ce ați observat — vă orientăm din prima." />
 <p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-tv-lg/">reparații TV LG</a>, <a href="/reparatii-tv-sectoare/">reparații TV pe sectoare</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>.</p>
 </div>

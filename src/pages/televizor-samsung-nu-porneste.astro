@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
 import { SITE } from '../data/site';
 const title = 'Televizor Samsung Nu Pornește: Cauze și Soluții | Ghid 2026';
 const desc = 'Televizorul Samsung nu pornește sau LED-ul roșu clipește? Cauze frecvente, ce poți verifica singur acasă și când e nevoie de service. ☎ 0765.461.357';
@@ -62,6 +63,8 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
   <p style="margin-top:12px">Consultați și secțiunea completă de <a href="/intrebari-frecvente-faq-2/">întrebări frecvente</a> pentru alte nelămuriri despre reparațiile de televizoare.</p>
 </section>
+<TrimitePoze />
+
 <Cta titlu="📺 Televizorul Samsung tot nu pornește? Sunați-ne!" text="Diagnostic gratuit la domiciliu, în aceeași zi. Spuneți-ne modelul și ce ați observat — vă orientăm din prima." />
 </div>
 </Base>
