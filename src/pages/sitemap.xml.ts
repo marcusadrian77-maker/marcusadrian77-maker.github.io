@@ -14,7 +14,7 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'reparatii-monitoare-gaming/', 'reparatii-ps5-bucuresti/',
  'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/',
  'reparatii-boxe-portabile-bluetooth/',
- 'dungi-pe-ecranul-televizorului/', 'televizor-fara-sunet/', 'televizor-se-restarteaza-singur/'];
+ 'dungi-pe-ecranul-televizorului/', 'televizor-fara-sunet/', 'televizor-se-restarteaza-singur/', 'reparatii-tv-buzau/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');

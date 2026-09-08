@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Reparații TV Buzău la Domiciliu | Sâmbăta și Duminica';
+const desc = 'Reparații televizoare la domiciliu în Buzău, sâmbăta și duminica, doar cu programare. Toate mărcile, diagnostic gratuit, garanție 6–12 luni.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Când veniți în Buzău?', a: 'Sâmbăta și duminica, doar pe bază de programare. Vă rugăm să ne sunați sau să ne scrieți pe WhatsApp din timpul săptămânii, ca să stabilim ora — deplasările de weekend se organizează dinainte, pe rute.' },
+ { q: 'Reparați și alte aparate la domiciliu în Buzău?', a: 'Nu. La domiciliu venim exclusiv pentru televizoare. Laptopurile, MacBook-urile, consolele, monitoarele și echipamentele audio se repară doar în atelier și trebuie aduse la noi, în București.' },
+ { q: 'Asigurați transportul aparatului?', a: 'Transportul îl asigurăm doar la televizoare. Celelalte aparate trebuie aduse de dumneavoastră la atelierul din Militari, Sector 6, București.' },
+ { q: 'Cât costă deplasarea în Buzău?', a: 'Ne stabilim de la telefon condițiile exacte, în funcție de zonă și de programarea din ziua respectivă. Diagnosticarea rămâne gratuită, iar prețul reparației îl aflați înainte de a decide — nu începem nimic fără acordul dumneavoastră.' },
+ { q: 'Ce trebuie să pregătesc pentru vizită?', a: 'Modelul exact al televizorului, de pe eticheta din spatele aparatului — nu doar marca. Ne ajută enorm dacă ni-l trimiteți în avans pe WhatsApp, împreună cu o descriere a defectului: așa venim cu piesele potrivite și, de multe ori, rezolvăm din prima deplasare.' },
+ { q: 'Dacă televizorul nu se poate repara acasă?', a: 'Unele defecte cer microscop, stație de lipit și aparatură de măsură care nu se transportă. În aceste cazuri luăm televizorul cu noi la atelier, îl reparăm și îl aducem înapoi — transportul la televizoare este asigurat de noi.' },
+ { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în perioada de garanție, revenim fără costuri suplimentare.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Reparații televizoare la domiciliu', name: 'Reparații TV la domiciliu Buzău', url: canonical, description: desc,
+   areaServed: { '@type': 'City', name: 'Buzău' },
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Buzău', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📍 BUZĂU · LA DOMICILIU</span>
+  <h1>Reparații TV la Domiciliu în Buzău</h1>
+  <p class="lead">Venim la dumneavoastră acasă <strong>sâmbăta și duminica</strong>, pe bază de programare. Reparăm televizoare de toate mărcile — LED, LCD, OLED, QLED și Smart TV — cu diagnosticare gratuită și garanție scrisă 6–12 luni.</p>
+  <div class="pills"><span>🗓️ Sâmbătă și duminică</span><span>📞 Doar cu programare</span><span>🔍 Diagnostic gratuit</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <div class="note-green"><strong>🗓️ Cum funcționează programarea.</strong> Deplasările în Buzău se fac numai sâmbăta și duminica, iar programul se stabilește din timpul săptămânii. Sunați sau scrieți-ne pe WhatsApp cu <strong>modelul televizorului</strong> și cu ce face aparatul — vă confirmăm ziua și intervalul orar, iar noi venim cu piesele potrivite pregătite dinainte.</div>
+</section>
+
+<section class="sec">
+  <h2>Ce Reparăm la Domiciliu</h2>
+  <p>Cele mai multe defecte de televizor se rezolvă chiar la dumneavoastră acasă, într-o singură vizită. Aducem cu noi aparatura de măsură, sculele și piesele pentru defectele frecvente.</p>
+  <ul class="checks">
+    <li><strong>Televizorul nu pornește</strong> — sursă de alimentare, condensatori degradați, circuit de standby</li>
+    <li><strong>Ecran negru, dar cu sunet</strong> — bare LED arse, driver de backlight, alimentarea panoului</li>
+    <li><strong>Se oprește singur sau repornește</strong> — protecție declanșată de o tensiune ieșită din limite</li>
+    <li><strong>Dungi sau linii pe ecran</strong> — placă T-CON, conexiuni între placă și panou</li>
+    <li><strong>Fără sunet</strong> — difuzoare, circuit audio de pe placă</li>
+    <li><strong>Smart TV blocat</strong> — buclă de repornire, aplicații care nu mai pornesc, actualizare eșuată</li>
+    <li><strong>Nu se conectează la WiFi</strong> — modul de rețea, setări, firmware</li>
+    <li><strong>Probleme de telecomandă sau porturi</strong> — senzor IR, HDMI, USB</li>
+  </ul>
+  <p>Dacă vreți să înțelegeți dinainte ce are televizorul, avem ghiduri detaliate pe fiecare simptom: <a href="/televizor-se-restarteaza-singur/">se oprește singur</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecran</a>, <a href="/televizor-fara-sunet/">fără sunet</a>, <a href="/televizor-samsung-nu-porneste/">Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">LG care nu pornește</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>⚠️ Ce Nu Se Repară la Domiciliu</h2>
+  <p>Este important să fim clari de la început, ca să nu vă facem drum degeaba și nici noi să nu venim degeaba.</p>
+  <ul class="checks">
+    <li><strong>La domiciliu venim exclusiv pentru televizoare.</strong> Laptopurile, MacBook-urile, consolele, monitoarele, boxele și amplificatoarele se repară doar în atelier și trebuie aduse la noi, în București, Militari.</li>
+    <li><strong>Transportul îl asigurăm doar la televizoare.</strong> Pentru celelalte aparate nu ne deplasăm și nu preluăm.</li>
+    <li><strong>Reparațiile pe placă la microscop</strong> — microsoldare, rescrierea memoriei eMMC, înlocuirea unui cip — cer aparatură care nu se transportă. În aceste cazuri luăm televizorul cu noi, îl reparăm în atelier și îl aducem înapoi.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>💰 Prețuri Orientative</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparații simple (software, condensatori, unele LED-uri)</span><b>50 – 150 lei</b></div>
+  <div class="price-row"><span>Reparații medii (sursă, T-CON, placă de bază, bare LED, port HDMI)</span><b>150 – 400 lei</b></div>
+  <div class="price-row"><span>Reparații complexe (înlocuire panou, daune de supratensiune, TV 75″+)</span><b>400 – 1.200+ lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Intervalele includ piesa și manopera. Prețul ferm îl aflați după diagnosticare, care e gratuită și nu vă obligă la nimic. Grila completă: <a href="/preturi/">prețuri reparații televizoare</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum Decurge o Vizită în Buzău</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><span><strong>Ne scrieți în timpul săptămânii.</strong> Pe WhatsApp sau telefonic, cu modelul televizorului de pe eticheta din spate și cu o descriere a defectului. O poză cu ecranul aprins ajută mult.</span></div>
+    <div class="step"><span class="n">2</span><span><strong>Stabilim ziua și ora.</strong> Sâmbătă sau duminică, într-un interval convenit. Programarea e obligatorie — nu facem deplasări nepregătite.</span></div>
+    <div class="step"><span class="n">3</span><span><strong>Venim și diagnosticăm gratuit.</strong> Vă spunem exact ce are televizorul și cât costă reparația, înainte de a atinge ceva.</span></div>
+    <div class="step"><span class="n">4</span><span><strong>Reparăm pe loc</strong>, dacă defectul o permite. Dacă nu, luăm televizorul la atelier și îl aducem înapoi reparat.</span></div>
+    <div class="step"><span class="n">5</span><span><strong>Predare cu garanție scrisă</strong> 6–12 luni, pentru piesă și manoperă.</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Mărci pe Care le Reparăm</h2>
+  <p>Lucrăm pe toate mărcile prezente pe piața din România: <strong>Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp, Toshiba, Grundig, JVC, Hitachi, Thomson, Nokia, Vortex, Allview, Finlux, Daewoo, Beko, NEI</strong> și altele.</p>
+  <div class="grid g4" style="margin:10px 0">
+    <a class="card-soft" href="/reparatii-tv-samsung/" style="text-decoration:none"><strong>📺 Samsung</strong><span>QLED, Crystal UHD, The Frame</span></a>
+    <a class="card-soft" href="/reparatii-tv-lg/" style="text-decoration:none"><strong>📺 LG</strong><span>OLED evo, QNED, NanoCell</span></a>
+    <a class="card-soft" href="/reparatii-tv-sony/" style="text-decoration:none"><strong>📺 Sony</strong><span>Bravia, OLED, Google TV</span></a>
+    <a class="card-soft" href="/reparatii-tv-hisense/" style="text-decoration:none"><strong>📺 Hisense</strong><span>ULED, VIDAA, Mini-LED</span></a>
+  </div>
+  <p>Suntem partener oficial <strong>ASWO</strong>, cel mai mare importator de componente electronice din Europa, cu peste 30.000 de piese pe stoc — inclusiv pentru modele mai vechi, pentru care alte service-uri spun că nu se mai găsesc piese.</p>
+</section>
+
+<section class="sec">
+  <h2>De Ce Merită Reparat</h2>
+  <p>Un televizor cu sursa defectă sau cu bare LED arse costă, reparat, o fracțiune din prețul unuia nou — iar aparatul mai funcționează ani buni după. Regula pe care o folosim: dacă reparația trece de o treime din prețul unui televizor echivalent, vă spunem sincer că nu merită. Diagnosticarea rămâne gratuită în ambele cazuri, deci nu plătiți ca să aflați răspunsul.</p>
+  <p>Nu recomandăm reparația când panoul e crăpat fizic la un televizor de diagonală mică — acolo piesa e cea mai scumpă componentă din aparat și costul se apropie de al unui model nou.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p style="font-size:14px;color:var(--mut)">Atelierul nostru este în <strong>Str. Moinești 7, bl. 134 A, Militari, Sector 6, București</strong>. Program atelier: {SITE.program}. În București și Ilfov reparăm televizoarele la domiciliu în cursul săptămânii — vedeți <a href="/reparatii-tv-sectoare/">paginile pe sectoare</a> și pagina generală de <a href="/reparatii-televizoare/">reparații televizoare</a>.</p>
+</section>
+
+<Cta titlu="📺 Sunteți din Buzău? Programați-vă acum." text="Sâmbăta și duminica venim la dumneavoastră acasă. Trimiteți-ne modelul televizorului pe WhatsApp și stabilim ziua." />
+</div>
+</Base>
