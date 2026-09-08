@@ -1,0 +1,36 @@
+---
+import { SITE } from '../data/site';
+export interface Props { titlu?: string; }
+const { titlu = '📱 Trimiteți-ne poze pe WhatsApp — vă răspundem mult mai repede' } = Astro.props;
+---
+<div class="wa-box">
+  <h2>{titlu}</h2>
+  <p class="wa-intro">Ca să vă putem spune din prima ce are aparatul și cât costă reparația, trimiteți-ne pe WhatsApp:</p>
+  <ul class="wa-list">
+    <li><strong>O poză cu eticheta din spatele televizorului</strong> — acolo scrie modelul exact, nu doar marca. E cea mai importantă informație: după ea verificăm dacă avem piesa pe stoc.</li>
+    <li><strong>O poză sau un filmuleț cu ce face aparatul</strong> — cum arată ecranul, cum clipește LED-ul, ce sunet scoate, când apare problema. Un filmuleț de zece secunde ne spune mai mult decât cinci minute de explicații la telefon.</li>
+  </ul>
+  <p class="wa-rez">Cu astea în față vă răspundem concret: ce e cel mai probabil defect, dacă avem piesa și în ce interval de preț vă încadrați — <strong>înainte</strong> de a stabili o vizită. Fără drumuri inutile, nici pentru dumneavoastră, nici pentru noi.</p>
+  <div class="wa-btns">
+    <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 Trimite poze pe WhatsApp</a>
+    <a class="btn btn-blue" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  </div>
+</div>
+
+<style>
+.wa-box{background:#e8f7ee;border:2px solid #25d366;border-radius:14px;padding:22px 24px;margin:26px 0}
+.wa-box h2{margin:0 0 10px;font-size:20px;color:#14365d;line-height:1.35}
+.wa-intro{margin:0 0 12px;font-size:15.5px;color:#2d6a4f;font-weight:600}
+.wa-list{list-style:none;padding:0;margin:0 0 14px}
+.wa-list li{position:relative;padding:0 0 0 30px;margin:0 0 12px;font-size:15px;line-height:1.55;color:#1b4332}
+.wa-list li::before{content:'📷';position:absolute;left:0;top:0}
+.wa-list li:last-child::before{content:'🎥'}
+.wa-rez{margin:0 0 16px;font-size:14.5px;color:#2d6a4f;line-height:1.6}
+.wa-btns{display:flex;flex-wrap:wrap;gap:10px}
+.wa-btns .btn{margin:0}
+@media(max-width:600px){
+  .wa-box{padding:18px 16px}
+  .wa-box h2{font-size:17.5px}
+  .wa-btns .btn{width:100%;text-align:center}
+}
+</style>
