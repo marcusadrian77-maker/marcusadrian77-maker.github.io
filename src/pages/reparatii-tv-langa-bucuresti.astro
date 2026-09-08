@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Reparații TV Lângă București | Ilfov și Județele Vecine';
+const desc = 'Reparații televizoare la domiciliu până la 100 km de București: Ilfov, Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman, Buzău. Cu programare.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const judete = [
+  { nume: 'Giurgiu', href: '/reparatii-tv-giurgiu/', orase: 'Giurgiu, Bolintin-Vale, Mihăilești', drum: 'DN5 și DN6' },
+  { nume: 'Dâmbovița', href: '/reparatii-tv-dambovita/', orase: 'Târgoviște, Titu, Găești, Răcari, Pucioasa', drum: 'DN71 și DN7' },
+  { nume: 'Prahova', href: '/reparatii-tv-prahova/', orase: 'Ploiești, Câmpina, Băicoi, Urlați, Mizil', drum: 'DN1 și DN1A' },
+  { nume: 'Ialomița', href: '/reparatii-tv-ialomita/', orase: 'Urziceni, Fierbinți-Târg, Slobozia, Amara', drum: 'DN2 și DN2A' },
+  { nume: 'Călărași', href: '/reparatii-tv-calarasi/', orase: 'Oltenița, Fundulea, Budești, Lehliu Gară', drum: 'DN3 și DN4' },
+  { nume: 'Teleorman', href: '/reparatii-tv-teleorman/', orase: 'Alexandria, Videle, Roșiori de Vede', drum: 'DN6' },
+  { nume: 'Buzău', href: '/reparatii-tv-buzau/', orase: 'Buzău și satele de pe DN2', drum: 'DN2 (E85)' },
+];
+const faq = [
+  { q: 'Până la ce distanță de București vă deplasați?', a: 'Aproximativ 100 de kilometri în jurul Bucureștiului. Asta acoperă tot județul Ilfov și părțile apropiate din Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman și Buzău. Dacă sunteți la limită sau puțin peste, sunați oricum și vă spunem sincer dacă putem ajunge.' },
+  { q: 'Reparați și alte aparate la domiciliu?', a: 'Nu. La domiciliu venim exclusiv pentru televizoare. Laptopurile, MacBook-urile, consolele, monitoarele și echipamentele audio se repară doar în atelier și trebuie aduse la noi, în București, Militari.' },
+  { q: 'Asigurați transportul aparatului?', a: 'Transportul îl asigurăm doar la televizoare. Pentru celelalte aparate nu ne deplasăm și nu preluăm — se aduc la atelierul din Sectorul 6.' },
+  { q: 'Trebuie programare?', a: 'Da, pentru orice deplasare în afara Bucureștiului. Programarea ne lasă să grupăm mai multe vizite pe aceeași rută și să venim cu piesele potrivite pregătite, ceea ce înseamnă că rezolvăm de multe ori din prima vizită.' },
+  { q: 'În ce zile veniți?', a: 'În timpul săptămânii și în weekend, în funcție de zonă și de programările deja stabilite. Ne spuneți când vă convine și căutăm o zi în care mergem oricum spre dumneavoastră.' },
+  { q: 'Cât costă deplasarea?', a: 'Stabilim condițiile exacte la telefon, în funcție de localitate. Diagnosticarea rămâne gratuită, iar prețul reparației îl aflați înainte de a decide — nu începem nimic fără acordul dumneavoastră.' },
+  { q: 'Merită să vă chem din București pentru un televizor?', a: 'Depinde de defect și de diagonală. La un aparat de 50 de inch sau mai mare, o reparație de sursă sau de backlight costă o fracțiune din prețul unuia nou, deci aproape întotdeauna merită. Vă spunem cinstit la telefon, din descrierea defectului, dacă credem că nu are rost să venim.' },
+  { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în garanție, revenim fără costuri suplimentare.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Reparații televizoare la domiciliu', name: 'Reparații TV la domiciliu în jurul Bucureștiului', url: canonical, description: desc,
+   areaServed: [
+     { '@type': 'AdministrativeArea', name: 'Județul Ilfov' },
+     { '@type': 'AdministrativeArea', name: 'Județul Giurgiu' },
+     { '@type': 'AdministrativeArea', name: 'Județul Dâmbovița' },
+     { '@type': 'AdministrativeArea', name: 'Județul Prahova' },
+     { '@type': 'AdministrativeArea', name: 'Județul Ialomița' },
+     { '@type': 'AdministrativeArea', name: 'Județul Călărași' },
+     { '@type': 'AdministrativeArea', name: 'Județul Teleorman' },
+     { '@type': 'AdministrativeArea', name: 'Județul Buzău' },
+   ],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Lângă București', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📍 PÂNĂ LA 100 KM DE BUCUREȘTI</span>
+  <h1>Reparații TV la Domiciliu Lângă București</h1>
+  <p class="lead">Nu ne oprim la marginea orașului. Venim cu televizorul la dumneavoastră acasă în <strong>Ilfov și în județele din jur</strong> — Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman și Buzău — pe bază de programare, în timpul săptămânii sau în weekend.</p>
+  <div class="pills"><span>📞 Cu programare</span><span>🔍 Diagnostic gratuit</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Alegeți Județul Dumneavoastră</h2>
+  <p>Fiecare pagină de mai jos are lista completă de orașe și comune acoperite, drumul pe care ajungem și condițiile de programare.</p>
+  <div class="grid g3" style="margin-top:16px">
+    {judete.map(j => (
+      <a class="card" href={j.href} style="text-decoration:none">
+        <div class="ico">📍</div>
+        <h3>Județul {j.nume}</h3>
+        <p>{j.orase}<br /><span style="font-size:13px;color:var(--mut)">Pe {j.drum}</span></p>
+      </a>
+    ))}
+  </div>
+  <p style="margin-top:14px">Pentru <strong>București și Ilfov</strong>, deplasarea este gratuită și de regulă venim în aceeași zi — vedeți <a href="/reparatii-tv-sectoare/">paginile pe sectoare</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>De Ce Ne Deplasăm Atât de Departe</h2>
+  <p>Un televizor de 55 sau 65 de inch cântărește între 15 și 25 de kilograme și e cea mai fragilă piesă de mobilier din casă. Transportul lui într-o mașină obișnuită, pe drumuri de țară, pune panoul — partea cea mai scumpă din aparat — la un risc real. De multe ori, un televizor care ajunge spart la atelier a plecat întreg de acasă.</p>
+  <p>În orașele mici și în comune, service-urile de electronice sunt puține, iar cele care există trimit oricum aparatul la București. Așa că drumul se face tot, doar că îl faceți dumneavoastră, cu riscul pe umerii dumneavoastră. Noi preferăm să venim cu aparatura la televizor, nu invers.</p>
+  <p>Consecința practică: majoritatea reparațiilor se termină în vizita respectivă, la dumneavoastră acasă, iar televizorul nu se mișcă din living.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce Reparăm la Domiciliu</h2>
+  <ul class="checks">
+    <li><strong>Televizorul nu pornește</strong> — sursă de alimentare, condensatori degradați, circuit de standby</li>
+    <li><strong>Ecran negru, dar cu sunet</strong> — bare LED arse, driver de backlight, alimentarea panoului</li>
+    <li><strong>Se oprește singur sau repornește</strong> — protecție declanșată de o tensiune ieșită din limite</li>
+    <li><strong>Dungi sau linii pe ecran</strong> — placă T-CON, conexiuni între placă și panou</li>
+    <li><strong>Fără sunet</strong> — difuzoare, circuit audio de pe placă</li>
+    <li><strong>Smart TV blocat</strong> — buclă de repornire, actualizare eșuată, aplicații care nu mai pornesc</li>
+    <li><strong>Nu se conectează la WiFi</strong> — modul de rețea, setări, firmware</li>
+    <li><strong>Probleme de telecomandă sau porturi</strong> — senzor IR, HDMI, USB</li>
+  </ul>
+  <p>Ghiduri pe fiecare simptom: <a href="/televizor-se-restarteaza-singur/">se oprește singur</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecran</a>, <a href="/televizor-fara-sunet/">fără sunet</a>, <a href="/televizor-samsung-nu-porneste/">Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">LG care nu pornește</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>⚠️ Ce Nu Se Repară la Domiciliu</h2>
+  <p>Spunem asta de la început, ca să nu vă facem drum degeaba și nici noi să nu venim degeaba:</p>
+  <ul class="checks">
+    <li><strong>La domiciliu venim exclusiv pentru televizoare.</strong> Laptopurile, MacBook-urile, consolele, monitoarele, boxele și amplificatoarele se repară doar în atelier și trebuie aduse la noi, în București, Militari.</li>
+    <li><strong>Transportul îl asigurăm doar la televizoare.</strong> Pentru celelalte aparate nu ne deplasăm și nu preluăm.</li>
+    <li><strong>Reparațiile pe placă la microscop</strong> — microsoldare, rescrierea memoriei eMMC, înlocuirea unui cip — cer aparatură care nu se transportă. În aceste cazuri luăm televizorul cu noi, îl reparăm în atelier și îl aducem înapoi.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>💰 Prețuri Orientative</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparații simple (software, condensatori, unele LED-uri)</span><b>50 – 150 lei</b></div>
+  <div class="price-row"><span>Reparații medii (sursă, T-CON, placă de bază, bare LED, port HDMI)</span><b>150 – 400 lei</b></div>
+  <div class="price-row"><span>Reparații complexe (înlocuire panou, daune de supratensiune, TV 75″+)</span><b>400 – 1.200+ lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Aceleași prețuri ca în București — intervalele includ piesa și manopera, cu garanție scrisă 6–12 luni. Grila completă: <a href="/preturi/">prețuri reparații televizoare</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum Se Face Programarea</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><span><strong>Ne scrieți pe WhatsApp sau ne sunați</strong> cu localitatea, modelul televizorului (de pe eticheta din spate) și ce face aparatul.</span></div>
+    <div class="step"><span class="n">2</span><span><strong>Vă spunem din prima ce credem că are</strong> și în ce interval de preț se încadrează, înainte de a porni la drum.</span></div>
+    <div class="step"><span class="n">3</span><span><strong>Stabilim ziua și intervalul orar.</strong> Grupăm mai multe vizite pe aceeași rută, de aceea programarea e obligatorie în afara Bucureștiului.</span></div>
+    <div class="step"><span class="n">4</span><span><strong>Venim, diagnosticăm gratuit și reparăm pe loc</strong> dacă defectul o permite. Dacă nu, luăm televizorul la atelier și îl aducem înapoi.</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p style="font-size:14px;color:var(--mut)">Atelierul este în <strong>Str. Moinești 7, bl. 134 A, Militari, Sector 6, București</strong>. Program: {SITE.program}. Vedeți și <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-tv-sectoare/">reparații TV pe sectoare în București</a> și <a href="/preturi/">prețurile complete</a>.</p>
+</section>
+
+<Cta titlu="📺 Sunteți în afara Bucureștiului? Sunați-ne." text="Spuneți-ne localitatea și modelul televizorului — vă confirmăm dacă ajungem la dumneavoastră și când." />
+</div>
+</Base>
