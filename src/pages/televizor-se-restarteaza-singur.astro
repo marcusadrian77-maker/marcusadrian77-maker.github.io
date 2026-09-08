@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Televizorul Se Restartează sau Se Oprește Singur | Ghid';
+const desc = 'Televizorul se oprește singur, repornește în buclă sau intră în standby? Cauzele reale, ce verificați acasă și cât costă reparația. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'De ce se oprește televizorul singur după câteva minute?', a: 'Cel mai frecvent, circuitul de protecție detectează o tensiune ieșită din limite și oprește aparatul ca să nu se ardă. Cauza reală e de obicei un condensator degradat pe sursa de alimentare sau o bară LED cu un led în scurtcircuit. Ambele se repară, iar simptomul „merge câteva minute și se stinge" e chiar tipic pentru ele.' },
+ { q: 'Televizorul repornește în buclă, la nesfârșit. Ce înseamnă?', a: 'Bucla de repornire — logo, ecran negru, iar logo — apare când placa principală nu reușește să încarce complet software-ul. Poate fi memoria eMMC degradată sau o alimentare instabilă care cade exact în timpul pornirii. La modelele Smart TV rescriem memoria cu programator specializat, fără schimbarea plăcii.' },
+ { q: 'Se oprește doar seara, sau doar după ce stă mult pornit. De ce?', a: 'Este semnătura clasică a supraîncălzirii sau a unei lipituri obosite. Componentele se dilată pe măsură ce placa se încălzește, iar o sudură crăpată microscopic pierde contactul. De aceea aparatul funcționează impecabil rece și cedează după o oră. Se rezolvă prin relipire și curățare, o intervenție relativ ieftină.' },
+ { q: 'Poate fi de vină priza sau tensiunea din casă?', a: 'Da, se întâmplă. Prelungitoarele vechi, prizele cu contacte slăbite și fluctuațiile de tensiune din rețea produc exact acest simptom. Înainte de a ne suna, încercați televizorul în altă priză, direct, fără prelungitor. Dacă problema dispare, ați găsit-o — și v-am economisit o reparație.' },
+ { q: 'Cât costă reparația unui televizor care se oprește singur?', a: 'Reparația sursei de alimentare, cea mai frecventă cauză, costă în general între 150 și 350 de lei cu piesă și manoperă. Înlocuirea barelor LED intră în 100–280 de lei. Placa principală, între 200 și 500. Resoftarea, când e vorba de software, 50–150 de lei. Diagnosticarea e gratuită.' },
+ { q: 'Este periculos să folosesc televizorul așa?', a: 'Nu-l lăsați nesupravegheat și scoateți-l din priză când nu îl folosiți. Un condensator umflat sau un scurtcircuit pe sursă înseamnă căldură într-un loc în care nu ar trebui să existe. Riscul de incendiu e mic, dar nu e zero, iar amânarea reparației transformă de obicei un defect ieftin într-unul scump.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Televizorul se restartează sau se oprește singur', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Televizorul se oprește singur', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul Se Restartează sau Se Oprește Singur</h1>
+  <p class="lead">Se stinge în mijlocul filmului, repornește în buclă la logo sau intră singur în standby după douăzeci de minute. Nu e „bătrânețe" — e un simptom cu cauze precise, dintre care majoritatea se repară ieftin dacă nu sunt lăsate să avanseze.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Verificări rapide acasă</h2>
+  <p>Patru lucruri care se verifică în zece minute și care rezolvă o parte din cazuri fără nicio reparație:</p>
+  <ul class="checks">
+    <li><strong>Priza și prelungitorul.</strong> Băgați televizorul direct în priză, fără prelungitor, fără prize cu întrerupător. Contactele slăbite produc exact acest simptom și sunt cauza cea mai des trecută cu vederea.</li>
+    <li><strong>Timerul de oprire automată.</strong> În meniul de setări, verificați „sleep timer", „oprire automată" și „economisire energie". Unele modele se sting singure când nu detectează activitate pe telecomandă sau semnal pe intrare — și mulți oameni nu știu că opțiunea e activă din fabrică.</li>
+    <li><strong>Aerisirea.</strong> Dacă televizorul e montat într-o nișă strâmtă sau lipit de perete, căldura nu are pe unde ieși. Trageți-l 10 cm și vedeți dacă se schimbă comportamentul.</li>
+    <li><strong>Sursele conectate.</strong> Scoateți toate cablurile HDMI, USB și antena, lăsați doar alimentarea și porniți-l pe meniul propriu. Dacă așa rămâne pornit, problema vine de la un aparat conectat, nu de la televizor.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Cauzele reale, în ordinea frecvenței</h2>
+
+  <h3>Sursa de alimentare — condensatori degradați</h3>
+  <p>Este de departe cea mai frecventă cauză. Condensatorii de pe placa de alimentare se usucă în timp, tensiunea începe să oscileze, iar circuitul de protecție oprește aparatul ca să prevină o defecțiune mai gravă. Simptomul tipic: televizorul merge câteva minute și se stinge, iar cu fiecare săptămână intervalul devine mai scurt. Se repară prin înlocuirea componentelor afectate, nu a plăcii întregi.</p>
+
+  <h3>Bare LED cu un led în scurtcircuit</h3>
+  <p>La televizoarele LED, iluminarea din spatele panoului e formată din benzi de leduri legate în serie. Când unul cedează, driverul încearcă să compenseze, tensiunea urcă și protecția intră în funcțiune. Recunoașteți cazul după faptul că sunetul continuă câteva secunde după ce imaginea dispare, sau după ecranul care licărește o clipă înainte de stingere.</p>
+
+  <h3>Supraîncălzire și lipituri obosite</h3>
+  <p>Praful acumulat în radiatoare, ventilația blocată sau pur și simplu anii de funcționare fac ca placa să lucreze la temperaturi mai mari decât a fost proiectată. Sudurile dezvoltă crăpături microscopice și pierd contactul exact când placa e caldă. Semnătura: aparatul merge perfect dimineața și cedează seara, după o oră. Se rezolvă prin curățare și relipire.</p>
+
+  <h3>Memoria eMMC — bucla de repornire</h3>
+  <p>La Smart TV-uri, sistemul de operare stă într-o memorie flash care se uzează după ani de scrieri. Când începe să cedeze, televizorul nu mai reușește să încarce complet software-ul: apare logo-ul, ecranul se stinge, apare logo-ul din nou. Rescriem memoria cu programator specializat — este o reparație pe care puține service-uri o fac, restul recomandă placă nouă.</p>
+
+  <h3>Placa principală</h3>
+  <p>Mai rar, dar se întâmplă: un regulator de tensiune de pe placa principală cedează și taie alimentarea către procesor. Se identifică prin măsurare și se repară la nivel de componentă.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă reparația</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparare sursă de alimentare</span><b>150 – 350 lei</b></div>
+  <div class="price-row"><span>Înlocuire bare LED</span><b>100 – 280 lei</b></div>
+  <div class="price-row"><span>Curățare + refacere lipituri</span><b>120 – 250 lei</b></div>
+  <div class="price-row"><span>Reparare placă de bază</span><b>200 – 500 lei</b></div>
+  <div class="price-row"><span>Resoftare / rescriere memorie eMMC</span><b>50 – 150 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Piesa și manopera sunt incluse. Garanție scrisă 6–12 luni. Lista completă: <a href="/preturi/">prețuri reparații televizoare</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>De ce nu e bine să amânați</h2>
+  <p>Un condensator degradat pe sursă nu se repară singur — se degradează mai departe, iar tensiunile instabile pe care le produce ajung, în timp, la placa principală și la panou. Un defect de 200 de lei devine astfel unul de 600, sau ajunge în punctul în care televizorul nu mai merită reparat deloc.</p>
+  <p>Până când îl aduceți la verificare, țineți-l scos din priză când nu îl folosiți și nu-l lăsați pornit nesupravegheat.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Vedeți și: <a href="/reparatii-televizoare/">reparații televizoare București</a>, <a href="/televizor-samsung-nu-porneste/">televizor Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">televizor LG care nu pornește</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecran</a>, <a href="/televizor-fara-sunet/">televizor fără sunet</a>.</p>
+</section>
+
+<Cta titlu="📺 Se oprește singur? Sunați-ne azi." text="Diagnostic gratuit, la domiciliu sau în atelier. Cu cât ajunge mai repede la noi, cu atât reparația e mai ieftină." />
+</div>
+</Base>

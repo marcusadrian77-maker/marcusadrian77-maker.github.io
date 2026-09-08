@@ -11,7 +11,7 @@ const faq = [
  { q: 'Cât durează reparația unui MacBook?', a: 'Reparațiile simple (baterie, tastatură) se finalizează de obicei în 1–2 zile. Reparațiile complexe la nivel de placă de bază pot dura 3–7 zile lucrătoare, în funcție de disponibilitatea pieselor.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
-const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire baterie MacBook Air/Pro','350–600 lei'],['Înlocuire display MacBook','600–1500 lei'],['Reparații placă de bază','300–800 lei'],['Înlocuire tastatură','400–900 lei'],['Curățare după apă vărsată','250–500 lei']];
+const preturi = [['Diagnosticare','GRATUITĂ'],['Curățare + pastă termică','100 – 200 lei'],['Înlocuire baterie MacBook Air/Pro','200 – 500 lei'],['Reparare port USB-C / MagSafe','150 – 350 lei'],['Înlocuire tastatură Butterfly / Magic','300 – 700 lei'],['Reparații placă logică (microsoldering)','300 – 800 lei'],['Înlocuire display Retina','500 – 1.500 lei']];
 import { breadcrumb, graf, serviciu } from '../data/schema';
 const desc = "Cauți un service MacBook Sector 6 cu tehnicieni specializați în Apple? Reparăm MacBook Air, MacBook Pro și iMac la nivel de componentă. Diagnostic gratuit.";
 const schemaSEO = graf(serviciu({ nume: 'Reparații MacBook Sector 6', tip: 'Reparații MacBook și iMac', url: '/reparatii-macbook-sector-6/', desc , sector: 6 }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații MacBook', url: '/reparatii-macbook/' }, { name: 'Sector 6', url: '/reparatii-macbook-sector-6/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
@@ -53,6 +53,32 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații MacBook Sector 6', tip: 'Rep
 <section class="sec">
   <h2>💰 Prețuri Orientative Reparații MacBook</h2>
   {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Intervalele includ piesa și manopera. Prețul ferm se comunică după diagnosticare, care e gratuită și nu vă obligă la nimic. Vezi și <a href="/preturi/">grila completă de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>📍 Unde ne găsiți în Sectorul 6</h2>
+  <p>Atelierul este în <strong>Str. Moinești 7, bl. 134 A, Militari</strong>, la câteva minute de Piața Gorjului și de bulevardul Iuliu Maniu. Program: {SITE.program}.</p>
+  <p>Primim MacBook-uri de la clienți din <strong>Militari, Drumul Taberei, Crângași, Giulești, Ghencea, Lujerului, Politehnica, Grozăvești, Regie și Gorjului</strong> — din tot Sectorul 6 ajungeți la noi în 10–20 de minute cu mașina, iar de la metrou Păcii sau Gorjului se ajunge pe jos. Lucrăm și pentru clienți din celelalte sectoare și din Ilfov; pentru ei, detaliile complete sunt pe pagina de <a href="/reparatii-macbook/">reparații MacBook București</a>.</p>
+  <p>Sectorul 6 concentrează multe firme mici, agenții și freelanceri care lucrează pe Mac, așa că majoritatea reparațiilor de aici sunt urgente: cineva nu-și poate face treaba până nu merge laptopul. De aceea încercăm să dăm un răspuns la diagnostic în aceeași zi în care aduceți aparatul.</p>
+</section>
+
+<section class="sec">
+  <h2>⏱️ Cât durează și cum decurge</h2>
+  <p>Intervențiile uzuale — baterie, port de încărcare, tastatură, curățare și pastă termică — se fac în <strong>24–48 de ore</strong>. Reparațiile pe placa logică, care presupun microscop, schemă electronică și uneori comandă de componente, durează între 2 și 5 zile lucrătoare.</p>
+  <p>Procesul e simplu: ne scrieți pe WhatsApp modelul (îl găsiți în „Despre acest Mac" sau pe carcasa din spate) și ce face aparatul, aduceți MacBook-ul la atelier, îl diagnosticăm gratuit și vă comunicăm prețul ferm. Reparăm doar după acordul dumneavoastră. Dacă nu vă convine prețul, luați laptopul înapoi fără să plătiți nimic — diagnosticarea rămâne gratuită indiferent de decizie.</p>
+</section>
+
+<section class="sec">
+  <h2>💧 Ați vărsat lichid? Ce faceți în primele minute</h2>
+  <p>Este cea mai frecventă urgență cu care ajung MacBook-urile la noi și singura în care ce faceți în prima oră schimbă complet rezultatul.</p>
+  <ul class="checks">
+    <li><strong>Opriți-l imediat</strong>, ținând apăsat butonul de pornire. Nu așteptați să se închidă singur.</li>
+    <li><strong>Nu-l puneți la încărcat</strong> și nu-l porniți „să vedeți dacă merge" — coroziunea avansează cu fiecare minut în care placa e sub tensiune.</li>
+    <li><strong>Întoarceți-l cu tastatura în jos</strong>, în formă de acoperiș, ca lichidul să nu curgă mai adânc.</li>
+    <li><strong>Nu folosiți orez și nu-l uscați cu feonul.</strong> Nu ajută la coroziune, iar căldura poate deforma componentele.</li>
+    <li><strong>Aduceți-l cât mai repede.</strong> Un MacBook adus în aceeași zi se recuperează de cele mai multe ori complet; unul adus după două săptămâni are deja piste corodate.</li>
+  </ul>
 </section>
 <section class="sec">
   <h2>⭐ De Ce Marcus Electronics pentru Service MacBook?</h2>

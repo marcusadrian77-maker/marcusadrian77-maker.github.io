@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Dungi pe Ecranul Televizorului: Cauze și Reparație';
+const desc = 'Dungi verticale sau orizontale pe ecranul televizorului? Vă explicăm ce înseamnă fiecare tip de dungă, ce se poate repara și cât costă. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Dungile verticale pe ecran se pot repara?', a: 'De cele mai multe ori, da. Dungile verticale subțiri, colorate, care apar brusc și rămân fixe pe ecran indică de regulă o problemă la placa T-CON sau la conexiunile dintre placă și panou. Ambele se repară. Dacă însă dungile sunt late, negre și au apărut după o lovitură, panoul este deteriorat fizic și reparația nu mai e rentabilă.' },
+ { q: 'Care e diferența dintre dungile verticale și cele orizontale?', a: 'Dungile verticale vin aproape întotdeauna de la placa T-CON sau de la driverele coloanelor de pe marginea panoului. Dungile orizontale, în schimb, indică mai des o problemă la banda flexibilă care alimentează rândurile panoului sau o defecțiune a plăcii principale. Diagnosticul exact se face doar cu televizorul deschis.' },
+ { q: 'Cât costă repararea unui televizor cu dungi pe ecran?', a: 'Înlocuirea sau repararea plăcii T-CON costă în general între 120 și 300 de lei, manoperă inclusă. Refacerea contactelor dintre panou și placă intră în același interval. Dacă e nevoie de panou nou, costul urcă la 500–1.500 de lei, moment în care vă spunem sincer dacă mai merită investiția.' },
+ { q: 'Dungile au apărut treptat, nu dintr-odată. Contează?', a: 'Da, e o informație utilă. Dungile care apar treptat, se înmulțesc în timp sau se văd doar când televizorul e rece indică de obicei lipituri obosite (crăpături microscopice în sudurile de pe placă). Se rezolvă prin relipire, o intervenție relativ ieftină. Dungile apărute brusc, peste noapte, arată mai des o componentă arsă.' },
+ { q: 'Pot repara singur dungile de pe ecran?', a: 'Nu vă recomandăm. Interiorul unui televizor conține condensatori care rămân încărcați la sute de volți și după scoaterea din priză, iar panoul se sparge la cea mai mică presiune greșită. Ce puteți face singur: verificați cu alt cablu HDMI și altă sursă, ca să excludeți problema de semnal.' },
+ { q: 'Reparați dungile pe ecran la domiciliu?', a: 'Verificarea inițială o facem la dumneavoastră acasă, fără cost de deplasare. Dacă defectul e pe placa T-CON sau pe conexiuni, televizorul trebuie adus în atelier — reparațiile la nivel de componentă cer microscop și stație de lipit, care nu se transportă la domiciliu.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Dungi pe ecranul televizorului: cauze și reparație', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Dungi pe ecranul televizorului', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Dungi pe Ecranul Televizorului: Ce Înseamnă și Ce Se Repară</h1>
+  <p class="lead">O linie colorată apărută peste noapte, o bandă neagră lată sau un ecran împărțit în jumătate — fiecare tip de dungă are cauza lui. În ghidul acesta vă arătăm cum să le deosebiți, ce puteți verifica singur în cinci minute și ce costă reparația la fiecare caz.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Primul lucru: excludeți problema de semnal</h2>
+  <p>Înainte de orice, verificați dacă dunga e într-adevăr în televizor și nu în ce îi trimiteți. Durează două minute și scutește o deplasare inutilă:</p>
+  <ul class="checks">
+    <li><strong>Schimbați sursa.</strong> Treceți pe alt canal, apoi pe alt port HDMI, apoi porniți meniul televizorului. Dacă dunga apare și în meniu — adică pe imaginea generată de televizor însuși — problema e sigur în aparat.</li>
+    <li><strong>Schimbați cablul HDMI.</strong> Un cablu îndoit brusc sau cu contacte oxidate poate produce linii verticale sau puncte colorate. E cea mai ieftină cauză posibilă și merită exclusă prima.</li>
+    <li><strong>Scoateți din priză 2 minute.</strong> Nu doar cu telecomanda — fizic din priză. La unele modele, o eroare temporară a plăcii principale se șterge așa.</li>
+    <li><strong>Apăsați ușor pe ramă, nu pe ecran.</strong> Dacă dunga se schimbă când apăsați pe marginea de jos sau laterală a televizorului, e vorba de un contact slăbit între panou și placă — asta se repară.</li>
+  </ul>
+  <p>Dacă dunga rămâne identică în toate situațiile de mai sus, treceți la secțiunea următoare ca să vedeți ce fel de defect aveți.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce înseamnă fiecare tip de dungă</h2>
+
+  <h3>Dungi verticale subțiri, colorate</h3>
+  <p>Una sau câteva linii de un pixel-doi lățime, roșii, verzi, albastre sau albe, care traversează ecranul de sus până jos și nu se mișcă. Sunt cel mai frecvent defect pe care îl vedem și, din fericire, unul dintre cele mai reparabile. Cauza este aproape întotdeauna <strong>placa T-CON</strong> (cea care traduce semnalul pentru panou) sau contactul dintre ea și panou. Se rezolvă prin reparația plăcii, refacerea lipiturilor sau, în cazurile grele, prin înlocuirea ei.</p>
+
+  <h3>Dungi verticale late și întunecate</h3>
+  <p>Benzi de câțiva centimetri, gri sau negre, uneori cu marginile neclare. Aici semnalul de alarmă e altul: driverele de coloană sunt lipite chiar pe marginea panoului, sub o folie, iar dacă unul dintre ele cedează, banda rămâne. La unele modele se poate recupera prin reîncălzirea controlată a contactelor; la altele, panoul trebuie schimbat. Vă spunem la diagnosticare care e cazul.</p>
+
+  <h3>Dungi orizontale</h3>
+  <p>Linii care traversează ecranul stânga-dreapta, uneori tremurânde, alteori fixe. Indică de obicei o problemă la banda flexibilă care alimentează rândurile panoului, la placa principală sau, mai rar, la sursa de alimentare când tensiunile nu mai sunt stabile. Dacă dungile orizontale apar doar în primele minute după pornire și apoi dispar, e aproape sigur o lipitură obosită — o reparație ieftină.</p>
+
+  <h3>Ecran împărțit în două jumătăți diferite</h3>
+  <p>O jumătate normală, cealaltă albă, neagră sau cu culori inversate. Panourile mari sunt comandate pe două sau patru zone, iar acest simptom arată că una dintre zone nu mai primește semnal. De cele mai multe ori vinovată e placa T-CON sau un conector desprins — se repară.</p>
+
+  <h3>Dungi apărute după o lovitură sau după mutare</h3>
+  <p>Aici veștile sunt de obicei proaste. Dacă dunga a apărut imediat după ce televizorul a fost lovit, apăsat pe ecran sau transportat în picioare, panoul e crăpat intern. Fisura nu se vede cu ochiul liber, dar cristalele lichide s-au deplasat și nu se mai întorc. Panoul nu se repară, doar se înlocuiește — și la televizoarele de sub 55 de inch costul unui panou nou depășește de multe ori valoarea aparatului.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă reparația</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparare placă T-CON</span><b>120 – 300 lei</b></div>
+  <div class="price-row"><span>Refacere lipituri / conexiuni panou</span><b>120 – 250 lei</b></div>
+  <div class="price-row"><span>Reparare placă de bază</span><b>200 – 500 lei</b></div>
+  <div class="price-row"><span>Înlocuire panou (când e posibil)</span><b>500 – 1.500 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Intervalele acoperă piesa și manopera. Prețul ferm îl aflați după diagnosticare, iar diagnosticarea nu vă obligă la nimic. Lista completă: <a href="/preturi/">prețuri reparații televizoare</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Merită reparat sau cumpăr altul?</h2>
+  <p>Regula pe care o folosim: dacă reparația costă sub o treime din prețul unui televizor echivalent, merită aproape întotdeauna. O placă T-CON reparată la 200 de lei pe un televizor de 4.000 este o decizie ușoară. Un panou de 1.200 de lei pe un aparat de 32 de inch cumpărat acum șapte ani nu este.</p>
+  <p>Vă spunem direct când nu merită, chiar dacă asta înseamnă că nu facem reparația. Diagnosticarea rămâne gratuită în ambele cazuri — nu plătiți ca să aflați că nu are rost.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum decurge</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><span><strong>Ne trimiteți o poză cu ecranul aprins</strong>, pe WhatsApp, împreună cu modelul de pe eticheta din spatele televizorului. De multe ori vă putem spune din poză despre ce e vorba.</span></div>
+    <div class="step"><span class="n">2</span><span><strong>Venim la dumneavoastră acasă</strong> pentru verificarea inițială, fără cost de deplasare, sau aduceți televizorul la atelierul din Militari.</span></div>
+    <div class="step"><span class="n">3</span><span><strong>Vă comunicăm defectul și prețul ferm.</strong> Reparăm doar după acordul dumneavoastră, la prețul spus.</span></div>
+    <div class="step"><span class="n">4</span><span><strong>Predare cu garanție scrisă</strong> de 6–12 luni pentru piesă și manoperă.</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Vedeți și: <a href="/reparatii-televizoare/">reparații televizoare București</a>, <a href="/televizor-samsung-nu-porneste/">televizor Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">televizor LG care nu pornește</a>, <a href="/reparatii-tv-led-bucuresti/">reparații TV LED</a>, <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<Cta titlu="📺 Dungi pe ecran? Trimiteți-ne o poză!" text="Diagnostic gratuit, la domiciliu sau în atelier. Vă spunem sincer dacă merită reparat." />
+</div>
+</Base>

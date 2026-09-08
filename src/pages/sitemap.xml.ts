@@ -13,7 +13,8 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'inlocuire-ecran-laptop/', 'inlocuire-baterie-laptop/',
  'reparatii-monitoare-gaming/', 'reparatii-ps5-bucuresti/',
  'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/',
- 'reparatii-boxe-portabile-bluetooth/'];
+ 'reparatii-boxe-portabile-bluetooth/',
+ 'dungi-pe-ecranul-televizorului/', 'televizor-fara-sunet/', 'televizor-se-restarteaza-singur/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');

@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Televizorul Nu Are Sunet: Cauze și Soluții | Ghid';
+const desc = 'Televizorul are imagine dar nu are sunet? Verificări rapide acasă, cauzele reale ale defectului și cât costă reparația. Diagnostic gratuit în București.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Televizorul are imagine dar nu are sunet. De unde încep?', a: 'Începeți cu setările: verificați să nu fie activat modul mut, apoi intrați în meniul de sunet și asigurați-vă că ieșirea audio e pe „difuzoare TV" și nu pe HDMI ARC, optic sau Bluetooth. Foarte multe cazuri se rezolvă aici, mai ales după o actualizare de software sau după ce cineva a conectat o boxă Bluetooth.' },
+ { q: 'Se aude distorsionat, hârâit sau prea încet. Ce înseamnă?', a: 'Sunetul spart sau înfundat vine de obicei de la difuzoarele propriu-zise, la care membrana s-a deteriorat, sau de la amplificatorul audio de pe placa principală. Dacă hârâitul apare doar peste un anumit volum, e aproape sigur difuzorul. Dacă e prezent la orice volum, se uită la amplificator.' },
+ { q: 'Cât costă repararea sunetului la televizor?', a: 'Înlocuirea unui difuzor costă în general între 80 și 200 de lei, manoperă inclusă. Reparația circuitului de amplificare audio de pe placa principală intră în același interval, 80–200 de lei. Dacă e nevoie de placă principală întreagă, costul urcă la 200–500 de lei. Diagnosticarea e gratuită.' },
+ { q: 'Sunetul dispare și revine singur. Ce poate fi?', a: 'Cel mai des e o lipitură obosită pe circuitul audio: contactul se face și se pierde în funcție de temperatura plăcii, de aceea sunetul dispare după ce televizorul se încălzește sau reapare când e rece. Se rezolvă prin relipire, o intervenție ieftină. Mai rar, poate fi un cablu de difuzor slăbit în conector.' },
+ { q: 'Am sunet prin căști dar nu prin difuzoarele televizorului. Ce înseamnă?', a: 'Este un semn bun: partea de procesare audio funcționează, deci problema e după ea — fie amplificatorul care alimentează difuzoarele, fie difuzoarele în sine. Sunt exact cazurile cele mai ieftine de reparat. Verificați totuși întâi ca mufa de căști să nu fi rămas „blocată" în poziția conectat.' },
+ { q: 'Merită reparat un televizor doar pentru sunet?', a: 'În marea majoritate a cazurilor, da. Vorbim despre o reparație de 80–200 de lei la un aparat care altfel funcționează perfect. Alternativa — o soundbar — costă mai mult și lasă defectul nerezolvat. Vă spunem sincer dacă apare vreo situație în care nu merită.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Televizorul nu are sunet: cauze și soluții', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Televizorul nu are sunet', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul Nu Are Sunet: Cauze și Soluții</h1>
+  <p class="lead">Imaginea e perfectă, dar din difuzoare nu iese nimic — sau iese hârâit, înfundat, întrerupt. Vestea bună e că defectele de sunet sunt printre cele mai ieftine de reparat la un televizor. Vă arătăm ce verificați singur în cinci minute și când e nevoie de tehnician.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Verificări rapide, înainte de a suna la service</h2>
+  <p>O bună parte din televizoarele „fără sunet" care ajung la noi n-aveau nicio defecțiune — aveau o setare schimbată. Parcurgeți lista asta întâi:</p>
+  <ul class="checks">
+    <li><strong>Ieșirea audio.</strong> În meniul de sunet, verificați ca ieșirea să fie pe difuzoarele televizorului, nu pe HDMI ARC, optic, Bluetooth sau căști. E cauza numărul unu, mai ales dacă cineva a conectat cândva o boxă Bluetooth care acum e stinsă.</li>
+    <li><strong>Modul mut și volumul.</strong> Pare banal, dar unele telecomenzi trimit comanda de mut din greșeală. Încercați și butoanele fizice de pe televizor, nu doar telecomanda.</li>
+    <li><strong>Schimbați sursa.</strong> Dacă lipsește sunetul doar pe un canal sau doar pe HDMI 1, problema e la sursă sau la cablu, nu la televizor. Testați meniul televizorului — dacă acolo se aud sunetele de navigare, difuzoarele funcționează.</li>
+    <li><strong>Mufa de căști.</strong> La modelele cu jack, contactul rămâne uneori „blocat" în poziția conectat după ce ați scos căștile. Introduceți și scoateți un jack de câteva ori.</li>
+    <li><strong>Scoateți din priză 2 minute.</strong> Repornirea completă șterge erorile temporare de software, frecvente după o actualizare automată.</li>
+  </ul>
+  <p>Dacă nimic din lista de mai sus nu ajută, defectul e hardware. Mai jos vedeți ce poate fi.</p>
+</section>
+
+<section class="sec">
+  <h2>Cauzele reale ale defectului</h2>
+
+  <h3>Difuzoare defecte</h3>
+  <p>Membrana difuzorului se degradează în timp, mai ales dacă televizorul a fost ținut mult timp la volum mare. Simptomul tipic: sunet spart sau hârâit care apare doar peste un anumit volum, iar la volum mic pare în regulă. Uneori se aude doar dintr-o parte. Difuzoarele se înlocuiesc și e printre cele mai ieftine reparații.</p>
+
+  <h3>Amplificatorul audio de pe placă</h3>
+  <p>Cipul care alimentează difuzoarele stă pe placa principală și cedează din cauza supraîncălzirii sau a unei supratensiuni. Când se arde complet, sunetul dispare de tot; când e doar slăbit, sunetul e prea încet chiar și la volum maxim. Îl înlocuim la nivel de componentă, prin microsoldare — nu schimbăm toată placa pentru un singur cip.</p>
+
+  <h3>Lipituri obosite</h3>
+  <p>Cazul clasic al sunetului care dispare și revine: o sudură de pe placă a dezvoltat o crăpătură microscopică, iar contactul se face sau nu în funcție de cât de caldă e placa. De aceea sunetul se pierde după douăzeci de minute de funcționare și revine a doua zi dimineața. Se repară prin relipire și e o intervenție rapidă.</p>
+
+  <h3>Procesorul audio sau software-ul</h3>
+  <p>Mai rar, dar se întâmplă: după o actualizare eșuată, partea audio a firmware-ului rămâne coruptă. Simptomul e că nu se aude nimic, absolut deloc, nici sunetele de meniu, deși totul funcționează normal. La Smart TV-urile blocate astfel rescriem memoria eMMC cu programator specializat, fără schimbarea plăcii.</p>
+
+  <h3>Sursa de alimentare</h3>
+  <p>Circuitul audio are propria linie de tensiune. Dacă un condensator de pe sursă s-a degradat, imaginea poate funcționa perfect în timp ce partea audio rămâne nealimentată. Se vede imediat la măsurare și se repară prin înlocuirea componentelor afectate.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă reparația</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Înlocuire difuzor</span><b>80 – 200 lei</b></div>
+  <div class="price-row"><span>Reparare circuit audio (amplificator)</span><b>80 – 200 lei</b></div>
+  <div class="price-row"><span>Refacere lipituri pe placă</span><b>120 – 250 lei</b></div>
+  <div class="price-row"><span>Reparare placă de bază</span><b>200 – 500 lei</b></div>
+  <div class="price-row"><span>Resoftare / rescriere memorie</span><b>50 – 150 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Intervalele includ piesa și manopera. Prețul ferm îl aflați după diagnosticare. Lista completă: <a href="/preturi/">prețuri reparații televizoare</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce ne ajută să vă răspundem mai repede</h2>
+  <p>Când ne scrieți pe WhatsApp, trei informații ne lasă să estimăm defectul aproape sigur, încă înainte de a vedea aparatul:</p>
+  <ul class="checks">
+    <li><strong>Modelul exact</strong>, de pe eticheta din spatele televizorului — nu doar marca.</li>
+    <li><strong>Dacă se aud sunetele de meniu</strong> când apăsați pe telecomandă cu televizorul pe meniul propriu.</li>
+    <li><strong>Dacă sunetul lipsește complet sau e doar distorsionat</strong>, și dacă apare/dispare în funcție de cât timp e pornit aparatul.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Vedeți și: <a href="/reparatii-televizoare/">reparații televizoare București</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecranul televizorului</a>, <a href="/televizor-samsung-nu-porneste/">televizor Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">televizor LG care nu pornește</a>, <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<Cta titlu="🔇 Televizor fără sunet? Sunați-ne!" text="Diagnostic gratuit, la domiciliu sau în atelier. Reparațiile audio sunt printre cele mai ieftine." />
+</div>
+</Base>
