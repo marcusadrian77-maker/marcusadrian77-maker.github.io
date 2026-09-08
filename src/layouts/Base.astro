@@ -6,6 +6,9 @@ export interface Props { title: string; description: string; schemaExtra?: objec
 const { title, description, schemaExtra = null, image = IMG.ogDefault } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const ogImage = new URL(image, SITE.domeniu).href;
+// Imaginea hero e fundal CSS doar pe homepage — o preincarcam doar acolo,
+// altfel toate celelalte pagini descarca degeaba ~96 KB inainte de randare.
+const esteAcasa = Astro.url.pathname === '/' || Astro.url.pathname === '';
 ---
 <!doctype html>
 <html lang="ro">
@@ -31,7 +34,7 @@ const ogImage = new URL(image, SITE.domeniu).href;
 <meta name="twitter:image" content={ogImage} />
 <meta name="theme-color" content="#14365d" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="preload" as="image" href={IMG.hero} fetchpriority="high" />
+{esteAcasa && <link rel="preload" as="image" href={IMG.hero} fetchpriority="high" />}
 <link rel="preconnect" href="https://www.googletagmanager.com" />
 <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 <script type="application/ld+json" set:html={JSON.stringify(SCHEMA_LOCALBUSINESS)} />
@@ -121,6 +124,9 @@ document.addEventListener('click', function (e) {
         <ul>
           <li><a href="/televizor-samsung-nu-porneste/">TV Samsung nu pornește</a></li>
           <li><a href="/televizor-lg-nu-porneste/">TV LG nu pornește</a></li>
+          <li><a href="/dungi-pe-ecranul-televizorului/">Dungi pe ecranul TV</a></li>
+          <li><a href="/televizor-fara-sunet/">Televizor fără sunet</a></li>
+          <li><a href="/televizor-se-restarteaza-singur/">TV se oprește singur</a></li>
           <li><a href="/ps5-se-opreste-singur/">PS5 se oprește singur</a></li>
           <li><a href="/macbook-ecran-negru/">MacBook cu ecran negru</a></li>
           <li><a href="/curatare-laptop-praf/">Curățare laptop de praf</a></li>
