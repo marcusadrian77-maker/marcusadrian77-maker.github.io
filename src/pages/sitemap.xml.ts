@@ -15,7 +15,7 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/',
  'reparatii-boxe-portabile-bluetooth/',
  'dungi-pe-ecranul-televizorului/', 'televizor-fara-sunet/', 'televizor-se-restarteaza-singur/', 'reparatii-tv-buzau/',
- 'reparatii-tv-langa-bucuresti/', 'reparatii-tv-giurgiu/', 'reparatii-tv-dambovita/', 'reparatii-tv-prahova/', 'reparatii-tv-ialomita/', 'reparatii-tv-calarasi/', 'reparatii-tv-teleorman/'];
+ 'reparatii-tv-langa-bucuresti/', 'reparatii-tv-ilfov/', 'reparatii-tv-giurgiu/', 'reparatii-tv-dambovita/', 'reparatii-tv-prahova/', 'reparatii-tv-ialomita/', 'reparatii-tv-calarasi/', 'reparatii-tv-teleorman/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');

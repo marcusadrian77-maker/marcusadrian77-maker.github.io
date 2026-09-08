@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Reparații TV Ilfov la Domiciliu | Toate Comunele';
+const desc = 'Reparații televizoare la domiciliu în tot județul Ilfov: Bragadiru, Pantelimon, Popești-Leordeni, Voluntari, Chiajna, Vidra, Berceni. Fără taxă de deplasare.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cât costă deplasarea în Ilfov?', a: 'Nimic. Ilfovul intră în aceleași condiții ca Bucureștiul: fără taxă de deplasare și fără cost de diagnosticare. Ne deplasăm însă doar la televizoarele pentru care avem deja piesa pe stoc — de aceea vă cerem modelul exact de pe eticheta din spatele aparatului, ca să-l verificăm înainte de a stabili vizita.' },
+ { q: 'Cât de repede ajungeți?', a: 'În multe localități din Ilfov ajungem chiar în ziua în care ne sunați, dacă ne prindeți dimineața. Comunele din vestul și sudul județului — Chiajna, Dragomirești, Domnești, Cornetu, Bragadiru, Jilava — sunt la câteva minute de atelierul nostru din Militari, deci acolo suntem cel mai rapizi.' },
+ { q: 'Trebuie programare pentru Ilfov?', a: 'Nu neapărat, dar un telefon înainte ajută mult. Ne spuneți modelul și defectul, verificăm stocul și venim pregătiți — de multe ori se rezolvă totul dintr-o singură vizită.' },
+ { q: 'Reparați și alte aparate la domiciliu?', a: 'Nu. La domiciliu venim exclusiv pentru televizoare. Laptopurile, MacBook-urile, consolele, monitoarele și echipamentele audio se repară doar în atelier și trebuie aduse la noi, în Militari, Sector 6 — care oricum e la marginea Ilfovului de vest.' },
+ { q: 'Ce se întâmplă dacă nu aveți piesa pentru televizorul meu?', a: 'Vă spunem din start, la telefon, nu după ce ajungem la dumneavoastră. Avem peste 30.000 de piese pe stoc prin parteneriatul ASWO, deci acoperim marea majoritate a modelelor. La aparate rare sau foarte vechi piesa poate necesita comandă — atunci fie o comandăm și venim după ce sosește, fie aduceți televizorul la atelier.' },
+ { q: 'Dacă televizorul nu se poate repara acasă?', a: 'Unele defecte cer microscop, stație de lipit și aparatură care nu se transportă. În aceste cazuri luăm televizorul cu noi la atelier, îl reparăm și îl aducem înapoi — transportul la televizoare este asigurat de noi, fără cost.' },
+ { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în garanție, revenim fără costuri suplimentare.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Reparații televizoare la domiciliu', name: 'Reparații TV la domiciliu în județul Ilfov', url: canonical, description: desc,
+   areaServed: { '@type': 'AdministrativeArea', name: 'Județul Ilfov' },
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații TV lângă București', item: SITE.domeniu + '/reparatii-tv-langa-bucuresti/' },
+   { '@type': 'ListItem', position: 3, name: 'Județul Ilfov', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📍 JUDEȚUL ILFOV · CEL MAI APROAPE DE NOI</span>
+  <h1>Reparații TV la Domiciliu în Județul Ilfov</h1>
+  <p class="lead">Ilfovul e practic curtea noastră. Venim la dumneavoastră acasă în toate cele <strong>8 orașe și 32 de comune</strong> ale județului — <strong>fără taxă de deplasare</strong>, de multe ori chiar în ziua în care ne sunați.</p>
+  <div class="pills"><span>🚚 Deplasare gratuită</span><span>⚡ Adesea în aceeași zi</span><span>🔍 Diagnostic gratuit</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <div class="note-green"><strong>🚚 Deplasarea nu costă nimic.</strong> Ilfovul intră în aceleași condiții ca Bucureștiul. Ne deplasăm însă doar dacă avem piesa pe stoc pentru modelul dumneavoastră — de aceea vă cerem <strong>modelul exact</strong> de pe eticheta din spatele televizorului. Îl verificăm și vă confirmăm la telefon, înainte de a porni la drum.</div>
+</section>
+
+<section class="sec">
+  <h2>Cel Mai Aproape Dintre Toate Zonele Pe Care le Acoperim</h2>
+  <p>Atelierul nostru e în <strong>Militari, Sector 6</strong>, adică lipit de Ilfovul de vest. Chiajna, Dragomirești-Vale, Ciorogârla și Domnești sunt la câteva minute de noi. Bragadiru, Cornetu și Clinceni la fel, spre sud-vest. Pentru localitățile astea suntem, practic, service-ul de cartier.</p>
+  <p>Restul județului — Voluntari, Pantelimon, Popești-Leordeni, Otopeni, Buftea — se acoperă prin oraș sau pe centură, tot în timpi mici. În practică, în Ilfov ajungem de regulă mai repede decât într-un capăt îndepărtat al Bucureștiului, pentru că nu trebuie să traversăm tot orașul.</p>
+  <p>Consecința pentru dumneavoastră: în multe cazuri putem veni <strong>chiar în ziua în care ne sunați</strong>, dacă ne prindeți dimineața și avem piesa pe stoc.</p>
+</section>
+
+<section class="sec">
+  <h2>📍 Toate Localitățile din Ilfov</h2>
+
+  <h3>Orașe</h3>
+  <p><strong>Bragadiru</strong>, <strong>Buftea</strong>, <strong>Chitila</strong>, <strong>Măgurele</strong>, <strong>Otopeni</strong>, <strong>Pantelimon</strong>, <strong>Popești-Leordeni</strong> și <strong>Voluntari</strong>.</p>
+
+  <h3>Comune la vest și sud-vest — cele mai apropiate de atelier</h3>
+  <p><strong>Chiajna</strong>, <strong>Dragomirești-Vale</strong>, <strong>Ciorogârla</strong>, <strong>Domnești</strong>, <strong>Clinceni</strong>, <strong>Cornetu</strong>, <strong>Mogoșoaia</strong>, <strong>Jilava</strong>, <strong>1 Decembrie</strong>, <strong>Dărăști-Ilfov</strong> și <strong>Copăceni</strong>.</p>
+
+  <h3>Comune la sud și sud-est</h3>
+  <p><strong>Berceni</strong>, <strong>Vidra</strong>, <strong>Glina</strong>, <strong>Cernica</strong>, <strong>Brănești</strong> și <strong>Dobroești</strong>.</p>
+
+  <h3>Comune la est și nord-est</h3>
+  <p><strong>Afumați</strong>, <strong>Găneasa</strong>, <strong>Ștefăneștii de Jos</strong>, <strong>Petrăchioaia</strong>, <strong>Dascălu</strong>, <strong>Grădiștea</strong> și <strong>Nuci</strong>.</p>
+
+  <h3>Comune la nord</h3>
+  <p><strong>Tunari</strong>, <strong>Balotești</strong>, <strong>Corbeanca</strong>, <strong>Moara Vlăsiei</strong>, <strong>Snagov</strong>, <strong>Gruiu</strong>, <strong>Ciolpani</strong> și <strong>Periș</strong>.</p>
+
+  <p>Mergem și în satele aparținătoare fiecărei comune, nu doar în satul de reședință. Spuneți-ne la telefon unde sunteți exact și vă confirmăm pe loc.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce Reparăm la Domiciliu</h2>
+  <p>Majoritatea defectelor de televizor se rezolvă chiar la dumneavoastră acasă, într-o singură vizită. Aducem aparatura de măsură, sculele și piesele pentru defectele frecvente.</p>
+  <ul class="checks">
+    <li><strong>Televizorul nu pornește</strong> — sursă de alimentare, condensatori degradați, circuit de standby</li>
+    <li><strong>Ecran negru, dar cu sunet</strong> — bare LED arse, driver de backlight, alimentarea panoului</li>
+    <li><strong>Se oprește singur sau repornește</strong> — protecție declanșată de o tensiune ieșită din limite</li>
+    <li><strong>Dungi sau linii pe ecran</strong> — placă T-CON, conexiuni între placă și panou</li>
+    <li><strong>Fără sunet</strong> — difuzoare, circuit audio de pe placă</li>
+    <li><strong>Smart TV blocat</strong> — buclă de repornire, aplicații care nu mai pornesc, actualizare eșuată</li>
+    <li><strong>Nu se conectează la WiFi</strong> — modul de rețea, setări, firmware</li>
+    <li><strong>Probleme de telecomandă sau porturi</strong> — senzor IR, HDMI, USB</li>
+  </ul>
+  <p>Ghiduri pe fiecare simptom: <a href="/televizor-se-restarteaza-singur/">se oprește singur</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecran</a>, <a href="/televizor-fara-sunet/">fără sunet</a>, <a href="/televizor-samsung-nu-porneste/">Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">LG care nu pornește</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>⚠️ Ce Nu Se Repară la Domiciliu</h2>
+  <p>Ca să nu vă facem drum degeaba și nici noi să nu venim degeaba:</p>
+  <ul class="checks">
+    <li><strong>La domiciliu venim exclusiv pentru televizoare.</strong> Laptopurile, MacBook-urile, consolele, monitoarele, boxele și amplificatoarele se repară doar în atelier. Fiind în Ilfov, aveți însă avantajul că atelierul din Militari e la câteva minute de multe localități.</li>
+    <li><strong>Transportul îl asigurăm doar la televizoare.</strong> Pentru celelalte aparate nu ne deplasăm și nu preluăm.</li>
+    <li><strong>Reparațiile pe placă la microscop</strong> — microsoldare, rescrierea memoriei eMMC, înlocuirea unui cip — cer aparatură care nu se transportă. În aceste cazuri luăm televizorul cu noi, îl reparăm în atelier și îl aducem înapoi.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>💰 Prețuri Orientative</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Deplasare în Ilfov</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparații simple (software, condensatori, unele LED-uri)</span><b>50 – 150 lei</b></div>
+  <div class="price-row"><span>Reparații medii (sursă, T-CON, placă de bază, bare LED, port HDMI)</span><b>150 – 400 lei</b></div>
+  <div class="price-row"><span>Reparații complexe (înlocuire panou, daune de supratensiune, TV 75″+)</span><b>400 – 1.200+ lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Aceleași prețuri ca în București. Intervalele includ piesa și manopera, cu garanție scrisă 6–12 luni. Grila completă: <a href="/preturi/">prețuri reparații televizoare</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum Decurge o Vizită</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><span><strong>Ne sunați sau ne scrieți pe WhatsApp</strong> cu localitatea, modelul televizorului (de pe eticheta din spate) și ce face aparatul.</span></div>
+    <div class="step"><span class="n">2</span><span><strong>Verificăm piesa în stoc</strong> și vă confirmăm pe loc dacă putem veni și când — de multe ori chiar în aceeași zi.</span></div>
+    <div class="step"><span class="n">3</span><span><strong>Venim și diagnosticăm gratuit.</strong> Vă spunem exact ce are televizorul și cât costă, înainte de a atinge ceva.</span></div>
+    <div class="step"><span class="n">4</span><span><strong>Reparăm pe loc</strong>, dacă defectul o permite. Dacă nu, luăm televizorul la atelier și îl aducem înapoi reparat.</span></div>
+    <div class="step"><span class="n">5</span><span><strong>Predare cu garanție scrisă</strong> 6–12 luni, pentru piesă și manoperă.</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p style="font-size:14px;color:var(--mut)">Atelierul este în <strong>Str. Moinești 7, bl. 134 A, Militari, Sector 6, București</strong>. Program: {SITE.program}. Vedeți și <a href="/reparatii-tv-sectoare/">reparații TV pe sectoare în București</a>, <a href="/reparatii-tv-langa-bucuresti/">toate zonele acoperite în jurul Bucureștiului</a> și pagina de <a href="/reparatii-televizoare/">reparații televizoare</a>.</p>
+</section>
+
+<Cta titlu="📺 Sunteți din Ilfov? Sunați-ne acum." text="Deplasare gratuită și, de multe ori, vizită chiar în aceeași zi. Trimiteți-ne modelul televizorului pe WhatsApp." />
+</div>
+</Base>

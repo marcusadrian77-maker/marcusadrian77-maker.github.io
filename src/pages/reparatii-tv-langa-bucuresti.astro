@@ -9,6 +9,7 @@ const title = 'Reparații TV Lângă București | Ilfov și Județele Vecine';
 const desc = 'Reparații TV la domiciliu până la 100 km de București, fără taxă de deplasare: Giurgiu, Dâmbovița, Prahova, Ialomița, Călărași, Teleorman, Buzău.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const judete = [
+  { nume: 'Ilfov', href: '/reparatii-tv-ilfov/', orase: 'Bragadiru, Pantelimon, Voluntari, Popești-Leordeni, Otopeni, Buftea + 32 de comune', drum: 'tot județul, adesea în aceeași zi' },
   { nume: 'Giurgiu', href: '/reparatii-tv-giurgiu/', orase: 'Giurgiu, Bolintin-Vale, Mihăilești', drum: 'DN5 și DN6' },
   { nume: 'Dâmbovița', href: '/reparatii-tv-dambovita/', orase: 'Târgoviște, Titu, Găești, Răcari, Pucioasa', drum: 'DN71 și DN7' },
   { nume: 'Prahova', href: '/reparatii-tv-prahova/', orase: 'Ploiești, Câmpina, Băicoi, Urlați, Mizil', drum: 'DN1 și DN1A' },
@@ -74,7 +75,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
       </a>
     ))}
   </div>
-  <p style="margin-top:14px">Pentru <strong>București și Ilfov</strong>, deplasarea este gratuită și de regulă venim în aceeași zi — vedeți <a href="/reparatii-tv-sectoare/">paginile pe sectoare</a>.</p>
+  <p style="margin-top:14px">Pentru <strong>București</strong>, vedeți <a href="/reparatii-tv-sectoare/">paginile pe sectoare</a>. Deplasarea e gratuită peste tot, iar în oraș și în Ilfov venim de regulă în aceeași zi.</p>
 </section>
 
 <section class="sec">
