@@ -7,11 +7,13 @@ import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
 const title = 'Reparații prin Curier | Service Electronice Toată România';
-const desc = 'Trimiteți laptopul, consola sau soundbarul prin curier, din orice localitate. Diagnostic GRATUIT, garanție 6–12 luni. ☎ 0765.461.357';
+const desc = 'Trimiteți laptopul, consola sau soundbarul prin curier, din orice localitate. Diagnostic GRATUIT, manoperă minimă 200 lei, garanție 6–12 luni.';
 const faq = [
  { q: 'Trebuie să demontez placa și să trimit doar placa?', a: 'Nu. Primim exclusiv aparate întregi. O placă scoasă din aparat nu poate fi testată în condiții reale: nu vedem dacă defectul se manifestă la cald, sub sarcină sau la pornire, și nu putem verifica la final că totul funcționează. Trimiteți aparatul așa cum este.' },
  { q: 'Primiți și televizoare sau monitoare?', a: 'Nu prin curier. Ecranele se sparg la transport mult prea ușor, iar un panou crăpat pe drum costă mai mult decât reparația pentru care a fost trimis. Pentru televizoare venim la domiciliu în București și Ilfov.' },
  { q: 'Cât costă diagnosticarea?', a: 'Este gratuită, ca la orice aparat adus în atelier. După ce verificăm aparatul vă sunăm cu defectul găsit și cu prețul exact. Dacă hotărâți să nu-l reparați, nu plătiți diagnosticarea.' },
+ { q: 'Există un preț minim pentru aparatele trimise prin curier?', a: 'Da. Pentru aparatele primite prin curier, manopera minimă este de 200 de lei, indiferent cât de mică este intervenția. Un aparat venit din țară trece prin aceiași pași ca oricare altul — despachetare, diagnosticare, reparație, test, reambalare și predare la curier — iar timpul acesta nu depinde de mărimea defectului. La piese se adaugă costul lor, pe care vi-l spunem înainte de a începe.' },
+ { q: 'Merită să trimit un aparat ieftin?', a: 'De multe ori nu, și preferăm să vă spunem asta înainte. Puneți cap la cap manopera minimă de 200 de lei, eventualele piese și curieratul dus-întors: la un aparat de valoare mică, suma poate depăși prețul unuia nou. Sunați-ne cu modelul și cu defectul, iar noi facem socoteala cu dumneavoastră la telefon, gratuit.' },
  { q: 'Cât durează?', a: 'De regulă 2–5 zile lucrătoare din momentul în care aparatul ajunge la noi, plus timpul de curierat în ambele sensuri. Dacă e nevoie de o piesă comandată, vă spunem termenul la telefon, înainte de a începe.' },
  { q: 'Ce garanție am dacă nu sunt din București?', a: 'Aceeași ca oricine altcineva: garanție scrisă 6–12 luni la manoperă și la piesele înlocuite, în funcție de intervenție. Dacă apare o problemă acoperită de garanție, aparatul se întoarce la noi în aceleași condiții.' },
  { q: 'Cine plătește curierul?', a: 'Transportul este pe cheltuiala dumneavoastră, în ambele sensuri. Alegeți firma de curierat cu care preferați să lucrați — noi doar predăm coletul la ridicare. Restul rămâne cum știți: diagnosticarea este gratuită, iar prețul reparației vi-l spunem înainte de a începe.' },
@@ -29,7 +31,7 @@ const schemaSEO = graf(
   <span class="badge">📦 SERVICE PRIN CURIER · DIN TOATĂ ROMÂNIA</span>
   <h1>Reparații prin Curier</h1>
   <p class="lead">Nu sunteți din București? Trimiteți aparatul prin curier, din orice localitate din țară. Îl diagnosticăm gratuit, vă sunăm cu prețul înainte de orice intervenție și vi-l trimitem înapoi reparat, cu garanție scrisă.</p>
-  <div class="pills"><span>🔍 Diagnosticare Gratuită</span><span>🛡️ Garanție 6-12 luni</span><span>🇷🇴 Din toată țara</span></div>
+  <div class="pills"><span>🔍 Diagnosticare Gratuită</span><span>🛡️ Garanție 6-12 luni</span><span>🇷🇴 Din toată țara</span><span>💰 Manoperă minimă 200 lei</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
@@ -51,6 +53,14 @@ const schemaSEO = graf(
     <li><strong>Nu primim plăci sau subansamble demontate.</strong> O placă scoasă din aparat nu poate fi testată corect: nu se vede cum se comportă sub sarcină, la cald sau la pornire, și nu avem cum să verificăm la final că aparatul chiar funcționează. Am reparat-o pe masă și atât — ceea ce nu ajută pe nimeni. Trimiteți aparatul întreg.</li>
     <li><strong>Nu primim televizoare și monitoare.</strong> Ecranele se sparg la transport mult mai ușor decât pare, iar un panou fisurat pe drum costă de obicei mai mult decât reparația pentru care a fost trimis. Pentru televizoare venim la domiciliu — vedeți <a href="/reparatii-televizoare/">reparații televizoare</a> și <a href="/reparatii-tv-langa-bucuresti/">zonele din jurul Bucureștiului</a>.</li>
   </ul>
+</section>
+<section class="sec">
+  <h2>Manopera Minimă: 200 de Lei</h2>
+  <div class="note-red">⚠️ <strong>Pentru aparatele trimise prin curier, manopera minimă este de 200 de lei</strong>, indiferent cât de mică este intervenția. La această sumă se adaugă costul pieselor, dacă sunt necesare — vi-l comunicăm înainte de a începe.</div>
+  <p style="margin-top:14px">Motivul este simplu și preferăm să-l spunem deschis: un aparat venit din țară trece prin exact aceiași pași ca oricare altul care intră în atelier — despachetare, diagnosticare, reparație, test de funcționare, reambalare și predare la curier. Timpul acesta nu se micșorează pentru că defectul este mic. Un contact refăcut și o placă reparată la microscop ocupă bancul de lucru în mod asemănător.</p>
+  <p><strong>Luați suma în calcul înainte de a expedia.</strong> Adunați manopera minimă, eventualele piese și curieratul dus-întors: la un aparat ieftin sau vechi, totalul poate ajunge aproape de prețul unuia nou. În cazul acesta nu are rost să trimiteți nimic, iar noi nu avem niciun interes să vă lăsăm să aflați asta după ce ați plătit transportul.</p>
+  <p>De aceea insistăm pe un singur lucru: <strong>sunați-ne întâi.</strong> Spuneți-ne ce aparat aveți, ce model și ce face, iar noi facem socoteala cu dumneavoastră la telefon, gratuit și fără nicio obligație. Dacă merită, vă spunem cum trimiteți. Dacă nu merită, vă spunem și asta la fel de clar.</p>
+  <p style="font-size:14.5px;color:var(--mut)">Pentru aparatele aduse personal la atelierul din Militari se aplică grila obișnuită de pe <a href="/preturi/">pagina de prețuri</a>.</p>
 </section>
 <section class="sec">
   <h2>Cum Funcționează, Pas cu Pas</h2>
@@ -79,7 +89,7 @@ const schemaSEO = graf(
   <h2>De Ce Merită, Chiar Dacă Nu Sunteți din București</h2>
   <p>Reparăm la nivel de componentă, nu prin înlocuirea întregii plăci. Diferența se vede în preț: un service care schimbă placa de bază a unei console sau a unui laptop vă cere de câteva ori mai mult decât costă înlocuirea componentei defecte de pe ea. La aparatele ieșite din garanție, asta e de multe ori diferența dintre a repara și a arunca.</p>
   <p>Atelierul este în București, Sector 6 Militari, Str. Moinești nr. 7, și lucrăm în electronică de peste 30 de ani. Puteți citi mai multe <a href="/despre-noi/">despre noi</a> sau consulta <a href="/preturi/">prețurile orientative</a> înainte de a ne contacta.</p>
-  <p>Singurul cost suplimentar față de o reparație făcută în București este curieratul, pe care îl plătiți dumneavoastră, în ambele sensuri. De aceea vă spunem de la telefon, înainte să expediați ceva, dacă aparatul merită trimis — la un defect mic pe un aparat ieftin, transportul dus-întors poate cântări mai mult decât reparația, iar noi preferăm să aflați asta înainte, nu după.</p>
+  <p>Față de o reparație făcută în București apar două lucruri în plus: curieratul, pe care îl plătiți dumneavoastră în ambele sensuri, și manopera minimă de 200 de lei explicată mai sus. De aceea vă spunem de la telefon, înainte să expediați ceva, dacă aparatul merită trimis — noi preferăm să aflați asta înainte, nu după.</p>
 </section>
 <section class="sec">
   <h2>Întrebări Frecvente</h2>
