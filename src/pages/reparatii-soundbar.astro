@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparații Soundbar București | Service Bare de Sunet TV';
+const desc = 'Reparăm soundbar-uri Samsung, LG, Sony, JBL, Bose, Philips: nu pornește, fără sunet, subwoofer nepereche, HDMI ARC. Diagnostic GRATUIT. ☎ 0765.461.357';
+const marci = [
+ ['Samsung', 'Seriile HW-Q, HW-S, HW-B, HW-N, HW-T, Q-Symphony, subwoofer wireless'],
+ ['LG', 'SN/SP/S(65,75,80,90)Y, SL, SK, Meridian, subwoofer SPK'],
+ ['Sony', 'HT-A7000/A5000/A3000, HT-S400/S2000/G700, HT-CT, HT-ZF9'],
+ ['JBL', 'Bar 2.1, Bar 5.1, Bar 9.1, Bar 300/500/800/1000, Cinema SB'],
+ ['Bose', 'Smart Soundbar 300/600/700/900, Solo 5, TV Speaker, Bass Module'],
+ ['Philips', 'TAB seria 5000/7000/8000, Fidelio B95/B97, Ambisound'],
+ ['Yamaha', 'YAS-108/109/207/209, SR-B20A/B40A, YSP-1600/2700'],
+ ['Sharp, Hisense, TCL', 'HT-SB, HS seria 212/214/312, TS6100/TS8132, Alto'],
+ ['Panasonic, Denon, Polk', 'SC-HTB seria, DHT-S216/S316/S517, Polk Signa S2/S4/React'],
+];
+const faq = [
+ { q: 'Subwooferul nu se mai împerechează cu bara. Se repară?', a: 'De cele mai multe ori, da. Împerecherea se pierde fie pentru că modulul wireless din subwoofer a cedat, fie pentru că memoria barei a pierdut asocierea. În al doilea caz se rezolvă prin reimperechere, fără piese. Verificăm care dintre cele două este, gratuit.' },
+ { q: 'Nu se aude nimic pe HDMI ARC, deși cablul e bun. De ce?', a: 'HDMI ARC combină trei lucruri care pot da greș separat: setarea din televizor, funcția CEC și portul propriu-zis al barei. Deseori e doar o setare sau un port ARC obosit de pe televizor, nu soundbarul. De aceea verificăm ansamblul, nu doar aparatul adus.' },
+ { q: 'Cât costă o reparație de soundbar?', a: 'Diagnosticarea este gratuită. Reparația amplificatorului intern costă 80–200 lei, înlocuirea unui difuzor 50–150 lei, reparația Bluetooth sau a conectivității 60–150 lei, iar portul de alimentare 50–120 lei. Vă spunem costul exact înainte de a începe.' },
+ { q: 'Merită reparat un soundbar ieftin?', a: 'Depinde de defect. Un port de alimentare rupt sau un difuzor ars se rezolvă sub 150 de lei și aparatul mai merge ani. Dacă placa principală e distrusă la un model de buget, vă spunem deschis că nu merită — preferăm asta decât să vă luăm bani pe o lucrare fără sens.' },
+ { q: 'Veniți la domiciliu sau trebuie adus în atelier?', a: 'Soundbarul se repară în atelierul din Militari, Sector 6 — are nevoie de bancul de lucru și de aparatura de măsură. Îl puteți aduce personal sau trimite prin curier, din orice localitate din țară.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparații soundbar București', tip: 'Reparații audio', url: '/reparatii-soundbar/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Boxe Active', url: '/reparatii-boxe-active/' }, { name: 'Reparații Soundbar', url: '/reparatii-soundbar/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogBoxe}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🔊 SERVICE SOUNDBAR · BARE DE SUNET · SUBWOOFER</span>
+  <h1>Reparații Soundbar București</h1>
+  <p class="lead">Reparăm bare de sunet și subwoofere de la toate mărcile, la nivel de componentă: amplificator, difuzoare, alimentare, module wireless și HDMI. Diagnostic gratuit, garanție scrisă 6–12 luni.</p>
+  <div class="pills"><span>🔍 Diagnosticare Gratuită</span><span>🛡️ Garanție 6-12 luni</span><span>📦 Primim și prin curier</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Defecțiuni Frecvente la Soundbar</h2>
+  <p>Barele de sunet se strică altfel decât boxele clasice: sunt subțiri, au electronica înghesuită lângă difuzoare și stau de obicei sub televizor, unde se încălzesc. De aici și tiparul defectelor.</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>🔴 Nu pornește deloc</strong><span>Sursă internă sau alimentator extern, condensatoare umflate, port de alimentare slăbit din cauza cablului tras lateral</span></div>
+    <div class="card-soft"><strong>🔴 Pornește, dar nu se aude</strong><span>Amplificatorul intern a intrat în protecție sau un canal a cedat. Deseori se repară la nivel de componentă</span></div>
+    <div class="card-soft"><strong>🔴 Subwooferul nu se împerechează</strong><span>Modul wireless defect în subwoofer sau asociere pierdută în memoria barei</span></div>
+    <div class="card-soft"><strong>🔴 Sunet distorsionat sau pârâit</strong><span>Difuzor cu bobina atinsă, condensatoare uzate pe etajul final</span></div>
+    <div class="card-soft"><strong>🔴 HDMI ARC / eARC nu funcționează</strong><span>Port HDMI defect, CEC dezactivat sau incompatibilitate de setare cu televizorul</span></div>
+    <div class="card-soft"><strong>🔴 Bluetooth nu se conectează</strong><span>Modul radio defect sau firmware blocat după o actualizare întreruptă</span></div>
+    <div class="card-soft"><strong>🔴 Se stinge singur după câteva minute</strong><span>Protecție termică, ventilație blocată de praf sau condensator care cedează la cald</span></div>
+    <div class="card-soft"><strong>🔴 Un singur canal se aude</strong><span>Tranzistoare finale pe canalul mut sau conector intern desprins</span></div>
+    <div class="card-soft"><strong>🔴 Nu răspunde la telecomandă</strong><span>Receptor infraroșu defect sau butoane de panou blocate</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Mărci și Serii pe Care le Reparăm</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Marcă</th><th>Serii reparate frecvent</th></tr></thead><tbody>
+    {marci.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td></tr>)}
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Lista nu este limitativă — reparăm și modele mai rare sau mărci dispărute de pe piață. Sunați-ne cu denumirea de pe eticheta din spate și vă spunem imediat.</p>
+</section>
+<section class="sec">
+  <h2>Ce Verificăm Înainte să Deschidem Aparatul</h2>
+  <p>O parte din problemele care par defecte se rezolvă fără nicio reparație, iar noi preferăm să vă spunem asta la telefon decât să vă luăm bani degeaba. Merită încercate întâi:</p>
+  <ul class="checks">
+    <li><strong>Alimentarea subwooferului.</strong> Multe subwoofere wireless au propriul cablu de rețea. Dacă nu e în priză, bara pare mută pe frecvențele joase.</li>
+    <li><strong>Sursa de sunet din televizor.</strong> Dacă ieșirea audio a televizorului a revenit pe difuzoarele interne, soundbarul e în regulă — televizorul nu-i mai trimite nimic.</li>
+    <li><strong>Portul HDMI corect.</strong> Doar unul dintre porturile televizorului este ARC sau eARC; restul nu trimit sunet înapoi spre bară.</li>
+    <li><strong>Repornirea completă.</strong> Scos din priză 60 de secunde, ambele aparate. Rezolvă surprinzător de des blocajele de împerechere.</li>
+  </ul>
+  <p style="font-size:14.5px;color:var(--mut)">Dacă niciuna nu ajută, aparatul chiar are nevoie de intervenție — iar diagnosticarea la noi rămâne gratuită.</p>
+</section>
+<section class="sec">
+  <h2>Prețuri Orientative</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>Reparare amplificator intern</strong><span>80 – 200 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire difuzor</strong><span>50 – 150 lei</span></div>
+    <div class="card-soft"><strong>Reparare Bluetooth / conectivitate</strong><span>60 – 150 lei</span></div>
+    <div class="card-soft"><strong>Reparare port alimentare / baterie</strong><span>50 – 120 lei</span></div>
+  </div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Diagnosticarea este gratuită și nu vă obligă la nimic. Grila completă, pe toate tipurile de aparate, este pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+<section class="sec">
+  <h2>Și Restul Sistemului Audio</h2>
+  <p>Soundbarul este doar o parte din ce reparăm pe partea de sunet. Pentru boxe active PA, monitoare de studio și amplificatoare HiFi mergeți la <a href="/reparatii-boxe-active/">reparații boxe active și amplificatoare</a>, iar pentru boxele portabile JBL, Sony, Marshall sau Bose la <a href="/reparatii-boxe-portabile-bluetooth/">reparații boxe portabile Bluetooth</a>.</p>
+  <p>Dacă problema este de fapt la televizor, nu la bară, citiți ghidul despre <a href="/televizor-fara-sunet/">televizorul fără sunet</a> — descrie cum se separă cele două cazuri.</p>
+  <p>Nu sunteți din București? Trimiteți aparatul prin <a href="/reparatii-prin-curier/">curier, din orice localitate din țară</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="🔊 Soundbarul nu mai merge? Sunați-ne!" text="Spuneți-ne marca, modelul și ce face aparatul — vă orientăm pe loc, gratuit." />
+</div>
+</Base>

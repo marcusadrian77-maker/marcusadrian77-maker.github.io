@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparații prin Curier | Service Electronice Toată România';
+const desc = 'Trimiteți laptopul, consola sau soundbarul prin curier, din orice localitate. Diagnostic GRATUIT, garanție 6–12 luni. ☎ 0765.461.357';
+const faq = [
+ { q: 'Trebuie să demontez placa și să trimit doar placa?', a: 'Nu. Primim exclusiv aparate întregi. O placă scoasă din aparat nu poate fi testată în condiții reale: nu vedem dacă defectul se manifestă la cald, sub sarcină sau la pornire, și nu putem verifica la final că totul funcționează. Trimiteți aparatul așa cum este.' },
+ { q: 'Primiți și televizoare sau monitoare?', a: 'Nu prin curier. Ecranele se sparg la transport mult prea ușor, iar un panou crăpat pe drum costă mai mult decât reparația pentru care a fost trimis. Pentru televizoare venim la domiciliu în București și Ilfov.' },
+ { q: 'Cât costă diagnosticarea?', a: 'Este gratuită, ca la orice aparat adus în atelier. După ce verificăm aparatul vă sunăm cu defectul găsit și cu prețul exact. Dacă hotărâți să nu-l reparați, nu plătiți diagnosticarea.' },
+ { q: 'Cât durează?', a: 'De regulă 2–5 zile lucrătoare din momentul în care aparatul ajunge la noi, plus timpul de curierat în ambele sensuri. Dacă e nevoie de o piesă comandată, vă spunem termenul la telefon, înainte de a începe.' },
+ { q: 'Ce garanție am dacă nu sunt din București?', a: 'Aceeași ca oricine altcineva: garanție scrisă 6–12 luni la manoperă și la piesele înlocuite, în funcție de intervenție. Dacă apare o problemă acoperită de garanție, aparatul se întoarce la noi în aceleași condiții.' },
+ { q: 'Cum stabilim transportul?', a: 'La telefon, înainte să trimiteți ceva. Vă spunem adresa exactă, ce curier e mai potrivit pentru aparatul dumneavoastră și cum se face expedierea, ca să nu apară surprize.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparații electronice prin curier', tip: 'Reparații electronice', url: '/reparatii-prin-curier/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații prin Curier', url: '/reparatii-prin-curier/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogDefault}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📦 SERVICE PRIN CURIER · DIN TOATĂ ROMÂNIA</span>
+  <h1>Reparații prin Curier</h1>
+  <p class="lead">Nu sunteți din București? Trimiteți aparatul prin curier, din orice localitate din țară. Îl diagnosticăm gratuit, vă sunăm cu prețul înainte de orice intervenție și vi-l trimitem înapoi reparat, cu garanție scrisă.</p>
+  <div class="pills"><span>🔍 Diagnosticare Gratuită</span><span>🛡️ Garanție 6-12 luni</span><span>🇷🇴 Din toată țara</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+<section class="sec">
+  <h2>Ce Primim prin Curier</h2>
+  <p>Primim <strong>aparate întregi</strong>, în trei categorii. Pentru fiecare avem atelierul, aparatura și piesele necesare — nu trimitem nimic mai departe la altcineva.</p>
+  <div class="grid g3">
+    <div class="card"><div class="ico">💻</div><h3>Laptopuri și MacBook-uri</h3><p>Reparație la nivel de componentă pe placa de bază, alimentare, port de încărcare, supraîncălzire, tastatură, balamale. Detalii pe <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a> și <a href="/reparatii-macbook/">reparații MacBook</a>.</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>Console PS4, PS5 și Xbox</h3><p>Mufă HDMI, sursă de alimentare, supraîncălzire și zgomot, cititor de disc, mentenanță completă cu pastă termică. Detalii pe <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparații console</a>.</p></div>
+    <div class="card"><div class="ico">🔊</div><h3>Soundbar, boxe active, amplificatoare</h3><p>Amplificator intern, difuzoare, alimentare, conectivitate. Detalii pe <a href="/reparatii-soundbar/">reparații soundbar</a> și <a href="/reparatii-boxe-active/">reparații boxe active</a>.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Ce NU Primim prin Curier — și De Ce</h2>
+  <p>Preferăm să fim expliciți de la început, ca să nu trimiteți degeaba un colet.</p>
+  <ul class="checks">
+    <li><strong>Nu primim plăci sau subansamble demontate.</strong> O placă scoasă din aparat nu poate fi testată corect: nu se vede cum se comportă sub sarcină, la cald sau la pornire, și nu avem cum să verificăm la final că aparatul chiar funcționează. Am reparat-o pe masă și atât — ceea ce nu ajută pe nimeni. Trimiteți aparatul întreg.</li>
+    <li><strong>Nu primim televizoare și monitoare.</strong> Ecranele se sparg la transport mult mai ușor decât pare, iar un panou fisurat pe drum costă de obicei mai mult decât reparația pentru care a fost trimis. Pentru televizoare venim la domiciliu — vedeți <a href="/reparatii-televizoare/">reparații televizoare</a> și <a href="/reparatii-tv-langa-bucuresti/">zonele din jurul Bucureștiului</a>.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Cum Funcționează, Pas cu Pas</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">1️⃣</div><h3>Ne sunați</h3><p>Ne spuneți ce aparat aveți, ce model și ce face. Multe lucruri se lămuresc din discuție — uneori vă spunem de la telefon că nu merită trimis.</p></div>
+    <div class="card"><div class="ico">2️⃣</div><h3>Stabilim expedierea</h3><p>Vă dăm adresa exactă a atelierului și convenim împreună cum trimiteți aparatul, înainte să plătiți orice transport.</p></div>
+    <div class="card"><div class="ico">3️⃣</div><h3>Diagnosticăm gratuit</h3><p>Verificăm aparatul în ziua în care ajunge sau a doua zi și găsim defectul real, nu cel presupus.</p></div>
+    <div class="card"><div class="ico">4️⃣</div><h3>Vă sunăm cu prețul</h3><p>Vă spunem ce are, cât costă și cât durează. Nu începem nimic fără acordul dumneavoastră.</p></div>
+    <div class="card"><div class="ico">5️⃣</div><h3>Reparăm și testăm</h3><p>După reparație aparatul rămâne la test, ca să fim siguri că defectul nu revine la cald sau după câteva ore.</p></div>
+    <div class="card"><div class="ico">6️⃣</div><h3>Vi-l trimitem înapoi</h3><p>Împachetat ca la venire, cu garanție scrisă 6–12 luni la manoperă și la piesele înlocuite.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Cum Se Împachetează Corect</h2>
+  <p>Cele mai multe aparate care ajung avariate la noi au fost puse direct în cutie, fără nimic în jur. Cinci minute de împachetat vă scutesc de o pagubă:</p>
+  <ul class="checks">
+    <li><strong>Folie cu bule pe tot aparatul</strong>, în două straturi, inclusiv pe colțuri. Colțurile sunt primele care cedează.</li>
+    <li><strong>Cutie cu cel puțin 5 cm liberi pe fiecare latură</strong>, umpluți cu hârtie mototolită sau polistiren. Aparatul nu trebuie să se miște deloc dacă scuturați cutia.</li>
+    <li><strong>Scoateți ce nu e necesar</strong> — discuri din consolă, stick-uri USB, carduri. Piesele libere zdrăngăne în interior și pot lovi electronica.</li>
+    <li><strong>Trimiteți și alimentatorul</strong>, dacă aparatul are unul extern. De multe ori defectul este chiar în el, iar fără el nu putem verifica.</li>
+    <li><strong>Puneți un bilet în cutie</strong> cu numele, numărul de telefon și o descriere scurtă a defectului. Se pierde mai puțin timp la identificare.</li>
+    <li><strong>Fotografiați aparatul înainte de expediere.</strong> Dacă apare o problemă de transport, pozele lămuresc repede situația.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>De Ce Merită, Chiar Dacă Nu Sunteți din București</h2>
+  <p>Reparăm la nivel de componentă, nu prin înlocuirea întregii plăci. Diferența se vede în preț: un service care schimbă placa de bază a unei console sau a unui laptop vă cere de câteva ori mai mult decât costă înlocuirea componentei defecte de pe ea. La aparatele ieșite din garanție, asta e de multe ori diferența dintre a repara și a arunca.</p>
+  <p>Atelierul este în București, Sector 6 Militari, Str. Moinești nr. 7, și lucrăm în electronică de peste 30 de ani. Puteți citi mai multe <a href="/despre-noi/">despre noi</a> sau consulta <a href="/preturi/">prețurile orientative</a> înainte de a ne contacta.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="📦 Sunați-ne înainte să trimiteți aparatul" text="Vă spunem dacă merită trimis, cât ar costa aproximativ și cum se face expedierea. Discuția e gratuită." />
+</div>
+</Base>
