@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Cum Ajungeți la Atelier | Service Militari, Sector 6';
+const desc = 'Atelierul Marcus Electronics e în Str. Moinești 7, Militari, lângă Piața Gorjului. Cum ajungeți cu metroul sau cu mașina și ce aduceți cu dumneavoastră.';
+const faq = [
+ { q: 'Trebuie să sun înainte să vin?', a: 'Nu este obligatoriu, dar ajută. Un telefon scurt ne lasă să vă spunem din start dacă defectul descris se rezolvă pe loc, dacă avem piesa pe stoc sau dacă merită să mai veniți. Programul este ' + SITE.program + '.' },
+ { q: 'Unde parchez?', a: 'În zonă se găsește loc, dar uneori cu răbdare — sunt blocuri de locuințe, iar pe la orele de vârf strada e plină. Dacă veniți cu un aparat mic, metroul este varianta mai comodă: stația Gorjului este aproape și se vine pe jos.' },
+ { q: 'Trebuie să aduc și televizorul la atelier?', a: 'Nu. La televizoare venim noi la domiciliu, în București și Ilfov, cu deplasare și diagnosticare gratuite — nu are rost să riscați panoul pe bancheta din spate. La atelier se aduc laptopurile, MacBook-urile, consolele, monitoarele, boxele, soundbar-urile și cuptoarele cu microunde.' },
+ { q: 'Cât stau la diagnosticare?', a: 'Depinde de aparat. O verificare de bază se face în câteva minute, cât stați. Un defect care cere demontare rămâne în atelier și vă sunăm cu rezultatul, de obicei în aceeași zi sau a doua zi. Diagnosticarea este gratuită în ambele cazuri.' },
+ { q: 'Ce iau cu mine când vin?', a: 'Aparatul, alimentatorul lui dacă are unul extern, și accesoriul care face parte din problemă — maneta, subwooferul, cablul care nu mai merge. Fără alimentator, multe defecte nu pot fi reproduse și pierdem amândoi timpul.' },
+ { q: 'Sunt din alt oraș. Pot trimite aparatul?', a: 'Da, prin curier, dar numai aparate întregi și numai laptopuri, MacBook-uri, console, soundbar-uri, boxe și amplificatoare. Condițiile complete sunt pe pagina de reparații prin curier.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Atelier service electronice Militari, Sector 6', tip: 'Reparații electronice', url: '/cum-ajungeti-la-atelier/', desc }),
+  breadcrumb([{ name: 'Contact', url: '/contact/' }, { name: 'Cum Ajungeți la Atelier', url: '/cum-ajungeti-la-atelier/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogDefault}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📍 ATELIER · MILITARI · SECTOR 6</span>
+  <h1>Cum Ajungeți la Atelier</h1>
+  <p class="lead">Str. Moinești nr. 7, bl. 134 A, Militari, Sector 6 — lângă Piața Gorjului, la câteva străzi de Bd. Iuliu Maniu. Program: {SITE.program}.</p>
+  <div class="pills"><span>🚇 Metrou Gorjului</span><span>🔍 Diagnosticare Gratuită</span><span>📞 Un telefon înainte ajută</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Reperele După Care Ne Găsiți</h2>
+  <p>Atelierul este într-o zonă de blocuri din Militari, deci nu se vede de pe bulevard. Trei repere vă aduc direct la el:</p>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🛒</div><h3>Piața Gorjului</h3><p>Reperul principal. De la piață mai aveți câteva minute pe jos. Dacă întrebați pe cineva din zonă de Str. Moinești, plecând de la piață, vă îndrumă imediat.</p></div>
+    <div class="card"><div class="ico">🛣️</div><h3>Bd. Iuliu Maniu</h3><p>Artera pe care o știe toată lumea. Intrarea în zona noastră se face de pe Iuliu Maniu, spre interiorul cartierului — nu rămâneți pe bulevard.</p></div>
+    <div class="card"><div class="ico">🚇</div><h3>Metrou Gorjului</h3><p>Stația de pe magistrala M3. De acolo se vine pe jos, fără să mai schimbați nimic. Cea mai simplă variantă dacă aduceți un aparat mic.</p></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>Cu Metroul</h2>
+  <p>Coborâți la <strong>Gorjului</strong>, pe magistrala M3, și veniți pe jos. Este varianta pe care o recomandăm pentru laptopuri, MacBook-uri, console, manete și boxe portabile — aparate pe care le duceți fără efort într-o geantă sau într-un rucsac și pentru care nu are sens să căutați loc de parcare.</p>
+  <p>Dacă nu ați mai fost în zonă, sunați-ne când ajungeți în stație. Vă îndrumăm în câteva cuvinte, e mai rapid decât orice descriere scrisă.</p>
+</section>
+<section class="sec">
+  <h2>Cu Mașina</h2>
+  <p>Veniți pe <strong>Bd. Iuliu Maniu</strong> și intrați spre cartier în dreptul zonei Gorjului. Navigația vă aduce corect dacă puneți adresa completă: Str. Moinești nr. 7, bl. 134 A, Sector 6.</p>
+  <p><strong>Despre parcare vă spunem cinstit:</strong> loc se găsește, dar uneori cu răbdare. Este o zonă de blocuri de locuințe, iar dimineața devreme și seara după program strada este plină. Dacă aveți un aparat mare sau greu — un monitor, o boxă activă, un soundbar lung — merită să veniți cu mașina și să acceptați că poate dura câteva minute până găsiți loc. Pentru un laptop sau o manetă, metroul vă scutește de căutare.</p>
+</section>
+<section class="sec">
+  <h2>De Unde Vin Clienții Noștri</h2>
+  <p>Suntem în vestul Bucureștiului, ceea ce înseamnă că din jumătate de oraș se ajunge la noi fără să traversați centrul.</p>
+  <ul class="checks">
+    <li><strong>Din Sectorul 6</strong> — Militari, Drumul Taberei, Crângași, Giulești, Ghencea, Lujerului, Politehnica, Grozăvești, Regie, Gorjului: sunteți la 10–20 de minute. Vedeți paginile dedicate: <a href="/reparatii-laptop-sector-6/">laptop</a>, <a href="/reparatii-macbook-sector-6/">MacBook</a>, <a href="/reparatii-console-gaming-sector-6/">console</a>, <a href="/reparatii-monitoare-sector-6/">monitoare</a>, <a href="/reparatii-boxe-active-amplificatoare/">boxe și amplificatoare</a>.</li>
+    <li><strong>Din Sectorul 5 și Sectorul 1</strong> — Rahova, Ferentari, 13 Septembrie, Cotroceni, Grozăvești, Băneasa: se vine ușor pe Iuliu Maniu sau cu metroul, fără schimbări complicate.</li>
+    <li><strong>Din restul Bucureștiului</strong> — Sectoarele 2, 3 și 4: magistrala M3 vă aduce direct la Gorjului, din Titan, Dristor sau Nicolae Grigorescu, fără să schimbați linia.</li>
+    <li><strong>Din Ilfov</strong> — Chiajna, Roșu, Dudu, Bragadiru, Domnești, Clinceni, Militari Residence: sunteți practic vecini cu noi, mai aproape decât mulți bucureșteni din estul orașului.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ce Aduceți cu Dumneavoastră</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>✅ Aparatul</strong><span>Așa cum este, nedemontat. Nu scoateți plăci și nu desfaceți nimic înainte — de multe ori asta îngreunează diagnosticul.</span></div>
+    <div class="card-soft"><strong>✅ Alimentatorul</strong><span>Dacă aparatul are unul extern. Defectul e de multe ori chiar în el, iar fără el nu putem reproduce problema.</span></div>
+    <div class="card-soft"><strong>✅ Accesoriul implicat</strong><span>Maneta, subwooferul, cablul care nu mai merge, modulul CI. Ce face parte din problemă vine cu aparatul.</span></div>
+    <div class="card-soft"><strong>✅ Modelul exact</strong><span>De pe eticheta din spate. Ne ajută să verificăm stocul de piese înainte să începem.</span></div>
+    <div class="card-soft"><strong>❌ Nu e nevoie de cutie</strong><span>Ambalajul original nu ne trebuie, decât dacă vreți să-l aduceți pentru transport.</span></div>
+    <div class="card-soft"><strong>❌ Nu e nevoie de programare</strong><span>Puteți veni direct în program. Un telefon înainte e recomandat, nu obligatoriu.</span></div>
+  </div>
+</section>
+<section class="sec">
+  <h2>La Televizoare Venim Noi</h2>
+  <div class="note-red">⚠️ <strong>Nu aduceți televizorul la atelier.</strong> La televizoare ne deplasăm noi la domiciliu, în București și Ilfov, cu deplasare și diagnosticare gratuite.</div>
+  <p style="margin-top:14px">Motivul e practic: un panou de 55 sau 65 de inch se fisurează ușor pe bancheta din spate sau în portbagaj, iar o crăpătură apărută în drum spre service costă mai mult decât reparația pentru care porniserăți. Majoritatea defectelor de televizor se rezolvă oricum la fața locului, fiindcă piesele uzuale le avem în mașină.</p>
+  <p>Detalii pe <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-tv-sectoare/">TV la domiciliu pe sectoare</a> și <a href="/reparatii-tv-ilfov/">reparații TV în Ilfov</a>.</p>
+  <p>La atelier se aduc: <a href="/reparatii-laptopuri-bucuresti/">laptopuri</a>, <a href="/reparatii-macbook/">MacBook-uri</a>, <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">console și manete</a>, <a href="/reparatii-monitoare-lcd/">monitoare</a>, <a href="/reparatii-boxe-active/">boxe active și amplificatoare</a>, <a href="/reparatii-soundbar/">soundbar-uri</a> și <a href="/reparatii-cuptoare-cu-microunde/">cuptoare cu microunde</a>.</p>
+</section>
+<section class="sec">
+  <h2>Ce Se Întâmplă Când Ajungeți</h2>
+  <p>Ne spuneți ce face aparatul și de când. Verificăm pe loc ce se poate verifica pe loc — alimentare, pornire, simptomul descris. <strong>Diagnosticarea este gratuită</strong> și nu vă obligă la nimic: dacă hotărâți să nu reparați, plecați cu aparatul și nu plătiți nimic.</p>
+  <p>Dacă defectul cere demontare, aparatul rămâne la noi și vă sunăm cu ce am găsit, cu prețul și cu termenul — înainte de a începe orice intervenție. Nu facem lucrări nediscutate și nu depășim suma agreată fără să vă întrebăm.</p>
+  <p>La final primiți garanție scrisă, 6–12 luni în funcție de intervenție. Prețurile orientative pe fiecare tip de aparat sunt pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+<section class="sec">
+  <h2>Nu Sunteți din București?</h2>
+  <p>Pentru televizoare ne deplasăm până la aproximativ 100 km în jurul Bucureștiului — vedeți <a href="/reparatii-tv-langa-bucuresti/">zonele acoperite</a>. Pentru laptopuri, console și aparatură audio puteți trimite aparatul <a href="/reparatii-prin-curier/">prin curier, din toată țara</a>, cu condițiile explicate acolo.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări Frecvente</h2>
+  <Faq items={faq} />
+</section>
+<Cta titlu="📍 Sunați-ne înainte să porniți la drum" text="Un telefon scurt vă spune dacă merită să veniți, ce să aduceți și cât ar putea dura." />
+</div>
+</Base>
