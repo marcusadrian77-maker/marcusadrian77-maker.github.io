@@ -18,10 +18,12 @@ export const NAV_SERVICII = [
   { href: '/reparatii-macbook/', label: 'Reparații MacBook & iMac' },
   { href: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/', label: 'Reparații Console Gaming' },
   { href: '/reparatii-boxe-active/', label: 'Boxe Active & Amplificatoare' },
+  { href: '/reparatii-soundbar/', label: 'Reparații Soundbar' },
   { href: '/reparatii-monitoare-lcd/', label: 'Reparații Monitoare' },
   { href: '/reparatii-cuptoare-cu-microunde/', label: 'Cuptoare cu Microunde' },
   { href: '/mentenanta-periodica/', label: 'Mentenanță Periodică Laptop & Console' },
   { href: '/mentenanta-profesionala-pasta-termica/', label: 'Mentenanță Pastă Termică' },
+  { href: '/reparatii-prin-curier/', label: 'Reparații prin Curier — toată țara' },
 ];
 export const NAV = [
   { href: '/', label: 'Acasă' },
