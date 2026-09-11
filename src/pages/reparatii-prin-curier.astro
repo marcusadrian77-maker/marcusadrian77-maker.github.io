@@ -14,7 +14,8 @@ const faq = [
  { q: 'Cât costă diagnosticarea?', a: 'Este gratuită, ca la orice aparat adus în atelier. După ce verificăm aparatul vă sunăm cu defectul găsit și cu prețul exact. Dacă hotărâți să nu-l reparați, nu plătiți diagnosticarea.' },
  { q: 'Cât durează?', a: 'De regulă 2–5 zile lucrătoare din momentul în care aparatul ajunge la noi, plus timpul de curierat în ambele sensuri. Dacă e nevoie de o piesă comandată, vă spunem termenul la telefon, înainte de a începe.' },
  { q: 'Ce garanție am dacă nu sunt din București?', a: 'Aceeași ca oricine altcineva: garanție scrisă 6–12 luni la manoperă și la piesele înlocuite, în funcție de intervenție. Dacă apare o problemă acoperită de garanție, aparatul se întoarce la noi în aceleași condiții.' },
- { q: 'Cum stabilim transportul?', a: 'La telefon, înainte să trimiteți ceva. Vă spunem adresa exactă, ce curier e mai potrivit pentru aparatul dumneavoastră și cum se face expedierea, ca să nu apară surprize.' },
+ { q: 'Cine plătește curierul?', a: 'Transportul este pe cheltuiala dumneavoastră, în ambele sensuri. Alegeți firma de curierat cu care preferați să lucrați — noi doar predăm coletul la ridicare. Restul rămâne cum știți: diagnosticarea este gratuită, iar prețul reparației vi-l spunem înainte de a începe.' },
+ { q: 'Cum stabilim expedierea?', a: 'La telefon, înainte să trimiteți ceva. Vă spunem adresa exactă a atelierului, ce curier e mai potrivit pentru aparatul dumneavoastră și cum se împachetează, ca să nu apară surprize.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaSEO = graf(
@@ -55,7 +56,7 @@ const schemaSEO = graf(
   <h2>Cum Funcționează, Pas cu Pas</h2>
   <div class="grid g3">
     <div class="card"><div class="ico">1️⃣</div><h3>Ne sunați</h3><p>Ne spuneți ce aparat aveți, ce model și ce face. Multe lucruri se lămuresc din discuție — uneori vă spunem de la telefon că nu merită trimis.</p></div>
-    <div class="card"><div class="ico">2️⃣</div><h3>Stabilim expedierea</h3><p>Vă dăm adresa exactă a atelierului și convenim împreună cum trimiteți aparatul, înainte să plătiți orice transport.</p></div>
+    <div class="card"><div class="ico">2️⃣</div><h3>Trimiteți aparatul</h3><p>Vă dăm adresa exactă a atelierului. Alegeți curierul cu care preferați să lucrați — transportul este pe cheltuiala dumneavoastră, în ambele sensuri.</p></div>
     <div class="card"><div class="ico">3️⃣</div><h3>Diagnosticăm gratuit</h3><p>Verificăm aparatul în ziua în care ajunge sau a doua zi și găsim defectul real, nu cel presupus.</p></div>
     <div class="card"><div class="ico">4️⃣</div><h3>Vă sunăm cu prețul</h3><p>Vă spunem ce are, cât costă și cât durează. Nu începem nimic fără acordul dumneavoastră.</p></div>
     <div class="card"><div class="ico">5️⃣</div><h3>Reparăm și testăm</h3><p>După reparație aparatul rămâne la test, ca să fim siguri că defectul nu revine la cald sau după câteva ore.</p></div>
@@ -78,6 +79,7 @@ const schemaSEO = graf(
   <h2>De Ce Merită, Chiar Dacă Nu Sunteți din București</h2>
   <p>Reparăm la nivel de componentă, nu prin înlocuirea întregii plăci. Diferența se vede în preț: un service care schimbă placa de bază a unei console sau a unui laptop vă cere de câteva ori mai mult decât costă înlocuirea componentei defecte de pe ea. La aparatele ieșite din garanție, asta e de multe ori diferența dintre a repara și a arunca.</p>
   <p>Atelierul este în București, Sector 6 Militari, Str. Moinești nr. 7, și lucrăm în electronică de peste 30 de ani. Puteți citi mai multe <a href="/despre-noi/">despre noi</a> sau consulta <a href="/preturi/">prețurile orientative</a> înainte de a ne contacta.</p>
+  <p>Singurul cost suplimentar față de o reparație făcută în București este curieratul, pe care îl plătiți dumneavoastră, în ambele sensuri. De aceea vă spunem de la telefon, înainte să expediați ceva, dacă aparatul merită trimis — la un defect mic pe un aparat ieftin, transportul dus-întors poate cântări mai mult decât reparația, iar noi preferăm să aflați asta înainte, nu după.</p>
 </section>
 <section class="sec">
   <h2>Întrebări Frecvente</h2>
