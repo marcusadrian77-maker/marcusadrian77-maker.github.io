@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Înlocuire Baterie MacBook București | Baterie Umflată';
+const desc = 'Baterie MacBook umflată sau care ține o oră? Înlocuire cu calibrare, în atelierul din Militari, de regulă în aceeași zi. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cum văd starea reală a bateriei?', a: 'Țineți apăsată tasta Option și deschideți meniul Apple, apoi Informații de sistem, secțiunea Alimentare. Acolo găsiți numărul de cicluri și starea. Alternativ, în Setări sistem, la Baterie, apare direct capacitatea maximă. Sub 80% capacitate sau peste 900–1.000 de cicluri, înlocuirea este justificată.' },
+ { q: 'Ce înseamnă „Service Recommended" sau „Service Battery"?', a: 'Este mesajul prin care macOS spune că bateria și-a pierdut o parte semnificativă din capacitate sau că una dintre celule nu se mai comportă corect. Laptopul funcționează în continuare, dar autonomia scade rapid de acolo încolo. Nu este o urgență, spre deosebire de umflare.' },
+ { q: 'Trackpadul meu nu mai face clic. Are legătură cu bateria?', a: 'Foarte des, da. Bateria stă exact sub trackpad, iar când se umflă îl împinge în sus de dedesubt și îi blochează mecanismul. Este simptomul care trădează o baterie umflată înainte ca proprietarul să observe ceva la carcasă. Trackpadul revine la normal după înlocuire.' },
+ { q: 'Cât durează înlocuirea?', a: 'De regulă în aceeași zi sau în 24 de ore, dacă bateria pentru modelul dumneavoastră este pe stoc. La modelele recente, bateria este lipită de carcasă cu benzi adezive care se îndepărtează cu solvent, cu răbdare — nu este o lucrare care se face în zece minute, dar nu presupune nici zile.' },
+ { q: 'Bateria umflată este periculoasă?', a: 'Merită tratată serios. O celulă umflată este o celulă deteriorată chimic, iar presiunea pe care o exercită poate crăpa carcasa, deforma placa și, în cazuri rare, poate duce la incidente termice. Recomandarea practică: nu mai lăsați laptopul la încărcat nesupravegheat și nu-l transportați în rucsac până la înlocuire.' },
+ { q: 'Ce fac cu bateria veche?', a: 'O preluăm noi și o predăm spre reciclare prin circuitul de deșeuri electronice. Nu se aruncă la gunoiul menajer și nu se păstrează prin casă, mai ales dacă este umflată.' },
+ { q: 'Merită la un MacBook vechi de șapte ani?', a: 'De cele mai multe ori da, și este chiar una dintre cele mai rentabile intervenții pe care le facem. Un MacBook din 2015–2017 cu baterie nouă și sistem de răcire curățat mai funcționează ani buni pentru scris, navigat și birotică. Devine discutabil doar dacă laptopul are, în plus, ecran deteriorat sau probleme de placă.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Înlocuire baterie MacBook', name: 'Înlocuire baterie MacBook București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Înlocuire baterie MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🔋 BATERII MACBOOK · MONTAJ ȘI CALIBRARE</span>
+  <h1>Înlocuire Baterie MacBook</h1>
+  <p class="lead">Autonomie de o oră, procent care sare de la 40% la 5%, trackpad care nu mai face clic sau laptop care nu mai stă drept pe masă. Toate duc în același loc: bateria. Se schimbă de regulă în aceeași zi, în atelierul din Militari.</p>
+  <div class="pills"><span>🔍 Verificare gratuită a stării</span><span>🛡️ Garanție scrisă</span><span>♻️ Preluăm bateria veche</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Semnele după care se recunoaște o baterie terminată</h2>
+  <p>Bateriile nu se strică brusc, ci anunță din timp. Problema e că semnele se confundă ușor cu „laptopul a îmbătrânit". Iată ce înseamnă fiecare, concret.</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>⏱️ Autonomie sub o oră</strong><span>Capacitatea a scăzut atât de mult încât celulele nu mai susțin nici măcar sarcini ușoare</span></div>
+    <div class="card-soft"><strong>📉 Procent care sare brusc</strong><span>De la 40% direct la 5% sau oprire la 20%: celulele nu mai sunt echilibrate între ele</span></div>
+    <div class="card-soft"><strong>🖱️ Trackpad blocat</strong><span>Bateria umflată împinge trackpadul de dedesubt. Cel mai sigur semn, și cel mai ignorat</span></div>
+    <div class="card-soft"><strong>📐 Laptopul se clatină pe masă</strong><span>Carcasa inferioară s-a bombat. Puneți o riglă pe capac ca să vedeți curbura</span></div>
+    <div class="card-soft"><strong>⚠️ „Service Recommended"</strong><span>macOS a detectat singur degradarea. Nu e urgent, dar de aici încolo scade rapid</span></div>
+    <div class="card-soft"><strong>🔌 Nu pornește fără încărcător</strong><span>Bateria nu mai livrează deloc curent. Vezi și <a href="/macbook-nu-porneste/">MacBook care nu pornește</a></span></div>
+  </div>
+  <div class="note-red">⚠️ <strong>Bateria umflată nu se amână.</strong> Presiunea crește în timp, crapă carcasa și poate deforma placa de bază — moment în care o lucrare de câteva sute de lei devine o reparație de placă. Până la înlocuire, nu o lăsați la încărcat nesupravegheată.</div>
+</section>
+
+<section class="sec">
+  <h2>Verificați singur starea, în două minute</h2>
+  <p>Nu trebuie să ne credeți pe cuvânt și nici să instalați ceva. macOS spune exact cum stă bateria:</p>
+  <ol>
+    <li><strong>Setări sistem → Baterie → Stare baterie.</strong> Acolo apare capacitatea maximă, ca procent din cea originală.</li>
+    <li><strong>Pentru detalii,</strong> țineți apăsată tasta Option, deschideți meniul Apple, alegeți <em>Informații de sistem</em> și secțiunea <em>Alimentare</em>. Acolo vedeți numărul de cicluri de încărcare.</li>
+    <li><strong>Interpretarea.</strong> Bateriile MacBook sunt proiectate să păstreze circa 80% din capacitate după 1.000 de cicluri. Sub 80% capacitate, sau peste 900 de cicluri, înlocuirea este justificată. Peste 1.200 de cicluri, e depășită oricum.</li>
+  </ol>
+  <p style="font-size:14.5px;color:var(--mut)">Dacă îmi trimiteți o poză cu ecranul acela pe WhatsApp, vă spunem imediat dacă merită schimbată sau dacă problema e în altă parte.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum se face înlocuirea, pas cu pas</h2>
+  <ul class="checks">
+    <li><strong>Verificăm întâi că bateria e vinovata.</strong> O autonomie mică poate veni și de la un circuit de încărcare defect sau de la un proces care ține procesorul ocupat permanent. Nu vindem baterii unor laptopuri care au altă problemă.</li>
+    <li><strong>Demontare cu bateria deconectată prima.</strong> Este regula de siguranță de la care nu se abate nimeni în atelier.</li>
+    <li><strong>Îndepărtarea adezivilor cu solvent dedicat.</strong> La modelele recente bateria este lipită de carcasă cu benzi puternice. Se dizolvă, nu se smulge — o celulă perforată la demontare este un incident, nu o grabă rezolvată.</li>
+    <li><strong>Montaj și calibrare.</strong> Bateria nouă se încarcă și se descarcă complet o dată, ca sistemul să citească corect capacitatea. Fără pasul ăsta, procentele afișate rămân aiurea săptămâni întregi.</li>
+    <li><strong>Verificarea circuitului de încărcare.</strong> Dacă bateria veche s-a umflat, merită știut de ce. O încărcare defectuoasă strică și bateria nouă.</li>
+    <li><strong>Test final.</strong> Laptopul rămâne pornit până se descarcă și se reîncarcă, cu urmărirea consumului.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Prețuri</h2>
+  <div class="price-row"><span>Verificarea stării bateriei și a circuitului</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Înlocuire baterie MacBook Air</span><b>200 – 400 lei</b></div>
+  <div class="price-row"><span>Înlocuire baterie MacBook Pro</span><b>300 – 500 lei</b></div>
+  <div class="price-row"><span>Curățare praf și pastă termică, la aceeași vizită</span><b>100 – 200 lei</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ piesa și manopera și variază în funcție de model și de diagonală. Grila completă este pe <a href="/preturi/">pagina de prețuri</a>. Prețul ferm îl aflați înainte, după verificare.</p>
+  <p style="font-size:14.5px;color:var(--mut)">Sfat practic: dacă tot se demontează laptopul, merită făcută la aceeași vizită și <a href="/mentenanta-profesionala-pasta-termica/">curățarea cu schimb de pastă termică</a>. Manopera de demontare se plătește o singură dată.</p>
+</section>
+
+<section class="sec">
+  <h2>Cât ține o baterie și ce o omoară mai repede</h2>
+  <p>În utilizare normală, o baterie de MacBook rezistă trei-patru ani înainte să coboare sub 80% din capacitate. Diferența dintre patru ani și doi ani o fac câteva obiceiuri, nu marca bateriei.</p>
+  <p><strong>Căldura</strong> este factorul numărul unu. Un laptop care stă pe pătură sau pe pernă nu mai evacuează aerul cald prin balamale, iar bateria lucrează constant la o temperatură care îi scurtează viața. La fel, un sistem de răcire înfundat cu praf ține toată carcasa caldă chiar și la sarcini mici — motiv în plus să nu amânați curățarea, mai ales dacă <a href="/laptop-se-incalzeste/">laptopul se încălzește</a> vizibil.</p>
+  <p><strong>Statul permanent în priză, la 100%,</strong> este al doilea factor. macOS are o funcție de încărcare optimizată exact pentru asta, și merită lăsată activă. Nu este nevoie să descărcați bateria complet în mod regulat — mitul acesta vine de la bateriile din alte vremuri.</p>
+  <p><strong>Descărcarea totală urmată de luni de nefolosire</strong> este cel mai eficient mod de a distruge o baterie. Un MacBook ținut într-un sertar peste iarnă, cu bateria la zero, iese de acolo cu o celulă moartă. Dacă nu îl folosiți o perioadă, lăsați-l pe la jumătate.</p>
+</section>
+
+<section class="sec">
+  <h2>Unde se face și ce aduceți</h2>
+  <p>Bateriile se schimbă la atelier, nu la domiciliu — lucrarea presupune demontare completă, solvenți și un test de încărcare care durează. La domiciliu ne deplasăm doar pentru televizoare.</p>
+  <p>Aduceți laptopul și încărcătorul. Spuneți-ne modelul și anul de la telefon, ca să verificăm dacă bateria este pe stoc; dacă este, plecați cu laptopul în aceeași zi. Atelierul se află în Str. Moinești 7, Militari, Sector 6 — vedeți <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>. Din restul țării, MacBook-ul se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>.</p>
+  <p style="font-size:14.5px;color:var(--mut)">Notă pentru curier: bateriile umflate nu se expediază. Dacă bateria s-a bombat, sunați-ne întâi și găsim altă soluție.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🔋 Trimiteți-ne o poză cu starea bateriei" text="Vă spunem pe loc dacă merită schimbată și cât costă la modelul dumneavoastră." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-macbook/">reparații MacBook la nivel de componentă</a>, <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/macbook-lichid-varsat/">lichid vărsat pe MacBook</a> și <a href="/inlocuire-baterie-laptop/">înlocuire baterie laptop</a>.</p>
+</div>
+</Base>

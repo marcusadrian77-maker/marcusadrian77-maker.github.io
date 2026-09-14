@@ -16,7 +16,8 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'reparatii-boxe-portabile-bluetooth/',
  'dungi-pe-ecranul-televizorului/', 'televizor-fara-sunet/', 'televizor-se-restarteaza-singur/', 'reparatii-tv-buzau/',
  'reparatii-tv-langa-bucuresti/', 'reparatii-tv-ilfov/', 'reparatii-tv-giurgiu/', 'reparatii-tv-dambovita/', 'reparatii-tv-prahova/', 'reparatii-tv-ialomita/', 'reparatii-tv-calarasi/', 'reparatii-tv-teleorman/',
- 'reparatii-soundbar/', 'reparatii-prin-curier/', 'cum-ajungeti-la-atelier/'];
+ 'reparatii-soundbar/', 'reparatii-prin-curier/', 'cum-ajungeti-la-atelier/',
+ 'macbook-nu-porneste/', 'macbook-lichid-varsat/', 'inlocuire-baterie-macbook/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');

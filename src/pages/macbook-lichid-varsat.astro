@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Am Vărsat Lichid pe MacBook: Ce Faceți în Primele Ore';
+const desc = 'Apă, cafea sau bere pe MacBook? Primele 30 de minute decid dacă se salvează. Ce faceți, ce nu faceți niciodată și cum se curăță o placă corodată.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'A mers după ce l-am șters. De ce să-l mai aduc?', a: 'Pentru că defectul apare mai târziu. Lichidul lasă o peliculă de săruri care absoarbe umezeală din aer și conduce curent între piste. Sub tensiune, procesul devine electrochimic: componentele se corodează progresiv, iar laptopul cedează după săptămâni sau luni, deseori cu un defect mai scump decât cel inițial. Curățarea făcută la timp costă mult mai puțin decât reparația de după.' },
+ { q: 'Cât de repede trebuie să ajungă la atelier?', a: 'Ideal în aceeași zi, cel mult a doua zi. Primele ore contează cel mai mult, pentru că până atunci lichidul nu a avut timp să corodeze în adâncime, sub cipuri. După o săptămână salvarea rămâne posibilă, dar numărul de componente afectate crește, iar odată cu el și prețul.' },
+ { q: 'Orezul chiar ajută?', a: 'Nu. Orezul absoarbe puțină umezeală din aer, dar nu ajunge la lichidul rămas sub cipuri și nu îndepărtează sărurile, care sunt adevărata problemă. În timpul zilelor petrecute în orez, coroziunea avansează liniștit. Este cel mai răspândit sfat greșit de pe internet.' },
+ { q: 'Cum se curăță efectiv o placă după lichid?', a: 'Placa se demontează complet din carcasă, se îndepărtează ecranele metalice de protecție și se spală în baie cu ultrasunete, cu soluție dedicată, apoi se usucă și se inspectează la microscop zonă cu zonă. Pistele corodate se reconstruiesc, componentele afectate se înlocuiesc. Ștersul cu o lavetă pe exterior nu are nicio legătură cu asta.' },
+ { q: 'Cât costă?', a: 'Depinde de cât de departe a ajuns. O curățare făcută repede, fără componente arse, pornește de la 200–300 lei. Dacă sunt piese de înlocuit și piste de refăcut, ajunge la 400–800 lei. Diagnosticarea este gratuită, iar prețul ferm vi-l comunicăm înainte de a începe.' },
+ { q: 'Îmi recuperez datele dacă placa nu se mai salvează?', a: 'La modelele până în 2016, SSD-ul este o piesă separată și datele se recuperează aproape întotdeauna. Începând cu generația T2, și apoi pe tot ce înseamnă Apple Silicon, memoria este sudată pe placă și criptată cu o cheie legată de aceeași placă — recuperarea rămâne posibilă doar dacă zona respectivă a scăpat neatinsă de coroziune. Cu cât ajunge mai repede la noi, cu atât șansele sunt mai mari.' },
+ { q: 'Apa e mai puțin gravă decât cafeaua?', a: 'Da, dar diferența e mai mică decât se crede. Apa plată curată corodează cel mai lent. Cafeaua, sucul, berea și vinul lasă zahăr și acizi care atacă mult mai agresiv și se întăresc într-un strat lipicios. Apa sărată sau apa de la robinet, cu minerale, stă undeva la mijloc. Niciuna nu este inofensivă.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Lichid vărsat pe MacBook: ce faceți în primele ore', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Lichid vărsat pe MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">💧 URGENȚĂ · PRIMELE ORE CONTEAZĂ</span>
+  <h1>Am Vărsat Lichid pe MacBook</h1>
+  <p class="lead">Dacă tocmai s-a întâmplat, citiți doar prima secțiune și acționați. Restul paginii vă așteaptă după ce ați scos laptopul de sub tensiune — acolo se decide, practic, dacă se salvează sau nu.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2 style="margin-top:0">Primele 30 de minute: patru gesturi, în ordinea asta</h2>
+  <ol>
+    <li><strong>Scoateți încărcătorul din priză.</strong> Curentul, nu lichidul, este cel care distruge. Apă pe o placă nealimentată nu face nimic spectaculos; apă pe o placă sub tensiune arde componente în câteva secunde.</li>
+    <li><strong>Opriți-l forțat.</strong> Țineți butonul de pornire apăsat zece secunde, până se stinge complet. Nu închideți din meniu, nu așteptați să se închidă frumos.</li>
+    <li><strong>Întoarceți-l cu tastatura în jos, în formă de cort,</strong> pe un prosop. Lichidul trebuie să iasă pe unde a intrat, nu să curgă mai adânc spre placă și spre baterie.</li>
+    <li><strong>Lăsați-l așa și sunați-ne.</strong> Nu-l mai porniți „ca să vedeți dacă merge". Fiecare pornire este o nouă șansă de a arde ceva care până atunci era întreg.</li>
+  </ol>
+  <div class="note-red">⚠️ <strong>Cel mai scump reflex este să-l porniți ca să verificați.</strong> Am primit zeci de laptopuri care ar fi avut nevoie doar de o curățare și care au ajuns la reparație de placă pentru că au fost pornite de trei ori în seara respectivă.</div>
+</section>
+
+<section class="sec">
+  <h2>Ce nu ajută, deși toată lumea recomandă</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Orezul</h3><p>Absoarbe umezeală din aer, nu lichidul de sub cipuri. Între timp, sărurile rămase își continuă treaba. În plus, praful de orez intră în porturi și în ventilatoare.</p></div>
+    <div class="card"><h3>Uscătorul de păr</h3><p>Împinge lichidul mai adânc sub componente și, la temperatură mare, poate deforma tastatura și adezivii din carcasă. Aerul cald nu îndepărtează sărurile.</p></div>
+    <div class="card"><h3>Calorifer, soare, cuptor</h3><p>Uscarea nu este scopul. O placă perfect uscată, dar plină de reziduuri, se corodează în continuare la fiecare zi umedă.</p></div>
+    <div class="card"><h3>Așteptatul „să se usuce singur"</h3><p>Cea mai costisitoare variantă. Laptopul pare că funcționează câteva săptămâni, apoi cedează un port, apoi tastatura, apoi placa.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>De ce lichidul nu se termină odată cu ștersul</h2>
+  <p>Problema reală nu este apa, ci ce rămâne după ce apa se evaporă. Orice lichid, inclusiv cel din sticla de pe birou, conține minerale și substanțe dizolvate. Ele rămân pe placă sub formă de peliculă albicioasă, aproape invizibilă cu ochiul liber, dar perfect vizibilă la microscop.</p>
+  <p>Pelicula asta este higroscopică: trage umezeală din aerul camerei și devine ușor conductivă. Între două piste aflate la o zecime de milimetru distanță apare un curent care nu ar trebui să existe. Sub tensiune, metalul migrează dintr-o parte în alta — pistele se subțiază, picioarele componentelor se mănâncă, iar cipurile încep să funcționeze greșit. Fenomenul are viteză proprie și nu se oprește de la sine.</p>
+  <p>Așa se explică situația care îi surprinde pe toți: laptopul a mers impecabil două luni după stropire, iar apoi s-a stins definitiv. Nu a fost o coincidență — a fost exact intervalul de care avea nevoie coroziunea.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum arată o curățare făcută corect</h2>
+  <ul class="checks">
+    <li><strong>Demontare completă.</strong> Placa iese din carcasă, bateria se deconectează prima, se scot ecranele metalice de sub care nu se vede nimic altfel.</li>
+    <li><strong>Baie cu ultrasunete.</strong> Placa se spală în soluție dedicată, care dizolvă sărurile inclusiv în zonele inaccesibile, sub cipuri și sub conectori.</li>
+    <li><strong>Uscare controlată și inspecție la microscop.</strong> Se parcurge placa zonă cu zonă, se identifică pistele atacate și componentele cu picioarele corodate.</li>
+    <li><strong>Reconstrucție.</strong> Pistele întrerupte se refac, componentele afectate se înlocuiesc, conectorii corodați se schimbă.</li>
+    <li><strong>Test sub sarcină.</strong> Laptopul rămâne pornit ore întregi, cu încărcare și descărcare, înainte de a fi predat. Defectele de după lichid au obiceiul să reapară la cald.</li>
+  </ul>
+  <p style="font-size:14.5px;color:var(--mut)">Este exact opusul a ceea ce înseamnă, în multe locuri, „am curățat laptopul": o ștergere pe exterior și o uscare peste noapte.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce cedează de obicei, în ordinea frecvenței</h2>
+  <div class="grid g3">
+    <div class="card-soft"><strong>⌨️ Tastatura</strong><span>Prima care se udă și prima care se blochează. La multe modele face corp comun cu carcasa superioară</span></div>
+    <div class="card-soft"><strong>🔌 Circuitul de încărcare</strong><span>Stă lângă port, în calea lichidului. Laptopul nu mai recunoaște încărcătorul</span></div>
+    <div class="card-soft"><strong>🖱️ Trackpadul și cablul lui</strong><span>Se poartă imprevizibil: clicuri singure, cursor care sare, zone moarte</span></div>
+    <div class="card-soft"><strong>🔊 Difuzoarele și microfonul</strong><span>Membranele se deformează, sunetul devine hârâit sau dispare pe un canal</span></div>
+    <div class="card-soft"><strong>🖥️ Circuitul de backlight</strong><span>Ecran vizibil doar cu lanterna. Vezi <a href="/macbook-ecran-negru/">ghidul despre ecranul negru</a></span></div>
+    <div class="card-soft"><strong>🔬 Liniile de alimentare de pe placă</strong><span>Cazul grav: laptopul nu mai pornește deloc. Vezi <a href="/macbook-nu-porneste/">MacBook care nu pornește</a></span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Prețuri și termene</h2>
+  <div class="price-row"><span>Diagnosticare și evaluarea coroziunii</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Curățare completă a plăcii, fără componente arse</span><b>200 – 300 lei</b></div>
+  <div class="price-row"><span>Curățare cu înlocuiri de componente și refacere de piste</span><b>400 – 800 lei</b></div>
+  <div class="price-row"><span>Înlocuire tastatură afectată</span><b>300 – 700 lei</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Intervențiile după lichid durează de regulă 2–5 zile lucrătoare, o parte din timp fiind testarea. Grila completă este pe <a href="/preturi/">pagina de prețuri</a>, iar prețul ferm îl aflați înainte de a începe.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce ne spuneți când ajungeți</h2>
+  <p>Trei lucruri ne scurtează mult munca: <strong>ce lichid a fost</strong> (apă, cafea cu zahăr, bere, suc), <strong>când s-a întâmplat</strong> și <strong>de câte ori a fost pornit de atunci</strong>. Nimeni nu vă judecă pentru răspunsuri — un laptop pornit de cinci ori după stropire este o situație obișnuită, dar schimbă ce căutăm întâi pe placă.</p>
+  <p>Aduceți laptopul și încărcătorul, fără să încercați să-l demontați singur. Atelierul este în Str. Moinești 7, Militari, Sector 6 — vedeți <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>. Din restul țării, aparatul se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>, dar în cazul lichidului viteza contează: sunați-ne întâi.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="💧 S-a întâmplat acum? Sunați înainte să-l porniți" text="Vă spunem la telefon ce faceți în următoarele minute — de obicei asta decide tot." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-macbook/">reparații MacBook la nivel de componentă</a>, <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a> și <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>.</p>
+</div>
+</Base>

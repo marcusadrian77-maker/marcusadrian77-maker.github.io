@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'MacBook Nu Pornește: Cauze Reale și Ce Puteți Face';
+const desc = 'MacBook-ul nu pornește și nu dă niciun semn? Ce înseamnă fiecare simptom, ce se repară punctual pe placă și cât costă. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'MacBook-ul nu dă absolut niciun semn. Mai are rost să-l duc la service?', a: 'Are, și de cele mai multe ori merită. „Niciun semn" înseamnă că o linie de tensiune de pe placă nu mai ajunge la valoarea corectă — cel mai des din cauza unui condensator în scurtcircuit sau a unui controler de alimentare ars. Sunt componente de câțiva lei, care se înlocuiesc la microscop. Ce pare moarte definitivă este, în practică, una dintre cele mai frecvente reparații pe care le facem.' },
+ { q: 'De ce nu își schimbă culoarea încărcătorul MagSafe?', a: 'LED-ul de pe MagSafe este comandat de placa de bază, nu de încărcător. Dacă rămâne stins sau alb permanent, placa nu recunoaște încărcătorul — fie pentru că circuitul de încărcare este întrerupt, fie pentru că o siguranță de pe linia de intrare a cedat. Încărcătorul în sine este rareori vinovat, dar merită testat pe alt Mac dacă aveți ocazia.' },
+ { q: 'Cum îmi dau seama dacă e bateria sau placa?', a: 'Scoateți bateria din ecuație: lăsați laptopul în priză 20 de minute și încercați să porniți. Dacă pornește doar în priză, bateria sau circuitul ei de încărcare este problema. Dacă nu pornește nici în priză, nici pe baterie, defectul este pe placă. La modelele recente bateria nu se poate deconecta fără demontare, deci acest test se face la atelier.' },
+ { q: 'Am auzit că se rezolvă cu o resetare SMC. E adevărat?', a: 'Uneori da, la modelele Intel, și de aceea merită încercată înainte de orice. Dar dacă laptopul nu reacționează deloc la butonul de pornire, nici SMC-ul nu are ce reseta — resetarea presupune ca placa să fie alimentată corect. La modelele M1–M4 secvența nici nu mai există.' },
+ { q: 'Cât durează diagnosticarea unui MacBook care nu pornește?', a: 'De regulă o zi lucrătoare. Placa se scoate, se alimentează pe sursă de laborator și se urmărește consumul: un consum zero arată o întrerupere pe linia de intrare, un consum mare arată un scurtcircuit. De acolo defectul se localizează la microscop. Diagnosticarea este gratuită și nu vă obligă la nimic.' },
+ { q: 'Îmi pierd datele dacă se repară placa?', a: 'La modelele până în 2016, SSD-ul este separat și datele rămân intacte indiferent ce se întâmplă cu placa. La modelele cu cip T2 și la cele Apple Silicon (M1–M4), memoria este lipită pe placă — datele depind de starea plăcii, iar recuperarea lor se face doar dacă zona respectivă nu a fost afectată. Vă spunem sincer, după diagnosticare, ce șanse există.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'MacBook nu pornește: cauze reale și soluții', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'MacBook nu pornește', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC · PLACĂ DE BAZĂ</span>
+  <h1>MacBook-ul Nu Pornește</h1>
+  <p class="lead">Apăsați butonul și nu se întâmplă nimic: fără ventilator, fără sunet, fără lumină pe tastatură. Pagina asta explică ce spune fiecare simptom despre defect — și de ce „nu mai dă semne de viață" este, de obicei, o reparație de câteva sute de lei, nu o placă nouă.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Întâi: „nu pornește" înseamnă patru lucruri diferite</h2>
+  <p>Aproape toți clienții care sună spun aceeași propoziție, dar descriu situații care nu au nimic în comun tehnic. Înainte de orice altceva, uitați-vă atent ce face laptopul în primele zece secunde după ce apăsați butonul. Răspunsul restrânge defectul de la „placa de bază" la o zonă precisă.</p>
+  <div class="grid g2">
+    <div class="card"><h3>A. Complet mort</h3><p>Niciun zgomot, tastatura nu se luminează, carcasa rămâne rece, iar încărcătorul nu își schimbă culoarea. Alimentarea nu ajunge pe placă sau este consumată de un scurtcircuit.</p></div>
+    <div class="card"><h3>B. Pornește și se oprește imediat</h3><p>Ventilatorul se învârte o secundă, apoi tăcere. Placa începe secvența de pornire, dar una dintre tensiuni nu apare la timp și sistemul se oprește singur, ca protecție.</p></div>
+    <div class="card"><h3>C. Ventilator la maxim, ecran negru</h3><p>Ventilatorul urlă constant din prima secundă. Este semnalul clasic că placa nu trece de verificarea inițială — deseori memorie, SSD sau chip de sistem.</p></div>
+    <div class="card"><h3>D. Merge, dar nu se vede nimic</h3><p>Se aude discul, tastatura se luminează, Caps Lock răspunde. Aici laptopul chiar funcționează, iar problema este pe traseul imaginii — caz tratat separat în <a href="/macbook-ecran-negru/">ghidul despre ecranul negru</a>.</p></div>
+  </div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Când ne sunați, spuneți-ne care dintre cele patru este. Vă putem orienta încă de la telefon, fără să veniți degeaba.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce puteți încerca acasă, în cinci minute</h2>
+  <p>Nu toate cazurile sunt hardware. Merită parcurse întâi lucrurile care nu costă nimic și care chiar rezolvă, uneori, un laptop aparent mort.</p>
+  <ul class="checks">
+    <li><strong>Lăsați-l la încărcat o oră întreagă.</strong> O baterie coborâtă sub pragul de protecție refuză să pornească laptopul imediat ce o puneți în priză. Are nevoie de timp ca să urce peste prag.</li>
+    <li><strong>Încercați alt încărcător și altă priză.</strong> Cablurile USB-C se rup în interior fără semne exterioare, iar prelungitoarele cu întrerupător sunt o sursă constantă de confuzie.</li>
+    <li><strong>Apăsați butonul de pornire zece secunde.</strong> Forțează oprirea completă. Apoi așteptați o jumătate de minut și apăsați scurt.</li>
+    <li><strong>Deconectați tot ce e în porturi.</strong> Un hub, un SSD extern sau un adaptor defect pot ține placa blocată în secvența de pornire.</li>
+    <li><strong>Ascultați cu urechea lipită de carcasă.</strong> Un clic scurt sau un scâncet electronic foarte slab înseamnă că placa încearcă să pornească — informație utilă pentru noi.</li>
+  </ul>
+  <div class="note-red">⚠️ Ce să <strong>nu</strong> faceți: să insistați cu porniri repetate dacă laptopul a luat contact cu lichid sau dacă miroase a ars. Fiecare încercare trece curent printr-un circuit deteriorat și transformă o reparație mică într-una mare.</div>
+</section>
+
+<section class="sec">
+  <h2>Ce găsim, în realitate, când deschidem aparatul</h2>
+  <p>Diagnosticarea corectă nu se face pe simptome, ci pe consum. Placa se alimentează pe o sursă de laborator și se urmărește cât curent trage: zero înseamnă întrerupere, mult înseamnă scurtcircuit. De acolo, defectul se localizează la microscop, cu schema electronică a modelului în față.</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>🔴 Condensator în scurt pe linia principală</strong><span>Cea mai comună cauză de „mort complet". Componenta costă nimic; important e să fie găsită exact</span></div>
+    <div class="card-soft"><strong>🔴 Controler de încărcare ars</strong><span>Placa nu recunoaște încărcătorul, LED-ul MagSafe rămâne stins. Frecvent după o priză cu variații de tensiune</span></div>
+    <div class="card-soft"><strong>🔴 Siguranță de intrare întreruptă</strong><span>Protecția și-a făcut treaba. Se înlocuiește, dar întâi se află ce a provocat supracurentul</span></div>
+    <div class="card-soft"><strong>🔴 Coroziune sub un cip, după lichid</strong><span>Poate apărea la luni după stropirea inițială. Vezi ghidul despre <a href="/macbook-lichid-varsat/">lichid vărsat pe MacBook</a></span></div>
+    <div class="card-soft"><strong>🔴 Port USB-C deteriorat mecanic</strong><span>Pinii îndoiți scurtcircuitează liniile de alimentare și blochează pornirea</span></div>
+    <div class="card-soft"><strong>🔴 Baterie umflată care forțează placa</strong><span>Presiunea deformează placa și întrerupe contacte. Vezi <a href="/inlocuire-baterie-macbook/">înlocuirea bateriei</a></span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Generațiile care ajung cel mai des la noi cu acest defect</h2>
+  <h3>MacBook Pro 2018–2019, cu cip T2</h3>
+  <p>Sunt modelele care „mor" cel mai brusc: funcționează normal seara, iar dimineața nu mai reacționează la nimic. Circuitul de alimentare al acestor plăci este sensibil la variațiile din rețea, iar defectul se concentrează, în majoritatea cazurilor, pe câteva componente cunoscute. Se repară punctual, fără înlocuirea plăcii.</p>
+  <h3>MacBook Air și Pro cu M1, M2, M3</h3>
+  <p>Electronic sunt fiabile, dar sunt și cele mai expuse la două accidente banale: portul USB-C forțat lateral și lichidul, care ajunge imediat pe placă pentru că nu mai există spațiu tampon în carcasă. La ele, orice zi în plus contează — coroziunea nu se oprește singură.</p>
+  <h3>MacBook Pro și Air 2012–2017</h3>
+  <p>Vin de obicei cu un istoric: au mai fost reparate, au mai luat o stropire, au stat nefolosite doi ani într-un sertar. Sunt și modelele pentru care Apple nu mai oferă plăci, deci reparația la nivel de componentă este singura variantă — și de multe ori cea mai rentabilă din tot ce reparăm.</p>
+</section>
+
+<section class="sec">
+  <h2>Cât costă și cât durează</h2>
+  <div class="price-row"><span>Diagnosticare, indiferent de decizie</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparație circuit de alimentare / încărcare</span><b>300 – 800 lei</b></div>
+  <div class="price-row"><span>Înlocuire port USB-C sau MagSafe</span><b>150 – 350 lei</b></div>
+  <div class="price-row"><span>Înlocuire baterie</span><b>200 – 500 lei</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Reparațiile de placă durează în general 2–5 zile lucrătoare, pentru că se testează apoi ore întregi sub sarcină înainte de predare. Prețul ferm îl aflați după diagnosticare, iar grila completă este pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Când vă spunem că nu merită</h2>
+  <p>Se întâmplă, și preferăm să o spunem din prima. Nu recomandăm reparația când placa are coroziune întinsă pe mai multe zone după lichid, când s-a intervenit deja agresiv în alt atelier și pistele sunt rupte, sau când defectul se cumulează cu un ecran spart și o baterie terminată, iar totalul se apropie de prețul unui laptop echivalent second-hand.</p>
+  <p>În toate aceste situații diagnosticarea rămâne gratuită și primiți laptopul înapoi nedemontat. Nu ne interesează o lucrare care vă costă degeaba.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce aduceți la atelier</h2>
+  <p>Laptopul și încărcătorul original — atât. Nu e nevoie de cutie, de factură sau de parolă; nu accesăm fișierele dumneavoastră. Dacă MacBook-ul a luat contact cu lichid, spuneți-ne asta de la început, chiar dacă s-a întâmplat acum câteva luni: schimbă complet ordinea în care lucrăm.</p>
+  <p>Atelierul este în Str. Moinești 7, Militari, Sector 6 — vedeți <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>. Dacă nu sunteți din București, MacBook-ul se poate trimite <a href="/reparatii-prin-curier/">prin curier, din orice localitate</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🍎 Nu mai dă semne de viață? Diagnosticarea e gratuită" text="Spuneți-ne modelul și ce face laptopul în primele zece secunde — vă orientăm pe loc." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-macbook/">reparații MacBook la nivel de componentă</a>, <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>, <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a> și <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>.</p>
+</div>
+</Base>
