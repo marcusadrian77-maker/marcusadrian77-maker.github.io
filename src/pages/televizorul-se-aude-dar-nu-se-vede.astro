@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Televizorul Se Aude Dar Nu Se Vede: Cauze și Preț';
+const desc = 'Televizorul are sunet dar ecranul e negru? Testul lanternei arată în 30 de secunde dacă e iluminarea sau panoul. Cauze, prețuri reale și diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Televizorul se aude dar nu se vede. Ce înseamnă?', a: 'În marea majoritate a cazurilor înseamnă că iluminarea din spatele ecranului nu mai funcționează. Imaginea se formează normal — de aceea aveți sunet și, la lanternă, se văd meniurile — dar nu mai e nimic care să o lumineze. E una dintre cele mai frecvente defecțiuni la televizoarele LED și, în același timp, una dintre cele mai rentabile de reparat.' },
+ { q: 'Cum îmi dau seama singur dacă e iluminarea sau panoul?', a: 'Faceți testul lanternei. Porniți televizorul, stingeți lumina în cameră și luminați ecranul de foarte aproape, oblic, cu lanterna telefonului. Dacă zăriți imaginea sau meniul, ca o umbră, panoul e bun și problema e la iluminare. Dacă nu se vede absolut nimic nici așa, defectul e mai adânc — sursă, placă principală sau chiar panoul.' },
+ { q: 'Cât costă reparația?', a: 'Înlocuirea benzilor LED costă între 100 și 280 de lei, cu 6 luni garanție. Dacă vinovată e sursa de alimentare, intervalul e 150–350 de lei, cu 12 luni garanție. Dacă e placa principală, 200–500 de lei. Diagnosticarea la domiciliu e gratuită, iar prețul exact vi-l spunem înainte să începem.' },
+ { q: 'Ce înseamnă dacă ecranul e negru și nu se aude nimic?', a: 'Atunci vorbim despre altceva: televizorul probabil nici nu pornește cu adevărat. Uitați-vă la ledul de stare din față — dacă e stins complet, sau dacă clipește ritmic, cel mai probabil e sursa de alimentare. Avem ghiduri separate pentru televizoarele care nu pornesc deloc.' },
+ { q: 'Imaginea apare câteva secunde și apoi ecranul devine negru. E același defect?', a: 'Da, e chiar semnul clasic al iluminării defecte. Televizorul pornește, driverul de LED-uri încearcă să alimenteze benzile, detectează o eroare și se oprește din protecție — de aici cele două-trei secunde de imagine. Se repară la fel, prin înlocuirea benzilor și verificarea driverului.' },
+ { q: 'Merită reparat sau iau altul?', a: 'Dacă panoul e bun — și testul lanternei vă spune asta — reparația are aproape întotdeauna sens. O înlocuire de benzi LED la 100–280 de lei pe un televizor care altfel funcționează perfect e sub orice variantă de înlocuire. Vă spunem sincer când nu merită: atunci când panoul însuși e crăpat sau pătat.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Televizorul se aude dar nu se vede: cauze, test și preț', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Televizorul se aude dar nu se vede', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul Se Aude Dar Nu Se Vede</h1>
+  <p class="lead">Sunetul merge, telecomanda răspunde, dar ecranul rămâne negru. Este cel mai frecvent defect pe care îl vedem la televizoarele LED — și, contrar aparențelor, rareori înseamnă că ecranul s-a stricat. Un test de 30 de secunde vă spune aproape sigur ce are.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Testul lanternei: 30 de secunde acasă, fără să demontați nimic</h2>
+  <p>Înainte de orice, faceți testul ăsta. Vă spune dacă ecranul e bun sau nu, iar de răspunsul lui depinde dacă reparația costă două sute de lei sau nu merită deloc.</p>
+  <ul class="checks">
+    <li>Porniți televizorul și lăsați-l pe un canal sau pe meniu — ceva ce ar trebui să se vadă.</li>
+    <li>Stingeți lumina din cameră și trageți draperiile. Cu cât e mai întuneric, cu atât testul e mai clar.</li>
+    <li>Luminați ecranul cu lanterna telefonului, de foarte aproape, ținând-o oblic față de suprafață, nu perpendicular.</li>
+    <li>Priviți din lateral, din unghiul în care bate lumina.</li>
+  </ul>
+  <p><strong>Dacă zăriți imaginea sau meniul ca o umbră slabă</strong>, panoul este intact și problema e la iluminarea din spatele lui. Asta e vestea bună, și e cazul în care ne găsim de cele mai multe ori.</p>
+  <p><strong>Dacă nu se vede absolut nimic</strong>, nici măcar o umbră, defectul e altundeva — la sursă, la placa principală sau, mai rar, chiar la panou. Tot se poate repara, dar diagnosticul se pune cu aparatura, nu cu lanterna.</p>
+</section>
+
+<section class="sec">
+  <h2>De ce se strică iluminarea și de ce nu e vina dumneavoastră</h2>
+  <p>Un televizor LED nu are ecranul luminos prin el însuși. În spatele panoului există niște benzi cu zeci de leduri mici, legate în serie, care îl luminează din spate. Panoul doar formează imaginea; benzile o fac vizibilă.</p>
+  <p>Ledurile acelea sunt consumabile. Se degradează în timp de la căldură, iar când unul singur cedează, întregul șir se stinge — ca la vechile beculețe de brad. De aceea defectul apare brusc, de pe o zi pe alta, pe un televizor care până atunci funcționa impecabil.</p>
+  <p>Ce grăbește uzura: televizorul ținut zilnic la luminozitate maximă, un spațiu prea strâns care blochează aerisirea din spate, sau o cameră în care aparatul stă în soare direct. Nimic din toate astea nu e o greșeală gravă — sunt doar motivele pentru care unele televizoare ajung aici la cinci ani și altele la zece.</p>
+</section>
+
+<section class="sec">
+  <h2>Aceeași problemă, mai multe feluri de a o descrie</h2>
+  <p>Oamenii ne descriu defectul ăsta în cuvinte foarte diferite, iar toate înseamnă, de regulă, același lucru:</p>
+  <ul class="checks">
+    <li><strong>„Televizorul se aude dar nu se vede"</strong> — formularea cea mai exactă.</li>
+    <li><strong>„Nu mai are imagine"</strong> sau <strong>„lipsă imagine"</strong> — același defect, alt cuvânt.</li>
+    <li><strong>„Ecran negru cu sunet"</strong> — cum îi spunem noi în atelier.</li>
+    <li><strong>„Se vede foarte întunecat"</strong> — o formă mai blândă, în care doar o parte din benzi s-au stins; se repară identic.</li>
+    <li><strong>„Se aprinde o clipă și se face negru"</strong> — driverul de leduri intră în protecție; tot iluminarea e cauza.</li>
+  </ul>
+  <p>Dacă vă regăsiți în oricare dintre ele, pagina asta e despre televizorul dumneavoastră.</p>
+</section>
+
+<section class="sec">
+  <h2>Cât costă și ce se schimbă efectiv</h2>
+  <p>Reparația înseamnă demontarea panoului, scoaterea benzilor vechi și montarea unora noi, cu verificarea driverului care le alimentează. Este o lucrare delicată — panoul unui televizor mare e subțire și se fisurează dacă e apucat greșit — dar pentru un atelier obișnuit cu ea e o intervenție de rutină.</p>
+  <ul class="checks">
+    <li><strong>Înlocuire benzi LED (backlight): 100–280 de lei</strong>, garanție 6 luni. Prețul depinde de diagonală, pentru că se schimbă toate benzile.</li>
+    <li><strong>Sursă de alimentare: 150–350 de lei</strong>, garanție 12 luni — când ledurile sunt bune, dar nu primesc tensiune.</li>
+    <li><strong>Placă principală: 200–500 de lei</strong>, garanție 12 luni — mai rar, când semnalul video nu ajunge deloc la panou.</li>
+  </ul>
+  <p>Diagnosticarea e gratuită și o facem la dumneavoastră acasă. Grila completă e pe pagina de <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce ne ajută să vă răspundem mai repede</h2>
+  <p>Dacă ne scrieți pe WhatsApp, trei lucruri ne lasă să estimăm defectul aproape sigur:</p>
+  <ul class="checks">
+    <li><strong>Modelul exact</strong>, de pe eticheta din spatele televizorului — cu el verificăm dacă avem benzile pe stoc înainte de a porni la drum.</li>
+    <li><strong>Rezultatul testului cu lanterna</strong> — se vede ceva sau nu se vede nimic.</li>
+    <li><strong>Dacă imaginea apare câteva secunde la pornire</strong> și abia apoi se stinge ecranul.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Vedeți și: <a href="/reparatii-televizoare/">reparații televizoare București</a>, <a href="/reparatii-tv-led-bucuresti/">reparații TV LED</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecranul televizorului</a>, <a href="/televizor-samsung-nu-porneste/">televizor Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">televizor LG care nu pornește</a>, <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<TrimitePoze />
+
+<Cta titlu="📺 Ecran negru dar televizorul se aude? Sunați-ne!" text="Diagnostic gratuit la domiciliu. Venim cu benzile potrivite dacă ne spuneți modelul la telefon." />
+</div>
+</Base>
