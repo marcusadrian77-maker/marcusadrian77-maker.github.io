@@ -15,6 +15,7 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/',
  'reparatii-boxe-portabile-bluetooth/',
  'dungi-pe-ecranul-televizorului/', 'televizor-fara-sunet/', 'televizor-se-restarteaza-singur/', 'reparatii-tv-buzau/',
+ 'televizorul-se-aude-dar-nu-se-vede/', 'televizor-trasnit/', 'inlocuire-leduri-tv/',
  'reparatii-tv-langa-bucuresti/', 'reparatii-tv-ilfov/', 'reparatii-tv-giurgiu/', 'reparatii-tv-dambovita/', 'reparatii-tv-prahova/', 'reparatii-tv-ialomita/', 'reparatii-tv-calarasi/', 'reparatii-tv-teleorman/',
  'reparatii-soundbar/', 'reparatii-prin-curier/', 'cum-ajungeti-la-atelier/',
  'macbook-nu-porneste/', 'macbook-lichid-varsat/', 'inlocuire-baterie-macbook/'];
