@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Televizor Trăsnit: Se Mai Repară? Cauze și Preț';
+const desc = 'Televizorul s-a stricat după furtună sau după o pană de curent? Ce arde de fapt, ce se repară, cât costă și cum preveniți data viitoare. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Televizorul a fost trăsnit. Se mai repară?', a: 'În cele mai multe cazuri, da. Descărcarea rareori distruge tot aparatul — de obicei arde prima componentă din drum, adică sursa de alimentare sau partea de tuner, iar panoul rămâne intact. Atât timp cât ecranul e bun, reparația merită aproape întotdeauna.' },
+ { q: 'Pe unde intră descărcarea în televizor?', a: 'Pe două căi. Prin priză, când trăsnetul lovește rețeaua electrică — atunci cedează sursa de alimentare. Sau prin cablul de antenă, mai ales la antenele de exterior, iar atunci arde partea de tuner și, uneori, traseele de pe placa principală. De aceea vă întrebăm dacă aveați antenă de exterior conectată.' },
+ { q: 'Cât costă reparația unui televizor trăsnit?', a: 'Dacă a cedat doar sursa, 150–350 de lei cu garanție 12 luni. Dacă a fost afectată și placa principală, 200–500 de lei. Partea de tuner intră de regulă în reparația plăcii. Diagnosticarea e gratuită și vă spunem devizul înainte de a începe.' },
+ { q: 'Cum îmi dau seama că e de la trăsnet și nu altceva?', a: 'Semnele clasice: televizorul a mers perfect până în seara cu furtună, s-a oprit brusc în timpul ei sau nu a mai pornit după, iar uneori se simte un miros ușor de ars când apropiați nasul de spatele carcasei. Dacă în aceeași casă au mai cedat și alte aparate, e practic sigur.' },
+ { q: 'Ce fac imediat după o furtună, dacă televizorul nu mai pornește?', a: 'Scoateți-l din priză și din cablul de antenă și lăsați-l așa. Nu încercați să-l porniți repetat — dacă în sursă a rămas o componentă în scurtcircuit, fiecare încercare poate duce defectul mai departe, către placa principală. Sunați-ne și veniți cu modelul de pe etichetă pregătit.' },
+ { q: 'Cum previn data viitoare?', a: 'Două măsuri simple. În timpul furtunilor, scoateți televizorul din priză și deconectați cablul de antenă — amândouă, nu doar unul. Pe termen lung, o priză cu protecție la supratensiune costă puțin, iar la antenele de exterior merită montat un descărcător pe cablu. Nu sunt garanții absolute, dar rezolvă majoritatea situațiilor.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Televizor trăsnit: ce arde, ce se repară și cât costă', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Televizor trăsnit', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizor Trăsnit: Se Mai Repară?</h1>
+  <p class="lead">A fost furtună, s-a luat curentul, iar de atunci televizorul nu mai pornește. Se aud des întrebările astea după fiecare vară cu descărcări. Răspunsul scurt: de cele mai multe ori se repară, fiindcă trăsnetul arde prima componentă din drum, nu tot aparatul.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce arde de fapt când televizorul e trăsnit</h2>
+  <p>Descărcarea nu „intră în televizor" ca un întreg. Ea urmează un drum, iar pe drumul acela există componente care se sacrifică exact ca o siguranță — asta e și rolul lor. De aceea, un aparat lovit indirect are de obicei o singură zonă afectată.</p>
+  <ul class="checks">
+    <li><strong>Sursa de alimentare</strong> — cel mai frecvent. Dacă supratensiunea a venit prin priză, aici se oprește. Televizorul nu mai dă niciun semn sau ledul de stare clipește.</li>
+    <li><strong>Partea de tuner</strong> — când descărcarea a venit prin cablul de antenă. Televizorul pornește normal, dar nu mai prinde niciun canal, iar mufa de antenă poate fi chiar înnegrită.</li>
+    <li><strong>Placa principală</strong> — când tensiunea a trecut mai departe. Aparatul pornește greu, se blochează sau pierde funcții.</li>
+    <li><strong>Mufele HDMI</strong> — dacă era conectat un decodor sau o consolă care a preluat descărcarea.</li>
+  </ul>
+  <p>Ce rămâne aproape întotdeauna intact este <strong>panoul</strong>, adică ecranul propriu-zis — partea cea mai scumpă. De aceea reparația unui televizor trăsnit are, în mod normal, sens economic.</p>
+</section>
+
+<section class="sec">
+  <h2>Cele două drumuri: priza și antena</h2>
+  <p>Merită înțelese separat, pentru că măsurile de prevenire sunt diferite.</p>
+  <p><strong>Prin priză</strong> ajunge o supratensiune de rețea. Nu e nevoie ca trăsnetul să lovească blocul dumneavoastră; e destul să atingă rețeaua la câteva sute de metri. Semnul tipic: în aceeași casă au cedat în aceeași seară și alte aparate — un router, o mașină de spălat, o sursă de calculator.</p>
+  <p><strong>Prin antenă</strong> e mai brutal, dar mai rar. Apare la casele cu antenă de exterior, montată pe acoperiș sau pe un catarg. Cablul coaxial intră direct în televizor și duce descărcarea fix în tuner. Aici vedem uneori urme vizibile: mufa de antenă arsă, un traseu carbonizat pe placă.</p>
+  <p>Dacă locuiți la casă și aveți antenă de exterior, merită să știți asta dinainte: deconectarea televizorului doar de la priză, în timpul furtunii, nu vă protejează complet.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce faceți imediat, înainte să sunați</h2>
+  <ul class="checks">
+    <li><strong>Scoateți-l din priză și din cablul de antenă.</strong> Amândouă.</li>
+    <li><strong>Nu încercați să-l porniți la nesfârșit.</strong> Dacă o componentă din sursă a rămas în scurtcircuit, fiecare încercare poate împinge defectul mai departe, către placa principală. O reparație de 200 de lei poate deveni una de 500.</li>
+    <li><strong>Mirosiți spatele carcasei.</strong> Un miros de ars confirmă că e vorba de o componentă arsă, nu de o simplă blocare software.</li>
+    <li><strong>Notați modelul</strong> de pe eticheta din spate și verificați dacă aparatul mai e în garanție — descărcările electrice sunt de regulă excluse din garanția producătorului, dar merită verificat.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Cât costă</h2>
+  <ul class="checks">
+    <li><strong>Sursă de alimentare: 150–350 de lei</strong>, garanție 12 luni — cazul cel mai frecvent.</li>
+    <li><strong>Placă principală: 200–500 de lei</strong>, garanție 12 luni — când a fost afectată și partea de procesare sau tunerul.</li>
+    <li><strong>Mufe HDMI / conectori: 120–250 de lei</strong>, garanție 6 luni.</li>
+  </ul>
+  <p>Lucrăm la nivel de componentă, nu schimbăm plăci întregi când nu e nevoie — la un aparat trăsnit diferența se simte cel mai tare, pentru că de multe ori a cedat o singură piesă de câțiva lei. Diagnosticarea e gratuită. Grila completă e pe pagina de <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum preveniți data viitoare</h2>
+  <p>Nu există protecție absolută împotriva unui trăsnet direct, dar aproape tot ce vedem în atelier vine din descărcări indirecte, iar acelea se opresc ușor.</p>
+  <ul class="checks">
+    <li><strong>În timpul furtunii, scoateți din priză și deconectați antena.</strong> Cea mai sigură măsură și singura care e gratuită.</li>
+    <li><strong>O priză sau un prelungitor cu protecție la supratensiune</strong> — pentru situațiile în care nu sunteți acasă să deconectați.</li>
+    <li><strong>Un descărcător pe cablul de antenă</strong>, dacă aveți antenă de exterior. Se montează o singură dată.</li>
+    <li><strong>Verificați împământarea</strong> dacă stați la casă. O împământare făcută în grabă la recepția casei e o problemă care iese la iveală tocmai la prima furtună serioasă.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Vedeți și: <a href="/reparatii-televizoare/">reparații televizoare București</a>, <a href="/televizor-samsung-nu-porneste/">televizor Samsung care nu pornește</a>, <a href="/televizor-lg-nu-porneste/">televizor LG care nu pornește</a>, <a href="/televizorul-se-aude-dar-nu-se-vede/">televizorul se aude dar nu se vede</a>, <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<TrimitePoze />
+
+<Cta titlu="⚡ Televizor stricat după furtună? Sunați-ne!" text="Diagnostic gratuit la domiciliu. În cele mai multe cazuri a cedat doar sursa, iar ecranul e intact." />
+</div>
+</Base>
