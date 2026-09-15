@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { breadcrumb, graf, pagina } from '../data/schema';
+import { SITE } from '../data/site';
+const title = 'Cât Costă o Reparație: TV, Laptop, Consolă, Boxe';
+const desc = 'Când merită reparat un aparat și când nu. Regula pe care o aplicăm, intervale reale pe fiecare categorie și ce anume face prețul să urce. Diagnostic gratuit.';
+const faq = [
+ { q: 'Care e regula după care decideți dacă merită reparat?', a: 'Ne uităm la ce s-a defectat, nu la vechimea aparatului. Dacă piesa scumpă — ecranul la un laptop sau televizor, panoul la un TV — este intactă, reparația are aproape întotdeauna sens. Dacă tocmai acea piesă e cea stricată, intrăm în discuția „mai merită?" și v-o spunem deschis, la telefon.' },
+ { q: 'De ce costă mai mult reparația unui MacBook decât a unui laptop obișnuit?', a: 'Din trei motive concrete: piesele Apple sunt mai scumpe și mai greu de găsit, multe componente sunt lipite pe placă în loc să fie montate în soclu, iar unele piese sunt legate software de placă și cer o configurare după montaj. Aceeași operație, de exemplu schimbarea unei tastaturi, înseamnă la MacBook de câteva ori mai mult lucru.' },
+ { q: 'Îmi puteți spune prețul la telefon?', a: 'Un interval, da, și de obicei destul de strâns. Avem nevoie de două lucruri: modelul exact al aparatului și ce anume face. Prețul ferm îl dăm după diagnosticare, care e gratuită, pentru că același simptom poate veni din piese diferite.' },
+ { q: 'Ce se întâmplă dacă nu accept devizul?', a: 'Nu plătiți nimic. Nici diagnosticarea, nici deplasarea la domiciliu. Vă spunem ce are aparatul, ca să știți pe ce stați, și rămâne decizia dumneavoastră.' },
+ { q: 'Prețul include piesele?', a: 'Da. Intervalele de pe site și devizul pe care îl acceptați includ piesa, manopera și garanția scrisă de 6–12 luni. Nu apar costuri în plus după ce ați acceptat prețul.' },
+ { q: 'Costă ceva în plus dacă trimit aparatul prin curier din altă localitate?', a: 'Da, două lucruri: curieratul, pe care îl plătiți dumneavoastră în ambele sensuri, și o manoperă minimă de 200 de lei fără piese, care se aplică doar aparatelor primite prin curier. Tocmai de aceea vă spunem la telefon dacă merită trimis — la un defect mic pe un aparat ieftin, transportul poate depăși reparația.' },
+];
+const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  pagina('WebPage', { nume: 'Cât costă o reparație', url: '/cat-costa-o-reparatie/', desc }),
+  breadcrumb([{ name: 'Prețuri', url: '/preturi/' }, { name: 'Cât costă o reparație', url: '/cat-costa-o-reparatie/' }]),
+  schemaFaq,
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO}>
+<div class="hero"><div class="wrap">
+  <h1>Cât Costă o Reparație</h1>
+  <p class="lead">Grila de prețuri vă spune cât. Pagina asta vă spune de ce atât, când merită și când vă sfătuim să nu reparați. Este discuția pe care o purtăm oricum la telefon, scrisă o dată pentru toți.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Regula: contează ce s-a stricat, nu cât de vechi e aparatul</h2>
+  <p>Cea mai frecventă întrebare pe care o primim nu e „cât costă", ci „mai merită la vechimea asta". Răspunsul nostru nu se uită la ani, ci la piesa defectă.</p>
+  <p>Fiecare aparat are o piesă care costă cât jumătate din el sau mai mult: <strong>panoul la televizor</strong>, <strong>ecranul la laptop și la MacBook</strong>, <strong>placa logică la MacBook</strong>. Tot ce e în afara ei — sursă, alimentare, iluminare, tastatură, baterie, porturi, ventilație — costă o fracțiune.</p>
+  <p>De aici rezultă o regulă simplă, pe care o aplicăm de fiecare dată: <strong>dacă piesa scumpă e intactă, reparația are aproape întotdeauna sens</strong>, chiar și pe un aparat de opt-zece ani. Dacă tocmai ea e cea stricată, discuția se schimbă, iar noi o deschidem primii — la telefon, nu după ce am demontat aparatul.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce se defectează des, pe fiecare categorie</h2>
+  <p>Intervalele de mai jos sunt cele din grila noastră reală și includ piesa, manopera și garanția. Lista completă e pe pagina de <a href="/preturi/">prețuri</a>.</p>
+
+  <h3>📺 Televizoare</h3>
+  <p>Trei sferturi din televizoarele care ajung la noi au una dintre aceste trei probleme, toate rentabile: <strong>sursa de alimentare</strong> (150–400 lei), <strong>iluminarea cu benzi LED</strong> (150–400 lei) sau <strong>placa principală</strong> (150–400 lei). Panoul, singura piesă cu adevărat scumpă, se schimbă rar și costă 400–1.200 lei sau mai mult. Ghidurile pe simptome: <a href="/televizorul-se-aude-dar-nu-se-vede/">se aude dar nu se vede</a>, <a href="/inlocuire-leduri-tv/">înlocuire leduri</a>, <a href="/televizor-trasnit/">televizor trăsnit</a>.</p>
+
+  <h3>💻 Laptopuri</h3>
+  <p>Cele mai ieftine intervenții sunt și cele mai frecvente: <strong>curățare cu schimbarea pastei termice</strong> (80–150 lei) pentru un laptop care se încinge și se închide singur, <strong>portul de alimentare</strong> (80–200 lei) când încărcătorul trebuie ținut într-o poziție anume, <strong>bateria</strong> (100–250 lei). <strong>Ecranul</strong> costă 200–600 lei, iar <strong>placa de bază</strong> 200–500 lei.</p>
+
+  <h3>🍎 MacBook</h3>
+  <p>Aceleași operații, alt nivel de preț: <strong>bateria</strong> 200–500 lei, <strong>ecranul Retina</strong> 500–1.500 lei, <strong>placa logică</strong> 300–800 lei, <strong>tastatura</strong> 300–700 lei. Nu e o chestiune de marcă, ci de construcție — explicăm mai jos de ce.</p>
+
+  <h3>🎮 Console</h3>
+  <p><strong>Curățarea și pasta termică</strong> (80–150 lei) rezolvă majoritatea problemelor de zgomot și supraîncălzire. <strong>Controllerul cu drift</strong> costă 50–120 lei, <strong>portul HDMI</strong> 100–250 lei la PS4 și Xbox One, 350–400 lei la PS5, unde lucrarea e mult mai pretențioasă. Curățarea completă e inclusă gratuit în orice altă reparație de consolă.</p>
+
+  <h3>🔊 Boxe, amplificatoare și soundbar</h3>
+  <p>Categoria cu cele mai mici costuri și, de departe, cea mai rentabilă de reparat: <strong>amplificatorul</strong> 80–200 lei, <strong>difuzorul</strong> 50–150 lei, <strong>partea de Bluetooth</strong> 60–150 lei, <strong>portul de alimentare</strong> 50–120 lei. Detalii pe <a href="/reparatii-boxe-active-amplificatoare/">reparații boxe și amplificatoare</a> și <a href="/reparatii-soundbar/">reparații soundbar</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>De ce un MacBook costă mai mult la aceeași operație</h2>
+  <p>Întrebarea apare de fiecare dată, așa că merită un răspuns clar. Diferența nu e comercială, e tehnică:</p>
+  <ul class="checks">
+    <li><strong>Piesele costă mai mult</strong> și sunt mai greu de procurat, mai ales la modelele recente.</li>
+    <li><strong>Multe componente sunt lipite direct pe placă</strong>, nu montate în soclu. Unde la un laptop obișnuit se schimbă un modul în cinci minute, la MacBook se lucrează la microscop.</li>
+    <li><strong>Unele piese sunt legate software de placă</strong> și cer o configurare după montaj, altfel aparatul le semnalează ca „neoriginale" sau le limitează funcțiile.</li>
+    <li><strong>Ansamblul de ecran e o singură bucată</strong> la multe generații — nu se schimbă doar sticla sau doar panoul, ci tot capacul.</li>
+  </ul>
+  <p>Vestea bună e că <a href="/reparatii-macbook/">reparațiile la nivel de componentă</a> sunt tocmai locul unde diferența de preț se vede în favoarea dumneavoastră: găsim și înlocuim piesa defectă de pe placă, în loc să comandăm o placă logică întreagă.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce face prețul să urce, în afară de piesă</h2>
+  <ul class="checks">
+    <li><strong>Lichidul vărsat.</strong> Coroziunea nu se oprește când aparatul se usucă — se întinde. Un aparat adus în prima zi costă mult mai puțin decât același aparat adus după două luni, când au cedat și alte componente.</li>
+    <li><strong>Încercările anterioare de reparație.</strong> Șuruburi lipsă, cabluri flexibile rupte, urme de lipituri făcute în grabă — toate adaugă timp de lucru înainte de a ajunge la defectul propriu-zis.</li>
+    <li><strong>Vechimea, dar numai prin prisma pieselor.</strong> La un aparat de zece ani piesa originală poate să nu mai existe, iar atunci fie se caută o compatibilă, fie se repară cea existentă — ceea ce înseamnă mai mult lucru, chiar dacă materialul costă mai puțin.</li>
+    <li><strong>Trimiterea prin curier.</strong> Transportul îl plătiți dumneavoastră, în ambele sensuri, și se adaugă o manoperă minimă de 200 de lei fără piese, valabilă doar pentru aparatele primite astfel. Detalii pe <a href="/reparatii-prin-curier/">reparații prin curier</a>.</li>
+  </ul>
+  <p>Ce <em>nu</em> face prețul să urce: diagnosticarea, deplasarea la domiciliu în București și Ilfov, sau faptul că ne răzgândim după ce ați acceptat devizul. Prețul acceptat e prețul final.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum aflați prețul pentru cazul dumneavoastră</h2>
+  <p>Sunați sau scrieți pe WhatsApp cu două informații: <strong>modelul exact</strong>, de pe eticheta aparatului, și <strong>ce face</strong> — cât mai concret. „Nu pornește deloc" și „pornește și se stinge după trei secunde" sunt două defecte diferite, cu două prețuri diferite.</p>
+  <p>Cu astea două vă dăm un interval realist încă de la telefon și vă spunem dacă avem piesa pe stoc. Restul se stabilește la diagnosticare, care e gratuită și rămâne gratuită chiar dacă alegeți să nu reparați.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<TrimitePoze />
+
+<Cta titlu="💰 Vreți un preț pentru aparatul dumneavoastră?" text="Spuneți-ne modelul și ce face. Vă dăm un interval la telefon, iar diagnosticarea e gratuită." />
+</div>
+</Base>
