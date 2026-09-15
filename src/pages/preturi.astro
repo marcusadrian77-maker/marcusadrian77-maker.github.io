@@ -5,8 +5,10 @@ import Cifre from '../components/Cifre.astro';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { breadcrumb, graf, pagina } from '../data/schema';
+import { ofertaCatalog } from '../data/schema';
+import { SITE } from '../data/site';
 const desc = "Prețuri transparente pentru reparații TV, laptopuri, MacBook, console, boxe și monitoare în București. Diagnostic gratuit. Garanție 6-12 luni. ☎ 0765.461.357";
-const schemaSEO = graf(pagina('WebPage', { nume: 'Prețuri reparații electronice', url: '/preturi/', desc }), breadcrumb([{ name: 'Prețuri', url: '/preturi/' }]));
+const schemaSEO = graf(pagina('WebPage', { nume: 'Prețuri reparații electronice', url: '/preturi/', desc }), breadcrumb([{ name: 'Prețuri', url: '/preturi/' }]), ofertaCatalog(SITE.domeniu));
 const faq = [
  { q: 'Diagnosticarea este cu adevărat gratuită?', a: 'Da, diagnosticarea este 100% gratuită și fără obligații. Vă comunicăm prețul exact al reparației, iar dacă nu sunteți de acord, nu plătiți nimic — nici măcar transportul.' },
  { q: 'Ce se întâmplă dacă prețul final este mai mare decât estimarea?', a: 'Prețul comunicat după diagnosticare este fix. Nu adăugăm costuri suplimentare. Dacă în timpul reparației descoperim o problemă suplimentară, vă contactăm pentru aprobare înainte de a continua.' },
@@ -55,6 +57,7 @@ const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Qu
     </div>
   </div>
   <p style="margin-top:14px" class="note-warn">⚠️ Aceste prețuri sunt orientative. Prețul final este stabilit după diagnosticare gratuită, cu acordul dumneavoastră.</p>
+  <p style="margin-top:12px">Dacă vă întrebați <em>de ce</em> costă atât și când merită reparat un aparat, am scris pe larg în <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
 </section>
 
 <section class="sec">
