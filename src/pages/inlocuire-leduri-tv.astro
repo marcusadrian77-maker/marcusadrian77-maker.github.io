@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Înlocuire Leduri TV: Preț și Cum Decurge | București';
+const desc = 'Preț înlocuire leduri TV: 100–280 lei cu garanție 6 luni, la orice marcă. Când se schimbă barete întregi, cât durează și cum aflați dacă asta aveți nevoie.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cât costă înlocuirea ledurilor la televizor?', a: 'Între 100 și 280 de lei, cu piesă, manoperă și 6 luni de garanție. Diferența o dă diagonala: la un televizor de 32 de inch sunt mai puține barete de schimbat decât la unul de 65. Prețul include și verificarea driverului care alimentează ledurile, pentru că uneori el este cel care le-a ars.' },
+ { q: 'Se schimbă ledurile unul câte unul sau toată bareta?', a: 'Se schimbă baretele întregi, nu ledul ars. Ledurile sunt legate în serie și îmbătrânesc împreună: dacă înlocuiți doar unul, restul sunt deja obosite și cedează la scurt timp, iar aparatul se desface a doua oară degeaba. La fel, se schimbă toate baretele, nu doar cea defectă.' },
+ { q: 'Cum știu că am nevoie de înlocuire de leduri?', a: 'Semnul clasic este ecranul negru cu sunetul prezent. Faceți testul lanternei: în cameră întunecată, luminați ecranul oblic, de aproape. Dacă zăriți imaginea ca o umbră, panoul e bun și ledurile sunt de vină. Mai sunt și forme parțiale: o zonă a ecranului mai întunecată sau imaginea care apare două secunde și apoi dispare.' },
+ { q: 'Cât durează lucrarea?', a: 'Dacă avem baretele pe stoc pentru modelul dumneavoastră, o facem într-o singură vizită. La televizoarele mari, de 55 de inch în sus, preferăm atelierul: panoul e subțire, trebuie așezat orizontal pe o suprafață curată și manevrat cu grijă. Transportul dus-întors îl asigurăm noi, gratuit.' },
+ { q: 'Se poate face acasă sau trebuie dus în atelier?', a: 'La diagonale mici și medii se poate face la domiciliu, dacă există o masă liberă și lumină bună. Peste 55 de inch recomandăm atelierul, tocmai pentru că riscul de fisurare a panoului crește cu dimensiunea. Decidem împreună la telefon, după ce ne spuneți modelul.' },
+ { q: 'De ce s-au ars ledurile dacă televizorul e relativ nou?', a: 'Cel mai des din căldură: luminozitate ținută la maximum, aparatul montat într-o nișă fără aerisire în spate sau expus la soare direct. Mai rar, vinovat e driverul de leduri care le alimentează cu un curent prea mare — de aceea îl verificăm de fiecare dată, altfel baretele noi ar avea aceeași soartă.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', name: 'Înlocuire leduri TV', serviceType: 'Înlocuire benzi LED televizor', description: desc, url: canonical,
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', priceSpecification: { '@type': 'PriceSpecification', minPrice: '100', maxPrice: '280', priceCurrency: 'RON' } } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Înlocuire leduri TV', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">💡 100–280 lei · garanție 6 luni</span>
+  <h1>Înlocuire Leduri TV</h1>
+  <p class="lead">Ledurile din spatele ecranului sunt piese consumabile: se ard, iar televizorul rămâne cu sunet și fără imagine. Este una dintre cele mai frecvente reparații pe care le facem și, în același timp, una dintre cele mai rentabile — panoul rămâne intact, se schimbă doar iluminarea.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Prețul înlocuirii de leduri</h2>
+  <p><strong>100–280 de lei</strong>, cu barete noi, manoperă și 6 luni de garanție scrisă. Intervalul e dat de diagonală: la un televizor de 32 de inch se montează două-trei barete, la unul de 65 pot fi zece sau mai multe, iar timpul de lucru crește la fel.</p>
+  <p>În preț intră și verificarea driverului de leduri de pe sursă. O facem de fiecare dată, pentru că dacă driverul e cel care a ars baretele — trimițând un curent prea mare — baretele noi ar păți exact același lucru în câteva săptămâni.</p>
+  <p>Diagnosticarea e gratuită, la domiciliu, și vă spunem prețul exact înainte de a demonta ceva. Grila completă pentru toate tipurile de intervenție e pe pagina de <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum aflați dacă asta e problema dumneavoastră</h2>
+  <p>Semnele care arată spre iluminare, în ordinea frecvenței cu care le vedem:</p>
+  <ul class="checks">
+    <li><strong>Ecran negru, dar sunetul merge.</strong> Semnul clasic. Faceți testul lanternei: în cameră întunecată, luminați ecranul oblic și de aproape. Dacă zăriți imaginea ca o umbră, ledurile sunt vinovate, nu panoul.</li>
+    <li><strong>Imaginea apare două-trei secunde și apoi ecranul se face negru.</strong> Driverul detectează o eroare pe barete și intră în protecție.</li>
+    <li><strong>O zonă a ecranului e vizibil mai întunecată</strong> decât restul — o baretă s-a stins, celelalte încă luminează.</li>
+    <li><strong>Imaginea e uniform prea întunecată</strong>, chiar cu luminozitatea la maximum. Ledurile îmbătrânite luminează mai slab înainte de a ceda complet.</li>
+    <li><strong>Pete luminoase sau zone albicioase</strong> — difuzorul de lumină s-a deformat de la căldură, ceea ce se rezolvă tot cu ocazia acestei intervenții.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>De ce se schimbă baretele întregi, nu ledul ars</h2>
+  <p>E întrebarea pe care o primim cel mai des, și merită răspuns pentru că schimbă felul în care judecați un deviz.</p>
+  <p>Ledurile de pe o baretă sunt legate în serie, ca vechile beculețe de brad: când unul se întrerupe, întreg șirul se stinge. Teoretic, ledul ars se poate identifica și înlocui individual. În practică, toate ledurile de pe barete au aceeași vechime și au stat la aceeași temperatură — cel care a cedat primul a fost doar cel mai obosit. Următorul urmează la scurt timp.</p>
+  <p>De aceea schimbăm baretele complet și pe toate deodată, nu doar pe cea defectă. Un aparat desfăcut a doua oară peste o lună înseamnă încă un risc pentru panou și încă o deplasare — pentru dumneavoastră și pentru noi. Diferența de preț dintre o baretă și setul complet e mult mai mică decât costul repetării lucrării.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum decurge lucrarea</h2>
+  <ul class="checks">
+    <li><strong>Ne spuneți modelul</strong> de pe eticheta din spate. Verificăm stocul de barete pentru aparatul dumneavoastră înainte de a porni la drum.</li>
+    <li><strong>Venim și confirmăm diagnosticul</strong> cu aparatura, nu doar cu lanterna. Deplasarea și diagnosticarea sunt gratuite.</li>
+    <li><strong>Televizorul se așază cu fața în jos</strong>, pe o suprafață moale și curată. Se scot rama și panoul — pasul cel mai delicat al lucrării.</li>
+    <li><strong>Se înlocuiesc baretele</strong>, se verifică driverul și se testează iluminarea înainte de a remonta.</li>
+    <li><strong>Se reasamblează și se testează</strong> aparatul complet, pornit, câteva minute bune.</li>
+  </ul>
+  <p>La diagonale mari preferăm atelierul din Militari, unde avem masă mare și spațiu curat. Transportul dus-întors îl facem noi și nu îl plătiți.</p>
+</section>
+
+<section class="sec">
+  <h2>La ce mărci facem înlocuirea</h2>
+  <p>La toate. Baretele diferă ca lungime, număr de leduri și tensiune, dar procedura e aceeași, iar piesele se găsesc pentru practic orice model de pe piața din România — inclusiv pentru aparate de opt-zece ani. Cele mai multe intervenții le facem la <a href="/reparatii-tv-samsung/">Samsung</a>, <a href="/reparatii-tv-lg/">LG</a>, Philips, Sony, Panasonic, Toshiba, TCL și Hisense, dar lista nu se oprește acolo.</p>
+  <p>Dacă aveți un model mai rar, spuneți-ne codul complet la telefon: verificăm disponibilitatea baretelor și vă spunem pe loc dacă venim cu piesa sau dacă trebuie comandată.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Vedeți și: <a href="/televizorul-se-aude-dar-nu-se-vede/">televizorul se aude dar nu se vede</a>, <a href="/reparatii-tv-led-bucuresti/">reparații TV LED București</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecran</a>, <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<TrimitePoze />
+
+<Cta titlu="💡 Leduri arse la televizor? Sunați-ne!" text="100–280 lei cu garanție 6 luni. Spuneți-ne modelul și verificăm stocul cât vorbim la telefon." />
+</div>
+</Base>
