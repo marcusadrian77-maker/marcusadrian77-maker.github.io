@@ -73,3 +73,40 @@ export function pagina(tip: string, o: { nume: string; url: string; desc: string
 export function graf(...noduri: (object | null | false | undefined)[]) {
   return { '@context': 'https://schema.org', '@graph': noduri.filter(Boolean) };
 }
+
+export const OFERTE_MARCUS: [string, number, number, string][] = [
+  ['Diagnosticare', 0, 0, 'Identificarea defecțiunii, gratuit și fără obligații'],
+  ['Reparație televizor — sursă de alimentare', 150, 400, 'Cea mai frecventă defecțiune la TV. Garanție 6–12 luni'],
+  ['Reparație televizor — iluminare LED', 150, 400, 'Ecran negru cu sunet prezent. Garanție 6–12 luni'],
+  ['Reparație televizor — placă principală', 150, 400, 'Smart TV, software, porturi. Garanție 6–12 luni'],
+  ['Înlocuire panou televizor', 400, 1200, 'Depinde de diagonală și tehnologie'],
+  ['Laptop — curățare și pastă termică', 80, 150, 'Pentru supraîncălzire și zgomot'],
+  ['Laptop — înlocuire ecran', 200, 600, 'În funcție de diagonală și rezoluție'],
+  ['Laptop — înlocuire baterie', 100, 250, 'Baterie nouă, cu calibrare'],
+  ['MacBook — înlocuire baterie', 200, 500, 'Cu calibrare și verificarea cicluri'],
+  ['MacBook — reparație placă logică', 300, 800, 'La nivel de componentă, la microscop'],
+  ['Consolă — curățare și pastă termică', 80, 150, 'Inclusă gratuit în orice altă reparație'],
+  ['Consolă — reparare port HDMI', 100, 250, 'PS4 și Xbox One. La PS5, 350–400 lei'],
+  ['Boxe și amplificatoare — reparație amplificator', 80, 200, 'Cea mai rentabilă categorie de reparații'],
+];
+
+export function ofertaCatalog(domeniu: string) {
+  return {
+    '@type': 'OfferCatalog',
+    name: 'Prețuri reparații electronice București',
+    url: domeniu + '/preturi/',
+    itemListElement: OFERTE_MARCUS.map(([nume, min, max, d], i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      name: nume,
+      description: d,
+      priceCurrency: 'RON',
+      availability: 'https://schema.org/InStock',
+      areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+      itemOffered: { '@type': 'Service', name: nume, serviceType: 'Reparații electronice' },
+      ...(min === 0 && max === 0
+        ? { price: '0', priceSpecification: { '@type': 'PriceSpecification', price: '0', priceCurrency: 'RON' } }
+        : { priceSpecification: { '@type': 'PriceSpecification', minPrice: String(min), maxPrice: String(max), priceCurrency: 'RON', valueAddedTaxIncluded: true } }),
+    })),
+  };
+}
