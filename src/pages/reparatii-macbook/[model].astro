@@ -13,7 +13,7 @@ import {
   familie, titlu, descriere, introducere, cumIdentific,
   despreGeneratie, despreTastatura, despreAlimentare, despreEcran,
   despreRecuperare, despreBaterie, defecteTipice, cazDinAtelier,
-  preturiModel, pretPlaca, intrebari, notaPret, notaProces, introDefecte,
+  preturiModel, pretPlaca, intrebari, notaPret, notaProces, introDefecte, despreCurier,
 } from '../../data/macbook-text';
 
 export function getStaticPaths() {
@@ -28,6 +28,7 @@ const desc = descriere(m);
 const faq = intrebari(m);
 const preturi = preturiModel(m);
 const defecte = defecteTipice(m);
+const curier = despreCurier(m);
 const fam = familie(m);
 const rude = MACURI.filter(x => x.slug !== m.slug && familie(x) === fam).slice(0, 4);
 const [pMin, pMax] = pretPlaca(m).split('–').map(s => s.replace(/\D/g, ''));
@@ -61,7 +62,7 @@ const schema = graf(
   <span class="badge">🍎 {m.cod} · {m.an} · {m.diag}</span>
   <h1>Reparații {m.nume} {m.cod}</h1>
   <p class="lead">{introducere(m)}</p>
-  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă, la microscop</span><span>🛡️ Garanție scrisă 6–12 luni</span></div>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă, la microscop</span><span>🛡️ Garanție scrisă 6–12 luni</span><span>📦 Prin curier, din toată țara</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
@@ -123,7 +124,13 @@ const schema = graf(
 <section class="sec">
   <h2>Cum decurge</h2>
   <p>{notaProces(m)}</p>
-  <p>Atelierul se află în Str. Moinești 7, Militari, Sector 6. Program: {SITE.program}. Din afara Bucureștiului, aparatul se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>.</p>
+  <p>Atelierul se află în Str. Moinești 7, Militari, Sector 6. Program: {SITE.program}.</p>
+</section>
+
+<section class="sec">
+  <h2>📦 Trimiteți-l prin curier, din orice localitate</h2>
+  {curier.map(t => <p>{t}</p>)}
+  <p>Condițiile complete, pas cu pas, sunt pe pagina de <a href="/reparatii-prin-curier/">reparații prin curier</a>.</p>
 </section>
 
 <section class="sec">
