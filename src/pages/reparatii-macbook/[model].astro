@@ -1,0 +1,151 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cifre from '../../components/Cifre.astro';
+import TrimitePoze from '../../components/TrimitePoze.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+import { IMG } from '../../data/images';
+import { SITE } from '../../data/site';
+import { breadcrumb, graf } from '../../data/schema';
+import { MACURI } from '../../data/macbook';
+import type { Mac } from '../../data/macbook';
+import {
+  familie, titlu, descriere, introducere, cumIdentific,
+  despreGeneratie, despreTastatura, despreAlimentare, despreEcran,
+  despreRecuperare, despreBaterie, defecteTipice, cazDinAtelier,
+  preturiModel, pretPlaca, intrebari, notaPret, notaProces, introDefecte,
+} from '../../data/macbook-text';
+
+export function getStaticPaths() {
+  return MACURI.map(m => ({ params: { model: m.slug }, props: { m } }));
+}
+
+const { m } = Astro.props as { m: Mac };
+const url = '/reparatii-macbook/' + m.slug + '/';
+const canonical = new URL(url, SITE.domeniu).href;
+const title = titlu(m);
+const desc = descriere(m);
+const faq = intrebari(m);
+const preturi = preturiModel(m);
+const defecte = defecteTipice(m);
+const fam = familie(m);
+const rude = MACURI.filter(x => x.slug !== m.slug && familie(x) === fam).slice(0, 4);
+const [pMin, pMax] = pretPlaca(m).split('–').map(s => s.replace(/\D/g, ''));
+
+const schema = graf(
+  {
+    '@type': 'Service',
+    serviceType: 'Reparații MacBook',
+    name: 'Reparații ' + m.nume + ' ' + m.cod,
+    url: canonical,
+    description: desc,
+    brand: { '@type': 'Brand', name: 'Apple' },
+    areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+    provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'RON',
+      url: SITE.domeniu + '/preturi/',
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: pMin, maxPrice: pMax, priceCurrency: 'RON' },
+    },
+  },
+  breadcrumb([
+    { name: 'Reparații MacBook', url: '/reparatii-macbook/' },
+    { name: m.nume + ' ' + m.cod, url },
+  ]),
+  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+);
+---
+<Base title={title} description={desc} schemaExtra={schema} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🍎 {m.cod} · {m.an} · {m.diag}</span>
+  <h1>Reparații {m.nume} {m.cod}</h1>
+  <p class="lead">{introducere(m)}</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă, la microscop</span><span>🛡️ Garanție scrisă 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce înseamnă generația {m.cod}</h2>
+  <p>{m.specific}</p>
+  <p>{despreGeneratie(m)}</p>
+  <p>{cumIdentific(m)}</p>
+</section>
+
+<section class="sec">
+  <h2>Defectele care se repetă la acest model</h2>
+  <p>{m.simptom}</p>
+  <p>{introDefecte(m)}</p>
+  <ul class="checks">
+    {defecte.map(d => <li>{d}</li>)}
+  </ul>
+  <p>{cazDinAtelier(m)}</p>
+</section>
+
+<section class="sec">
+  <h2>Tastatura</h2>
+  <p>{despreTastatura(m)}</p>
+</section>
+
+<section class="sec">
+  <h2>Alimentarea și încărcarea</h2>
+  <p>{despreAlimentare(m)}</p>
+</section>
+
+<section class="sec">
+  <h2>Ecranul</h2>
+  <p>{despreEcran(m)}</p>
+</section>
+
+<section class="sec">
+  <h2>Bateria</h2>
+  <p>{despreBaterie(m)}</p>
+</section>
+
+<section class="sec">
+  <h2>Datele de pe aparat</h2>
+  <p>{despreRecuperare(m)}</p>
+</section>
+
+<section class="sec">
+  <h2>Prețuri pentru {m.cod}</h2>
+  <table class="tb">
+    <tbody>
+    {preturi.map(([ce, cat]) => <tr><td>{ce}</td><td><strong>{cat}</strong></td></tr>)}
+    </tbody>
+  </table>
+  <p>{notaPret(m)} Grila completă e pe pagina de <a href="/preturi/">prețuri</a>, iar discuția despre când merită și când nu merită o reparație e pe <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum decurge</h2>
+  <p>{notaProces(m)}</p>
+  <p>Atelierul se află în Str. Moinești 7, Militari, Sector 6. Program: {SITE.program}. Din afara Bucureștiului, aparatul se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+{rude.length > 0 && (
+<section class="sec">
+  <h2>Modele înrudite</h2>
+  <ul class="checks">
+    {rude.map(r => <li><a href={'/reparatii-macbook/' + r.slug + '/'}>Reparații {r.nume} {r.cod}</a> — {r.an}</li>)}
+  </ul>
+</section>
+)}
+
+<section class="sec">
+  <p>Vedeți și: <a href="/reparatii-macbook/">reparații MacBook București</a>, <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>, <a href="/macbook-lichid-varsat/">MacBook cu lichid vărsat</a>, <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a>, <a href="/reparatii-macbook-sector-6/">service MacBook Sector 6</a>.</p>
+</section>
+
+<TrimitePoze />
+
+<Cta titlu={'🍎 Aveți un ' + m.nume + ' defect?'} text={'Spuneți-ne codul ' + m.cod + ' și ce face aparatul. Diagnosticarea este gratuită, iar prețul îl aflați înainte de orice intervenție.'} />
+</div>
+</Base>
