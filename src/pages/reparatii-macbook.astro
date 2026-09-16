@@ -4,6 +4,7 @@ import Cifre from '../components/Cifre.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
+import { MACURI } from '../data/macbook';
 const title = 'Reparații MacBook București | Service Apple Specializat';
 const desc = 'Service MacBook Air și Pro în București: placă de bază, ecran, baterie, tastatură, daune de lichid. Diagnosticare GRATUITĂ, garanție 6–12 luni. ☎ 0765.461.357';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
@@ -119,6 +120,15 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <section class="sec">
   <h2>Modele pe Care Lucrăm</h2>
   <p>Reparăm toate generațiile: <strong>MacBook Air</strong> (Intel, M1, M2, M3, M4), <strong>MacBook Pro</strong> 13″, 14″, 15″ și 16″ (Intel și Apple Silicon), plus <strong>iMac</strong> și <strong>Mac Mini</strong>. Lucrăm inclusiv pe modele mai vechi (2012–2017), pentru care Apple nu mai oferă suport — de multe ori acestea sunt cele mai rentabile reparații, pentru că alternativa „schimbăm placa” nu mai există.</p>
+  <p>Fiecare serie are defectele ei caracteristice, piesele ei și capcanele ei. Mai jos găsiți pagina dedicată fiecărui model, cu ce se strică la el, cât costă și ce trebuie știut înainte. Codul de tip <strong>A1706</strong> este cel care identifică sigur aparatul — denumirea comercială singură nu ajunge.</p>
+  <h3>MacBook Pro 13″ (Intel)</h3>
+  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('pro-13') && m.cpu === 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
+  <h3>MacBook Pro 15″ și 16″ (Intel)</h3>
+  <ul class="checks">{MACURI.filter(m => (m.slug.startsWith('pro-15') || m.slug.startsWith('pro-16')) && m.cpu === 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
+  <h3>MacBook Pro Apple Silicon (M1, M2)</h3>
+  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('pro') && m.cpu !== 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
+  <h3>MacBook Air</h3>
+  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('air')).map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
 </section>
 <section class="sec">
   <h2>Cum Decurge Reparația</h2>
