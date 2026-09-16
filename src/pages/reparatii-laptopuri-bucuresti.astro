@@ -7,8 +7,8 @@ import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const title = 'Reparații Laptopuri București | Service Laptop Sector 6';
-const desc = 'Service laptop în București, Sector 6: nu pornește, se încinge, nu se încarcă, ecran defect. Reparație pe placă, diagnosticare gratuită, garanție scrisă.';
+const title = 'Reparații Laptopuri București | Service Laptop pe Componente';
+const desc = 'Service laptop în București: nu pornește, se încinge, nu se încarcă, ecran defect. Reparație pe placă, nu placă nouă. Diagnosticare gratuită, garanție scrisă.';
 const faq = [
  { q: 'Cât costă să aflu ce are laptopul?', a: 'Nimic. Diagnosticarea este gratuită și rămâne gratuită dacă hotărâți să nu reparați. Vă spunem defectul găsit și prețul ferm înainte de a începe orice intervenție, iar prețul acela nu se mai schimbă pe parcurs.' },
  { q: 'Cât durează o reparație de laptop?', a: 'Intervențiile obișnuite — curățare, pastă termică, baterie, tastatură, port de încărcare — se fac de regulă în 24–48 de ore. Reparațiile pe placa de bază durează 2–5 zile lucrătoare, pentru că includ și testarea sub sarcină înainte de predare. Dacă o piesă trebuie comandată, vă spunem termenul dinainte.' },
@@ -27,7 +27,7 @@ const schemaSEO = graf(
 ---
 <Base title={title} description={desc} image={IMG.ogLaptop} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
-  <span class="badge">💻 SERVICE LAPTOP · MILITARI, SECTOR 6</span>
+  <span class="badge">💻 SERVICE LAPTOP · BUCUREȘTI</span>
   <h1>Reparații Laptopuri București</h1>
   <p class="lead">Un laptop care se încinge, nu se mai încarcă sau nu mai pornește are aproape întotdeauna o cauză punctuală — și aproape niciodată nu are nevoie de placă nouă. Lucrăm la nivel de componentă în atelierul din Militari, cu diagnosticare gratuită și preț ferm comunicat înainte.</p>
   <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă</span><span>🛡️ Garanție scrisă 6–12 luni</span><span>📦 Prin curier, din toată țara</span></div>
@@ -104,7 +104,8 @@ const schemaSEO = graf(
   <h2>Ce mărci și ce tipuri reparăm</h2>
   <p>Practic toate: <strong>Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Fujitsu, Sony Vaio, Packard Bell, Medion, Huawei MateBook, Microsoft Surface, LG Gram, Razer, Alienware, Gigabyte, Xiaomi</strong>. Laptopuri de birou, gaming, ultrabook-uri, 2-in-1 și stații de lucru.</p>
   <p>Marca schimbă piesele, nu metoda. Un port de alimentare resudat arată la fel pe un Lenovo și pe un Asus, iar pasta termică se schimbă identic pe un ultrabook de birou și pe un laptop de gaming — doar că la al doilea e mult mai multă căldură de gestionat și curățarea trebuie făcută mai des.</p>
-  <p>Pentru MacBook avem pagină separată, cu prețuri și proceduri proprii: <a href="/reparatii-macbook/">reparații MacBook</a>. Dacă sunteți din zonă, vedeți și <a href="/reparatii-laptop-sector-6/">service laptop Sector 6</a>.</p>
+  <p>Pentru laptopurile Apple avem pagină separată, cu piese și proceduri proprii: <a href="/reparatii-macbook/">reparații MacBook</a>.</p>
+  <p>Atelierul este în Militari, iar dacă locuiți în zonă — Drumul Taberei, Crângași, Giulești, Lujerului, Grozăvești — pagina cu adresa, drumul și cartierele din care ne vin clienții este <a href="/reparatii-laptop-sector-6/">service laptop Sector 6</a>.</p>
 </section>
 
 <section class="sec">
