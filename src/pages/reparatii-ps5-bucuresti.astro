@@ -7,7 +7,7 @@ import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
 const title = 'Reparații PS5 București | Service PlayStation 5';
-const desc = 'Reparații PlayStation 5 în București: port HDMI, lichid metalic, cititor de disc, SSD, supraîncălzire, drift la DualSense. Curățare gratuită inclusă.';
+const desc = 'Service PS5 în București: port HDMI, lichid metalic, cititor de disc, SSD, supraîncălzire, drift la DualSense. Diagnosticare gratuită, curățare inclusă.';
 
 const preturi = [
   ['Curățare completă + pastă termică (inclusă gratuit în orice reparație)', '80 – 150 lei'],
@@ -21,20 +21,20 @@ const preturi = [
 ];
 
 const faq = [
- { q: 'Cat costa reparatia portului HDMI la PS5?', a: 'Înlocuirea portului HDMI la PlayStation 5 costă între 350 și 400 lei, în funcție de gradul de deteriorare a plăcii. Portul este lipit direct pe placa principală și necesită microsoldare la microscop — o intervenție pe care o facem frecvent, cu garanție scrisă. Prețul include și curățarea completă a consolei.' },
- { q: 'Ce este lichidul metalic din PS5 si de ce conteaza?', a: 'PlayStation 5 nu folosește pastă termică obișnuită între procesor și radiator, ci un aliaj metalic lichid, mult mai conductiv termic. În timp acesta se poate deplasa sau se poate „usca" pe margini, iar consola începe să se supraîncălzească. Reaplicarea lui cere experiență: lichidul metalic este electric conductiv și, dacă ajunge pe componentele din jur, distruge placa. Noi izolăm zona înainte de aplicare și verificăm temperaturile după montaj.' },
+ { q: 'Cât costă reparația portului HDMI la PS5?', a: 'Înlocuirea portului HDMI la PlayStation 5 costă între 350 și 400 lei, în funcție de gradul de deteriorare a plăcii. Portul este lipit direct pe placa principală și necesită microsoldare la microscop — o intervenție pe care o facem frecvent, cu garanție scrisă. Prețul include și curățarea completă a consolei.' },
+ { q: 'Ce este lichidul metalic din PS5 și de ce contează?', a: 'PlayStation 5 nu folosește pastă termică obișnuită între procesor și radiator, ci un aliaj metalic lichid, mult mai conductiv termic. În timp acesta se poate deplasa sau se poate „usca" pe margini, iar consola începe să se supraîncălzească. Reaplicarea lui cere experiență: lichidul metalic este electric conductiv și, dacă ajunge pe componentele din jur, distruge placa. Noi izolăm zona înainte de aplicare și verificăm temperaturile după montaj.' },
  { q: 'PS5-ul meu face zgomot puternic. Ce poate fi?', a: 'Cauza cea mai frecventă este praful acumulat pe ventilator și pe radiator. După 1–2 ani de utilizare fluxul de aer se blochează, iar ventilatorul compensează prin turație maximă. O curățare profesională cu verificarea lichidului metalic rezolvă problema complet. Mai rar, zgomotul vine de la lagărul ventilatorului, care se înlocuiește.' },
- { q: 'PS5 nu mai citeste discurile. Se repara?', a: 'Da. La modelele cu unitate optică problemele apar la lentila laser (murdară sau slăbită), la motorul de antrenare sau la cureaua de încărcare a discului. Curățăm și recalibrăm lentila, iar dacă drive-ul este defect îl înlocuim. Atenție: la PS5 unitatea optică este asociată prin software cu placa consolei, deci nu se poate monta pur și simplu una luată de pe altă consolă — reasocierea o facem noi.' },
+ { q: 'PS5 nu mai citește discurile. Se repară?', a: 'Da. La modelele cu unitate optică problemele apar la lentila laser (murdară sau slăbită), la motorul de antrenare sau la cureaua de încărcare a discului. Curățăm și recalibrăm lentila, iar dacă drive-ul este defect îl înlocuim. Atenție: la PS5 unitatea optică este asociată prin software cu placa consolei, deci nu se poate monta pur și simplu una luată de pe altă consolă — reasocierea o facem noi.' },
  { q: 'Se poate repara drift-ul la DualSense?', a: 'Da. Drift-ul (mișcarea involuntară a stick-ului analogic) se rezolvă prin înlocuirea modulului de joystick. Folosim module de calitate și calibrăm controllerul după înlocuire. Reparația durează de regulă o zi și costă 50–120 lei.' },
- { q: 'PS5-ul se opreste singur in timpul jocurilor. Ce fac?', a: 'Oprirea în timpul jocurilor indică de obicei supraîncălzire: lichid metalic deplasat, praf acumulat sau ventilator cu performanță redusă. Mai rar, poate fi o problemă pe placa principală sau pe sursa de alimentare. Consultați și <a href="/ps5-se-opreste-singur/">ghidul nostru detaliat despre PS5 care se oprește singur</a>.' },
- { q: 'Am varsat lichid pe consola. Ce fac imediat?', a: 'Nu o porniți și nu o puneți la priză — curentul prin plăcile ude face cel mai mare rău. Scoateți-o din priză și aduceți-o cât mai repede. O demontăm complet, curățăm oxidul de pe plăci în baie cu ultrasunete și o uscăm controlat. Cu cât ajunge mai devreme la noi, cu atât cresc șansele de recuperare.' },
- { q: 'Cat dureaza o reparatie de PS5?', a: 'Intervențiile uzuale (curățare, lichid metalic, DualSense drift) se fac în 24–48 de ore. Reparațiile de port HDMI durează 1–2 zile. Intervențiile pe placa principală pot necesita 3–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
- { q: 'Curatarea se plateste separat de reparatie?', a: 'Nu. Orice consolă pe care o reparăm pleacă de la noi curățată complet și cu pasta termică sau lichidul metalic reîmprospătate, fără cost suplimentar. Plătiți doar intervenția pentru care ați adus consola. Curățarea se plătește separat doar dacă o aduceți exclusiv pentru mentenanță, fără altă reparație.' },
+ { q: 'PS5-ul se oprește singur în timpul jocurilor. Ce fac?', a: 'Oprirea în timpul jocurilor indică de obicei supraîncălzire: lichid metalic deplasat, praf acumulat sau ventilator cu performanță redusă. Mai rar, poate fi o problemă pe placa principală sau pe sursa de alimentare. Consultați și <a href="/ps5-se-opreste-singur/">ghidul nostru detaliat despre PS5 care se oprește singur</a>.' },
+ { q: 'Am vărsat lichid pe consolă. Ce fac imediat?', a: 'Nu o porniți și nu o puneți la priză — curentul prin plăcile ude face cel mai mare rău. Scoateți-o din priză și aduceți-o cât mai repede. O demontăm complet, curățăm oxidul de pe plăci în baie cu ultrasunete și o uscăm controlat. Cu cât ajunge mai devreme la noi, cu atât cresc șansele de recuperare.' },
+ { q: 'Cât durează o reparație de PS5?', a: 'Intervențiile uzuale (curățare, lichid metalic, DualSense drift) se fac în 24–48 de ore. Reparațiile de port HDMI durează 1–2 zile. Intervențiile pe placa principală pot necesita 3–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
+ { q: 'Curățarea se plătește separat de reparație?', a: 'Nu. Orice consolă pe care o reparăm pleacă de la noi curățată complet și cu pasta termică sau lichidul metalic reîmprospătate, fără cost suplimentar. Plătiți doar intervenția pentru care ați adus consola. Curățarea se plătește separat doar dacă o aduceți exclusiv pentru mentenanță, fără altă reparație.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaSEO = graf(
-  serviciu({ nume: 'Reparatii PS5 Bucuresti', tip: 'Reparatii PlayStation 5', url: '/reparatii-ps5-bucuresti/', desc }),
-  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparatii Console', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparatii PS5', url: '/reparatii-ps5-bucuresti/' }]),
+  serviciu({ nume: 'Reparații PS5 București', tip: 'Service PlayStation 5', url: '/reparatii-ps5-bucuresti/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații PS5', url: '/reparatii-ps5-bucuresti/' }]),
   faqSchema
 );
 ---
@@ -42,7 +42,7 @@ const schemaSEO = graf(
 <div class="hero"><div class="wrap">
   <span class="badge">🎮 SERVICE PLAYSTATION 5</span>
   <h1>Reparații PS5 București</h1>
-  <p class="lead">PlayStation 5 defect? Reparăm orice problemă: port HDMI ars, lichid metalic deplasat, cititor de disc, SSD, supraîncălzire, DualSense drift și erori de sistem. Diagnosticare gratuită, garanție scrisă, curățare completă inclusă în orice reparație.</p>
+  <p class="lead">Service PS5 în atelier propriu, în Militari — Sector 6. Reparăm orice problemă de PlayStation 5: port HDMI ars, lichid metalic deplasat, cititor de disc, SSD, supraîncălzire, DualSense drift și erori de sistem. Diagnosticare gratuită, garanție scrisă, curățare completă inclusă în orice reparație.</p>
   <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🧼 Curățare inclusă în reparație</span><span>🛡️ Garanție 6–12 luni</span><span>💰 Preț ferm, comunicat înainte</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
@@ -117,12 +117,15 @@ const schemaSEO = graf(
 </section>
 
 <section class="sec">
-  <h2>Mentenanță preventivă PS5</h2>
-  <p>Recomandăm o <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță profesională</a> la fiecare 12–18 luni: curățare de praf, verificarea lichidului metalic și inspecție generală. Previne supraîncălzirea, prelungește durata de viață a consolei și menține nivelul de zgomot scăzut. Costă mult mai puțin decât o reparație de placă apărută din supraîncălzire cronică — iar dacă oricum aduceți consola pentru o reparație, curățarea este inclusă gratuit.</p>
+  <h2>Mentenanță PS5: când se face și ce cuprinde</h2>
+  <p>Mentenanța PS5 nu e o vânzare suplimentară, e ce ține consola departe de atelier. Aproape toate reparațiile scumpe de PlayStation 5 pe care le facem — placă, sursă, cititor — au în spate aceeași poveste: doi-trei ani de praf și un contact termic degradat, care au ținut procesorul la temperatură maximă lună de lună.</p>
+  <p><strong>Când.</strong> La 12–18 luni pentru o consolă folosită normal, în cameră curată, pe un raft deschis. La 8–12 luni dacă stă în mobilă închisă, dacă în casă sunt animale de companie sau dacă se joacă zilnic titluri grele. Semnalele că a trecut deja momentul: ventilatorul urcă în turație în meniu, nu doar în joc; aerul care iese pe lateral e fierbinte, nu cald; consola se oprește singură după o oră.</p>
+  <p><strong>Ce cuprinde.</strong> Demontare completă, curățarea radiatorului și a ventilatorului, verificarea lichidului metalic și reaplicarea lui dacă s-a deplasat, schimbarea pad-urilor termice, curățarea sursei și a cititorului, apoi test sub sarcină cu urmărirea temperaturilor înainte și după. Predăm consola cu valorile măsurate, nu cu „acum e curată".</p>
+  <p><strong>Cât costă.</strong> 80–150 lei dacă aduceți consola doar pentru mentenanță. Dacă o aduceți pentru orice altă reparație, mentenanța completă e inclusă gratuit — oricum demontăm consola ca să ajungem la placă. Vedeți și pagina generală de <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console PS4, PS5 și Xbox</a>.</p>
 </section>
 
 <section class="sec">
-  <h2>Cum decurge procesul</h2>
+  <h2>Service PS5 în București: cum decurge</h2>
   <ol>
     <li><strong>Ne contactați</strong> — telefonic sau pe WhatsApp. Descrieți problema și modelul (PS5 Standard, Digital Edition sau Slim).</li>
     <li><strong>Aduceți consola.</strong> Atelierul se află în Str. Moinești 7, Militari, <a href="/reparatii-console-gaming-sector-6/">Sector 6</a>. Program: {SITE.program}.</li>
