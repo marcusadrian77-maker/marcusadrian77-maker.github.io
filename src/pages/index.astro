@@ -15,18 +15,18 @@ const schemaSEO = graf({
   publisher: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', url: 'https://www.reparatiielectronice.ro/' },
 });
 const echip = [
-  { img: IMG.tv, ico: '📺', t: 'Televizoare', href: '/reparatii-televizoare/', d: 'Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp. LED, OLED, QLED, Smart TV. Reparații și la domiciliu!' },
-  { img: IMG.laptop, ico: '💻', t: 'Laptopuri', href: '/reparatii-laptopuri-bucuresti/', d: 'Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Huawei. Gaming, ultrabook, business.' },
-  { img: IMG.macbook, ico: '🍎', t: 'MacBook & iMac', href: '/reparatii-macbook/', d: 'MacBook Air M1/M2/M3, MacBook Pro, iMac, Mac Mini. Reparații la nivel de chip.' },
-  { img: IMG.consola, ico: '🎮', t: 'Console Gaming', href: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/', d: 'PS4, PS5, Xbox One, Xbox Series X/S, Nintendo Switch. BLOD, HDMI, supraîncălzire.' },
-  { img: IMG.boxe, ico: '🔊', t: 'Boxe Active', href: '/reparatii-boxe-active/', d: 'Behringer, JBL, Yamaha, Mackie, QSC, RCF. Amplificatoare, sisteme PA.' },
-  { img: IMG.monitor, ico: '🖥️', t: 'Monitoare LCD', href: '/reparatii-monitoare-lcd/', d: 'Samsung, LG, Dell, Asus, AOC, Philips, BenQ. Gaming, profesionale, 4K, curbate.' },
-  { img: IMG.cuptor, ico: '🔥', t: 'Cuptoare Microunde', href: '/reparatii-cuptoare-cu-microunde/', d: 'Electrolux, Samsung, LG, AEG, Whirlpool, Bosch, Daewoo, Panasonic.' },
-  { img: IMG.amplificator, ico: '🎵', t: 'Amplificatoare', href: '/reparatii-boxe-active/', d: 'Denon, Yamaha, Pioneer, Onkyo, Marantz, NAD. Receivere AV, stereo HiFi.' },
+  { img: IMG.tv, ico: '📺', t: 'Reparații Televizoare', href: '/reparatii-televizoare/', d: 'Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp. LED, OLED, QLED, Smart TV. Reparații și la domiciliu!' },
+  { img: IMG.laptop, ico: '💻', t: 'Reparații Laptopuri', href: '/reparatii-laptopuri-bucuresti/', d: 'Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Huawei. Gaming, ultrabook, business.' },
+  { img: IMG.macbook, ico: '🍎', t: 'Reparații MacBook & iMac', href: '/reparatii-macbook/', d: 'MacBook Air M1/M2/M3, MacBook Pro, iMac, Mac Mini. Reparații la nivel de chip.' },
+  { img: IMG.consola, ico: '🎮', t: 'Reparații Console Gaming', href: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/', d: 'PS4, PS5, Xbox One, Xbox Series X/S, Nintendo Switch. BLOD, HDMI, supraîncălzire.' },
+  { img: IMG.boxe, ico: '🔊', t: 'Reparații Boxe Active', href: '/reparatii-boxe-active/', d: 'Behringer, JBL, Yamaha, Mackie, QSC, RCF. Amplificatoare, sisteme PA.' },
+  { img: IMG.monitor, ico: '🖥️', t: 'Reparații Monitoare LCD', href: '/reparatii-monitoare-lcd/', d: 'Samsung, LG, Dell, Asus, AOC, Philips, BenQ. Gaming, profesionale, 4K, curbate.' },
+  { img: IMG.cuptor, ico: '🔥', t: 'Reparații Cuptoare Microunde', href: '/reparatii-cuptoare-cu-microunde/', d: 'Electrolux, Samsung, LG, AEG, Whirlpool, Bosch, Daewoo, Panasonic.' },
+  { img: IMG.amplificator, ico: '🎵', t: 'Reparații Amplificatoare', href: '/reparatii-boxe-active/', d: 'Denon, Yamaha, Pioneer, Onkyo, Marantz, NAD. Receivere AV, stereo HiFi.' },
   { img: IMG.tehnician, ico: '🌡️', t: 'Mentenanță Pastă Termică', href: '/mentenanta-profesionala-pasta-termica/', d: 'Înlocuire pastă termică și metal lichid pentru PS4, PS5, Xbox, laptopuri și MacBook.' },
 ];
 ---
-<Base title="Reparații și Service Televizoare, Electronice București" description="Televizoare reparate la domiciliu, în tot Bucureștiul. Laptopuri, MacBook, console, boxe și monitoare în atelierul din Militari, Sector 6. Diagnostic gratuit." image={IMG.ogDefault} schemaExtra={schemaSEO}>
+<Base title="Reparații Electronice București | Marcus Electronics" description="Atelier de reparații electronice în București, Militari — Sector 6. Reparăm la nivel de componentă, cu diagnosticare gratuită și garanție scrisă de 6–12 luni." image={IMG.ogDefault} schemaExtra={schemaSEO}>
 <div class="hero" style={'--hero-img:url(' + IMG.hero + ')'}>
   <div class="wrap">
     <span class="badge">REPARAȚII ELECTRONICE BUCUREȘTI</span>
@@ -62,6 +62,7 @@ const echip = [
       </a>
     ))}
   </div>
+  <p style="margin-top:16px;font-size:15px">Fiecare categorie are pagina ei, cu prețuri, defectele care se repetă și felul în care lucrăm: <a href="/reparatii-televizoare/">reparații televizoare București</a>, <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a>, <a href="/reparatii-macbook/">reparații MacBook</a>, <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparații console PS4, PS5 și Xbox</a>, <a href="/reparatii-boxe-active/">reparații boxe active și amplificatoare</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-cuptoare-cu-microunde/">reparații cuptoare cu microunde</a>.</p>
 </section>
 <section class="sec">
   <div class="section-head"><h2>Ce Probleme Putem Rezolva?</h2></div>
