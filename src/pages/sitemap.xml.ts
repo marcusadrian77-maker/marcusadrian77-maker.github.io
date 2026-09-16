@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { SECTOARE, BRANDURI } from '../data/sectoare';
+import { MACURI } from '../data/macbook';
 
 const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intrebari-frecvente-faq-2/',
  'reparatii-televizoare/', 'reparatii-laptopuri-bucuresti/', 'reparatii-macbook/', 'reparatii-boxe-active/',
@@ -27,6 +28,7 @@ export const GET: APIRoute = ({ site }) => {
     ...statice.map(p => base + '/' + p),
     ...SECTOARE.map(s => base + '/reparatii-tv-sector-' + s.nr + '/'),
     ...BRANDURI.map(b => base + '/reparatii-tv-' + b.slug + '/'),
+    ...MACURI.map(m => base + '/reparatii-macbook/' + m.slug + '/'),
   ];
   const azi = new Date().toISOString().slice(0, 10);
   const xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map(u => '  <url><loc>' + u + '</loc><lastmod>' + azi + '</lastmod></url>').join('\n') + '\n</urlset>';
