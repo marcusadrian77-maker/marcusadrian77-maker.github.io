@@ -5,7 +5,7 @@ import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!";
+const desc = "Service controllere PS4, PS5 și Xbox One/Series în București: drift la stick, butoane care nu răspund, mufă de încărcare. Diagnostic gratuit și garanție scrisă.";
 const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]));
 const faq = [
  { q: 'Cât durează reparația unui controller?', a: 'Majoritatea reparațiilor de controllere se finalizează în aceeași zi. Înlocuirea joystick-urilor sau a butoanelor durează de obicei 1–2 ore, iar reparațiile mai complexe (placă de bază, triggere adaptive PS5) pot necesita până la 24 de ore.' },
@@ -14,7 +14,7 @@ const faq = [
 ];
 const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
-<Base title="Reparatii Controllere PS4 PS5 Xbox Bucuresti | Service Rapid" description="Service specializat reparatii controllere PS4, PS5, Xbox One/Series in Bucuresti. Buton drift, stick analogic. Garantie. Suna acum!" image={IMG.ogConsola} schemaExtra={schemaSEO}>
+<Base title="Reparații Controllere PS4, PS5, Xbox | Service București" description={desc} image={IMG.ogConsola} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Controllere PS4, PS5, Xbox</h1>
   <p class="lead">Servicii profesionale de reparații controllere pentru PlayStation 4, PlayStation 5 și Xbox. Rezolvăm rapid orice defecțiune: drift joystick, butoane blocate, port USB defect sau probleme de conectare.</p>
