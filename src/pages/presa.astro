@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Cta from '../components/Cta.astro';
+import { breadcrumb, graf, pagina } from '../data/schema';
+import { SITE } from '../data/site';
+const title = 'Marcus Electronics în Presă | Apariții și Interviuri';
+const desc = 'Marcus Electronics în presa națională: interviu în Evenimentul Zilei despre costurile reparațiilor de electronice. Atelierul din Militari, documentat din 2011.';
+const schemaSEO = graf(
+  pagina('WebPage', { nume: 'Marcus Electronics în presă', url: '/presa/', desc }),
+  breadcrumb([{ name: 'Despre noi', url: '/despre-noi/' }, { name: 'În presă', url: '/presa/' }]),
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📰 APARIȚII ÎN PRESĂ</span>
+  <h1>Marcus Electronics în Presă</h1>
+  <p class="lead">Nu suntem un service apărut anul trecut. Lucrăm în electronică din 2000, iar activitatea atelierului a fost documentată în presa națională încă de acum peste un deceniu — cu aceeași adresă și aceeași meserie.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Evenimentul Zilei — „Doctor de gadgeturi: cât te costă să-ți repari electronicele"</h2>
+  <p style="color:var(--mut);font-size:14.5px">Evenimentul Zilei · 28 martie 2011</p>
+  <p>Ziarul a făcut un reportaj despre meseria de reparator de electronice în București și despre cât costă, de fapt, o reparație față de un aparat nou. <strong>Adrian Marcus</strong>, fondatorul Marcus Electronics, a fost unul dintre cei doi meseriași intervievați, la atelierul de pe strada Moinești.</p>
+  <blockquote style="margin:16px 0;padding:14px 18px;border-left:4px solid var(--navy);background:#f6f8fb;border-radius:0 12px 12px 0">
+    <p style="margin:0;font-style:italic">„Am reparat de toate, aparate foto, LCD-uri, proiectoare, cuptoare cu microunde, iPad-uri, tot ce e nou."</p>
+    <p style="margin:8px 0 0;font-size:14px;color:var(--mut)">— Adrian Marcus, în Evenimentul Zilei, martie 2011</p>
+  </blockquote>
+  <p>Articolul mai nota două lucruri care au rămas valabile: că atelierul lucra deja cu deplasare la domiciliu atunci când clientul nu putea aduce aparatul, și că o reparație costă, de regulă, în jur de o zecime din prețul unui aparat nou echivalent. Sunt exact principiile după care lucrăm și astăzi, cu singura diferență că între timp ponderea s-a mutat de la aparate foto și proiectoare către televizoare, laptopuri, MacBook-uri și console.</p>
+  <p><a href="https://evz.ro/doctor-de-gadgeturi-cat-te-costa-sa-ti-repari-electronicele-925023.html" rel="noopener" target="_blank">Citiți articolul integral pe evz.ro →</a></p>
+</section>
+
+<section class="sec">
+  <h2>Ce confirmă articolul</h2>
+  <p>Îl publicăm aici pentru că răspunde, dintr-o sursă din afara noastră, la întrebările pe care ni le pune aproape fiecare client nou.</p>
+  <ul class="checks">
+    <li><strong>Vechimea, verificabilă.</strong> În 2011 atelierul era deja funcțional și cunoscut destul cât să fie căutat de un ziar național. Nu e o afirmație de pe propriul site, e o urmă publică, datată.</li>
+    <li><strong>Aceeași adresă.</strong> Reportajul plasează atelierul pe strada Moinești, în Sectorul 6 — unde se află și acum. Nu ne-am mutat și nu ne-am schimbat numele de firmă.</li>
+    <li><strong>Același mod de lucru.</strong> Deplasarea la client apare încă de atunci, ca practică obișnuită, nu ca noutate de marketing.</li>
+    <li><strong>Aceeași logică de preț.</strong> Ideea că reparația trebuie să coste o fracțiune din aparatul nou — altfel nu are rost — e chiar regula pe care o explicăm pe pagina <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>De ce contează asta pentru dumneavoastră</h2>
+  <p>Într-un domeniu în care oricine poate deschide un site peste noapte și scrie „30 de ani experiență", singurul lucru care contează e ce se poate verifica. Un articol din 2011, într-un ziar cu arhivă publică, e o verificare pe care o puteți face singur, în două minute, fără să ne credeți pe cuvânt.</p>
+  <p>Restul poveștii — de la atelierul de la început până la service-ul la domiciliu de azi — e pe pagina <a href="/despre-noi/">despre noi</a>. Ce spun clienții recenți găsiți pe <a href="/contact/">pagina de contact</a> și în recenziile de pe profilul nostru Google.</p>
+</section>
+
+<Cta titlu="📞 Aveți un aparat defect?" text="Diagnosticare gratuită, preț ferm comunicat înainte și garanție scrisă 6–12 luni. Sunați sau scrieți pe WhatsApp." />
+
+<p style="font-size:14px;color:var(--mut)">Vedeți și: <a href="/despre-noi/">despre Marcus Electronics</a>, <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>, <a href="/preturi/">prețuri</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>.</p>
+</div>
+</Base>
