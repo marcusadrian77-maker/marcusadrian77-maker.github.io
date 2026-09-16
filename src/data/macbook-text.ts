@@ -374,6 +374,30 @@ export function notaProces(m: Mac): string {
   ]);
 }
 
+/* ---------- curier ---------- */
+
+export function despreCurier(m: Mac): string[] {
+  const p1 = v(m, [
+    `Nu trebuie să fiți din București ca să ajungeți la noi. Un ${m.scurt} se poate trimite prin curier din orice localitate din țară, iar trimiterea se stabilește la telefon: vă spunem adresa atelierului, ce curier e potrivit și cum se împachetează aparatul ca să ajungă întreg.`,
+    `Lucrăm cu aparate venite din toată România. Dacă aveți un ${m.cod} și nu sunteți în București, îl expediați prin curier, din orice oraș sau sat, iar noi îl tratăm exact ca pe unul adus personal la atelier.`,
+    `Distanța nu este o problemă. Jumătate din aparatele Apple care intră în atelier vin prin curier, din toată țara, și trec prin aceiași pași ca oricare altul: despachetare, diagnosticare gratuită, telefon cu prețul, reparație, test și reambalare.`,
+    `Dacă locuiți în altă parte a țării, trimiteți ${m.scurt} prin curier. Se poate din orice localitate, iar primul pas este tot un telefon — nu expediați nimic înainte să vorbim, ca să nu plătiți un transport degeaba.`,
+    `Aparatul poate veni la noi prin curier, de oriunde din România. Sunați întâi cu codul ${m.cod} și cu ce face aparatul, apoi vă dăm adresa exactă și indicațiile de ambalare.`,
+  ]);
+  const p2 = v(m, [
+    'Trimiteți aparatul întreg, nu placa scoasă din el: o placă separată nu poate fi testată sub sarcină și nu avem cum să verificăm la final că totul funcționează. Diagnosticarea rămâne gratuită, iar garanția scrisă de 6–12 luni este aceeași ca pentru clienții din București.',
+    'Regula e simplă: aparat întreg, nu subansamble. Diagnosticarea nu costă nimic nici pentru coletele din țară, iar la retur primiți aceeași garanție scrisă de 6–12 luni ca oricine vine personal la atelier.',
+    'Se trimite aparatul complet, nu doar placa — altfel nu îl putem testa cu adevărat înainte de a vi-l da înapoi. Verificarea este gratuită și pentru aparatele venite din țară, iar garanția rămâne cea obișnuită, 6–12 luni în scris.',
+  ]);
+  const p3 = v(m, [
+    'Două lucruri de știut înainte de a expedia: transportul îl plătiți dumneavoastră, în ambele sensuri, iar pentru aparatele primite prin curier se aplică o manoperă minimă de 200 de lei fără piese. Termenul obișnuit este de 2–5 zile lucrătoare din momentul în care coletul ajunge la noi.',
+    'Condițiile, spuse din start: curieratul dus-întors este pe cheltuiala dumneavoastră, iar aparatele venite astfel au o manoperă minimă de 200 de lei, fără piese. Lucrarea durează de regulă 2–5 zile lucrătoare de la primirea coletului.',
+    'Ca să nu fie surprize: plătiți transportul în ambele sensuri și există o manoperă minimă de 200 de lei fără piese, valabilă doar pentru aparatele primite prin curier. De la primirea coletului, reparația ia în mod normal 2–5 zile lucrătoare.',
+    'Vă spunem condițiile înainte: transportul este al dumneavoastră, în ambele sensuri, iar manopera minimă pentru un aparat venit prin curier este de 200 de lei, fără piese. Socoteala completă o facem împreună la telefon, gratuit, înainte să trimiteți ceva.',
+  ]);
+  return [p1, p2, p3];
+}
+
 /* ---------- intrebari frecvente ---------- */
 
 export function intrebari(m: Mac): { q: string; a: string }[] {
@@ -464,6 +488,18 @@ export function intrebari(m: Mac): { q: string; a: string }[] {
       'Depinde de intervenție: o baterie sau un port se rezolvă în 24–48 de ore, o placă în 2–5 zile lucrătoare. Termenul realist vi-l spunem la diagnosticare, nu după.',
       'O zi sau două pentru lucrările curente. Reparațiile de placă intră în 2–5 zile lucrătoare, iar dacă piesa trebuie comandată vă spunem dinainte, nu pe parcurs.',
       'Cele mai multe lucrări pleacă a doua zi. Excepția o fac intervențiile pe placă, unde adăugăm timp de testare — între două și cinci zile lucrătoare în total.',
+    ]),
+  });
+  q.push({
+    q: v(m, [
+      'Nu sunt din București. Pot trimite aparatul prin curier?',
+      'Primiți aparate din alte orașe, prin curier?',
+      'Locuiesc în altă parte a țării. Cum ajunge aparatul la voi?',
+    ]),
+    a: v(m, [
+      'Da, din orice localitate din România. Trimiteți aparatul întreg prin curier, cu transportul pe cheltuiala dumneavoastră în ambele sensuri. Diagnosticarea rămâne gratuită, manopera minimă pentru coletele din țară este de 200 de lei fără piese, iar garanția scrisă este aceeași, 6–12 luni.',
+      'Da. Primim aparate prin curier din toată țara, dar sunați întâi: facem socoteala la telefon și vă spunem dacă merită expediat. Transportul îl plătiți dumneavoastră, dus-întors, iar pentru aparatele primite astfel manopera minimă este de 200 de lei, fără piese.',
+      'Se poate din orice colț al țării. Ne sunați, stabilim cum trimiteți, iar aparatul urmează același drum ca oricare altul din atelier. Diagnosticarea e gratuită, manopera minimă la coletele din țară e de 200 de lei fără piese, iar termenul obișnuit e de 2–5 zile lucrătoare de la primire.',
     ]),
   });
   q.push({
