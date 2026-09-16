@@ -1,77 +1,134 @@
 ---
 import Base from '../layouts/Base.astro';
 import Cifre from '../components/Cifre.astro';
-import { IMG } from '../data/images';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Service laptopuri București – Dell, HP, Lenovo, Asus, Acer, MSI, Apple. Reparații ecran, tastatură, baterie, placă de bază. ☎ 0765.461.357";
-const schemaSEO = graf(serviciu({ nume: 'Reparații laptopuri București', tip: 'Reparații laptopuri', url: '/reparatii-laptopuri-bucuresti/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }]));
+const title = 'Reparații Laptopuri București | Service Laptop Sector 6';
+const desc = 'Service laptop în București, Sector 6: nu pornește, se încinge, nu se încarcă, ecran defect. Reparație pe placă, diagnosticare gratuită, garanție scrisă.';
+const faq = [
+ { q: 'Cât costă să aflu ce are laptopul?', a: 'Nimic. Diagnosticarea este gratuită și rămâne gratuită dacă hotărâți să nu reparați. Vă spunem defectul găsit și prețul ferm înainte de a începe orice intervenție, iar prețul acela nu se mai schimbă pe parcurs.' },
+ { q: 'Cât durează o reparație de laptop?', a: 'Intervențiile obișnuite — curățare, pastă termică, baterie, tastatură, port de încărcare — se fac de regulă în 24–48 de ore. Reparațiile pe placa de bază durează 2–5 zile lucrătoare, pentru că includ și testarea sub sarcină înainte de predare. Dacă o piesă trebuie comandată, vă spunem termenul dinainte.' },
+ { q: 'Reparați placa de bază sau doar o înlocuiți?', a: 'O reparăm, la nivel de componentă. Găsim circuitul defect cu aparatura și cu schema în față, apoi înlocuim exact piesa arsă — un controler de alimentare, un mosfet, un condensator. O placă nouă costă de câteva ori mai mult și de multe ori nici nu se mai găsește pentru modelele de peste cinci ani.' },
+ { q: 'Laptopul meu e vechi de șase-șapte ani. Mai merită reparat?', a: 'Depinde de ce s-a stricat, nu de vechime. Dacă ecranul e bun și problema e răcirea, bateria, portul de încărcare sau un SSD, aproape sigur merită — sunt intervenții de o sută-două sute de lei pe un aparat care mai poate funcționa ani buni. Dacă e nevoie de ecran nou pe un laptop ieftin, socoteala se schimbă, și v-o spunem noi primii.' },
+ { q: 'Îmi pierd datele de pe laptop?', a: 'În mod normal nu. La reparațiile obișnuite nici nu atingem discul. Dacă intervenția presupune riscuri pentru date, vă spunem înainte și facem o copie de siguranță. Când laptopul nu mai pornește deloc, în majoritatea cazurilor putem scoate datele de pe disc separat.' },
+ { q: 'Am vărsat lichid pe laptop. Ce fac?', a: 'Opriți-l imediat, ținând apăsat pe butonul de pornire, scoateți-l din priză și nu îl mai porniți ca să vedeți dacă merge. Nu îl uscați cu feonul și nu îl puneți în orez. Aduceți-l cât mai repede: coroziunea avansează cu fiecare oră în care placa stă sub tensiune, iar un laptop adus în prima zi costă de obicei mult mai puțin decât același laptop adus după două săptămâni.' },
+ { q: 'Trebuie să programez sau vin direct?', a: 'Puteți veni direct la atelierul din Str. Moinești 7, Militari, în programul afișat. Un telefon înainte ajută totuși: ne spuneți modelul și ce face, iar noi verificăm dacă avem piesa pe stoc, ca să nu faceți drumul degeaba.' },
+];
+const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Service laptop București', tip: 'Reparații laptopuri', url: '/reparatii-laptopuri-bucuresti/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }]),
+  schemaFaq,
+);
 ---
-<Base title="Reparații Laptopuri București | Service Laptop Rapid" description="Service laptopuri București – Dell, HP, Lenovo, Asus, Acer, MSI, Apple. Reparații ecran, tastatură, baterie, placă de bază. ☎ 0765.461.357" image={IMG.ogLaptop} schemaExtra={schemaSEO}>
+<Base title={title} description={desc} image={IMG.ogLaptop} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
-  <span class="badge">💻 SERVICE LAPTOP — MILITARI, SECTOR 6</span>
+  <span class="badge">💻 SERVICE LAPTOP · MILITARI, SECTOR 6</span>
   <h1>Reparații Laptopuri București</h1>
-  <p class="lead">Service profesional de reparații laptop în atelierul nostru din Militari, Sector 6. Diagnosticare gratuită, reparații la nivel de componentă, garanție 6–12 luni.</p>
+  <p class="lead">Un laptop care se încinge, nu se mai încarcă sau nu mai pornește are aproape întotdeauna o cauză punctuală — și aproape niciodată nu are nevoie de placă nouă. Lucrăm la nivel de componentă în atelierul din Militari, cu diagnosticare gratuită și preț ferm comunicat înainte.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă</span><span>🛡️ Garanție scrisă 6–12 luni</span><span>📦 Prin curier, din toată țara</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
 <Cifre />
 <div class="wrap">
+
 <section class="sec">
-  <h2>Reparații Laptop Rapide și Profesionale</h2>
-  <p>Aduceți laptopul la sediul nostru din Militari, Sector 6 și îl reparăm rapid, la nivel de componentă electronică — fără să înlocuim plăci întregi atunci când nu este necesar. Diagnosticăm gratuit și vă comunicăm costul exact înainte de a începe. Dacă locuiți în zona Militari, consultați și pagina dedicată <a href="/reparatii-laptop-sector-6/">reparații laptop Sector 6</a>.</p>
+  <h2>Ce se strică, de fapt, la un laptop</h2>
+  <p>După ani de service laptop în același atelier, defectele nu mai sunt o surpriză. Se repetă, în aceeași ordine, indiferent de marcă — pentru că toate laptopurile au aceleași trei puncte slabe: căldura, conectorul de alimentare și bateria.</p>
   <ul class="checks">
-    <li><strong>Laptop nu pornește</strong> — diagnoză placă de bază, sursă de alimentare sau BIOS</li>
-    <li><strong>Ecran defect / fisurat</strong> — înlocuire display LCD/LED pentru orice model</li>
-    <li><strong>Tastatură defectă</strong> — înlocuire taste sau tastatură completă</li>
-    <li><strong>Supraîncălzire / se oprește singur</strong> — <a href="/curatare-laptop-praf/">curățare ventilator și praf</a>, <a href="/mentenanta-profesionala-pasta-termica/">schimb pastă termică</a></li>
-    <li><strong>Nu se conectează la WiFi</strong> — reparare sau înlocuire placă wireless</li>
-    <li><strong>Baterie care nu se încarcă</strong> — diagnoză port de încărcare sau baterie</li>
-    <li><strong>Placă video defectă</strong> — reparare GPU sau înlocuire placă video</li>
-    <li><strong>HDD / SSD defect</strong> — înlocuire și recuperare date</li>
-    <li><strong>Upgrade RAM / SSD</strong> — creșterea performanței laptopului</li>
+    <li><strong>Se încinge și se oprește singur.</strong> De departe cel mai frecvent. Praful înfundă radiatorul, pasta termică dintre procesor și răcitor se usucă, iar aparatul se închide singur ca să nu se distrugă. Se rezolvă cu o curățare completă și pastă nouă, fără nicio piesă schimbată. Detalii pe <a href="/laptop-se-incalzeste/">laptopul se încălzește</a> și <a href="/curatare-laptop-praf/">curățare de praf</a>.</li>
+    <li><strong>Nu se mai încarcă sau încarcă doar într-o poziție.</strong> Mufa de alimentare e lipită pe placă și suportă ani de smucituri. Când începe să facă contact prost, nu mai amânați: un port resudat costă puțin, dar dacă se ard traseele de sub el, intrăm în reparație de placă.</li>
+    <li><strong>Bateria ține o oră, sau umflă carcasa.</strong> Bateria e consumabilă. Când se umflă și ridică tastatura sau trackpadul, trebuie schimbată repede — vezi <a href="/inlocuire-baterie-laptop/">înlocuire baterie laptop</a>.</li>
+    <li><strong>Nu pornește deloc, fără niciun led.</strong> Aici e vorba de alimentare: încărcător, mufă, sau circuitul de pe placă. E cel mai des diagnosticat greșit „placă arsă", când în realitate a cedat o singură componentă.</li>
+    <li><strong>Pornește, dar ecranul rămâne negru.</strong> Poate fi ecranul, cablul dintre ecran și placă, sau partea video. Se separă simplu, cu un monitor extern.</li>
+    <li><strong>Ecran spart, cu dungi sau cu pete.</strong> Se înlocuiește panoul, nu tot capacul — vezi <a href="/inlocuire-ecran-laptop/">înlocuire ecran laptop</a>.</li>
+    <li><strong>Merge greu, se blochează.</strong> De cele mai multe ori nu e defect, ci un disc mecanic vechi. Trecerea pe SSD schimbă complet aparatul, cu mult mai puțini bani decât unul nou.</li>
+    <li><strong>Taste care nu răspund.</strong> Aproape întotdeauna după un lichid vărsat. Se poate curăța sau înlocui ansamblul, în funcție de cât de departe a ajuns coroziunea.</li>
   </ul>
 </section>
+
 <section class="sec">
-  <h2>Mărci de Laptopuri Reparate</h2>
-  <p>Reparăm laptopuri de la: <strong>Dell, HP, Lenovo, Asus, Acer, Toshiba, Samsung, MSI, Fujitsu, Sony Vaio, Packard Bell, Medion, Compaq, Gateway, Clevo, Huawei MateBook, Microsoft Surface, LG Gram, Razer Blade, Alienware, Gigabyte, Xiaomi</strong> și alte mărci.</p>
-  <p>Reparăm toate tipurile: laptopuri de birou, gaming, ultrabook-uri, 2-in-1 și workstation-uri. Pentru laptopurile Apple, avem o echipă specializată — vezi pagina dedicată de <a href="/reparatii-macbook/">reparații MacBook</a>, plus ghidurile pe defecte: <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/macbook-lichid-varsat/">lichid vărsat pe MacBook</a> și <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a>.</p>
-</section>
-<section class="sec">
-  <h2>Defecte Frecvente Laptopuri</h2>
-  <p>In atelierul nostru din Militari vedem zilnic o gamă largă de probleme. Iată cele mai frecvente defecte pe care le reparăm:</p>
+  <h2>Cum aflăm ce are, înainte să demontăm ceva</h2>
+  <p>Diagnosticarea nu începe cu șurubelnița. Ordinea de mai jos ne scutește de demontări inutile, și o puteți parcurge și dumneavoastră acasă — uneori se lămurește totul de la primul pas.</p>
   <ul class="checks">
-    <li><strong>Supraîncălzire și opriri bruște</strong> — cauza principală este praful acumulat în radiator și pasta termică uscată. O intervenție de <a href="/curatare-laptop-praf/">curățare de praf</a> combinată cu înlocuirea pastei termice rezolvă problema în peste 90% din cazuri.</li>
-    <li><strong>Ecran cu dungi sau imagine distorsionată</strong> — de cele mai multe ori un cablu flex deteriorat sau un panou LCD cu defect. Înlocuim display-uri pentru toate mărcile.</li>
-    <li><strong>Laptop lent, se blochează</strong> — adesea un HDD vechi care trebuie înlocuit cu un SSD, sau RAM insuficientă. Upgrade-ul este rapid și transformă complet experiența de utilizare.</li>
-    <li><strong>Tastatura nu funcționează parțial</strong> — la laptopurile de birou, cauza frecventă sunt lichidele vărsate care corodează traseele. La modelele gaming, tastele mecanice se pot uzeza individual.</li>
-    <li><strong>Laptop nu se încarcă</strong> — conector de alimentare deteriorat, mufa DC jack uzată sau circuit de încărcare defect pe placa de bază.</li>
-    <li><strong>Zgomot excesiv de ventilator</strong> — ventilator cu rulmenți uzați sau sistem de răcire înfundat cu praf. Rezolvăm prin curățare sau înlocuire ventilator.</li>
+    <li><strong>Se aprinde vreun led când e în priză?</strong> Dacă nu se aprinde nimic, nici măcar ledul de încărcare, problema e pe traseul de alimentare: încărcător, mufă sau circuitul de intrare de pe placă. Încercați alt încărcător compatibil înainte de orice.</li>
+    <li><strong>Se aud ventilatoarele la pornire?</strong> Dacă ventilatorul pornește și ecranul rămâne negru, placa are curent și problema e mai departe — video, memorie sau ecran.</li>
+    <li><strong>Conectați un monitor extern.</strong> Dacă imaginea apare pe monitor, laptopul funcționează perfect și defectul e în ecran sau în cablul lui. Dacă nici pe monitor nu apare nimic, cauza e pe placă.</li>
+    <li><strong>Scoateți bateria, dacă se poate, și porniți doar pe alimentator.</strong> O baterie care a intrat în scurt împiedică pornirea; fără ea, aparatul revine la viață.</li>
+    <li><strong>Cât de fierbinte devine și în cât timp?</strong> Un laptop care se închide după zece-cincisprezece minute, cu aer cald ieșind pe lateral, e un caz de răcire, nu de placă.</li>
   </ul>
+  <p>Cu răspunsurile astea, vă putem da un interval de preț încă de la telefon. Fără ele, orice cifră ar fi o presupunere.</p>
 </section>
+
 <section class="sec">
-  <h2>Ghiduri Utile</h2>
-  <p>Am pregătit mai multe ghiduri practice pentru cele mai frecvente probleme de laptop:</p>
+  <h2>Reparăm componenta, nu schimbăm placa</h2>
+  <p>Aici e diferența între un service de laptop și un înlocuitor de piese. Majoritatea atelierelor, când găsesc o problemă pe placa de bază, propun o placă nouă — pentru că e mai rapid de făcut și mai simplu de explicat. Rezultatul e o factură cât jumătate din valoarea laptopului, pentru un condensator de câțiva lei.</p>
+  <p>Noi punem placa sub microscop, cu schema electrică alături și cu aparatura de măsură, urmărim liniile de tensiune și găsim componenta care a cedat. Un circuit de încărcare refăcut punctual costă o fracțiune din prețul unei plăci și păstrează aparatul exact așa cum era — cu discul lui, cu licența lui, cu datele lui.</p>
+  <p>Contează cel mai mult la laptopurile de peste cinci ani, unde placa originală pur și simplu nu se mai fabrică. Pentru ele, reparația pe componentă nu e varianta mai ieftină — e singura variantă. Același principiu îl aplicăm și la aparatele Apple, pe pagina de <a href="/reparatii-macbook/">reparații MacBook</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Prețuri orientative</h2>
+  <p>Intervalele includ piesa, manopera și garanția scrisă. Diagnosticarea e gratuită, iar prețul exact vi-l comunicăm înainte de a începe.</p>
+  <table class="tb">
+    <tbody>
+      <tr><td>Diagnosticare</td><td><strong>GRATUITĂ</strong></td></tr>
+      <tr><td>Curățare completă + pastă termică</td><td><strong>80 – 150 lei</strong></td></tr>
+      <tr><td>Înlocuire port de alimentare</td><td><strong>80 – 200 lei</strong></td></tr>
+      <tr><td>Înlocuire baterie</td><td><strong>100 – 250 lei</strong></td></tr>
+      <tr><td>Înlocuire tastatură</td><td><strong>100 – 300 lei</strong></td></tr>
+      <tr><td>Înlocuire ecran / display</td><td><strong>200 – 600 lei</strong></td></tr>
+      <tr><td>Reparare placă de bază</td><td><strong>200 – 500 lei</strong></td></tr>
+    </tbody>
+  </table>
+  <p>Grila completă, pentru toate categoriile, e pe pagina de <a href="/preturi/">prețuri</a>. Discuția despre când merită și când nu merită o reparație e pe <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Când vă spunem să nu reparați</h2>
+  <p>Se întâmplă, și preferăm să o spunem la telefon, nu după ce ați plătit diagnosticarea — care oricum e gratuită.</p>
   <ul class="checks">
-    <li><a href="/curatare-laptop-praf/">Curățare laptop de praf</a> — de ce este esențială și cum decurge procesul</li>
-    <li><a href="/laptop-se-incalzeste/">Laptopul se încălzește excesiv</a> — cauzele supraîncălzirii și ce puteți verifica acasă</li>
-    <li><a href="/mentenanta-profesionala-pasta-termica/">Înlocuire pastă termică și metal lichid</a> — ghid complet pentru laptopuri, console și MacBook-uri</li>
-    <li><a href="/mentenanta-periodica/">Mentenanță periodică</a> — intervale recomandate și de ce previne reparațiile costisitoare</li>
+    <li><strong>Ecran nou pe un laptop ieftin.</strong> Dacă displayul costă 400 de lei pe un aparat care valorează 700, nu are sens. La un laptop bun, aceeași lucrare e perfect rentabilă.</li>
+    <li><strong>Lichid vărsat, adus târziu.</strong> Când coroziunea a prins mai multe zone ale plăcii, reparația devine o serie de intervenții, fără garanția că a doua zi nu cedează altceva. V-o spunem deschis.</li>
+    <li><strong>Aparate cu placă distrusă fizic.</strong> O placă îndoită sau crăpată, de obicei după o cădere, nu se recuperează.</li>
   </ul>
-  <p>Servicii dedicate pentru cele mai frecvente intervenții: <a href="/inlocuire-ecran-laptop/">înlocuire ecran laptop</a> (LCD, IPS, OLED, toate diagonalele) și <a href="/inlocuire-baterie-laptop/">înlocuire baterie laptop</a> — inclusiv baterii umflate, care trebuie schimbate urgent.</p>
-  <p>Consultați <a href="/preturi/">pagina de prețuri</a> pentru tarife orientative la toate tipurile de reparații laptop.</p>
+  <p>În rest, regula noastră e simplă: dacă piesa scumpă — ecranul — este bună, reparația are aproape întotdeauna sens, chiar și pe un aparat de opt ani.</p>
 </section>
+
 <section class="sec">
-  <h2>De Ce Să Ne Alegeți?</h2>
-  <div class="grid g4">
-    <div class="card"><div class="ico">🔍</div><h3>Diagnoză GRATUITĂ</h3><p>Identificăm problema fără costuri. Plătești doar dacă accepți reparația.</p></div>
-    <div class="card"><div class="ico">🔧</div><h3>La nivel de componentă</h3><p>Reparăm componenta defectă, nu înlocuim plăci întregi inutil.</p></div>
-    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Garanție scrisă pentru toate intervențiile noastre.</p></div>
-    <div class="card"><div class="ico">🎓</div><h3>Experiență vastă</h3><p>Tehnicieni cu experiență pe toate mărcile de laptop.</p></div>
-  </div>
+  <h2>Ce mărci și ce tipuri reparăm</h2>
+  <p>Practic toate: <strong>Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Fujitsu, Sony Vaio, Packard Bell, Medion, Huawei MateBook, Microsoft Surface, LG Gram, Razer, Alienware, Gigabyte, Xiaomi</strong>. Laptopuri de birou, gaming, ultrabook-uri, 2-in-1 și stații de lucru.</p>
+  <p>Marca schimbă piesele, nu metoda. Un port de alimentare resudat arată la fel pe un Lenovo și pe un Asus, iar pasta termică se schimbă identic pe un ultrabook de birou și pe un laptop de gaming — doar că la al doilea e mult mai multă căldură de gestionat și curățarea trebuie făcută mai des.</p>
+  <p>Pentru MacBook avem pagină separată, cu prețuri și proceduri proprii: <a href="/reparatii-macbook/">reparații MacBook</a>. Dacă sunteți din zonă, vedeți și <a href="/reparatii-laptop-sector-6/">service laptop Sector 6</a>.</p>
 </section>
-<Cta titlu="💻 Laptop Defect? Sunați-ne!" text="Aduceți laptopul la atelierul nostru din Militari, Sector 6. Diagnostic gratuit și ofertă pe loc." />
-<p style="font-size:14px;color:var(--mut)">Nu sunteți din București? Laptopul se poate trimite <a href="/reparatii-prin-curier/">prin curier, din orice localitate din țară</a> — diagnosticul rămâne gratuit.</p>
+
+<section class="sec">
+  <h2>Cum decurge</h2>
+  <ol>
+    <li><strong>Ne spuneți modelul și ce face.</strong> Modelul e pe eticheta de sub laptop. Cu el și cu simptomul vă dăm un interval realist la telefon și verificăm stocul de piese.</li>
+    <li><strong>Aduceți aparatul la atelier</strong>, în Str. Moinești 7, Militari, Sector 6. Diagnosticarea e gratuită și fără obligații. Din afara Bucureștiului, laptopul se poate trimite <a href="/reparatii-prin-curier/">prin curier, din orice localitate</a>.</li>
+    <li><strong>Vă sunăm cu defectul găsit și cu prețul ferm.</strong> Nu demontăm nimic peste ce e necesar pentru diagnostic fără acordul dumneavoastră.</li>
+    <li><strong>Reparăm și testăm</strong>, apoi predăm aparatul cu garanție scrisă de 6–12 luni pentru piesă și manoperă.</li>
+  </ol>
+  <p>Program: {SITE.program}. Nu aveți nevoie de programare, dar un telefon înainte scutește un drum.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Ghiduri pe defecte: <a href="/laptop-se-incalzeste/">laptopul se încălzește</a>, <a href="/curatare-laptop-praf/">curățare de praf</a>, <a href="/inlocuire-ecran-laptop/">înlocuire ecran</a>, <a href="/inlocuire-baterie-laptop/">înlocuire baterie</a>, <a href="/mentenanta-profesionala-pasta-termica/">pastă termică</a>, <a href="/mentenanta-periodica/">mentenanță periodică</a>.</p>
+</section>
+
+<TrimitePoze />
+
+<Cta titlu="💻 Laptop defect? Sunați-ne!" text="Spuneți-ne modelul și ce face. Diagnosticarea e gratuită, iar prețul îl aflați înainte de orice intervenție." />
 </div>
 </Base>
