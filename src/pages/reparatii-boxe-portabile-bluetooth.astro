@@ -47,7 +47,7 @@ const faq = [
  { q: 'Trebuie să vin cu încărcătorul?', a: 'Da, dacă îl mai aveți. Ne ajută la testare și uneori problema este chiar în încărcător sau în cablu, nu în boxă.' },
 ];
 
-const desc = 'Reparatii boxe portabile si Bluetooth in Bucuresti: JBL, Sony, Marshall, Bose, Anker. Mufa de incarcare, baterie, difuzor. Diagnostic gratuit, garantie 6-12 luni.';
+const desc = 'Reparații boxe portabile și Bluetooth în București: JBL, Sony, Bose, Anker. Mufă de încărcare, baterie, difuzor. Diagnostic gratuit, garanție 6–12 luni.';
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaSEO = graf(
   serviciu({ nume: 'Reparatii boxe portabile si Bluetooth', tip: 'Reparatii audio portabil', url: '/reparatii-boxe-portabile-bluetooth/', desc }),
@@ -55,7 +55,7 @@ const schemaSEO = graf(
   faqSchema
 );
 ---
-<Base title="Reparatii Boxe Portabile si Bluetooth Bucuresti | JBL, Sony" description={desc} image={IMG.ogBoxe} schemaExtra={schemaSEO}>
+<Base title="Reparații Boxe Portabile și Bluetooth | JBL, Sony, Bose" description={desc} image={IMG.ogBoxe} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Boxe Portabile și Bluetooth</h1>
   <p class="lead">Reparăm boxe portabile JBL, Sony, Marshall, Bose, Anker Soundcore și Ultimate Ears în București, în atelierul din Militari, Sector 6. Mufă de încărcare, baterie, difuzor, Bluetooth. Diagnostic gratuit, garanție 6–12 luni.</p>
