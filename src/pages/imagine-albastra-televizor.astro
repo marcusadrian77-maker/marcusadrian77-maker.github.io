@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Imagine Albastră pe Televizor: Cauze și Preț';
+const desc = 'Ecranul bate în albastru sau are pete albăstrui? Ce înseamnă fiecare formă, cum verificați singur în două minute și cât costă reparația. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Ce înseamnă când televizorul are imaginea albastră?', a: 'În marea majoritate a cazurilor înseamnă că lumina din spatele ecranului și-a schimbat culoarea. Ledurile care o produc sunt, la origine, albastre, iar peste ele stă un strat galben care le transformă lumina în alb. Când stratul acela se uzează, albastrul trece nefiltrat. Panoul, adică ecranul propriu-zis, rămâne bun — de aceea reparația e rentabilă.' },
+ { q: 'Poate fi doar o setare greșită?', a: 'Poate, și merită verificat primul lucru, pentru că nu costă nimic. Modul „Dinamic" împreună cu temperatura de culoare „Rece" dau o imagine vizibil albăstruie pe orice televizor sănătos. Resetați setările de imagine din meniu și alegeți „Film" cu temperatura „Caldă". Dacă tenta dispare, nu aveți nicio defecțiune.' },
+ { q: 'Am pete albastre doar într-o parte a ecranului. E altceva?', a: 'E aceeași cauză, prinsă mai devreme. Ledurile dintr-o zonă care se încălzește mai tare se degradează înaintea celorlalte, așa că apar insule mai reci pe un fond încă normal. Cu timpul diferența se estompează, pentru că restul le ajunge din urmă. Reparația este identică.' },
+ { q: 'Dar dacă sunt dungi albastre drepte, nu pete?', a: 'Atunci nu mai vorbim de leduri. Marginile drepte, verticale, arată spre placa T-CON sau spre cablul care duce semnalul la panou. Se repară separat și costă altceva. Diferența o vedem imediat la diagnosticare, iar dumneavoastră o puteți bănui după cum arată marginea zonei colorate: neclară înseamnă lumină, dreaptă înseamnă semnal.' },
+ { q: 'De cât timp mai am până se strică de tot?', a: 'Nu există un termen exact, dar direcția e cunoscută. Ledurile ajunse să vireze spre albastru sunt în ultima parte a vieții lor, iar următorul pas obișnuit este ecranul negru cu sunetul rămas. De la primele semne până acolo trec de regulă luni, nu ani.' },
+ { q: 'Cât costă reparația?', a: 'Înlocuirea baretelor de leduri costă 100–280 de lei, cu 6 luni de garanție, în funcție de diagonală. Dacă vinovată e placa principală, intervalul e 150–400 de lei, cu 12 luni garanție. Diagnosticarea la domiciliu este gratuită și vă spunem prețul exact înainte de a demonta ceva.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Imagine albastră pe televizor: ce înseamnă și cât costă', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Imagine albastră pe televizor', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🔵 GHID PRACTIC</span>
+  <h1>Imagine Albastră pe Televizor</h1>
+  <p class="lead">Zăpada din filme pare violet, pielea oamenilor arată vânătă, iar albul nu mai e alb. Mulți își schimbă televizorul din cauza asta, convinși că s-a terminat ecranul. De cele mai multe ori ecranul e perfect sănătos și se schimbă altceva, mult mai ieftin.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Patru feluri de albastru, patru cauze diferite</h2>
+  <p>Înainte de orice discuție despre preț, merită să stabiliți în care dintre situațiile de mai jos vă aflați. Se face din fotoliu, în câteva minute.</p>
+  <ul class="checks">
+    <li><strong>Tot ecranul are o tentă rece, uniformă.</strong> Cea mai comună formă. S-a schimbat culoarea luminii din spatele panoului. Se repară prin înlocuirea baretelor de leduri.</li>
+    <li><strong>Zone sau pete albăstrui pe un fond normal.</strong> Aceeași cauză, într-un stadiu mai puțin înaintat: o parte din leduri au luat-o înainte, de obicei acolo unde se strânge cea mai multă căldură.</li>
+    <li><strong>Benzi verticale cu margini perfect drepte.</strong> Nu lumina e problema, ci semnalul care ajunge la ecran. Se caută la placa T-CON și la cablul dintre ea și panou.</li>
+    <li><strong>Albastru doar pe o singură intrare.</strong> Dacă pe antenă imaginea e normală și pe HDMI-ul decodorului e albastră, televizorul e sănătos. Schimbați cablul; un contact imperfect pierde o culoare întreagă.</li>
+  </ul>
+  <p>Testul care le separă pe primele trei de ultima: scoateți meniul televizorului pe ecran. Literele lui sunt generate chiar de aparat. Dacă și meniul bate în albastru, cauza e în televizor. Dacă meniul e alb curat peste o imagine albastră, cauza e în ce îi trimite imaginea.</p>
+</section>
+
+<section class="sec">
+  <h2>Verificarea gratuită pe care merită să o faceți prima</h2>
+  <p>Vă spunem asta chiar dacă pe noi ne costă o deplasare: uneori nu e nicio defecțiune. Un televizor pus pe modul „Dinamic" cu temperatura de culoare „Rece" arată albăstriu din construcție, iar setările astea se schimbă mai ușor decât credeți — la o resetare, la un update, sau pur și simplu apăsând greșit din telecomandă.</p>
+  <p>Intrați în meniul de imagine, dați „Resetare", apoi alegeți modul <strong>Film</strong> sau <strong>Cinema</strong> și temperatura de culoare <strong>Caldă</strong>. Priviți un minut — ochiul are nevoie de puțin timp să se dezobișnuiască. Dacă albul redevine alb, ați rezolvat gratis. Dacă nimic nu se schimbă, citiți mai departe.</p>
+</section>
+
+<section class="sec">
+  <h2>De ce se face albastru și nu, să zicem, roșu</h2>
+  <p>Răspunsul stă în felul în care se produce lumina albă într-un televizor. Nu există leduri care să emită direct alb. Ce există sunt leduri albastre, acoperite cu un strat galben depus peste ele în fabrică. Amestecul dintre albastrul de dedesubt și galbenul de deasupra dă, pentru ochiul nostru, lumină albă.</p>
+  <p>Stratul galben lucrează în cele mai proaste condiții posibile: lipit de o componentă care se încălzește, bombardat zilnic de cea mai energică lumină din spectrul vizibil. Se uzează. Pe măsură ce își pierde puterea de a filtra, proporția se strică în favoarea albastrului — și asta vedeți pe ecran.</p>
+  <p>Din același motiv, o imagine care virează spre <strong>galben</strong> sau spre <strong>roz</strong> arată de obicei către altceva: setări, cablu de semnal sau placa care procesează imaginea. Albastrul e semnătura iluminării.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce se schimbă efectiv și de ce toate baretele</h2>
+  <p>Reparația înseamnă demontarea panoului, scoaterea baretelor vechi și montarea unora noi, plus verificarea driverului care le alimentează. Este o lucrare care cere spațiu curat și mâini obișnuite cu ea — panoul unui televizor mare e subțire ca o foaie de sticlă și nu iartă o apucare greșită.</p>
+  <p>Se schimbă toate baretele, nu doar cele din zona petelor. Toate au aceeași vârstă și au stat la aceeași temperatură; cele care au virat primele au fost doar cele mai obosite. Dacă montăm barete noi doar într-o parte, obțineți imediat o zonă vizibil mai albă decât restul, iar peste câteva luni desfacem aparatul a doua oară. Diferența de preț dintre o baretă și setul complet e mult mai mică decât costul repetării lucrării.</p>
+  <p>Driverul de leduri se verifică de fiecare dată. Dacă el le alimenta cu un curent prea mare, baretele noi ar îmbătrâni exact ca cele vechi.</p>
+</section>
+
+<section class="sec">
+  <h2>Cât costă</h2>
+  <ul class="checks">
+    <li><strong>Barete de leduri: 100–280 de lei</strong>, garanție 6 luni. Prețul urcă odată cu diagonala, pentru că se schimbă toate baretele.</li>
+    <li><strong>Placă principală: 150–400 de lei</strong>, garanție 12 luni. Când semnalul pleacă deja greșit spre panou.</li>
+    <li><strong>Panou: 400–1.200 de lei</strong> sau mai mult. Îl propunem rar și v-o spunem deschis când nu mai merită investiția.</li>
+  </ul>
+  <p>Diagnosticarea la domiciliu în București și Ilfov este gratuită și rămâne gratuită dacă alegeți să nu reparați. Grila completă e pe pagina de <a href="/preturi/">prețuri</a>, iar discuția despre când merită și când nu o reparație e pe <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum țineți baretele noi cât mai mult</h2>
+  <p>Nimic din ce urmează nu e obligatoriu, dar toate trei prelungesc viața iluminării — și sunt chiar motivele pentru care unele televizoare ajung aici la cinci ani și altele la doisprezece.</p>
+  <ul class="checks">
+    <li><strong>Coborâți luminozitatea.</strong> Din fabrică, aparatele vin reglate pentru raftul luminos de magazin. Acasă, la 40–60% se vede la fel de bine și ledurile lucrează mult mai rece.</li>
+    <li><strong>Lăsați-i aer în spate.</strong> Un televizor înfundat într-o nișă de mobilă, fără câțiva centimetri liberi în spate, își gătește singur iluminarea.</li>
+    <li><strong>Feriți-l de soare direct.</strong> Căldura care vine din față se adaugă la cea produsă înăuntru, iar folia care împrăștie lumina se deformează.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<section class="sec">
+  <p>Vedeți și: <a href="/televizorul-se-aude-dar-nu-se-vede/">televizorul se aude dar nu se vede</a>, <a href="/inlocuire-leduri-tv/">înlocuire leduri TV</a>, <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecranul televizorului</a>, <a href="/reparatii-tv-led-bucuresti/">reparații TV LED București</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/preturi/">prețuri</a>.</p>
+</section>
+
+<TrimitePoze />
+
+<Cta titlu="🔵 Televizorul se vede albastru? Sunați-ne!" text="Diagnostic gratuit la domiciliu. Spuneți-ne modelul și trimiteți o poză a ecranului aprins, pe întuneric." />
+</div>
+</Base>
