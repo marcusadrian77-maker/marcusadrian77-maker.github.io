@@ -18,7 +18,10 @@ export default defineConfig({
     '/sector-3/': '/reparatii-tv-sector-3/',
     // Sluguri vechi de servicii
     '/reparatii-laptopuri-3/': '/reparatii-laptopuri-bucuresti/',
-    '/service-reparatii-console-playstation/': '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/',
+    // URL vechi de PlayStation: trimis la pagina PS5, nu la hub.
+    // Motiv: acumuleaza 1.528 afisari (poz. 9,8) si 85 de afisari pe "reparatii ps5" (poz. 14,5),
+    // in timp ce hub-ul sta la 26,8. Autoritatea merge unde exista continut pe PS5.
+    '/service-reparatii-console-playstation/': '/reparatii-ps5-bucuresti/',
     // Articole de blog disparute la relansare -> ghidurile noi pe aceeasi tema
     '/2026/05/05/televizor-samsung-nu-porneste-cauze-solutii/': '/televizor-samsung-nu-porneste/',
     '/2026/05/07/curatare-laptop-praf-cat-de-des-de-ce-conteaza/': '/curatare-laptop-praf/',
