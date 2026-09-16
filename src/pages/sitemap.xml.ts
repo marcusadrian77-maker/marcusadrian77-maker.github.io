@@ -8,6 +8,7 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'reparatii-controllere-ps4-ps5-xbox/', 'mentenanta-console-ps4-ps5-xbox/', 'mentenanta-profesionala-pasta-termica/', 'mentenanta-periodica/',
  'reparatii-laptop-sector-6/', 'reparatii-macbook-sector-6/', 'reparatii-console-gaming-sector-6/',
  'reparatii-boxe-active-amplificatoare/', 'reparatii-monitoare-sector-6/', 'reparatii-tv-sectoare/',
+ 'presa/',
  'termeni-si-conditii/', 'politica-de-confidentialitate/', 'gdpr/',
  'televizor-samsung-nu-porneste/', 'ps5-se-opreste-singur/', 'macbook-ecran-negru/', 'curatare-laptop-praf/',
  'televizor-lg-nu-porneste/', 'laptop-se-incalzeste/',
