@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Reparații Placă de Bază MacBook | Microsoldering București';
+const desc = 'Reparăm placa logică a MacBook-ului la nivel de componentă, la microscop, în loc să o schimbăm. Intel 650–1.200 lei, Apple Silicon 1.000–1.800 lei.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cât costă repararea plăcii de bază la un MacBook?', a: 'Între 650 și 1.800 de lei. La modelele Intel intervalul este 650–1.200 lei, la cele cu Apple Silicon (M1, M2, M3, M4) 1.000–1.800 lei, pentru că plăcile sunt mai dense și componentele mai greu accesibile. Prețul ferm vi-l spunem după diagnosticare, care este gratuită.' },
+ { q: 'De ce nu schimbați pur și simplu placa?', a: 'Pentru că o placă nouă costă de multe ori cât jumătate din laptop, iar la modelele recente memoria și stocarea sunt pe ea: placă nouă înseamnă date pierdute. Dacă a cedat o componentă de câțiva lei, o găsim și o înlocuim, iar laptopul rămâne cu placa, seria și datele lui.' },
+ { q: 'Îmi recuperați datele de pe un MacBook care nu mai pornește?', a: 'La modelele din 2016 încoace SSD-ul este lipit pe placă și criptat de cipul de securitate. Singura cale de a ajunge la date este să facem placa să pornească din nou. De aceea reparația plăcii este, la aceste modele, și metoda de recuperare a datelor.' },
+ { q: 'Alt service mi-a spus că placa nu se mai repară. Mai are rost să vin?', a: 'Merită o a doua părere. Multe service-uri nu lucrează pe componentă și declară „placă moartă” orice defect care nu se rezolvă prin schimbarea unui modul. Diagnosticarea la noi e gratuită, iar dacă și noi găsim că nu se poate, vă spunem de ce.' },
+ { q: 'Cât durează?', a: 'În general 2–5 zile lucrătoare. Localizarea defectului poate dura, iar după reparație placa rulează ore întregi sub sarcină, ca să fim siguri că defectul nu revine.' },
+ { q: 'Ce garanție primesc?', a: 'Garanție scrisă de 6–12 luni, în funcție de intervenție, pe componentele înlocuite și pe manoperă.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Reparații placă de bază MacBook', name: 'Reparații placă de bază MacBook București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', priceSpecification: { '@type': 'PriceSpecification', minPrice: 650, maxPrice: 1800, priceCurrency: 'RON' }, url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Placă de bază MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🔬 PLACĂ LOGICĂ · MICROSOLDERING · RECUPERARE DATE</span>
+  <h1>Reparații Placă de Bază MacBook</h1>
+  <p class="lead">Placa logică este inima MacBook-ului și cea mai scumpă piesă din el. Când cedează, varianta comodă e „placă nouă”. Varianta noastră e alta: găsim la microscop componenta care a cedat și o înlocuim, iar laptopul rămâne cu placa și cu datele lui.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>💰 650 – 1.800 lei</span><span>💾 Datele rămân pe placă</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce înseamnă „reparat pe componentă”</h2>
+  <p>O placă de MacBook are câteva mii de componente, cele mai multe mai mici decât un bob de orez. Când laptopul nu mai pornește, nu se încarcă sau se oprește singur, de cele mai multe ori a cedat una singură: un condensator intrat în scurtcircuit, un controler de încărcare, o siguranță, un tranzistor de pe linia de alimentare.</p>
+  <p>Diagnosticarea se face pe placa scoasă din laptop, alimentată de la o sursă de laborator. Urmărim cât curent consumă și unde se încălzește, măsurăm tensiunile cu schema electronică a modelului în față, iar zona defectă o căutăm la microscop. Componenta găsită se înlocuiește prin lipire cu aer cald sau cu vârf fin, apoi placa se testează ore în șir sub sarcină.</p>
+  <p>Diferența de preț față de o placă nouă e mare, iar diferența pentru dumneavoastră e și mai mare: la modelele recente, <strong>placa nouă înseamnă date pierdute</strong>, pentru că stocarea e lipită pe ea.</p>
+</section>
+
+<section class="sec">
+  <h2>Defectele de placă pe care le reparăm cel mai des</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Nu pornește, niciun semn</h3><p>Scurtcircuit pe o linie de alimentare sau siguranță întreruptă. Cea mai frecventă reparație de placă. Pe larg în ghidul <a href="/macbook-nu-porneste/">MacBook nu pornește</a>.</p></div>
+    <div class="card"><h3>Nu se încarcă</h3><p>Controlerul portului USB-C sau circuitul de încărcare, de multe ori după un încărcător neoriginal ori o priză cu variații de tensiune.</p></div>
+    <div class="card"><h3>După lichid</h3><p>Coroziune sub componente, piste mâncate, cipuri scurtcircuitate. Se curăță, apoi se înlocuiește ce a cedat. Vedeți <a href="/macbook-lichid-varsat/">ce faceți după ce ați vărsat lichid</a>.</p></div>
+    <div class="card"><h3>Pornește și se oprește</h3><p>Una dintre tensiuni nu apare la timp și placa se protejează. Se caută circuitul care întârzie.</p></div>
+    <div class="card"><h3>Fără imagine, dar merge</h3><p>Circuitul de iluminare sau traseul de semnal spre ecran. De multe ori nu e nevoie de display nou — vedeți <a href="/inlocuire-display-macbook/">înlocuire display MacBook</a>.</p></div>
+    <div class="card"><h3>Port USB-C mort</h3><p>Portul poate fi rupt mecanic sau controlerul lui ars. Diferența se vede la măsurare, iar prețul diferă mult.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Intel sau Apple Silicon: ce se schimbă</h2>
+  <h3>MacBook cu procesor Intel (până în 2020)</h3>
+  <p>Plăcile sunt mai spațioase, schemele electronice sunt bine documentate, iar componentele se găsesc ușor. De aceea reparațiile sunt mai accesibile, între 650 și 1.200 de lei. La modelele cu cip T2 (2018–2020) stocarea e deja lipită pe placă și criptată, deci datele depind de reparația plăcii.</p>
+  <h3>MacBook cu M1, M2, M3, M4</h3>
+  <p>Plăcile sunt mai mici, mai dense, cu componente de dimensiuni microscopice, iar procesorul, memoria și stocarea sunt toate pe aceeași placă. Lucrul e mai lent și mai pretențios, de unde intervalul de 1.000–1.800 de lei. Vestea bună: electronic sunt fiabile, iar defectele lor vin mai ales din lichid și din porturi forțate, nu din uzură.</p>
+</section>
+
+<section class="sec">
+  <h2>Cât costă</h2>
+  <div class="price-row"><span>Diagnosticare, indiferent de decizie</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparație placă logică, MacBook Intel</span><b>650 – 1.200 lei</b></div>
+  <div class="price-row"><span>Reparație placă logică, MacBook Apple Silicon</span><b>1.000 – 1.800 lei</b></div>
+  <div class="price-row"><span>Curățare placă după lichid, fără componente arse</span><b>450 – 600 lei</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ componentele și manopera. Grila completă e pe <a href="/preturi/">pagina de prețuri</a>, iar pe <a href="/reparatii-macbook/">pagina de reparații MacBook</a> găsiți prețurile pe fiecare model.</p>
+</section>
+
+<section class="sec">
+  <h2>Când o placă nu se mai repară</h2>
+  <p>Există și cazuri fără soluție, și vi le spunem din prima: coroziune întinsă pe toată placa după un lichid lăsat luni de zile, procesorul sau memoria defecte la modelele Apple Silicon, ori o placă pe care s-a mai lucrat agresiv în altă parte și are piste rupte sub cipuri. În aceste situații diagnosticarea rămâne gratuită și primiți laptopul înapoi.</p>
+  <p>Dacă aveți nevoie doar de date și placa nu mai poate fi adusă la funcționare completă, vă spunem dacă o reparație parțială, doar cât să pornească și să copiem fișierele, este posibilă.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🔬 Placă „moartă”? Cereți o a doua părere" text="Diagnosticarea e gratuită. Vă spunem ce componentă a cedat și cât costă, înainte de orice lucrare." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-macbook/">reparații MacBook</a>, <a href="/macbook-nu-porneste/">MacBook nu pornește</a>, <a href="/macbook-lichid-varsat/">lichid vărsat pe MacBook</a>, <a href="/cum-alegi-service-macbook/">cum alegeți un service MacBook</a> și <a href="/reparatii-prin-curier/">reparații prin curier</a>.</p>
+</div>
+</Base>

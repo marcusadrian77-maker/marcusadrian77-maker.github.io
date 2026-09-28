@@ -22,7 +22,9 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'cat-costa-o-reparatie/',
  'reparatii-tv-langa-bucuresti/', 'reparatii-tv-ilfov/', 'reparatii-tv-giurgiu/', 'reparatii-tv-dambovita/', 'reparatii-tv-prahova/', 'reparatii-tv-ialomita/', 'reparatii-tv-calarasi/', 'reparatii-tv-teleorman/',
  'reparatii-soundbar/', 'reparatii-prin-curier/', 'cum-ajungeti-la-atelier/',
- 'macbook-nu-porneste/', 'macbook-lichid-varsat/', 'inlocuire-baterie-macbook/'];
+ 'macbook-nu-porneste/', 'macbook-lichid-varsat/', 'inlocuire-baterie-macbook/',
+ 'inlocuire-display-macbook/', 'inlocuire-tastatura-macbook/', 'reparatii-placa-de-baza-macbook/', 'cum-alegi-service-macbook/',
+ 'reparatii-macbook-sector-1/', 'reparatii-macbook-sector-2/', 'reparatii-macbook-sector-3/', 'reparatii-macbook-sector-4/', 'reparatii-macbook-sector-5/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');

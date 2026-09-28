@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { MAC_SECTOARE } from '../data/macbook-sectoare';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+
+export function getStaticPaths() {
+  return MAC_SECTOARE.map(s => ({ params: { nr: String(s.nr) }, props: { s } }));
+}
+const { s } = Astro.props;
+const url = `/reparatii-macbook-sector-${s.nr}/`;
+const title = `Service MacBook Sector ${s.nr} București | Reparații Apple`;
+const desc = `Service MacBook pentru Sectorul ${s.nr}: ${s.cartiere.slice(0, 3).join(', ')}. Reparăm pe componentă în atelierul din Militari. Diagnosticare gratuită, preț ferm.`;
+const preturi = [
+  ['Diagnosticare', 'GRATUITĂ'],
+  ['Curățare + pastă termică', '150 – 320 lei'],
+  ['Înlocuire baterie', '300 – 750 lei'],
+  ['Reparare port USB-C / MagSafe', '250 – 550 lei'],
+  ['Înlocuire tastatură', '300 – 800 lei'],
+  ['Reparație placă logică', '650 – 1.800 lei'],
+  ['Înlocuire display', '700 – 2.700 lei'],
+];
+const alte = MAC_SECTOARE.filter(x => x.nr !== s.nr);
+const schemaExtra = graf(
+  serviciu({ nume: `Service MacBook Sector ${s.nr}`, tip: 'Reparații MacBook', url, desc, sector: s.nr }),
+  breadcrumb([{ name: 'Reparații MacBook', url: '/reparatii-macbook/' }, { name: `Sector ${s.nr}`, url }]),
+  { '@type': 'FAQPage', mainEntity: s.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🍎 SERVICE MACBOOK · SECTORUL {s.nr}</span>
+  <h1>Service MacBook Sector {s.nr} București</h1>
+  <p class="lead">{s.lead}</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparații pe componentă</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>{s.titluSec}</h2>
+  <p>Nu avem punct de lucru în Sectorul {s.nr}: toate MacBook-urile se repară în atelierul din <strong>Str. Moinești 7, Militari, Sector 6</strong>, lângă Piața Gorjului și stația de metrou Gorjului. Acolo avem microscopul, stația de lipit și sursele de laborator de care e nevoie pentru o placă Apple. Deplasări la domiciliu facem doar pentru televizoare; MacBook-ul se aduce la atelier.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🚇 Cu metroul</h3><p>{s.metrou}</p></div>
+    <div class="card"><h3>🚗 Cu mașina</h3><p>{s.masina}</p></div>
+  </div>
+  <p style="margin-top:12px">Reperele exacte, parcarea și ce aduceți cu dumneavoastră sunt pe pagina <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>. Avem clienți cu MacBook din {s.cartiere.slice(0, -1).join(', ')} și {s.cartiere[s.cartiere.length - 1]}.</p>
+</section>
+
+<section class="sec">
+  <h2>{s.unghiTitlu}</h2>
+  {s.unghi.map(p => <p>{p}</p>)}
+</section>
+
+<section class="sec">
+  <h2>Ce reparăm la MacBook</h2>
+  <div class="grid g3">
+    <div class="card"><h3><a href="/reparatii-placa-de-baza-macbook/">Placă de bază</a></h3><p>Nu pornește, nu se încarcă, se oprește singur. Reparăm componenta care a cedat, la microscop.</p></div>
+    <div class="card"><h3><a href="/inlocuire-display-macbook/">Display</a></h3><p>Ecran spart, dungi, ecran negru. Verificăm întâi iluminarea și cablul flex.</p></div>
+    <div class="card"><h3><a href="/inlocuire-tastatura-macbook/">Tastatură</a></h3><p>Butterfly și Magic Keyboard, taste blocate sau dublate, inclusiv după lichid.</p></div>
+    <div class="card"><h3><a href="/inlocuire-baterie-macbook/">Baterie</a></h3><p>Baterii umflate sau care nu mai țin, cu montaj și calibrare.</p></div>
+    <div class="card"><h3><a href="/macbook-lichid-varsat/">Lichid vărsat</a></h3><p>Curățarea plăcii și înlocuirea componentelor atinse de coroziune.</p></div>
+    <div class="card"><h3><a href="/macbook-nu-porneste/">Nu pornește</a></h3><p>Ce înseamnă fiecare simptom și ce puteți încerca acasă.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Prețuri orientative</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ piesa și manopera și sunt aceleași indiferent de sectorul din care veniți. Prețul ferm îl aflați după diagnosticare. Prețurile pe fiecare model sunt pe <a href="/reparatii-macbook/">pagina de reparații MacBook</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente — Sectorul {s.nr}</h2>
+  {s.faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu={`🍎 MacBook defect în Sectorul ${s.nr}? Sunați înainte să veniți`} text="Vă spunem la telefon ce presupune reparația și cât costă, ca să faceți drumul o singură dată." />
+<p style="font-size:14px;color:var(--mut)">Service MacBook și în celelalte sectoare: {alte.map((x, i) => <span>{i > 0 ? ', ' : ''}<a href={`/reparatii-macbook-sector-${x.nr}/`}>Sectorul {x.nr}</a></span>)}, <a href="/reparatii-macbook-sector-6/">Sectorul 6</a>. Din afara Bucureștiului: <a href="/reparatii-prin-curier/">reparații prin curier</a>. Înainte să alegeți un service: <a href="/cum-alegi-service-macbook/">cum alegeți un service MacBook</a>.</p>
+</div>
+</Base>

@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Înlocuire Tastatură MacBook București | Butterfly și Magic';
+const desc = 'Taste blocate, dublate sau moarte la MacBook? Înlocuim tastaturi Butterfly și Magic Keyboard, inclusiv după lichid. 300–800 lei, diagnosticare gratuită.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cât costă înlocuirea tastaturii la MacBook?', a: 'Între 300 și 800 de lei, cu piesă și manoperă. Tastaturile Butterfly (MacBook Pro 2016–2019, MacBook Air 2018–2019) sunt la capătul de sus, 350–800 lei, pentru că se schimbă prin demontarea completă a laptopului. Magic Keyboard (modelele 2020 încoace) și tastaturile clasice sunt între 300 și 700 de lei.' },
+ { q: 'Se poate schimba doar o tastă?', a: 'Uneori da. Dacă mecanismul de sub tastă e întreg și s-a rupt doar capacul sau clema, se înlocuiește tasta individual. Dacă mecanismul Butterfly e deformat sau tasta nu mai face contact electric, o tastă nouă nu rezolvă — problema e sub ea.' },
+ { q: 'De ce e atât de scumpă înlocuirea unei tastaturi la MacBook?', a: 'Pentru că la majoritatea modelelor tastatura e fixată cu nituri de carcasa superioară, nu cu șuruburi. Ca să ajungi la ea, scoți tot: bateria, placa, difuzoarele, trackpadul. E o lucrare de câteva ore, nu de zece minute ca la un laptop obișnuit.' },
+ { q: 'Am vărsat cafea pe tastatură și unele taste nu mai merg. Ce fac?', a: 'Opriți laptopul imediat și nu-l mai porniți. Lichidul care a ajuns sub taste ajunge aproape sigur și pe placă. În acest caz tastatura e ultima grijă: întâi se curăță placa, apoi se vede dacă tastatura mai poate fi recuperată. Detalii în ghidul despre lichidul vărsat pe MacBook.' },
+ { q: 'Cât durează?', a: 'De regulă 24–48 de ore, dacă tastatura pentru modelul dumneavoastră e pe stoc. Laptopul trece după montaj printr-un test pe fiecare tastă, plus iluminare și Touch ID, unde există.' },
+ { q: 'Curățarea rezolvă tastele care se blochează?', a: 'La Butterfly, uneori, pe termen scurt: un fir de praf ajuns sub mecanism poate bloca tasta, iar aerul comprimat îl scoate. Dacă aceeași tastă revine cu problema după câteva săptămâni, mecanismul e uzat și singura soluție durabilă e înlocuirea.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Înlocuire tastatură MacBook', name: 'Înlocuire tastatură MacBook București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', priceSpecification: { '@type': 'PriceSpecification', minPrice: 300, maxPrice: 800, priceCurrency: 'RON' }, url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Înlocuire tastatură MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">⌨️ BUTTERFLY · MAGIC KEYBOARD · DUPĂ LICHID</span>
+  <h1>Înlocuire Tastatură MacBook</h1>
+  <p class="lead">Taste care scriu de două ori, taste care nu mai răspund, o tastă care rămâne apăsată. La MacBook, tastatura nu se schimbă cu câteva șuruburi: e nituită de carcasă. De aceea contează să știți dinainte ce model aveți și ce presupune lucrarea.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>💰 300 – 800 lei</span><span>⏱️ De regulă 24–48 ore</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce tastatură are MacBook-ul dumneavoastră</h2>
+  <p>Apple a folosit trei tipuri de tastatură în ultimii cincisprezece ani, iar fiecare se strică altfel. Anul modelului vă spune din prima despre care e vorba — îl găsiți în meniul Apple → Despre acest Mac.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Clasică (până în 2015)</h3><p>Taste cu cursă mare, pe mecanism „foarfecă”. Rezistente la praf. Cedează mai ales după lichid, când se oxidează membrana de contact de dedesubt.</p></div>
+    <div class="card"><h3>Butterfly (2016–2019)</h3><p>Foarte subțire, cu cursă scurtă. Un fir de praf sau o firimitură sub mecanism e de ajuns ca tasta să se blocheze ori să scrie de două ori. Cea mai problematică tastatură Apple.</p></div>
+    <div class="card"><h3>Magic Keyboard (2020 încoace)</h3><p>Apple a revenit la mecanismul foarfecă, cu cursă puțin mai mare. E mult mai fiabilă; o înlocuim de obicei după lichid sau lovituri, rar din uzură.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Simptomele și ce înseamnă</h2>
+  <ul class="checks">
+    <li><strong>O tastă scrie de două ori</strong> („mașșina”) — tipic Butterfly. Contactul dedesubt sare de două ori la o singură apăsare. Curățarea ajută uneori, temporar.</li>
+    <li><strong>O tastă nu mai scrie deloc</strong> — mecanism rupt, capac desprins sau pistă întreruptă pe membrana de contact.</li>
+    <li><strong>Mai multe taste vecine moarte</strong> — aproape întotdeauna o zonă a membranei atinsă de lichid, chiar dacă incidentul a fost acum câteva luni.</li>
+    <li><strong>Tastatura merge doar pe jumătate sau deloc, dar trackpadul merge</strong> — cablul tastaturii sau conectorul de pe placă. Aici nu e tastatura de vină și nu se schimbă.</li>
+    <li><strong>Iluminarea tastelor nu mai merge</strong> — la unele modele e separată de tastatură, la altele integrată. Verificăm înainte să vă dăm prețul.</li>
+  </ul>
+  <p style="margin-top:12px">Test simplu înainte să veniți: conectați o tastatură externă pe USB sau Bluetooth. Dacă ea scrie normal, laptopul e bun și problema e strict la tastatura lui.</p>
+</section>
+
+<section class="sec">
+  <h2>De ce durează și costă mai mult decât la alte laptopuri</h2>
+  <p>La un laptop Windows obișnuit, tastatura e fixată cu câteva șuruburi sau cleme și se schimbă în zece minute. La MacBook-urile din 2012 încoace, tastatura e fixată de carcasa superioară cu zeci de nituri mici din plastic. Ca să ajungem la ea, demontăm aproape tot laptopul: bateria, placa de bază, difuzoarele, trackpadul, ventilatorul.</p>
+  <p>Varianta oficială Apple e schimbarea întregii carcase superioare, cu tastatură, baterie și trackpad cu tot — de câteva ori mai scump. Noi scoatem niturile vechi, montăm doar tastatura nouă și o fixăm cu șuruburi miniaturale sau nituri noi, astfel încât să stea ferm și să nu se audă diferit la tastare.</p>
+  <p>Pentru că oricum demontăm tot laptopul, facem în aceeași intervenție și curățarea sistemului de răcire, dacă e nevoie. Vă spunem dinainte dacă e cazul.</p>
+</section>
+
+<section class="sec">
+  <h2>Cât costă</h2>
+  <div class="price-row"><span>Diagnosticare, indiferent de decizie</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Tastatură Butterfly (Pro 2016–2019, Air 2018–2019)</span><b>350 – 800 lei</b></div>
+  <div class="price-row"><span>Magic Keyboard sau tastatură clasică</span><b>300 – 700 lei</b></div>
+  <div class="price-row"><span>Tastă individuală, când mecanismul e întreg</span><b>după diagnosticare</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ piesa și manopera. Prețul ferm vi-l spunem după ce vedem laptopul. Grila completă e pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Dacă tastatura a luat lichid</h2>
+  <p>O tastatură udată nu e o problemă de tastatură. Lichidul trece prin ea în câteva secunde și ajunge pe placa de bază, unde începe coroziunea. Dacă doar schimbăm tastatura, laptopul poate funcționa câteva săptămâni și apoi să cedeze de la placă.</p>
+  <p>De aceea, la orice tastatură cu urme de lichid, deschidem întâi laptopul și verificăm placa. Tot procesul, cu ce e de făcut în primele minute, e explicat în ghidul <a href="/macbook-lichid-varsat/">am vărsat lichid pe MacBook</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="⌨️ Taste care nu mai merg? Diagnosticarea e gratuită" text="Spuneți-ne anul modelului și ce fac tastele — vă spunem la telefon ce presupune lucrarea." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-macbook/">reparații MacBook</a>, <a href="/macbook-lichid-varsat/">lichid vărsat pe MacBook</a>, <a href="/inlocuire-display-macbook/">înlocuire display MacBook</a>, <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a> și <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>.</p>
+</div>
+</Base>

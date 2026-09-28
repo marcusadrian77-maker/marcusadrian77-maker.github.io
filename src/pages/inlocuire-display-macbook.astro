@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Înlocuire Display MacBook București | Ecran, Backlight, Flex';
+const desc = 'Ecran spart, dungi, pete sau ecran negru la MacBook? Verificăm întâi backlightul și cablul flex, apoi înlocuim displayul doar dacă e nevoie. 700–2.700 lei.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Cât costă înlocuirea displayului la un MacBook?', a: 'Între 700 și 2.700 lei, cu piesă și manoperă. La MacBook Air și la Pro 13″ intervalul este 700–1.600 lei, la MacBook Pro 14″ și 16″ cu Apple Silicon ajunge la 1.200–2.700 lei, pentru că ansamblul de ecran e mai mare și mai scump. Prețul ferm îl aflați după diagnosticare, care este gratuită.' },
+ { q: 'Se poate schimba doar sticla, fără tot ecranul?', a: 'La MacBook-urile Retina, nu. Sticla, panoul LCD și stratul de iluminare sunt lipite într-un singur ansamblu, iar la modelele recente întreg capacul cu balamale se livrează ca o singură piesă. De aceea un ecran crăpat înseamnă, aproape mereu, ansamblu nou.' },
+ { q: 'Ecranul meu are o bandă luminoasă jos și apoi se stinge. E displayul?', a: 'De cele mai multe ori nu. Este defectul cunoscut ca „flexgate”, la MacBook Pro 13″ și 15″ din 2016–2018: cablul care alimentează iluminarea se uzează la deschiderea capacului. Se repară pe cablu sau pe circuitul de iluminare, fără display nou, la un cost mult mai mic.' },
+ { q: 'Cât durează înlocuirea?', a: 'Dacă ansamblul pentru modelul dumneavoastră este pe stoc, de regulă 24–48 de ore, inclusiv testul. Dacă trebuie comandat, vă spunem de la început termenul, înainte să lăsați laptopul.' },
+ { q: 'Folosiți ecrane originale?', a: 'Folosim ansambluri originale sau echivalente de calitate, după disponibilitate și bugetul agreat. Vă spunem clar, înainte de montaj, ce tip de piesă punem. La modelele recente, macOS poate afișa un mesaj că piesa nu e înregistrată la Apple — funcționarea nu e afectată, dar e bine să știți dinainte.' },
+ { q: 'Îmi pierd datele dacă schimbați ecranul?', a: 'Nu. Displayul este o piesă separată de stocare; datele rămân exact cum erau. Nici nu avem nevoie de parola dumneavoastră pentru înlocuire.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Înlocuire display MacBook', name: 'Înlocuire display MacBook București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', priceSpecification: { '@type': 'PriceSpecification', minPrice: 700, maxPrice: 2700, priceCurrency: 'RON' }, url: SITE.domeniu + '/preturi/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Înlocuire display MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🖥️ ECRAN · BACKLIGHT · CABLU FLEX</span>
+  <h1>Înlocuire Display MacBook</h1>
+  <p class="lead">Un ecran crăpat se vede de la un metru. Un ecran care se stinge, pâlpâie sau are o dungă luminoasă jos nu e neapărat un ecran defect. Verificăm întâi ce a cedat de fapt, și abia apoi vorbim de display nou.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>💰 700 – 2.700 lei</span><span>🛡️ Garanție scrisă</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Trei defecte care arată la fel, dar costă foarte diferit</h2>
+  <p>Pe ecranul unui MacBook, trei piese diferite pot produce aproape aceeași imagine: panoul propriu-zis, iluminarea din spatele lui și cablul flex care le leagă de placă. Doar una dintre ele cere un ansamblu nou. Celelalte două se repară, iar diferența de preț e de ordinul sutelor de lei.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Panoul e spart</h3><p>Fisuri, pete negre care se întind, zone moarte, culori care „curg” de la punctul de impact. Aici nu există reparație: sticla și cristalele lichide sunt o singură piesă, deci se înlocuiește ansamblul.</p></div>
+    <div class="card"><h3>Iluminarea a cedat</h3><p>Imaginea există, dar e foarte întunecată — o vedeți doar dacă luminați ecranul cu o lanternă din unghi. Cauza e circuitul de backlight sau cablul lui, nu panoul. Se repară fără display nou.</p></div>
+    <div class="card"><h3>Cablul flex e uzat</h3><p>Ecranul merge cu capacul pe jumătate închis și se stinge când îl deschideți complet, sau apare o bandă luminoasă jos, ca o cortină de teatru. Cablul se rupe treptat în balama.</p></div>
+  </div>
+  <p style="margin-top:12px">Testul pe care îl puteți face singur acasă: în camera întunecată, cu laptopul pornit, luminați ecranul cu lanterna telefonului, din lateral, de aproape. Dacă distingeți pictogramele, panoul e bun și problema e iluminarea. Mai multe despre asta în ghidul despre <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>„Flexgate”: MacBook Pro 2016–2018</h2>
+  <p>La MacBook Pro 13″ și 15″ din generațiile 2016–2018, Apple a folosit un cablu de iluminare prea scurt, care se îndoaie de fiecare dată când deschideți capacul. După câțiva ani, firele din interior se rup pe rând. Primul semn este o bandă mai luminoasă în partea de jos a ecranului; apoi ecranul se stinge complet peste un anumit unghi de deschidere.</p>
+  <p>Soluția oficială era schimbarea întregului ansamblu de ecran. Noi reparăm cablul sau circuitul de iluminare, iar aparatul rămâne cu panoul original, care de obicei e perfect. E una dintre situațiile în care diagnosticarea corectă vă scutește de cea mai scumpă piesă din laptop.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum se schimbă displayul la un MacBook</h2>
+  <p>La modelele Retina, ecranul nu se schimbă ca la un laptop obișnuit, unde se desfac câteva șuruburi și se scoate panoul. Aici ansamblul de ecran include sticla, panoul, iluminarea, antenele Wi-Fi și, la multe modele, balamalele. Se lucrează așa:</p>
+  <ol>
+    <li><strong>Deconectăm bateria</strong> înainte de orice altceva. O scurtă atingere cu șurubelnița pe un conector sub tensiune poate arde un circuit de pe placă.</li>
+    <li><strong>Scoatem capacul inferior și eliberăm cablurile</strong> de ecran și de antenă de pe placă.</li>
+    <li><strong>Desfacem balamalele</strong> și scoatem ansamblul vechi, fără să tensionăm cablurile care rămân în carcasă.</li>
+    <li><strong>Montăm ansamblul nou</strong>, verificăm alinierea capacului și închiderea uniformă.</li>
+    <li><strong>Testăm:</strong> luminozitate pe toată plaja, uniformitate pe fundal alb și negru, senzorul de lumină ambientală, camera, Wi-Fi-ul (antenele trec prin ecran) și închiderea-deschiderea repetată.</li>
+  </ol>
+</section>
+
+<section class="sec">
+  <h2>Cât costă înlocuirea ecranului</h2>
+  <div class="price-row"><span>Diagnosticare, indiferent de decizie</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Display MacBook Air (Intel, M1, M2, M3) și Pro 13″</span><b>700 – 1.600 lei</b></div>
+  <div class="price-row"><span>Display MacBook Pro 14″ și 16″ (Apple Silicon)</span><b>1.200 – 2.700 lei</b></div>
+  <div class="price-row"><span>Reparație backlight sau cablu flex, fără display nou</span><b>după diagnosticare</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ piesa și manopera. Diferența dintre capetele intervalului o dau diagonala, generația și dacă ansamblul se livrează cu capacul complet. Grila pentru toate reparațiile e pe <a href="/preturi/">pagina de prețuri</a>, iar pentru fiecare model în parte găsiți prețurile pe <a href="/reparatii-macbook/">pagina de reparații MacBook</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Când nu recomandăm ecran nou</h2>
+  <p>Dacă ecranul e spart pe un MacBook vechi de zece ani, cu bateria terminată și tastatura cu probleme, suma tuturor reparațiilor poate trece de valoarea unui MacBook echivalent second-hand. Vă spunem asta la diagnosticare, înainte să comandăm ceva.</p>
+  <p>Invers, pe un MacBook Air M1 sau M2 cu ecranul spart, înlocuirea merită aproape întotdeauna: restul aparatului e încă modern și mai are ani buni de folosit.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🖥️ Ecran spart sau negru? Aflați întâi ce a cedat" text="Diagnosticarea e gratuită. Vă spunem dacă e nevoie de display nou sau doar de reparat iluminarea." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-macbook/">reparații MacBook</a>, <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>, <a href="/inlocuire-tastatura-macbook/">înlocuire tastatură MacBook</a>, <a href="/reparatii-placa-de-baza-macbook/">reparații placă de bază MacBook</a> și <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>.</p>
+</div>
+</Base>

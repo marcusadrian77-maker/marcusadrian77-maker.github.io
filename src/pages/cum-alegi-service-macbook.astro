@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Cum Alegi un Service MacBook: 7 Întrebări Înainte de Reparație';
+const desc = 'Ce să întrebați un service MacBook înainte să lăsați laptopul: diagnostic, piese, garanție, date. Semnele că vi se vinde o placă nouă în loc de o reparație.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Service autorizat Apple sau service independent?', a: 'Dacă MacBook-ul e încă în garanția Apple, mergeți la autorizat: orice intervenție externă anulează garanția producătorului. În afara garanției, un service autorizat înlocuiește de regulă subansamble întregi, de exemplu placa sau carcasa superioară. Un service independent care lucrează pe componentă poate repara doar piesa care a cedat, la un cost mult mai mic.' },
+ { q: 'E normal să plătesc diagnosticarea?', a: 'Multe service-uri taxează diagnosticarea, iar unele o scad din preț dacă acceptați reparația. Important e să știți dinainte. La noi diagnosticarea e gratuită, indiferent dacă acceptați sau nu reparația.' },
+ { q: 'Ce înseamnă piese din dezmembrări?', a: 'Sunt piese scoase din alte MacBook-uri. Nu sunt neapărat proaste, dar au o vechime și o istorie necunoscute. Un service corect vă spune clar dacă montează piesă nouă, echivalentă sau recuperată și vă lasă pe dumneavoastră să alegeți.' },
+ { q: 'Pot să-mi las parola service-ului?', a: 'Pentru majoritatea reparațiilor nu e nevoie. Testele de funcționare se pot face fără contul dumneavoastră. Dacă un service insistă pe parolă pentru o schimbare de baterie sau de ecran, e o întrebare legitimă de ce.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Cum alegi un service MacBook', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Cum alegi un service MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID · ÎNAINTE SĂ LĂSAȚI LAPTOPUL</span>
+  <h1>Cum Alegi un Service MacBook</h1>
+  <p class="lead">Același MacBook, cu același defect, poate primi în două service-uri devize care diferă de trei-patru ori. Diferența nu e noroc: ține de cum lucrează fiecare. Iată ce să întrebați înainte să lăsați laptopul, ca să știți pentru ce plătiți.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>De ce diferă atât de mult prețurile</h2>
+  <p>Există două feluri de a repara un MacBook. Primul schimbă subansamblul întreg: placă de bază nouă pentru un condensator ars, carcasă superioară nouă pentru o tastatură cu două taste moarte, ecran complet pentru un cablu de iluminare rupt. E rapid, previzibil și scump.</p>
+  <p>Al doilea caută piesa care a cedat și o înlocuiește doar pe ea: componenta de pe placă, tastatura fără carcasă, cablul fără ecran. Cere aparatură, experiență și timp, dar costul e o fracțiune din primul, iar la modelele recente păstrează și datele, pentru că stocarea stă pe placă.</p>
+  <p>Niciuna nu e „greșită”. Dar e bine să știți pe care o primiți, iar întrebările de mai jos vă ajută s-o aflați.</p>
+</section>
+
+<section class="sec">
+  <h2>7 întrebări de pus înainte să lăsați MacBook-ul</h2>
+  <ol>
+    <li><strong>Cât costă diagnosticarea și ce se întâmplă dacă nu accept reparația?</strong> Unele service-uri o taxează, altele nu. Contează să știți dinainte, ca să nu plătiți ca să vă luați laptopul înapoi.</li>
+    <li><strong>Reparați placa sau o înlocuiți?</strong> Răspunsul vă spune din ce categorie face parte service-ul. Un „nu se repară, se schimbă” spus înainte de a deschide laptopul e un semn de întrebare.</li>
+    <li><strong>Ce piesă montați: nouă, echivalentă sau din dezmembrări?</strong> Toate trei există pe piață. Aveți dreptul să știți care ajunge în laptopul dumneavoastră.</li>
+    <li><strong>Prețul pe care mi-l spuneți e final?</strong> Cereți un preț ferm după diagnosticare, nu un „în jur de”. Dacă apar defecte noi în timpul lucrului, un service serios vă sună înainte să continue.</li>
+    <li><strong>Ce garanție dați și pe ce?</strong> Garanția trebuie să fie scrisă și să acopere și piesa, și manopera. Întrebați ce se întâmplă dacă defectul revine.</li>
+    <li><strong>Ce se întâmplă cu datele mele?</strong> Pentru o baterie sau un ecran nu e nevoie de parola dumneavoastră. La o placă defectă, întrebați dacă reparația păstrează stocarea.</li>
+    <li><strong>Cât durează și unde se face?</strong> Unele service-uri trimit plăcile la alt atelier. E bine să știți dacă laptopul stă la ei sau pleacă mai departe.</li>
+  </ol>
+</section>
+
+<section class="sec">
+  <h2>Semne că vi se vinde mai mult decât trebuie</h2>
+  <ul class="checks">
+    <li><strong>Diagnostic „placă arsă” fără ca laptopul să fi fost deschis.</strong> Nimeni nu știe ce are o placă fără s-o măsoare.</li>
+    <li><strong>Ecran nou propus pentru un ecran care doar s-a stins.</strong> De multe ori e iluminarea sau cablul flex, reparabile fără display nou. Vedeți <a href="/inlocuire-display-macbook/">înlocuire display MacBook</a>.</li>
+    <li><strong>Carcasă superioară completă pentru câteva taste.</strong> Tastatura se poate schimba separat. Vedeți <a href="/inlocuire-tastatura-macbook/">înlocuire tastatură MacBook</a>.</li>
+    <li><strong>Presiune să decideți pe loc.</strong> Un deviz corect rămâne valabil și mâine.</li>
+    <li><strong>Preț care se schimbă la ridicare.</strong> Dacă suma finală diferă de cea spusă, fără să fi fost sunat, e un semnal clar.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Cum lucrăm noi, pe scurt</h2>
+  <p>Ca să aveți cu ce compara, iată cum arată aceleași șapte puncte la atelierul nostru din Militari:</p>
+  <div class="grid g2">
+    <div class="card"><h3>Diagnosticare gratuită</h3><p>Indiferent dacă acceptați reparația. Dacă nu, primiți laptopul înapoi, fără cost.</p></div>
+    <div class="card"><h3>Reparăm pe componentă</h3><p>La microscop, cu schema modelului în față. Schimbăm subansamblul doar când chiar nu există altă cale, și vă spunem de ce.</p></div>
+    <div class="card"><h3>Vă spunem ce piesă montăm</h3><p>Originală sau echivalentă de calitate, după disponibilitate și buget, stabilit cu dumneavoastră înainte de montaj.</p></div>
+    <div class="card"><h3>Preț ferm, garanție scrisă</h3><p>Prețul se spune după diagnosticare și nu se schimbă pe parcurs. Garanție de 6–12 luni, pe piesă și manoperă.</p></div>
+  </div>
+  <p style="margin-top:12px">Prețurile noastre pe fiecare tip de reparație sunt pe <a href="/reparatii-macbook/">pagina de reparații MacBook</a>. Ce spun clienții găsiți pe aceeași pagină, în recenziile lor de pe Google.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🍎 Aveți deja un deviz? Cereți o a doua părere" text="Diagnosticarea e gratuită. Comparați înainte să decideți." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-placa-de-baza-macbook/">reparații placă de bază MacBook</a>, <a href="/macbook-nu-porneste/">MacBook nu pornește</a>, <a href="/cat-costa-o-reparatie/">cât costă o reparație</a> și <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>.</p>
+</div>
+</Base>
