@@ -29,7 +29,7 @@ export function familie(m: Mac): Familie {
 }
 
 export function pretPlaca(m: Mac): string {
-  return m.cpu === 'intel' ? '300 – 700 lei' : '400 – 800 lei';
+  return m.cpu === 'intel' ? '650 – 1.200 lei' : '1.000 – 1.800 lei';
 }
 
 /* ---------- title si meta ---------- */
@@ -269,10 +269,10 @@ export function despreBaterie(m: Mac): string {
     `Producătorul dă bateriei circa ${cicluri} de cicluri de încărcare. După ele nu se strică brusc, dar autonomia se reduce an de an.`,
   ]);
   const final = v(m, [
-    'Înlocuirea costă 200 – 500 de lei, cu baterie nouă și calibrare, cu garanție de 12 luni.',
-    'Schimbarea ei se încadrează între 200 și 500 de lei, piesă și manoperă, cu 12 luni garanție.',
-    'O baterie nouă, montată și calibrată, costă 200 – 500 de lei și vine cu garanție de un an.',
-    'Lucrarea costă între 200 și 500 de lei, include calibrarea și are garanție scrisă de 12 luni.',
+    'Înlocuirea costă 300 – 750 de lei, cu baterie nouă și calibrare, cu garanție de 12 luni.',
+    'Schimbarea ei se încadrează între 300 și 750 de lei, piesă și manoperă, cu 12 luni garanție.',
+    'O baterie nouă, montată și calibrată, costă 300 – 750 de lei și vine cu garanție de un an.',
+    'Lucrarea costă între 300 și 750 de lei, include calibrarea și are garanție scrisă de 12 luni.',
   ]);
   return `${deschidere} ${cap} ${umflare} ${final}`;
 }
@@ -341,14 +341,14 @@ export function cazDinAtelier(m: Mac): string {
 
 export function preturiModel(m: Mac): [string, string][] {
   const f = familie(m);
-  const ecran = f === 'pro-mare' || f === 'pro-silicon' ? '700 – 1.500 lei' : '500 – 1.200 lei';
-  const tastatura = m.tast === 'butterfly' ? '350 – 700 lei' : '300 – 600 lei';
+  const ecran = f === 'pro-mare' || f === 'pro-silicon' ? '1.200 – 2.700 lei' : '700 – 1.600 lei';
+  const tastatura = m.tast === 'butterfly' ? '350 – 800 lei' : '300 – 700 lei';
   const port = m.alim === 'magsafe3' ? 'Reparare port MagSafe 3 / USB-C' : m.alim === 'magsafe2' ? 'Reparare mufă MagSafe 2' : 'Reparare port USB-C';
   return [
     ['Diagnosticare', 'GRATUITĂ'],
-    ['Curățare + pastă termică', '100 – 200 lei'],
-    ['Înlocuire baterie', '200 – 500 lei'],
-    [port, '150 – 350 lei'],
+    ['Curățare + pastă termică', '150 – 320 lei'],
+    ['Înlocuire baterie', '300 – 750 lei'],
+    [port, '250 – 550 lei'],
     ['Înlocuire tastatură', tastatura],
     ['Reparație placă logică (microsoldering)', pretPlaca(m)],
     ['Înlocuire ansamblu ecran', ecran],
