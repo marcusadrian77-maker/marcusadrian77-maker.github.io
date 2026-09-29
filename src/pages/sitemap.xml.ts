@@ -24,7 +24,8 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'reparatii-soundbar/', 'reparatii-prin-curier/', 'cum-ajungeti-la-atelier/',
  'macbook-nu-porneste/', 'macbook-lichid-varsat/', 'inlocuire-baterie-macbook/',
  'inlocuire-display-macbook/', 'inlocuire-tastatura-macbook/', 'reparatii-placa-de-baza-macbook/', 'cum-alegi-service-macbook/',
- 'reparatii-macbook-sector-1/', 'reparatii-macbook-sector-2/', 'reparatii-macbook-sector-3/', 'reparatii-macbook-sector-4/', 'reparatii-macbook-sector-5/'];
+ 'reparatii-macbook-sector-1/', 'reparatii-macbook-sector-2/', 'reparatii-macbook-sector-3/', 'reparatii-macbook-sector-4/', 'reparatii-macbook-sector-5/',
+ 'greseli-service-tv/', 'mituri-reparatii-televizoare/', 'din-atelier-sony-kd-55xe8096-emmc/'];
 
 export const GET: APIRoute = ({ site }) => {
   const base = (site ?? 'https://www.reparatiielectronice.ro').toString().replace(/\/$/, '');

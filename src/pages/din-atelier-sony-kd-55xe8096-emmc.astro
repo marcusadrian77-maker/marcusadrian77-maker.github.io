@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = 'Din Atelier: Sony KD-55XE8096 cu Memoria eMMC Uzată';
+const desc = 'Un caz real din atelierul din Militari: Sony Bravia KD-55XE8096 din 2018, memoria internă eMMC înlocuită și sistemul rescris. Ce e eMMC-ul și de ce cedează.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Ce este memoria eMMC a unui televizor?', a: 'Este memoria internă a unui Smart TV: acolo stau sistemul de operare, aplicațiile și setările. E același tip de memorie flash ca într-un telefon, lipită direct pe placa principală.' },
+ { q: 'De ce se uzează eMMC-ul?', a: 'Memoria flash suportă un număr limitat de scrieri. Un Smart TV scrie în ea constant: actualizări, aplicații, cache. După 6–8 ani, la multe modele Android TV, celulele uzate încep să producă erori, iar sistemul nu mai pornește corect.' },
+ { q: 'Se poate repara la domiciliu?', a: 'Nu. Înlocuirea și programarea eMMC-ului cer stație de lipit cu aer cald, microscop și programator. De aceea televizorul vine în atelier, iar transportul îl facem noi.' },
+ { q: 'Cât costă?', a: 'Dacă memoria e doar coruptă și poate fi rescrisă, intervenția e între 50 și 150 de lei. Dacă cipul e uzat fizic și trebuie înlocuit, costul e mai mare și vi-l spunem după diagnosticare, înainte de orice lucrare.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Sony KD-55XE8096 cu memoria eMMC uzată — un caz din atelier', description: desc, url: canonical, inLanguage: 'ro',
+   image: [SITE.domeniu + '/img/sony-xe8096-placa.webp', SITE.domeniu + '/img/sony-xe8096-test.webp'],
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Sony KD-55XE8096 — eMMC', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+const fig = (src: string, alt: string, cap: string, w: number, h: number) => ({ src, alt, cap, w, h });
+const poze = [
+  fig('sony-xe8096-desfacut.webp', 'Televizorul Sony KD-55XE8096 desfăcut pe bancul de lucru', 'Capacul din spate scos: sursa în stânga, placa principală în dreapta.', 1400, 1050),
+  fig('sony-xe8096-placa.webp', 'Placa principală a televizorului Sony KD-55XE8096', 'Placa principală, pe care se află memoria eMMC.', 1400, 1050),
+  fig('sony-xe8096-test.webp', 'Televizor Sony în test pe bancul atelierului după reparație', 'După reparație: în test pe banc, cu imagine, sunet și aplicații.', 1400, 1050),
+];
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🔧 CAZ REAL · DIN ATELIER</span>
+  <h1>Sony KD-55XE8096 cu Memoria eMMC Uzată</h1>
+  <p class="lead">Un Sony Bravia de 55 de inch, fabricat în 2018, cu Android TV. Unul dintre cele mai frecvente cazuri care ajung pe bancul nostru: panoul în stare bună, iar defectul în memoria internă (eMMC) de pe placa principală. Am înlocuit memoria și am rescris sistemul.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Aparatul</h2>
+  <p>KD-55XE8096 face parte din seria XE80 lansată de Sony în 2017–2018: panou LED de 55 de inch, 4K, cu Android TV. E un televizor bun, cu un panou care arată încă foarte bine după opt ani. Tocmai de aceea, când cedează ceva în spatele lui, merită reparat.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce se întâmplă cu memoria unui Smart TV</h2>
+  <p>Un Smart TV e, în interior, un mic calculator. Sistemul de operare, aplicațiile, actualizările și setările stau pe o memorie flash de tip eMMC, lipită direct pe placa principală, la fel ca la un telefon.</p>
+  <p>Memoria flash nu e eternă: fiecare celulă suportă un număr limitat de scrieri. Iar un televizor Android scrie în ea tot timpul — actualizări de sistem, actualizări de aplicații, cache de streaming. După 6–8 ani, la multe modele, celulele uzate încep să dea erori. Simptomele tipice: televizorul rămâne la siglă, repornește în buclă, se încarcă foarte greu sau aplicațiile se închid singure.</p>
+  <p>O resetare din fabrică nu ajută aici: problema nu e în setări, ci în memoria fizică. Am explicat de ce la <a href="/mituri-reparatii-televizoare/">miturile despre reparația televizoarelor</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum decurge o astfel de lucrare</h2>
+  <div class="grid g2" style="align-items:start">
+    <figure style="margin:0"><img src={'/img/' + poze[0].src} alt={poze[0].alt} width={poze[0].w} height={poze[0].h} loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;display:block" /><figcaption style="font-size:13.5px;color:var(--mut);margin-top:6px">{poze[0].cap}</figcaption></figure>
+    <figure style="margin:0"><img src={'/img/' + poze[1].src} alt={poze[1].alt} width={poze[1].w} height={poze[1].h} loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;display:block" /><figcaption style="font-size:13.5px;color:var(--mut);margin-top:6px">{poze[1].cap}</figcaption></figure>
+  </div>
+  <ol style="margin-top:14px">
+    <li><strong>Diagnosticul.</strong> Se verifică întâi alimentarea: dacă sursa dă tensiunile corecte și placa principală pornește, dar sistemul nu se încarcă, zona suspectă e memoria.</li>
+    <li><strong>Demontarea.</strong> Se scoate capacul din spate și placa principală, fără să atingem panoul. Un panou de 55 de inch se lucrează întins pe spate, pe o suprafață moale.</li>
+    <li><strong>Înlocuirea memoriei.</strong> Cipul eMMC vechi se scoate cu aer cald, sub microscop, iar pe locul lui se lipește unul nou.</li>
+    <li><strong>Programarea.</strong> Memoria nouă e goală: pe ea se scrie, cu programator, sistemul de operare potrivit pentru model.</li>
+    <li><strong>Testul.</strong> Televizorul rulează pe banc: canale, HDMI, aplicații, reporniri repetate. Abia după aceea se predă.</li>
+  </ol>
+  <figure style="margin:14px auto;max-width:760px"><img src={'/img/' + poze[2].src} alt={poze[2].alt} width={poze[2].w} height={poze[2].h} loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;display:block" /><figcaption style="font-size:13.5px;color:var(--mut);margin-top:6px">{poze[2].cap}</figcaption></figure>
+</section>
+
+<section class="sec">
+  <h2>De ce nu am schimbat placa</h2>
+  <p>Varianta comodă era o placă principală nouă. Ar fi rezolvat problema, dar la un preț mult mai mare, pentru o placă din care se uzase o singură componentă. Restul plăcii era în regulă și a rămas în aparat.</p>
+  <p>E exact tipul de situație despre care am scris în <a href="/greseli-service-tv/">ce greșesc des service-urile TV</a>: diferența dintre a înlocui subansamblul și a repara componenta care a cedat.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce înseamnă pentru dumneavoastră</h2>
+  <p>Dacă aveți un Smart TV de 6–8 ani, mai ales cu Android TV, care se blochează la siglă sau repornește singur, verificați întâi dacă nu e doar o problemă de software, cu o resetare. Dacă nu ajută, e aproape sigur memoria. Nu e un motiv să aruncați televizorul: panoul e de obicei perfect.</p>
+  <p>Televizorul vine în atelier pentru această lucrare; transportul îl facem noi, gratuit. Sunați cu modelul de pe etichetă și vă spunem de la telefon dacă e cazul.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="📺 Televizorul se blochează la siglă?" text="Spuneți-ne modelul. Vă spunem dacă e memoria și cât costă, înainte de orice lucrare." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/televizor-se-restarteaza-singur/">televizorul se restartează singur</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/mituri-reparatii-televizoare/">mituri despre reparația televizoarelor</a> și <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>.</p>
+</div>
+</Base>

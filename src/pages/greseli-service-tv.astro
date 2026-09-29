@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = 'Ce Greșesc Des Service-urile TV (și Cum Vă Feriți)';
+const desc = 'Placă nouă în loc de o componentă, sursă schimbată fără să afli de ce a ars, diagnostic „la telefon”. Cinci greșeli frecvente la reparațiile TV și ce să întrebați.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'De unde știu dacă un service repară sau doar schimbă plăci?', a: 'Întrebați direct, înainte să lăsați aparatul: „dacă e placa, o reparați sau o înlocuiți?”. Un service care lucrează pe componentă vă va spune că întâi măsoară și abia apoi decide. Dacă răspunsul e „se schimbă placa” înainte ca televizorul să fie deschis, aveți răspunsul.' },
+ { q: 'E rău dacă mi se înlocuiește placa întreagă?', a: 'Nu întotdeauna. Uneori placa e distrusă de un trăsnet sau de lichid și înlocuirea e soluția corectă. Problema apare când se schimbă o placă întreagă pentru o componentă de câțiva lei, iar prețul reflectă placa, nu defectul.' },
+ { q: 'Cât ar trebui să dureze testul după reparație?', a: 'Cel puțin câteva zeci de minute pentru un defect simplu, și mai mult pentru defectele intermitente sau cele de alimentare. Un televizor care se oprește după 20 de minute nu arată defectul în primele 5.' },
+ { q: 'Cât costă, orientativ, reparațiile cele mai frecvente?', a: 'Sursa de alimentare, iluminarea LED și placa principală se încadrează de regulă între 150 și 400 de lei fiecare, cu piesă și manoperă. Panoul, adică ecranul propriu-zis, e altă categorie: 400–1.200 de lei sau mai mult, în funcție de diagonală.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Ce greșesc des service-urile TV', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Ce greșesc service-urile TV', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🧭 DIN ATELIER · OPINIE</span>
+  <h1>Ce Greșesc Des Service-urile TV</h1>
+  <p class="lead">După peste 25 de ani în reparații, vedem săptămânal televizoare care au mai trecut printr-un service. Multe au fost „reparate” corect. Altele au primit o placă scumpă pentru o componentă de câțiva lei, sau au revenit la noi cu același defect după o lună. Iată greșelile pe care le vedem cel mai des și cum le puteți evita.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>1. Schimbă placa, în loc să repare componenta</h2>
+  <p>Este cea mai scumpă greșeală pentru client. O placă de televizor are sute de componente. Când se defectează, de cele mai multe ori a cedat una singură: un condensator umflat, o siguranță, un tranzistor, o diodă. Găsirea ei cere timp, aparat de măsură și schema plăcii.</p>
+  <p>Varianta rapidă e să comanzi placa întreagă și s-o montezi. Pentru service e comod: nu caută nimic, nu riscă nimic. Pentru client, înseamnă să plătească o placă întreagă în loc de o componentă și manoperă. Diferența e adesea de câteva sute de lei.</p>
+  <p><strong>Cum vă feriți:</strong> întrebați înainte dacă placa se repară sau se înlocuiește. Pentru o sursă de alimentare sau o placă principală, o reparație pe componentă se încadrează de regulă în 150–400 de lei.</p>
+</section>
+
+<section class="sec">
+  <h2>2. Repară efectul, nu și cauza</h2>
+  <p>Un exemplu pe care îl întâlnim des: televizorul nu mai pornește, sursa de alimentare are o siguranță arsă. Se schimbă siguranța, televizorul pornește, clientul pleacă mulțumit. După două săptămâni, siguranța arde din nou.</p>
+  <p>Siguranța nu arde singură. A ars pentru că în spatele ei ceva a tras prea mult curent: o bandă de LED-uri în scurtcircuit, un tranzistor de putere străpuns, un condensator pe ducă. Dacă nu se găsește și acel lucru, reparația e doar amânată.</p>
+  <p>La fel cu iluminarea: dacă se schimbă doar banda de LED-uri arsă, iar celelalte, la fel de vechi, rămân, următoarea cedează curând. De aceea benzile se schimbă ca set. Am scris despre asta pe larg la <a href="/inlocuire-leduri-tv/">înlocuirea ledurilor TV</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>3. Pune diagnosticul la telefon</h2>
+  <p>„Nu pornește? E placa, costă 700 de lei.” Un astfel de diagnostic, dat fără ca televizorul să fie deschis, e o estimare, nu un diagnostic. Același simptom poate avea cinci cauze diferite, cu prețuri care variază de la 150 la 700 de lei.</p>
+  <p>La telefon se poate face o orientare corectă: pe baza modelului, a simptomului și a ledului din față, un tehnician cu experiență poate spune care e zona probabilă și ce interval de preț să vă așteptați. Dar prețul ferm vine după măsurare.</p>
+  <p><strong>Cum vă feriți:</strong> întrebați dacă diagnosticarea se face pe aparat și dacă e gratuită. La noi e, indiferent dacă acceptați sau nu reparația.</p>
+</section>
+
+<section class="sec">
+  <h2>4. Nu spune ce piesă montează</h2>
+  <p>Pe piață circulă trei feluri de piese: noi originale, noi compatibile și recuperate din televizoare dezmembrate. Toate au rostul lor. O piesă recuperată dintr-un aparat de același model poate fi singura soluție pentru un televizor vechi.</p>
+  <p>Problema nu e piesa, ci faptul că nu vi se spune. O placă recuperată are o vechime și o istorie necunoscute; dacă e montată la prețul unei plăci noi și fără să vi se spună, ați plătit mai mult decât trebuia pentru ceva care poate ceda mai repede.</p>
+</section>
+
+<section class="sec">
+  <h2>5. Predă aparatul fără test serios</h2>
+  <p>Multe defecte apar abia după ce televizorul se încălzește: se stinge după 20 de minute, pâlpâie după o oră, repornește seara. Un test de cinci minute nu prinde nimic din toate acestea.</p>
+  <p>După o reparație, televizorul trebuie lăsat să meargă: pe canale, pe HDMI, în aplicații, cu luminozitatea la maxim, suficient cât să se încălzească. Dacă defectul era intermitent, testul durează și mai mult. Am descris cazul la <a href="/televizor-se-restarteaza-singur/">televizorul care se restartează singur</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum lucrăm noi</h2>
+  <p>Nu pretindem că nu greșim niciodată. Dar avem câteva reguli pe care le respectăm la fiecare aparat:</p>
+  <ul class="checks">
+    <li><strong>Diagnosticare gratuită, pe aparat</strong>, indiferent dacă acceptați reparația.</li>
+    <li><strong>Reparăm pe componentă</strong> și schimbăm subansamblul doar când nu există altă cale — și vă spunem de ce.</li>
+    <li><strong>Căutăm cauza, nu doar efectul</strong>: dacă a ars ceva, aflăm ce l-a făcut să ardă.</li>
+    <li><strong>Vă spunem ce piesă montăm</strong> și de unde vine.</li>
+    <li><strong>Preț ferm înainte</strong>, garanție scrisă de 6–12 luni pe piesă și manoperă.</li>
+  </ul>
+  <p style="margin-top:12px">Dacă aveți deja un deviz de la alt service și vi se pare mare, sunați-ne. O a doua părere nu costă nimic. Prețurile noastre orientative sunt pe <a href="/preturi/">pagina de prețuri</a>, iar de ce costă cât costă am explicat în <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="📺 Aveți un deviz care vi se pare mare?" text="Cereți o a doua părere. Diagnosticarea este gratuită." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/mituri-reparatii-televizoare/">mituri despre reparația televizoarelor</a>, <a href="/din-atelier-sony-kd-55xe8096-emmc/">un caz din atelier: Sony cu memoria uzată</a> și <a href="/reparatii-tv-sectoare/">reparații TV la domiciliu</a>.</p>
+</div>
+</Base>

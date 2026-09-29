@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = '7 Mituri Despre Reparația Televizoarelor, Explicate';
+const desc = '„Nu merită reparat un TV vechi”, „dacă nu are imagine, e ecranul”, „orezul usucă tot”. Șapte lucruri pe care le auzim zilnic și ce e adevărat în ele.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Merită reparat un televizor de 7–8 ani?', a: 'Dacă panoul, adică ecranul propriu-zis, e întreg, de cele mai multe ori da. Sursa, iluminarea și placa principală se repară între 150 și 400 de lei, mult sub prețul unui televizor nou de aceeași diagonală.' },
+ { q: 'Cum aflu dacă ecranul e bun?', a: 'Dacă se aude sunetul dar ecranul e negru, luminați ecranul cu lanterna telefonului, din lateral, de aproape. Dacă distingeți imaginea, panoul e bun și problema e iluminarea, care se repară.' },
+ { q: 'Ce nu se repară la un televizor?', a: 'Un panou crăpat sau lovit. Se poate doar înlocui, iar la multe modele panoul nou costă cât un televizor nou. În acest caz vă spunem direct că nu merită.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: '7 mituri despre reparația televizoarelor', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Mituri despre reparația televizoarelor', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra}>
+<div class="hero"><div class="wrap">
+  <span class="badge">💡 DIN ATELIER · CE E ADEVĂRAT</span>
+  <h1>7 Mituri Despre Reparația Televizoarelor</h1>
+  <p class="lead">Le auzim zilnic la telefon. Unele sunt pe jumătate adevărate, altele îi fac pe oameni să arunce televizoare perfect reparabile, iar câteva transformă o reparație mică într-una mare. Iată ce e de fapt adevărat.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Mitul 1: „Nu mai merită reparat, e vechi”</h2>
+  <p>Vârsta contează mai puțin decât credeți. Ce contează e ce s-a stricat. Panoul, adică ecranul propriu-zis, e partea scumpă: cam două treimi din valoarea televizorului. Tot ce e în spatele lui — sursa, placa principală, benzile de LED-uri — se repară sau se înlocuiește la o fracțiune din preț.</p>
+  <p>Un televizor de 55 de inch de șapte ani, cu sursa arsă, se repară de regulă cu 150–400 de lei. Unul echivalent nou costă de câteva ori mai mult. Regula noastră: dacă panoul e întreg, reparația merită aproape întotdeauna.</p>
+</section>
+
+<section class="sec">
+  <h2>Mitul 2: „Se aude, dar nu se vede — s-a dus ecranul”</h2>
+  <p>De cele mai multe ori, ecranul e bun. Ce a cedat e iluminarea din spatele lui: benzile de LED-uri sau circuitul care le alimentează. Imaginea există, doar că nu mai e luminată.</p>
+  <p>Testul pe care îl puteți face singur: în camera întunecată, luminați ecranul cu lanterna telefonului, din lateral. Dacă vedeți imaginea, panoul e bun. Totul, pas cu pas, la <a href="/televizorul-se-aude-dar-nu-se-vede/">televizorul se aude dar nu se vede</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Mitul 3: „Dacă îl mai pornesc de câteva ori, poate își revine”</h2>
+  <p>E invers. Un televizor care a început să facă zgomote, să miroasă a ars sau să se stingă singur are o componentă care cedează. Fiecare pornire trece curent prin ea și poate duce defectul mai departe: de la o siguranță la sursă, de la sursă la placa principală.</p>
+  <p>Mai ales după o furtună sau o pană de curent: dacă nu pornește din prima, nu insistați. Am explicat de ce la <a href="/televizor-trasnit/">televizorul trăsnit</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Mitul 4: „Resetarea din fabrică rezolvă orice”</h2>
+  <p>Rezolvă problemele de software: aplicații care nu se deschid, meniuri lente, setări stricate. Nu rezolvă nimic hardware. Un televizor care se blochează la siglă din cauza memoriei interne uzate va rămâne blocat, oricâte resetări primește.</p>
+  <p>La Smart TV-urile de 6–8 ani, memoria internă (eMMC) se uzează ca orice memorie flash. Soluția e înlocuirea sau rescrierea ei cu programator, nu resetarea. Un exemplu concret găsiți în <a href="/din-atelier-sony-kd-55xe8096-emmc/">cazul unui Sony cu memoria uzată</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Mitul 5: „Un ecran spart se repară”</h2>
+  <p>Acesta e mitul care, din păcate, e fals în sens invers: un panou crăpat, lovit sau cu pete negre care se întind nu are reparație. Se poate doar înlocui. Iar la multe modele, panoul nou costă cât un televizor nou.</p>
+  <p>Ce se poate verifica: dacă e cu adevărat panoul. Uneori, dungile verticale sau o jumătate de ecran întunecat vin de la placa T-CON sau de la cablul panoului, care se repară. De aceea diagnosticăm întâi.</p>
+</section>
+
+<section class="sec">
+  <h2>Mitul 6: „Service-ul va găsi oricum ceva de schimbat”</h2>
+  <p>Temerea e înțeleasă și nu e complet nefondată: există service-uri care schimbă plăci întregi pentru o componentă de câțiva lei. Am scris despre asta separat, la <a href="/greseli-service-tv/">ce greșesc des service-urile TV</a>.</p>
+  <p>Protecția e simplă: diagnosticare gratuită, preț ferm spus înainte de orice intervenție și dreptul de a refuza fără cost. La noi, dacă reparația nu merită, vă spunem direct și nu plătiți nimic.</p>
+</section>
+
+<section class="sec">
+  <h2>Mitul 7: „Televizorul trebuie dus la service”</h2>
+  <p>Pentru majoritatea defectelor, nu. Sursa, iluminarea, placa principală și placa T-CON se repară la domiciliu, cu televizorul întins pe o masă. Transportul unui panou mare e, de fapt, un risc: se poate fisura dacă e ținut greșit.</p>
+  <p>Doar lucrările care cer microscop sau test de câteva ore se fac în atelier — și atunci transportul îl facem noi. Detalii la <a href="/reparatii-tv-sectoare/">reparații TV la domiciliu</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="📺 Nu știți dacă merită reparat?" text="Spuneți-ne modelul și ce face televizorul. Vă spunem sincer, la telefon, dacă are sens." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>, <a href="/greseli-service-tv/">ce greșesc des service-urile TV</a> și <a href="/preturi/">prețuri</a>.</p>
+</div>
+</Base>
