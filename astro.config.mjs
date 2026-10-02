@@ -27,5 +27,10 @@ export default defineConfig({
     '/2026/05/07/curatare-laptop-praf-cat-de-des-de-ce-conteaza/': '/curatare-laptop-praf/',
     '/2026/05/14/ps5-se-opreste-singur-supraincalzire-cauze-solutii/': '/ps5-se-opreste-singur/',
     '/2026/05/16/macbook-ecran-negru-cauze-solutii/': '/macbook-ecran-negru/',
+    // Adrese vechi pe care Google le mai cere (404 in Statistici accesare, sept. 2026)
+    '/reparatii-televizoare-bucuresti/': '/reparatii-televizoare/',
+    '/reparatii-televizoare-bucuresti/reparatii-televizoare-sector-4/': '/reparatii-tv-sector-4/',
+    '/reparatii-tablete-bucuresti/': '/',
+    '/Reparatii/': '/',
   },
 });
