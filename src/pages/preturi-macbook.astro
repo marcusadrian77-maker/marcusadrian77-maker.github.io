@@ -64,11 +64,11 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <tbody>
     {g.lista.map(m => <tr>
       <td><a href={'/reparatii-macbook/' + m.slug + '/'}><strong>{m.cod}</strong></a><br /><span style="font-size:13px;color:var(--mut)">{m.nume}</span></td>
-      <td>{m.an}</td>
-      <td>{baterie(m)}</td>
-      <td>{tastatura(m)}</td>
-      <td>{ecran(m)}</td>
-      <td>{placa(m)}</td>
+      <td style="white-space:nowrap">{m.an}</td>
+      <td style="white-space:nowrap">{baterie(m)}</td>
+      <td style="white-space:nowrap">{tastatura(m)}</td>
+      <td style="white-space:nowrap">{ecran(m)}</td>
+      <td style="white-space:nowrap">{placa(m)}</td>
     </tr>)}
     </tbody>
   </table>
