@@ -11,10 +11,10 @@ const desc = 'Televizorul are imagine dar nu are sunet? Verificări rapide acas�
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'Televizorul are imagine dar nu are sunet. De unde încep?', a: 'Începeți cu setările: verificați să nu fie activat modul mut, apoi intrați în meniul de sunet și asigurați-vă că ieșirea audio e pe „difuzoare TV" și nu pe HDMI ARC, optic sau Bluetooth. Foarte multe cazuri se rezolvă aici, mai ales după o actualizare de software sau după ce cineva a conectat o boxă Bluetooth.' },
- { q: 'Se aude distorsionat, hârâit sau prea încet. Ce înseamnă?', a: 'Sunetul spart sau înfundat vine de obicei de la difuzoarele propriu-zise, la care membrana s-a deteriorat, sau de la amplificatorul audio de pe placa principală. Dacă hârâitul apare doar peste un anumit volum, e aproape sigur difuzorul. Dacă e prezent la orice volum, se uită la amplificator.' },
- { q: 'Cât costă repararea sunetului la televizor?', a: 'Înlocuirea unui difuzor costă în general între 80 și 200 de lei, manoperă inclusă. Reparația circuitului de amplificare audio de pe placa principală intră în același interval, 80–200 de lei. Dacă e nevoie de placă principală întreagă, costul urcă la 200–500 de lei. Diagnosticarea e gratuită.' },
+ { q: 'Se aude distorsionat, hârâit sau prea încet. Ce înseamnă?', a: 'Sunetul spart sau înfundat vine de obicei de la difuzoarele propriu-zise, la care membrana s-a deteriorat, sau de la amplificatorul audio de pe placa principală. Dacă hârâitul apare doar peste un anumit volum, e aproape sigur difuzorul — iar difuzoare nu înlocuim. Dacă e prezent la orice volum, cauza e de regulă amplificatorul, pe care îl reparăm.' },
+ { q: 'Cât costă repararea sunetului la televizor?', a: 'Reparația circuitului de amplificare audio de pe placa principală costă în general între 80 și 200 de lei, manoperă inclusă. Dacă e nevoie de placă principală întreagă, costul urcă la 200–500 de lei. Difuzoare nu înlocuim. Diagnosticarea e gratuită.' },
  { q: 'Sunetul dispare și revine singur. Ce poate fi?', a: 'Cel mai des e o lipitură obosită pe circuitul audio: contactul se face și se pierde în funcție de temperatura plăcii, de aceea sunetul dispare după ce televizorul se încălzește sau reapare când e rece. Se rezolvă prin relipire, o intervenție ieftină. Mai rar, poate fi un cablu de difuzor slăbit în conector.' },
- { q: 'Am sunet prin căști dar nu prin difuzoarele televizorului. Ce înseamnă?', a: 'Este un semn bun: partea de procesare audio funcționează, deci problema e după ea — fie amplificatorul care alimentează difuzoarele, fie difuzoarele în sine. Sunt exact cazurile cele mai ieftine de reparat. Verificați totuși întâi ca mufa de căști să nu fi rămas „blocată" în poziția conectat.' },
+ { q: 'Am sunet prin căști dar nu prin difuzoarele televizorului. Ce înseamnă?', a: 'Este un semn bun: partea de procesare audio funcționează, deci problema e după ea — fie amplificatorul care alimentează difuzoarele, fie difuzoarele în sine. Amplificatorul îl reparăm la nivel de componentă; difuzoare nu înlocuim. Verificați totuși întâi ca mufa de căști să nu fi rămas „blocată" în poziția conectat.' },
  { q: 'Merită reparat un televizor doar pentru sunet?', a: 'În marea majoritate a cazurilor, da. Vorbim despre o reparație de 80–200 de lei la un aparat care altfel funcționează perfect. Alternativa — o soundbar — costă mai mult și lasă defectul nerezolvat. Vă spunem sincer dacă apare vreo situație în care nu merită.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -56,7 +56,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <h2>Cauzele reale ale defectului</h2>
 
   <h3>Difuzoare defecte</h3>
-  <p>Membrana difuzorului se degradează în timp, mai ales dacă televizorul a fost ținut mult timp la volum mare. Simptomul tipic: sunet spart sau hârâit care apare doar peste un anumit volum, iar la volum mic pare în regulă. Uneori se aude doar dintr-o parte. Difuzoarele se înlocuiesc și e printre cele mai ieftine reparații.</p>
+  <p>Membrana difuzorului se degradează în timp, mai ales dacă televizorul a fost ținut mult timp la volum mare. Simptomul tipic: sunet spart sau hârâit care apare doar peste un anumit volum, iar la volum mic pare în regulă. Uneori se aude doar dintr-o parte. E singurul defect de sunet pe care nu îl rezolvăm: difuzoare nu înlocuim. Vă spunem la diagnosticare dacă aici e problema.</p>
 
   <h3>Amplificatorul audio de pe placă</h3>
   <p>Cipul care alimentează difuzoarele stă pe placa principală și cedează din cauza supraîncălzirii sau a unei supratensiuni. Când se arde complet, sunetul dispare de tot; când e doar slăbit, sunetul e prea încet chiar și la volum maxim. Îl înlocuim la nivel de componentă, prin microsoldare — nu schimbăm toată placa pentru un singur cip.</p>
@@ -74,7 +74,6 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <section class="sec">
   <h2>💰 Cât costă reparația</h2>
   <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
-  <div class="price-row"><span>Înlocuire difuzor</span><b>80 – 200 lei</b></div>
   <div class="price-row"><span>Reparare circuit audio (amplificator)</span><b>80 – 200 lei</b></div>
   <div class="price-row"><span>Refacere lipituri pe placă</span><b>120 – 250 lei</b></div>
   <div class="price-row"><span>Reparare placă de bază</span><b>200 – 500 lei</b></div>

@@ -23,7 +23,7 @@ const defecte = [
  ['Nu se mai încarcă', 'Mufa USB-C sau micro-USB desprinsă de pe placă ori uzată mecanic — cel mai frecvent defect la boxele portabile. Se înlocuiește conectorul.'],
  ['Bateria nu mai ține', 'Acumulatorul Li-Ion s-a degradat după 300–500 de cicluri. Se înlocuiește cu unul de aceeași capacitate, cu protecție.'],
  ['Baterie umflată', 'Carcasa se bombează sau se desface singură. Se oprește folosirea imediat și se înlocuiește acumulatorul — e și o problemă de siguranță.'],
- ['Sunet distorsionat sau spart', 'Membrana difuzorului e ruptă sau bobina mobilă e frecată. Se înlocuiește difuzorul.'],
+ ['Sunet distorsionat sau spart', 'Amplificator defect sau acumulator care nu mai ține tensiunea la volum mare. Dacă e ruptă membrana difuzorului, vă spunem — difuzoare nu înlocuim.'],
  ['Nu se mai conectează Bluetooth', 'Modul Bluetooth defect, antenă desprinsă sau firmware blocat. De multe ori se rezolvă fără piese.'],
  ['Un difuzor mut', 'Amplificator pe un canal defect sau fir desprins de la difuzor.'],
  ['Se oprește singură', 'Contact prost la baterie, protecție termică sau placă cu microfisuri după o cădere.'],
@@ -33,21 +33,20 @@ const defecte = [
 
 const preturi = [
  ['Reparare port de alimentare / înlocuire baterie', '50 – 120 lei'],
- ['Înlocuire difuzor', '50 – 150 lei'],
  ['Reparare Bluetooth / conectivitate', '60 – 150 lei'],
  ['Reparare amplificator intern', '80 – 200 lei'],
 ];
 
 const faq = [
  { q: 'Merită reparată o boxă portabilă sau e mai bine să cumpăr alta?', a: 'Depinde de aparat. La o boxă de 150–250 lei, dacă defectul e pe placă, de multe ori nu merită. La o JBL Charge, Xtreme, Boombox, Marshall sau Bose, unde aparatul nou costă 700–2.500 lei, o înlocuire de mufă sau de baterie de 50–120 lei este clar rentabilă. Vă spunem sincer după diagnosticare, care este gratuită.' },
- { q: 'Cât durează o reparație de boxă portabilă?', a: 'Intervențiile uzuale — mufă de încărcare, baterie, difuzor — se fac de regulă în 24–48 de ore. Dacă e nevoie de o piesă comandată special, vă spunem termenul înainte să începem.' },
+ { q: 'Cât durează o reparație de boxă portabilă?', a: 'Intervențiile uzuale — mufă de încărcare, baterie, Bluetooth — se fac de regulă în 24–48 de ore. Dacă e nevoie de o piesă comandată special, vă spunem termenul înainte să începem.' },
  { q: 'Boxa mea a luat apă. Mai poate fi salvată?', a: 'Deseori da, dar contează timpul. Nu o puneți la încărcat și nu încercați să o porniți — curentul prin plăcile ude face cel mai mare rău. Aduceți-o cât mai repede; o demontăm, curățăm oxidul și o uscăm controlat.' },
  { q: 'Reparați și boxe fără marcă sau mai ieftine?', a: 'Da, dacă piesele se pot procura. La aparatele foarte ieftine vă spunem din start dacă reparația nu se justifică față de preț — nu vă ținem aparatul degeaba.' },
  { q: 'Aveți garanție la reparația unei boxe?', a: 'Da, 6–12 luni la manoperă și la piesele montate de noi, în funcție de tipul intervenției. Garanția se dă scris, pe bon.' },
  { q: 'Trebuie să vin cu încărcătorul?', a: 'Da, dacă îl mai aveți. Ne ajută la testare și uneori problema este chiar în încărcător sau în cablu, nu în boxă.' },
 ];
 
-const desc = 'Reparații boxe portabile și Bluetooth în București: JBL, Sony, Bose, Anker. Mufă de încărcare, baterie, difuzor. Diagnostic gratuit, garanție 6–12 luni.';
+const desc = 'Reparații boxe portabile și Bluetooth în București: JBL, Sony, Bose, Anker. Mufă de încărcare, baterie, Bluetooth. Diagnostic gratuit, garanție 6–12 luni.';
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaSEO = graf(
   serviciu({ nume: 'Reparatii boxe portabile si Bluetooth', tip: 'Reparatii audio portabil', url: '/reparatii-boxe-portabile-bluetooth/', desc }),
@@ -58,7 +57,7 @@ const schemaSEO = graf(
 <Base title="Reparații Boxe Portabile și Bluetooth | JBL, Sony, Bose" description={desc} image={IMG.ogBoxe} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <h1>Reparații Boxe Portabile și Bluetooth</h1>
-  <p class="lead">Reparăm boxe portabile JBL, Sony, Marshall, Bose, Anker Soundcore și Ultimate Ears în București, în atelierul din Militari, Sector 6. Mufă de încărcare, baterie, difuzor, Bluetooth. Diagnostic gratuit, garanție 6–12 luni.</p>
+  <p class="lead">Reparăm boxe portabile JBL, Sony, Marshall, Bose, Anker Soundcore și Ultimate Ears în București, în atelierul din Militari, Sector 6. Mufă de încărcare, baterie, amplificator, Bluetooth. Diagnostic gratuit, garanție 6–12 luni.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
@@ -67,8 +66,8 @@ const schemaSEO = graf(
 
 <section class="sec">
   <h2>🔋 Ce reparăm la o boxă portabilă</h2>
-  <p>Boxele Bluetooth se strică aproape întotdeauna în aceleași trei locuri: mufa de încărcare, acumulatorul și difuzorul. Sunt aparate purtate prin geantă, scăpate pe jos și încărcate zilnic, iar mufa USB-C este piesa care cedează prima. Toate trei se rezolvă la nivel de componentă, fără să schimbăm placa — și de aceea reparația costă o fracțiune din prețul unei boxe noi.</p>
-  <p>Lucrăm cu stație de lipit cu aer cald și microscop, ceea ce contează la plăcile mici și dense din boxele portabile, unde o mufă smulsă ia cu ea și traseele de sub ea. Avem peste 30.000 de piese pe stoc și suntem partener ASWO, așa că mufele, acumulatorii și difuzoarele uzuale le avem de regulă la noi.</p>
+  <p>Boxele Bluetooth se strică aproape întotdeauna în aceleași locuri: mufa de încărcare, acumulatorul și partea de amplificare. Sunt aparate purtate prin geantă, scăpate pe jos și încărcate zilnic, iar mufa USB-C este piesa care cedează prima. Toate se rezolvă la nivel de componentă, fără să schimbăm placa — și de aceea reparația costă o fracțiune din prețul unei boxe noi. Difuzoare nu înlocuim: dacă membrana e ruptă, vă spunem la diagnosticare.</p>
+  <p>Lucrăm cu stație de lipit cu aer cald și microscop, ceea ce contează la plăcile mici și dense din boxele portabile, unde o mufă smulsă ia cu ea și traseele de sub ea. Avem peste 30.000 de piese pe stoc și suntem partener ASWO, așa că mufele și acumulatorii uzuali îi avem de regulă la noi.</p>
   <div class="grid g3">
     {defecte.map(d => <div class="card-soft"><strong>🔴 {d[0]}</strong><span>{d[1]}</span></div>)}
   </div>
