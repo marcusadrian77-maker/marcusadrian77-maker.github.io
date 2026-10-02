@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import { SITE, NAV_SERVICII, SCHEMA_LOCALBUSINESS } from '../data/site';
 import { IMG } from '../data/images';
-export interface Props { title: string; description: string; schemaExtra?: object | null; image?: string; }
-const { title, description, schemaExtra = null, image = IMG.ogDefault } = Astro.props;
+export interface Props { title: string; description: string; schemaExtra?: object | null; image?: string; noindex?: boolean; }
+const { title, description, schemaExtra = null, image = IMG.ogDefault, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const ogImage = new URL(image, SITE.domeniu).href;
 // Imaginea hero e fundal CSS doar pe homepage — o preincarcam doar acolo,
@@ -18,6 +18,7 @@ const esteAcasa = Astro.url.pathname === '/' || Astro.url.pathname === '';
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, follow" />}
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
