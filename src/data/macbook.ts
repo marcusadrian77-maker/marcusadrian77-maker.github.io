@@ -22,13 +22,13 @@ export const MACURI: Mac[] = [
   {
     slug: 'pro-13-a1706', nume: 'MacBook Pro 13" Touch Bar', scurt: 'MacBook Pro 13" A1706', cod: 'A1706',
     an: '2016–2017', diag: '13,3"', cpu: 'intel', tast: 'butterfly', alim: 'usbc', note: 'flex',
-    specific: 'A1706 este varianta completă a generației 2016–2017: patru porturi Thunderbolt 3, Touch Bar și cip T1 pentru Touch ID. Are un avantaj practic important față de fratele său A1708 — memoria de stocare stă pe un conector propriu, nu lipită de placă. Când placa are o problemă gravă, stocarea se poate scoate și citi separat, iar datele nu se pierd odată cu aparatul.',
+    specific: 'A1706 este varianta completă a generației 2016–2017: patru porturi Thunderbolt 3, Touch Bar și cip T1 pentru Touch ID. Are și un dezavantaj practic față de fratele său A1708 — memoria de stocare este lipită direct pe placă. Apple a prevăzut pe placă un conector special pentru salvarea datelor, dar când placa are o problemă gravă, cea mai sigură cale spre date rămâne repararea circuitului, la microscop.',
     simptom: 'Cea mai frecventă reclamație pentru A1706: Touch Bar-ul care rămâne stins sau afișează doar o parte din butoane, în timp ce restul laptopului funcționează normal.',
   },
   {
     slug: 'pro-13-a1708', nume: 'MacBook Pro 13" fără Touch Bar', scurt: 'MacBook Pro 13" A1708', cod: 'A1708',
     an: '2016–2017', diag: '13,3"', cpu: 'intel', tast: 'butterfly', alim: 'usbc', note: 'flex',
-    specific: 'A1708 este varianta de bază a generației: două porturi Thunderbolt, taste funcționale clasice în locul Touch Bar-ului și, prin urmare, o placă mai simplă. Partea neplăcută este că aici stocarea e lipită direct pe placă. Dacă placa cedează, datele nu se pot scoate mutând un modul în alt aparat — trebuie reparat circuitul, ceea ce noi facem la microscop.',
+    specific: 'A1708 este varianta de bază a generației: două porturi Thunderbolt, taste funcționale clasice în locul Touch Bar-ului și, prin urmare, o placă mai simplă. Partea bună este că aici stocarea stă pe un modul separat, prins într-un conector, nu lipită pe placă. Dacă placa cedează, modulul se poate scoate și citi în afara aparatului, iar datele nu se pierd odată cu el.',
     simptom: 'Cea mai frecventă reclamație pentru A1708: aparatul care nu mai pornește după ce a stat descărcat complet câteva săptămâni, semn aproape sigur al circuitului de încărcare.',
   },
   {
