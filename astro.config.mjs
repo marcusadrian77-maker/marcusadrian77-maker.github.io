@@ -32,5 +32,7 @@ export default defineConfig({
     '/reparatii-televizoare-bucuresti/reparatii-televizoare-sector-4/': '/reparatii-tv-sector-4/',
     '/reparatii-tablete-bucuresti/': '/',
     '/Reparatii/': '/',
+    // Pagina scoasa pe 2 oct 2026: nu inlocuim difuzoare
+    '/difuzoare-microfon-macbook/': '/reparatii-macbook/',
   },
 });
