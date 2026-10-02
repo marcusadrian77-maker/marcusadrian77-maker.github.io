@@ -99,6 +99,7 @@ const schema = graf(
 <section class="sec">
   <h2>Ecranul</h2>
   <p>{despreEcran(m)}</p>
+  {m.note === 'flex' && <p>Defectul, testul de făcut acasă și cum se repară cablul fără ecran nou: <a href="/flexgate-macbook-pro/">Flexgate la MacBook Pro</a>.</p>}
 </section>
 
 <section class="sec">
@@ -109,6 +110,7 @@ const schema = graf(
 <section class="sec">
   <h2>Datele de pe aparat</h2>
   <p>{despreRecuperare(m)}</p>
+  <p>Pe larg, pentru toate generațiile: <a href="/recuperare-date-macbook/">recuperare date de pe MacBook</a>.</p>
 </section>
 
 <section class="sec">
@@ -118,7 +120,7 @@ const schema = graf(
     {preturi.map(([ce, cat]) => <tr><td>{ce}</td><td><strong>{cat}</strong></td></tr>)}
     </tbody>
   </table>
-  <p>{notaPret(m)} Grila completă e pe pagina de <a href="/preturi/">prețuri</a>, iar discuția despre când merită și când nu merită o reparație e pe <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
+  <p>{notaPret(m)} Comparația cu celelalte modele e în tabelul de <a href="/preturi-macbook/">prețuri MacBook pe model</a>, grila pentru toate aparatele e pe pagina de <a href="/preturi/">prețuri</a>, iar discuția despre când merită și când nu merită o reparație e pe <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
 </section>
 
 <section class="sec">
@@ -148,7 +150,7 @@ const schema = graf(
 )}
 
 <section class="sec">
-  <p>Vedeți și: <a href="/reparatii-macbook/">reparații MacBook București</a>, <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>, <a href="/macbook-lichid-varsat/">MacBook cu lichid vărsat</a>, <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a>, <a href="/reparatii-macbook-sector-6/">service MacBook Sector 6</a>.</p>
+  <p>Vedeți și: <a href="/reparatii-macbook/">reparații MacBook București</a>, <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>, <a href="/macbook-lichid-varsat/">MacBook cu lichid vărsat</a>, <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a>, <a href="/difuzoare-microfon-macbook/">difuzoare și microfon</a>, <a href="/rescriere-efi-macbook/">rescriere EFI</a>, <a href="/reparatii-macbook-sector-6/">service MacBook Sector 6</a>.</p>
 </section>
 
 <TrimitePoze />
