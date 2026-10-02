@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Rescriere EFI / BIOS MacBook | Firmware Corupt, București';
+const desc = 'MacBook mort după o actualizare? La modelele Intel rescriem cipul EFI cu programatorul; la T2 și Apple Silicon refacem firmware-ul prin DFU. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Ce este EFI-ul la un MacBook?', a: 'Este programul care rulează înaintea sistemului de operare: pornește componentele, verifică memoria și predă controlul către macOS. La laptopurile obișnuite i se spune BIOS. La MacBook-urile Intel stă într-un cip mic de memorie de pe placă.' },
+ { q: 'Cum se strică un firmware?', a: 'Cel mai des, printr-o actualizare întreruptă: bateria s-a terminat sau laptopul a fost închis forțat exact când se scria firmware-ul. Mai rar, cipul în sine se defectează ori e atins de lichid.' },
+ { q: 'Se pierd datele la rescrierea EFI?', a: 'La modelele Intel fără T2, nu: cipul EFI e separat de stocare și rescrierea lui nu atinge datele. La modelele cu T2 și Apple Silicon încercăm întâi procedura care păstrează datele. Dacă aceea nu reușește, singura rămasă le șterge, și vă întrebăm înainte.' },
+ { q: 'Se poate face acasă?', a: 'La modelele cu T2 și Apple Silicon, da, dacă aveți un al doilea Mac și cablul potrivit: procedura e documentată public de Apple. La modelele Intel mai vechi e nevoie de programator și de fișierul de firmware corect pentru placa respectivă, deci nu.' },
+ { q: 'Am uitat parola de firmware. Mă puteți ajuta?', a: 'Nu. Pentru o parolă de firmware uitată sau pentru un Mac blocat prin Activation Lock, calea corectă este Apple, cu dovada de achiziție a aparatului. Pagina aceasta e despre firmware corupt, nu despre deblocări.' },
+ { q: 'Cât costă?', a: 'Depinde de model și de metodă: la un model Intel se lucrează cu programatorul direct pe cip, la cele noi prin cablu, de pe alt Mac. Prețul îl aflați după diagnosticare, care e gratuită — și abia atunci știm sigur că firmware-ul e de vină.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Rescriere EFI MacBook', name: 'Rescriere EFI / BIOS MacBook București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Rescriere EFI MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🧩 FIRMWARE · EFI · DFU</span>
+  <h1>Rescriere EFI / BIOS la MacBook</h1>
+  <p class="lead">Un MacBook poate avea toate componentele bune și totuși să nu pornească, pentru că programul care îl pornește e stricat. Se întâmplă de obicei după o actualizare întreruptă. Firmware-ul se rescrie — cu programatorul la modelele Intel, prin cablu la cele noi.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Lucrare pe placă</span><span>🛡️ Garanție scrisă</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Semne că e firmware-ul</h2>
+  <ul class="checks">
+    <li><strong>A rămas mort după o actualizare.</strong> Bara de progres s-a oprit, laptopul s-a închis și de atunci nu mai face nimic. E indiciul cel mai clar.</li>
+    <li><strong>Pornește, dar nu ajunge nicăieri.</strong> Se aude ventilatorul, poate se aprinde iluminarea tastelor, dar nu apare nici sunetul de start, nici mărul.</li>
+    <li><strong>Pornește și se oprește în buclă</strong>, la câteva secunde, fără să afișeze ceva.</li>
+  </ul>
+  <p style="margin-top:12px">Aceleași simptome le dă însă și un defect de alimentare pe placă, care e mult mai frecvent. De aceea nu rescriem firmware „ca să vedem dacă merge”: întâi măsurăm tensiunile plăcii. Dacă alimentarea e în regulă și placa tot nu pornește, abia atunci ne uităm la EFI. Despre restul cauzelor: <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce nu ține de firmware</h2>
+  <ul class="checks">
+    <li><strong>Folderul cu semnul întrebării</strong> — laptopul a pornit corect, dar nu găsește sistemul de operare. E o problemă de stocare sau de macOS.</li>
+    <li><strong>Semnul de interdicție</strong> — a găsit un sistem pe care modelul nu-l poate rula.</li>
+    <li><strong>Imagine doar cu lanterna pe ecran</strong> — iluminarea ecranului. Vedeți <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Cum se face, pe generații</h2>
+  <div class="grid g2">
+    <div class="card"><h3>MacBook Intel fără cip T2 (până în 2017)</h3><p>Firmware-ul stă într-un cip de memorie cu opt pini, lipit pe placă. Îl citim cu programatorul și păstrăm o copie a conținutului vechi. Scriem apoi un firmware curat, potrivit exact pentru placa respectivă, în care se păstrează numărul de serie al aparatului. Datele de pe stocare nu sunt atinse.</p></div>
+    <div class="card"><h3>MacBook cu T2 (2018–2020) și Apple Silicon</h3><p>Aici nu se lucrează cu programatorul. Laptopul se pune în modul DFU și se leagă prin cablu de un alt Mac, de pe care se reface firmware-ul. Există două variante: una care păstrează datele și una care șterge tot. Se încearcă întotdeauna prima.</p></div>
+  </div>
+  <p style="margin-top:12px">La modelele Intel, dacă cipul în sine e defect și nu mai acceptă scrierea, îl înlocuim cu unul nou și scriem firmware-ul pe acela.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce nu facem</h2>
+  <p>Rescrierea firmware-ului poate fi folosită și pentru a ocoli protecțiile unui aparat. Nu facem asta. Nu scoatem parole de firmware, nu ocolim Activation Lock și nu eliminăm profiluri de administrare ale unei firme. Dacă laptopul e al dumneavoastră și ați uitat parola, Apple o resetează pe baza dovezii de achiziție.</p>
+</section>
+
+<section class="sec">
+  <h2>Înainte să veniți</h2>
+  <ul class="checks">
+    <li>Spuneți-ne <strong>codul modelului</strong> (pe capacul de jos, „Model A” plus patru cifre). De el depinde metoda.</li>
+    <li>Spuneți-ne <strong>ce s-a întâmplat înainte</strong>: actualizare, lichid, cădere, încărcător nou. Scurtează diagnosticarea.</li>
+    <li>Dacă aveți <strong>date importante</strong> pe el, spuneți de la început. Vedeți <a href="/recuperare-date-macbook/">recuperare date MacBook</a>.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🧩 MacBook mort după o actualizare?" text="Spuneți-ne modelul și ce s-a întâmplat. Diagnosticarea este gratuită." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/reparatii-placa-de-baza-macbook/">reparații placă de bază MacBook</a>, <a href="/recuperare-date-macbook/">recuperare date MacBook</a>, <a href="/preturi-macbook/">prețuri MacBook pe model</a> și <a href="/reparatii-macbook/">reparații MacBook București</a>.</p>
+</div>
+</Base>

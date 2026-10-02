@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Flexgate MacBook Pro | Reparație Cablu Display, București';
+const desc = 'Bandă de lumină jos pe ecran sau ecran care se stinge la deschiderea capacului? E cablul de iluminare, nu ecranul. MacBook Pro 2016–2017. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Ce este Flexgate?', a: 'Numele dat de utilizatori unui defect al MacBook Pro din 2016–2017: cablurile flexibile care alimentează iluminarea ecranului sunt prea scurte, se întind la fiecare deschidere a capacului și, cu timpul, se rup.' },
+ { q: 'Ce modele sunt afectate?', a: 'MacBook Pro 13" și 15" din 2016 și 2017, cu și fără Touch Bar: codurile A1706, A1708 și A1707. La modelele din 2018 Apple a lungit cablul, iar defectul apare mult mai rar.' },
+ { q: 'Trebuie schimbat tot ecranul?', a: 'Nu neapărat. Cablul face parte din ansamblul ecranului, de aceea soluția standard este înlocuirea ansamblului complet. Cablul se poate însă repara separat, prin lipire fină la microscop, cu ecranul original păstrat.' },
+ { q: 'Cum îmi dau seama că e cablul și nu ecranul?', a: 'Deschideți capacul foarte încet. Dacă la un unghi mic imaginea e normală, iar peste un anumit unghi ecranul se stinge, e cablul. Un panou defect arată la fel indiferent de unghi.' },
+ { q: 'Apple nu repară gratuit acest defect?', a: 'A existat un program de service pentru iluminarea ecranului, dar numai pentru modelele de 13 inch din 2016 și pe o perioadă limitată de la cumpărare. Pentru aparatele de acum, programul nu mai acoperă nimic.' },
+ { q: 'Cât costă?', a: 'Prețul îl aflați după diagnosticare, care e gratuită. Rostul reparației pe cablu este tocmai să evitați costul unui ansamblu de ecran nou, care la aceste modele este între 700 și 2.700 de lei, după diagonală.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Reparație cablu display MacBook Pro', name: 'Reparație Flexgate MacBook Pro București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Flexgate MacBook Pro', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🖥️ A1706 · A1708 · A1707</span>
+  <h1>Flexgate la MacBook Pro: Cablul de Display</h1>
+  <p class="lead">Jos pe ecran a apărut o bandă de lumină neuniformă, ca reflectoarele unei scene. După câteva luni, ecranul se stinge de tot când deschideți capacul mai mult de jumătate. Nu e ecranul stricat. E un cablu de câțiva centimetri, iar el se poate repara.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Lipire la microscop</span><span>🖥️ Ecranul original rămâne</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>De ce se întâmplă</h2>
+  <p>Începând cu 2016, Apple a înlocuit cablurile de ecran clasice cu niște benzi flexibile foarte subțiri, care trec peste balama. La modelele din 2016 și 2017, benzile care duc curentul spre iluminare au fost făcute puțin prea scurte. La fiecare deschidere a capacului se întind și se îndoaie strâns în zona balamalei.</p>
+  <p>Un laptop se deschide de câteva ori pe zi. După doi, trei, patru ani, banda cedează: întâi parțial, apoi complet. De aceea defectul apare la aparate îngrijite, care n-au fost niciodată scăpate sau udate.</p>
+</section>
+
+<section class="sec">
+  <h2>Cele două stadii</h2>
+  <div class="grid g2">
+    <div class="card"><h3>1. „Luminile de scenă”</h3><p>În partea de jos a ecranului apar zone luminoase alternate cu zone mai întunecate, la distanțe egale. O parte din LED-urile de iluminare nu mai primesc curent. Laptopul se poate folosi, dar defectul avansează.</p></div>
+    <div class="card"><h3>2. Ecranul se stinge la deschidere</h3><p>Cu capacul deschis puțin, imaginea e normală. Peste un anumit unghi, iluminarea se stinge complet. Laptopul merge în continuare: pe un monitor extern imaginea apare.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Testul de făcut acasă</h2>
+  <ol>
+    <li>Porniți laptopul și închideți capacul aproape de tot.</li>
+    <li>Deschideți-l încet, câte puțin, privind ecranul.</li>
+    <li>Dacă imaginea e normală la unghi mic și dispare când treceți de un anumit punct, e cablul.</li>
+  </ol>
+  <p>Dacă ecranul e negru la orice unghi, dar cu o lanternă se ghicește imaginea, defectul poate fi tot cablul, rupt complet, sau circuitul de iluminare de pe placă. Arată la fel și se deosebesc doar prin măsurare. Despre celelalte cauze: <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Ecran nou sau cablu reparat</h2>
+  <p>Cablul nu e o piesă care se scoate dintr-un conector. Face corp comun cu ansamblul ecranului, motiv pentru care soluția standard este înlocuirea întregului ansamblu: capac, panou, cabluri, tot. Pentru un laptop din 2016–2017, asta poate însemna o parte bună din valoarea lui.</p>
+  <p>Varianta a doua este repararea cablului. Ecranul se demontează de pe laptop, se desface zona de jos a ansamblului, iar porțiunea ruptă a benzii se reface sau se prelungește prin lipire fină, la microscop, astfel încât să nu mai stea întinsă la deschidere. Panoul, capacul și camera rămân cele din fabrică.</p>
+  <p>Nu orice ecran poate fi salvat așa. Dacă banda s-a rupt chiar la intrarea în panou, sau dacă odată cu ea s-au ars și LED-urile de iluminare, rămâne doar ansamblul nou. Vă spunem după diagnosticare în care caz sunteți, înainte de orice lucrare. Despre înlocuirea completă: <a href="/inlocuire-display-macbook/">înlocuire display MacBook</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Modelele afectate</h2>
+  <ul class="checks">
+    <li><a href="/reparatii-macbook/pro-13-a1706/"><strong>MacBook Pro 13" Touch Bar A1706</strong></a> — 2016–2017</li>
+    <li><a href="/reparatii-macbook/pro-13-a1708/"><strong>MacBook Pro 13" fără Touch Bar A1708</strong></a> — 2016–2017</li>
+    <li><a href="/reparatii-macbook/pro-15-a1707/"><strong>MacBook Pro 15" Touch Bar A1707</strong></a> — 2016–2017</li>
+  </ul>
+  <p style="margin-top:12px">La modelele din 2018 (A1989, A1990) cablul e mai lung și defectul apare rar. La MacBook Air și la modelele cu Apple Silicon, o imagine care dispare la mișcarea capacului are de obicei altă cauză și se diagnostichează separat.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🖥️ Ecranul se stinge când deschideți capacul?" text="Faceți testul de mai sus și sunați-ne cu rezultatul. Diagnosticarea este gratuită." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/inlocuire-display-macbook/">înlocuire display MacBook</a>, <a href="/macbook-ecran-negru/">MacBook cu ecran negru</a>, <a href="/preturi-macbook/">prețuri MacBook pe model</a>, <a href="/cum-alegi-service-macbook/">cum alegeți un service MacBook</a> și <a href="/reparatii-macbook/">reparații MacBook București</a>.</p>
+</div>
+</Base>

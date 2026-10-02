@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Recuperare Date MacBook care Nu Mai Pornește | București';
+const desc = 'MacBook mort, cu poze și documente pe el? La modelele noi, datele se salvează doar reparând placa. Ce se poate și ce nu, pe generații. Diagnosticare gratuită.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'MacBook-ul nu mai pornește deloc. Mai pot fi salvate datele?', a: 'De cele mai multe ori, da, dar calea depinde de model. La modelele cu stocare pe modul separat, modulul se scoate și se citește în afara laptopului. La modelele cu cip T2 și la cele cu Apple Silicon, datele se pot citi doar pe placa originală, deci întâi reparăm placa atât cât să pornească.' },
+ { q: 'Se poate scoate SSD-ul și pune în alt laptop?', a: 'Doar la modelele mai vechi: MacBook Air până în 2017, MacBook Pro Retina până în 2015 și MacBook Pro 13" fără Touch Bar din 2016–2017. La restul, memoria e lipită pe placă. Iar din 2018 încoace e și criptată cu o cheie care rămâne în placa originală, deci mutată în altă parte nu se mai poate citi.' },
+ { q: 'Dacă schimb placa de bază, rămân datele?', a: 'Nu. O placă nouă vine cu stocarea ei, goală. De aceea, când datele contează, se repară placa existentă, nu se înlocuiește.' },
+ { q: 'Am FileVault activat. E o problemă?', a: 'Nu, cât timp știți parola de utilizator sau cheia de recuperare. Fără ele, datele nu pot fi citite de nimeni, nici dacă laptopul e reparat perfect. E exact ce trebuie să facă FileVault.' },
+ { q: 'Există cazuri în care datele nu se mai pot recupera?', a: 'Da, și le spunem deschis. Dacă au cedat chiar cipurile de memorie sau, la modelele noi, procesorul de care sunt legate, datele sunt pierdute. La fel dacă placa e ruptă fizic prin zona respectivă. Vă spunem după diagnosticare în care situație sunteți, înainte să plătiți ceva.' },
+ { q: 'Cât costă?', a: 'Depinde de ce trebuie făcut ca datele să devină accesibile: la un model cu modul separat e o lucrare mică, la unul cu memoria lipită înseamnă o reparație de placă. Prețul îl aflați după diagnosticare, care e gratuită.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Recuperare date MacBook', name: 'Recuperare date MacBook București', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Recuperare date MacBook', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">💾 POZE · DOCUMENTE · PROIECTE</span>
+  <h1>Recuperare Date de pe MacBook</h1>
+  <p class="lead">Laptopul nu mai pornește, iar pe el sunt lucruri care nu există nicăieri altundeva. Vestea bună: de cele mai multe ori datele sunt intacte, doar că nu mai ajungeți la ele. Vestea mai puțin bună: la MacBook-urile din 2018 încoace, drumul spre ele trece prin repararea plăcii.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă, la microscop</span><span>📦 Și prin curier</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Întâi, ce să nu faceți</h2>
+  <ul class="checks">
+    <li><strong>Nu-l mai porniți de zeci de ori.</strong> Dacă e un scurtcircuit pe placă, fiecare încercare poate întinde defectul.</li>
+    <li><strong>Dacă a fost lichid, nu-l puneți la încărcat.</strong> Curentul peste umezeală face coroziune în câteva ore. Vedeți <a href="/macbook-lichid-varsat/">ce faceți când ați vărsat lichid pe MacBook</a>.</li>
+    <li><strong>Nu acceptați „placă nouă” fără să întrebați de date.</strong> Placa nouă pornește, dar e goală.</li>
+    <li><strong>Nu reinstalați sistemul „ca să vedem dacă merge”.</strong> O reinstalare cu ștergere e singurul lucru care distruge sigur ce voiați să salvați.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Ce se poate, pe generații</h2>
+  <p>Apple a schimbat de trei ori felul în care ține datele pe MacBook. De generație depinde aproape totul.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Stocare pe modul separat</h3><p><strong>MacBook Air până în 2017, MacBook Pro Retina până în 2015, MacBook Pro 13" fără Touch Bar (2016–2017).</strong> Memoria e o piesă prinsă într-un conector. Se scoate și se citește în afara laptopului, chiar dacă placa e moartă. Cazul cel mai simplu.</p></div>
+    <div class="card"><h3>Stocare lipită, fără T2</h3><p><strong>MacBook Pro cu Touch Bar din 2016–2017.</strong> Memoria e lipită pe placă, dar nu e legată de un cip de securitate. Apple a prevăzut pe placă un conector de salvare a datelor; altfel, se repară circuitul care împiedică pornirea.</p></div>
+    <div class="card"><h3>Stocare lipită și criptată</h3><p><strong>Toate modelele lansate din 2018 încoace: cu cip T2 și cu Apple Silicon (M1, M2, M3).</strong> Datele sunt criptate cu o cheie care nu părăsește placa. Se pot citi doar acolo. Recuperarea înseamnă să readucem placa la viață.</p></div>
+  </div>
+  <p style="margin-top:12px">Nu știți ce model aveți? Codul e pe capacul de jos („Model A” plus patru cifre). Pe <a href="/preturi-macbook/">pagina cu prețuri pe model</a> găsiți lista cu anii fiecăruia.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum lucrăm când datele sunt prioritatea</h2>
+  <ol>
+    <li><strong>Ne spuneți de la început.</strong> „Vreau datele” și „vreau laptopul reparat” sunt două lucrări diferite. Prima poate fi mult mai mică.</li>
+    <li><strong>Diagnosticăm placa.</strong> Căutăm ce anume o ține stinsă: un scurtcircuit pe o linie de alimentare, un circuit de încărcare, urme de lichid.</li>
+    <li><strong>Reparăm doar cât e nevoie ca aparatul să pornească.</strong> Dacă laptopul nu merită reparat complet, nu-l reparăm complet. Îl facem să stea pornit cât să se copieze datele.</li>
+    <li><strong>Copiem datele</strong> pe un disc extern adus de dumneavoastră sau pe laptopul nou.</li>
+  </ol>
+  <p>Despre ce înseamnă o reparație la nivel de componentă: <a href="/reparatii-placa-de-baza-macbook/">reparații placă de bază MacBook</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Când nu se mai poate</h2>
+  <p>Preferăm să o spunem înainte, nu după. Datele sunt pierdute dacă:</p>
+  <ul class="checks">
+    <li>au cedat chiar cipurile de memorie de pe placă;</li>
+    <li>la modelele cu T2 sau Apple Silicon, a cedat cipul care ține cheia de criptare;</li>
+    <li>placa e ruptă sau arsă exact în zona stocării;</li>
+    <li>discul e criptat cu FileVault și nu mai există nici parola, nici cheia de recuperare.</li>
+  </ul>
+  <p>În primele trei situații nu vă putem ajuta noi. Vă spunem asta după diagnosticare, fără costuri.</p>
+</section>
+
+<section class="sec">
+  <h2>Pentru data viitoare</h2>
+  <p>La un MacBook din 2018 încoace, singura protecție reală e copia de siguranță. Time Machine pe un disc extern se configurează în cinci minute și apoi merge singur. Pentru poze și documente, iCloud sau orice alt serviciu de stocare face același lucru. Un laptop se repară sau se înlocuiește; zece ani de poze, nu.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="💾 Aveți date importante pe un MacBook mort?" text="Sunați înainte să încercați altceva. Vă spunem de la telefon ce șanse sunt la modelul dumneavoastră." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>, <a href="/macbook-lichid-varsat/">lichid vărsat pe MacBook</a>, <a href="/reparatii-placa-de-baza-macbook/">reparații placă de bază MacBook</a>, <a href="/rescriere-efi-macbook/">rescriere EFI</a> și <a href="/reparatii-macbook/">reparații MacBook București</a>.</p>
+</div>
+</Base>

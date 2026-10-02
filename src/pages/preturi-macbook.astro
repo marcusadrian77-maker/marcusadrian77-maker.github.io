@@ -1,0 +1,120 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { MACURI } from '../data/macbook';
+import type { Mac } from '../data/macbook';
+import { familie, pretPlaca } from '../data/macbook-text';
+const title = 'Prețuri Reparații MacBook pe Model | Air și Pro, 2013–2024';
+const desc = 'Tabel de prețuri pentru 22 de modele MacBook Air și Pro: baterie, tastatură, ecran, placă logică. Piesă și manoperă incluse, diagnosticare gratuită.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const baterie = (m: Mac) => m.slug.startsWith('air') ? '300 – 650' : '400 – 750';
+const tastatura = (m: Mac) => m.tast === 'butterfly' ? '350 – 800' : '300 – 700';
+const ecran = (m: Mac) => { const f = familie(m); return f === 'pro-mare' || f === 'pro-silicon' ? '1.200 – 2.700' : '700 – 1.600'; };
+const placa = (m: Mac) => pretPlaca(m).replace(' lei', '');
+const grupe = [
+  { nume: 'MacBook Air', lista: MACURI.filter(m => m.slug.startsWith('air')) },
+  { nume: 'MacBook Pro 13"', lista: MACURI.filter(m => m.slug.startsWith('pro-13')) },
+  { nume: 'MacBook Pro 14", 15" și 16"', lista: MACURI.filter(m => m.slug.startsWith('pro') && !m.slug.startsWith('pro-13')) },
+];
+const faq = [
+ { q: 'De ce sunt intervale și nu prețuri fixe?', a: 'Pentru că același simptom poate însemna lucrări diferite. O placă logică poate avea o singură componentă arsă sau un circuit întreg atins de lichid. Intervalul vă spune la ce să vă așteptați; prețul ferm îl aflați după diagnosticare, care este gratuită, și înainte de orice intervenție.' },
+ { q: 'Prețurile includ piesa?', a: 'Da. Toate intervalele din tabel includ piesa și manopera. Singura excepție sunt aparatele primite prin curier, unde există o manoperă minimă de 200 de lei fără piese, iar transportul îl plătiți dumneavoastră.' },
+ { q: 'De ce costă ecranul mai mult la MacBook Pro 14" și 16"?', a: 'Pentru că panoul în sine e mai scump: diagonală mai mare, iar la modelele din 2021 încoace, iluminare mini-LED. La MacBook, ecranul se schimbă ca ansamblu complet, cu tot cu capac, deci prețul piesei dă aproape tot costul.' },
+ { q: 'De ce e placa logică mai scumpă la Apple Silicon?', a: 'La modelele cu M1, M2 și M3, procesorul, memoria și stocarea stau pe aceeași placă, foarte dens. Componentele sunt mai mici, schemele mai greu de găsit, iar lucrarea durează mai mult. La modelele Intel, 650–1.200 de lei; la Apple Silicon, 1.000–1.800 de lei.' },
+ { q: 'Modelul meu nu e în tabel. Îl reparați?', a: 'Foarte probabil, da. Tabelul acoperă modelele pe care le vedem cel mai des. Pentru altele, spuneți-ne codul de pe spatele laptopului (începe cu litera A, urmată de patru cifre) și vă dăm un interval de preț la telefon.' },
+ { q: 'Cât costă diagnosticarea dacă nu accept reparația?', a: 'Nimic. Diagnosticarea e gratuită indiferent de ce decideți după aceea.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', serviceType: 'Reparații MacBook', name: 'Prețuri reparații MacBook pe model', url: canonical, description: desc,
+   brand: { '@type': 'Brand', name: 'Apple' },
+   areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
+   provider: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', telephone: '+40765461357', url: SITE.domeniu + '/' },
+   offers: { '@type': 'AggregateOffer', priceCurrency: 'RON', lowPrice: 150, highPrice: 2700, offerCount: 7 } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații MacBook', item: SITE.domeniu + '/reparatii-macbook/' },
+   { '@type': 'ListItem', position: 3, name: 'Prețuri pe model', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogMacbook}>
+<div class="hero"><div class="wrap">
+  <span class="badge">💰 22 DE MODELE · PIESĂ + MANOPERĂ</span>
+  <h1>Prețuri Reparații MacBook pe Model</h1>
+  <p class="lead">Căutați rândul cu modelul dumneavoastră și vedeți din prima la ce să vă așteptați. Toate sumele sunt în lei și includ piesa și manopera. Diagnosticarea este gratuită, iar prețul ferm îl aflați înainte să începem orice lucrare.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🛡️ Garanție scrisă 6–12 luni</span><span>📦 Și prin curier</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Cum găsiți modelul</h2>
+  <p>Întoarceți laptopul. Pe capacul de jos, cu litere mici, scrie „Model A” urmat de patru cifre — de exemplu A2337. Acela e codul după care se comandă piesele și după care e ordonat tabelul de mai jos. Dacă textul s-a șters, îl găsiți și în meniul Apple → Despre acest Mac, după anul și diagonala afișate acolo.</p>
+</section>
+
+{grupe.map(g => (
+<section class="sec">
+  <h2>{g.nume}</h2>
+  <div class="tbl-wrap">
+  <table class="tb">
+    <thead><tr><th>Model</th><th>Ani</th><th>Baterie</th><th>Tastatură</th><th>Ecran</th><th>Placă logică</th></tr></thead>
+    <tbody>
+    {g.lista.map(m => <tr>
+      <td><a href={'/reparatii-macbook/' + m.slug + '/'}><strong>{m.cod}</strong></a><br /><span style="font-size:13px;color:var(--mut)">{m.nume}</span></td>
+      <td>{m.an}</td>
+      <td>{baterie(m)}</td>
+      <td>{tastatura(m)}</td>
+      <td>{ecran(m)}</td>
+      <td>{placa(m)}</td>
+    </tr>)}
+    </tbody>
+  </table>
+  </div>
+</section>
+))}
+
+<section class="sec">
+  <h2>Lucrări cu același preț la toate modelele</h2>
+  <div class="tbl-wrap">
+  <table class="tb">
+    <tbody>
+      <tr><td>Diagnosticare</td><td><strong>GRATUITĂ</strong></td></tr>
+      <tr><td>Curățare de praf + pastă termică</td><td><strong>150 – 320 lei</strong></td></tr>
+      <tr><td>Reparare port USB-C / MagSafe</td><td><strong>250 – 550 lei</strong></td></tr>
+      <tr><td>Curățare după lichid</td><td><strong>450 – 600 lei</strong></td></tr>
+      <tr><td>Curățare după lichid, cu componente înlocuite</td><td><strong>600 – 900 lei</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:12px">Pentru <a href="/recuperare-date-macbook/">recuperare de date</a>, <a href="/rescriere-efi-macbook/">rescriere EFI</a>, <a href="/difuzoare-microfon-macbook/">difuzoare și microfon</a> și <a href="/flexgate-macbook-pro/">cablul de display (Flexgate)</a>, prețul depinde prea mult de caz ca să-l putem pune într-un tabel. Vi-l spunem după diagnosticare.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum se citește tabelul</h2>
+  <p><strong>Capătul de jos</strong> al fiecărui interval e cazul simplu: piesa se găsește pe stoc, defectul e exact cel așteptat, nu apar surprize la demontare. <strong>Capătul de sus</strong> e cazul în care piesa e mai rară sau lucrarea se complică — o tastatură cu urme de lichid dedesubt, o placă pe care au cedat două circuite, nu unul.</p>
+  <p>Trei lucruri mută prețul în interiorul intervalului:</p>
+  <ul class="checks">
+    <li><strong>Generația.</strong> Două laptopuri cu același nume pot avea piese complet diferite. De aceea tabelul e pe cod, nu pe denumire comercială.</li>
+    <li><strong>Ce s-a întâmplat înainte.</strong> Un aparat deschis deja în altă parte, cu șuruburi lipsă sau conectori forțați, cere mai mult timp.</li>
+    <li><strong>Lichidul.</strong> Dacă a fost vărsat ceva pe laptop, oricând, spuneți-ne. Schimbă ordinea lucrărilor și, de multe ori, defectul real e altul decât cel vizibil.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Când vă spunem să nu reparați</h2>
+  <p>Se întâmplă, și preferăm să o spunem de la început. Cazul tipic e un model Intel vechi cu ecranul spart: ansamblul de ecran poate ajunge aproape de valoarea laptopului la mâna a doua. Atunci discutăm întâi dacă datele contează — salvarea lor e o lucrare separată, de altă mărime.</p>
+  <p>Pe larg, cu exemple, în ghidul <a href="/cat-costa-o-reparatie/">cât costă o reparație</a> și în <a href="/cum-alegi-service-macbook/">cum alegeți un service MacBook</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+
+<Cta titlu="🍎 Nu sunteți sigur ce reparație vă trebuie?" text="Spuneți-ne codul modelului și ce face laptopul. Vă dăm un interval de preț la telefon, iar diagnosticarea este gratuită." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-macbook/">reparații MacBook București</a>, <a href="/inlocuire-baterie-macbook/">înlocuire baterie MacBook</a>, <a href="/inlocuire-display-macbook/">înlocuire display MacBook</a>, <a href="/inlocuire-tastatura-macbook/">înlocuire tastatură MacBook</a>, <a href="/reparatii-placa-de-baza-macbook/">reparații placă de bază MacBook</a> și <a href="/preturi/">prețurile pentru toate aparatele</a>.</p>
+</div>
+</Base>
