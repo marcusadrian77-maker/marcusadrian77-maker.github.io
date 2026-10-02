@@ -55,12 +55,14 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 </section>
 <section class="sec">
   <h2>La Ce Interval? Recomandările Noastre pe Tip de Aparat</h2>
+  <div class="tbl-wrap">
   <table style="width:100%;border-collapse:collapse;margin:12px 0;font-size:15px">
     <thead><tr style="border-bottom:2px solid var(--navy);text-align:left"><th style="padding:8px 6px">Echipament</th><th style="padding:8px 6px">Interval recomandat</th><th style="padding:8px 6px">Ce includem</th><th style="padding:8px 6px;text-align:right">Preț orientativ</th></tr></thead>
     <tbody>
       {intervale.map(r => <tr style="border-bottom:1px solid #e6ecf4"><td style="padding:9px 6px"><strong>{r[0]}</strong></td><td style="padding:9px 6px">{r[1]}</td><td style="padding:9px 6px">{r[2]}</td><td style="padding:9px 6px;text-align:right;white-space:nowrap"><b>{r[3]}</b></td></tr>)}
     </tbody>
   </table>
+  </div>
   <p style="font-size:14px;color:var(--mut)">Scurtați intervalul cu ~30% dacă aveți animale de companie, fumați în încăpere sau folosiți aparatul intens (gaming zilnic, randare, minerit de sarcini grele). Diagnosticarea este gratuită — prețul exact îl aflați înainte de intervenție.</p>
 </section>
 <section class="sec">

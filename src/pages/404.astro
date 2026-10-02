@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = 'Pagina nu a fost găsită | Marcus Electronics';
+const desc = 'Pagina căutată nu mai există sau adresa a fost scrisă greșit. Găsiți aici serviciile de reparații electronice și datele de contact ale atelierului din București.';
+const servicii = [
+  ['/reparatii-televizoare/', '📺 Reparații televizoare', 'La domiciliu în București și Ilfov, orice marcă.'],
+  ['/reparatii-laptopuri-bucuresti/', '💻 Reparații laptopuri', 'La atelier: placă, ecran, baterie, curățare.'],
+  ['/reparatii-macbook/', '🍎 Reparații MacBook', 'Reparație pe placă, la microscop.'],
+  ['/reparatii-ps5-bucuresti/', '🎮 Reparații PS5 și console', 'HDMI, supraîncălzire, alimentare.'],
+  ['/reparatii-boxe-active/', '🔊 Reparații boxe active', 'Amplificatoare, difuzoare, boxe portabile.'],
+  ['/reparatii-monitoare-lcd/', '🖥️ Reparații monitoare', 'Sursă, iluminare, placă de comandă.'],
+];
+---
+<Base title={title} description={desc} noindex>
+<div class="hero"><div class="wrap">
+  <span class="badge">EROARE 404</span>
+  <h1>Pagina nu a fost găsită</h1>
+  <p class="lead">Adresa pe care ați deschis-o nu mai există sau a fost scrisă greșit. Site-ul a fost reorganizat, iar unele pagini vechi au fost mutate. Mai jos găsiți serviciile noastre; dacă vă grăbiți, cel mai simplu e să ne sunați.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce căutați?</h2>
+  <div class="grid g3">
+    {servicii.map(([href, nume, text]) => <div class="card"><h3><a href={href}>{nume}</a></h3><p>{text}</p></div>)}
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Alte pagini utile</h2>
+  <ul class="checks">
+    <li><a href="/">Pagina principală</a></li>
+    <li><a href="/preturi/">Prețuri orientative</a> pentru toate aparatele</li>
+    <li><a href="/cum-ajungeti-la-atelier/">Cum ajungeți la atelier</a> — Str. Moinești 7, Militari, Sector 6</li>
+    <li><a href="/contact/">Contact și program</a> — {SITE.program}</li>
+    <li><a href="/intrebari-frecvente-faq-2/">Întrebări frecvente</a></li>
+  </ul>
+</section>
+
+<Cta titlu="Nu găsiți ce căutați?" text="Spuneți-ne ce aparat aveți și ce face. Diagnosticarea este gratuită." />
+</div>
+</Base>
