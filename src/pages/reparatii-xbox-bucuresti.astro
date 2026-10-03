@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparații Xbox București | Xbox One, Series S și Series X';
+const desc = 'Service Xbox în București: fără semnal HDMI, erori E100–E200, cititor de disc, supraîncălzire, sursă, controller. Xbox One și Series. Diagnosticare gratuită.';
+
+const preturi = [
+  ['Diagnosticare', 'GRATUITĂ'],
+  ['Curățare completă + pastă termică (inclusă gratuit în orice reparație)', '80 – 150 lei'],
+  ['Reparare port HDMI — Xbox One, One S, One X', '100 – 250 lei'],
+  ['Înlocuire cititor de disc', '150 – 350 lei'],
+  ['Reparare sursă de alimentare', '100 – 300 lei'],
+  ['Reparare controller (drift, butoane, bumper)', '50 – 120 lei'],
+  ['Resoftare Xbox Series', 'de la 150 lei'],
+  ['Curățare după lichid vărsat', 'de la 150 lei'],
+];
+
+const faq = [
+ { q: 'Xbox-ul pornește, dar televizorul arată „fără semnal”. Ce are?', a: 'Consola funcționează, însă imaginea nu ajunge la televizor. Încercați întâi alt cablu HDMI și altă intrare a televizorului. Dacă tot nu apare nimic, cauza e portul HDMI sau cipul de pe placă care pregătește semnalul video. Ambele se repară prin lipire la microscop, fără schimbarea plăcii.' },
+ { q: 'Ce înseamnă erorile E100, E101, E102, E105, E106, E200?', a: 'Sunt erori de pornire a sistemului: consola nu-și poate încărca sau actualiza software-ul. Unele se rezolvă cu o reinstalare a sistemului de pe un stick USB, făcută din meniul de depanare. Altele, mai ales E105, arată de obicei un disc intern pe ducă. Vă spunem în care caz sunteți după diagnosticare.' },
+ { q: 'Cât costă repararea portului HDMI la Xbox?', a: 'La Xbox One, One S și One X, între 100 și 250 de lei. La Xbox Series S și Series X prețul îl stabilim după diagnosticare, pentru că depinde de cât a fost afectată placa.' },
+ { q: 'Xbox One nu mai citește discurile sau face zgomot când bag un joc. Se repară?', a: 'Da. Se schimbă lentila laser sau mecanismul de antrenare. Placa electronică a cititorului rămâne cea originală, pentru că e asociată cu consola: un cititor luat de pe alt Xbox nu e recunoscut.' },
+ { q: 'Consola se oprește singură și scrie că nu are ventilație. Ce fac?', a: 'Opriți-o și lăsați-i loc liber în jur, mai ales în spate și deasupra. Dacă mesajul revine și într-un loc aerisit, radiatorul e plin de praf și pasta termică e uscată. Se rezolvă cu o curățare completă, 80–150 de lei.' },
+ { q: 'Reparați și controllere Xbox?', a: 'Da: drift la stick-uri, butoanele de umăr (LB și RB) care nu mai fac clic, mufa USB, probleme de conectare. Costă 50–120 de lei. Detalii pe pagina de reparații controllere.' },
+ { q: 'Cât durează?', a: 'Curățarea și controllerele, de regulă 24–48 de ore. Portul HDMI și sursa, 1–2 zile. Reparațiile pe placa principală pot dura 3–5 zile lucrătoare.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparații Xbox București', tip: 'Service Xbox One și Xbox Series', url: '/reparatii-xbox-bucuresti/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații Xbox', url: '/reparatii-xbox-bucuresti/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🎮 XBOX ONE · SERIES S · SERIES X</span>
+  <h1>Reparații Xbox București</h1>
+  <p class="lead">Ecran negru cu consola pornită, o eroare cu „E” la pornire, un disc pe care nu-l mai citește. Xbox-urile sunt console solide, dar au câteva defecte care se repetă de la un model la altul. Le reparăm la nivel de componentă, în atelierul din Militari, Sector 6.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🧼 Curățare inclusă în reparație</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce se strică, pe generații</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Xbox One, One S, One X</h3><p>Consolele din 2013–2017. Defectele tipice: lipsa semnalului HDMI, cititorul de disc care nu mai citește sau zgârie, opriri din cauza prafului și, la primul Xbox One, alimentatorul extern care cedează. Discul intern mecanic începe și el să dea erori după atâția ani.</p></div>
+    <div class="card"><h3>Xbox Series S și Series X</h3><p>Consolele din 2020 încoace. Sunt mai noi, deci vedem mai puține defecte de uzură și mai multe accidente: port HDMI lovit, lichid vărsat, consolă care nu mai pornește după o pană de curent, erori de sistem după o actualizare întreruptă.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Fără semnal la televizor</h2>
+  <p>E unul dintre cele mai cunoscute defecte ale consolelor Xbox One. Consola pornește normal, se aude ventilatorul, se aprinde ledul, dar televizorul rămâne pe „fără semnal”.</p>
+  <p>Semnalul video trece prin două piese: portul HDMI, care se strică mecanic când cablul e tras sau forțat, și un cip mic de lângă el, care pregătește semnalul pentru televizor și care cedează de obicei după o descărcare venită pe cablu. Simptomul e identic, reparația e diferită, iar deosebirea se face doar prin măsurare.</p>
+  <p>Două verificări de făcut acasă: schimbați cablul HDMI și intrarea televizorului, apoi porniți consola în rezoluție mică — la modelele cu cititor de disc, cu consola oprită, țineți apăsate simultan butonul de pornire și cel de scoatere a discului până auziți al doilea bip. Dacă apare imagine, problema era la setările video, nu la consolă.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce reparăm la Xbox</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🔌</div><h3>HDMI</h3><p>Port îndoit sau smuls, cip video ars. Lipire la microscop, cu test pe televizor înainte de predare.</p></div>
+    <div class="card"><div class="ico">💿</div><h3>Cititor de disc</h3><p>Nu primește discul, nu-l citește, îl zgârie. Schimbăm lentila și mecanica, cu placa originală a cititorului păstrată.</p></div>
+    <div class="card"><div class="ico">🌡️</div><h3>Supraîncălzire</h3><p>Mesaj de ventilație insuficientă, opriri în joc, ventilator zgomotos. Curățare completă și pastă termică nouă.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>Nu pornește</h3><p>Sursa internă sau, la primul Xbox One, alimentatorul extern. Dacă sursa e bună, căutăm defectul pe placă.</p></div>
+    <div class="card"><div class="ico">⚙️</div><h3>Erori de sistem</h3><p>E100–E200, consolă blocată la sigla verde, actualizări care eșuează. Reinstalăm sistemul și verificăm discul intern.</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>Controller</h3><p>Drift, bumpere rupte, mufă USB. Detalii la <a href="/reparatii-controllere-ps4-ps5-xbox/">reparații controllere</a>.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă o reparație de Xbox</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Intervenție</th><th>Preț orientativ</th></tr></thead><tbody>
+    {preturi.map(r => <tr><td>{r[0]}</td><td><strong>{r[1]}</strong></td></tr>)}
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ manopera. Orice Xbox care intră la reparație pleacă și curățat, cu pasta termică schimbată, fără cost în plus. Pentru defectele de placă și pentru portul HDMI la Series S și X, prețul îl aflați după diagnosticare. Grila completă e pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Înainte să veniți</h2>
+  <ul class="checks">
+    <li><strong>Spuneți-ne modelul exact.</strong> E scris pe eticheta de pe spatele sau de sub consolă: One, One S, One X, Series S sau Series X.</li>
+    <li><strong>Notați eroarea</strong>, dacă apare una pe ecran. Codul ne spune de unde să începem.</li>
+    <li><strong>Aduceți cablul de alimentare</strong> și, la primul Xbox One, alimentatorul extern. Dacă problema e la discuri, aduceți unul cu care apare.</li>
+    <li><strong>Dacă a fost lichid</strong>, nu mai porniți consola și veniți cât mai repede.</li>
+  </ul>
+  <p>Atelierul e în Str. Moinești 7, Militari, <a href="/reparatii-console-gaming-sector-6/">Sector 6</a>. Program: {SITE.program}. Din afara Bucureștiului, consola se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="🎮 Xbox defect? Aduceți-l la diagnosticare gratuită" text="Spuneți-ne modelul și ce apare pe ecran. Vă spunem de la telefon la ce să vă așteptați." />
+<p style="font-size:14px;color:var(--mut)">Alte console: <a href="/reparatii-ps5-bucuresti/">reparații PS5</a>, <a href="/reparatii-ps4-bucuresti/">reparații PS4</a>, <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">toate consolele</a>. Vedeți și <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a> și <a href="/reparatii-monitoare-gaming/">reparații monitoare gaming</a>.</p>
+</div>
+</Base>

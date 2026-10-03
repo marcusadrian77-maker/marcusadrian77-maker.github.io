@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Laptopul Nu Pornește: Cauze, Verificări și Cât Costă';
+const desc = 'Laptopul nu mai pornește deloc sau pornește fără imagine? Ce înseamnă fiecare simptom, ce verificați acasă în zece minute și cât costă. Diagnostic gratuit.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Laptopul nu dă niciun semn, nici măcar un led. E placa de bază?', a: 'Nu neapărat. Când nu se aprinde nimic, problema e pe traseul de alimentare: încărcătorul, mufa de alimentare, bateria intrată în scurtcircuit sau circuitul de intrare de pe placă. Primele trei sunt reparații mici. Încercați întâi alt încărcător compatibil.' },
+ { q: 'Pornește, se aud ventilatoarele, dar ecranul rămâne negru. Ce înseamnă?', a: 'Placa primește curent, deci alimentarea e bună. Legați laptopul la un monitor extern sau la televizor: dacă acolo apare imagine, defectul e în ecran sau în cablul lui. Dacă nu apare nici acolo, cauza e memoria RAM, partea video sau placa.' },
+ { q: 'Cât costă repararea unui laptop care nu pornește?', a: 'Depinde de ce a cedat: mufă de alimentare 80–200 de lei, baterie 100–250 de lei, reparație pe placa de bază 200–500 de lei, ecran 200–600 de lei. Diagnosticarea este gratuită și vă spunem prețul ferm înainte de a începe.' },
+ { q: 'Ce e „resetarea de alimentare” și cum se face?', a: 'Scoateți încărcătorul și, dacă se poate, bateria. Țineți apăsat butonul de pornire 30 de secunde, apoi puneți doar încărcătorul și porniți. Procedura golește energia rămasă pe placă și rezolvă blocajele apărute după o pană de curent sau o închidere forțată. Nu strică nimic și nu șterge date.' },
+ { q: 'Îmi pierd datele dacă laptopul nu mai pornește?', a: 'De regulă nu. Discul este o piesă separată de restul plăcii și rămâne intact când a cedat alimentarea. Dacă aveți date importante, spuneți-ne de la început: le putem salva înainte de reparație.' },
+ { q: 'Cât durează?', a: 'Mufa, bateria și curățarea se fac de regulă în 24–48 de ore. Reparațiile pe placa de bază durează 2–5 zile lucrătoare, cu tot cu testul de după.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Laptopul nu pornește: cauze, verificări și cât costă', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații Laptopuri', item: SITE.domeniu + '/reparatii-laptopuri-bucuresti/' },
+   { '@type': 'ListItem', position: 3, name: 'Laptopul nu pornește', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogLaptop}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC · LAPTOP</span>
+  <h1>Laptopul Nu Pornește: Cauze și Verificări</h1>
+  <p class="lead">„Nu pornește” înseamnă cel puțin patru lucruri diferite: nu se aprinde nimic, se aprinde și se stinge, pornește fără imagine sau rămâne blocat la siglă. Fiecare are altă cauză și alt preț. Mai jos, cum vă dați seama în care situație sunteți.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce vedeți și ce înseamnă</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Ce face laptopul</th><th>Unde e, de obicei, defectul</th></tr></thead><tbody>
+    <tr><td>Nimic: niciun led, niciun sunet</td><td>Încărcător, mufă de alimentare, baterie în scurtcircuit sau circuitul de intrare de pe placă</td></tr>
+    <tr><td>Ledul de încărcare se aprinde, dar butonul de pornire nu face nimic</td><td>Circuitul de pornire de pe placă sau butonul în sine</td></tr>
+    <tr><td>Pornește o secundă și se stinge</td><td>Scurtcircuit pe placă, memorie RAM ori baterie defectă</td></tr>
+    <tr><td>Pornește, se aude ventilatorul, ecran negru</td><td>Ecran, cablul ecranului, memorie RAM sau partea video</td></tr>
+    <tr><td>Pornește și bipăie sau clipește un led în serie</td><td>Cod de eroare al producătorului, de obicei memorie sau placă</td></tr>
+    <tr><td>Ajunge la siglă și rămâne acolo</td><td>Disc sau sistem de operare, nu partea de alimentare</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="sec">
+  <h2>Zece minute de verificări acasă</h2>
+  <ol>
+    <li><strong>Încărcătorul.</strong> Are led? E aprins? Se încălzește ușor după câteva minute în priză? Dacă aveți acces la altul compatibil, de aceeași tensiune, încercați-l.</li>
+    <li><strong>Resetarea de alimentare.</strong> Scoateți încărcătorul și bateria, dacă se scoate fără șurubelniță. Țineți apăsat butonul de pornire 30 de secunde. Puneți doar încărcătorul și porniți.</li>
+    <li><strong>Fără baterie.</strong> Dacă pornește doar pe încărcător, bateria e cea care îl ținea pe loc.</li>
+    <li><strong>Monitor extern.</strong> Legați laptopul la un monitor sau la televizor prin HDMI. Imagine acolo înseamnă că laptopul e bun și problema e la ecran.</li>
+    <li><strong>Lanterna.</strong> Luminați ecranul pieziș, cu laptopul pornit. Dacă se ghicește imaginea, s-a stins doar iluminarea ecranului.</li>
+    <li><strong>Tot ce e conectat.</strong> Scoateți stickurile, cardul, mouse-ul. Un dispozitiv USB defect poate bloca pornirea.</li>
+  </ol>
+  <p>Opriți-vă aici. Nu desfaceți laptopul dacă nu ați mai făcut-o: clemele carcasei și cablurile plate se rup ușor, iar o reparație simplă devine una complicată.</p>
+</section>
+
+<section class="sec">
+  <h2>Cauzele, de la cea mai ieftină la cea mai scumpă</h2>
+  <h3>Mufa de alimentare</h3>
+  <p>Suportă ani de smucituri și începe să facă contact doar într-o anumită poziție, apoi deloc. Se înlocuiește sau se resudează: 80–200 de lei. Pe larg, la <a href="/laptop-nu-se-incarca/">laptopul nu se încarcă</a>.</p>
+  <h3>Bateria</h3>
+  <p>O baterie cu o celulă în scurtcircuit poate împiedica pornirea chiar și cu încărcătorul în priză. Una nouă costă 100–250 de lei. Vedeți <a href="/inlocuire-baterie-laptop/">înlocuire baterie laptop</a>.</p>
+  <h3>Circuitul de alimentare de pe placă</h3>
+  <p>Cazul diagnosticat cel mai des ca „placă arsă”. De regulă a cedat o singură componentă: un tranzistor de comutare, un controler de încărcare, un condensator. O găsim cu aparatura de măsură și cu schema plăcii și o înlocuim la microscop: 200–500 de lei, nu prețul unei plăci noi.</p>
+  <h3>Ecranul sau cablul lui</h3>
+  <p>Laptopul merge, dar nu vedeți nimic. Panoul nou costă 200–600 de lei, în funcție de diagonală și rezoluție. Detalii la <a href="/inlocuire-ecran-laptop/">înlocuire ecran laptop</a>.</p>
+  <h3>După lichid sau după supraîncălzire</h3>
+  <p>Dacă laptopul a murit după ce s-a vărsat ceva pe el, citiți <a href="/laptop-lichid-varsat/">ce faceți când ați vărsat lichid pe laptop</a>. Dacă se oprea singur de la căldură înainte să nu mai pornească deloc, cauza e în răcire: <a href="/laptop-se-incalzeste/">laptopul se încălzește</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce ne spuneți la telefon</h2>
+  <ul class="checks">
+    <li><strong>Modelul</strong>, de pe eticheta de sub laptop.</li>
+    <li><strong>Ce se aprinde</strong> când îl puneți în priză și când apăsați pe buton.</li>
+    <li><strong>Ce s-a întâmplat înainte:</strong> a căzut, s-a vărsat ceva, s-a oprit curentul, a stat mult nefolosit.</li>
+  </ul>
+  <p>Cu aceste trei răspunsuri vă dăm un interval de preț de la telefon. Laptopul se aduce apoi la atelier, în Str. Moinești 7, Militari, Sector 6 ({SITE.program}), sau se trimite <a href="/reparatii-prin-curier/">prin curier</a>. Deplasări la domiciliu facem doar pentru televizoare.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="💻 Laptopul nu mai pornește?" text="Spuneți-ne modelul și ce se aprinde. Diagnosticarea este gratuită." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a>, <a href="/laptop-nu-se-incarca/">laptopul nu se încarcă</a>, <a href="/inlocuire-tastatura-laptop/">înlocuire tastatură laptop</a>, <a href="/reparatii-laptop-sector-6/">service laptop Sector 6</a>. Pentru Apple: <a href="/macbook-nu-porneste/">MacBook care nu pornește</a>.</p>
+</div>
+</Base>

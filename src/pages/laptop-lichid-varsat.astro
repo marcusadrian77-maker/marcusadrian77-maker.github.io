@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+const title = 'Lichid Vărsat pe Laptop: Ce Faceți în Primele Minute';
+const desc = 'Ați vărsat apă, cafea sau suc pe laptop? Ce faceți în primele minute, ce să nu faceți (orez, foehn, repornire) și cum decurge curățarea plăcii la atelier.';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Am vărsat apă pe laptop, dar merge în continuare. Mai trebuie să fac ceva?', a: 'Da. Faptul că merge acum nu spune nimic despre ce va fi peste două săptămâni. Lichidul rămas sub tastatură sau pe placă nu se usucă repede și, cât timp laptopul e folosit, lucrează la contacte. Opriți-l și aduceți-l la o verificare: diagnosticarea e gratuită.' },
+ { q: 'Ajută dacă pun laptopul în orez?', a: 'Nu. Orezul nu scoate apa dintre placă și carcasă, iar zahărul și mineralele rămân oricum pe contacte. În plus, pierdeți tocmai zilele care contează.' },
+ { q: 'Cât costă repararea unui laptop pe care s-a vărsat lichid?', a: 'Depinde de ce a apucat să se strice, de aceea prețul îl aflați după diagnosticare, care e gratuită. Ca repere: o tastatură nouă costă 100–300 de lei, iar o reparație pe placa de bază 200–500 de lei. Uneori ajunge curățarea, alteori e nevoie de amândouă.' },
+ { q: 'După cât timp e prea târziu?', a: 'Nu există un termen fix. Un laptop adus în aceeași zi sau a doua zi scapă, de cele mai multe ori, cu o curățare. După câteva săptămâni în care a fost folosit ud, coroziunea prinde mai multe zone ale plăcii, iar reparația devine o serie de intervenții, fără siguranța că nu mai cedează ceva. Vă spunem deschis în ce situație sunteți.' },
+ { q: 'Îmi pierd datele?', a: 'De regulă nu. Discul stă într-o zonă mai ferită decât tastatura și rămâne de obicei întreg. Dacă aveți date importante, spuneți-ne de la început: le putem copia înainte de orice altceva.' },
+ { q: 'Ce e mai rău: apa, cafeaua sau sucul?', a: 'Apa curată face cel mai puțin rău, dacă laptopul a fost oprit imediat. Cafeaua cu zahăr, sucul și vinul lasă în urmă un strat lipicios care ține umezeala și conduce curentul chiar și după ce pare uscat. Spuneți-ne ce anume s-a vărsat: ne ajută să știm la ce să ne așteptăm.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Lichid vărsat pe laptop: ce faceți în primele minute', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații Laptopuri', item: SITE.domeniu + '/reparatii-laptopuri-bucuresti/' },
+   { '@type': 'ListItem', position: 3, name: 'Lichid vărsat pe laptop', item: canonical } ] },
+ faqSchema,
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogLaptop}>
+<div class="hero"><div class="wrap">
+  <span class="badge">💧 URGENȚĂ · APĂ, CAFEA, SUC PE LAPTOP</span>
+  <h1>Lichid Vărsat pe Laptop: Ce Faceți Acum</h1>
+  <p class="lead">Dacă tocmai s-a întâmplat, opriți laptopul și scoateți-l din priză înainte să citiți mai departe. Lichidul singur strică puțin. Lichidul împreună cu curentul strică mult și repede.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Primele cinci minute</h2>
+  <ol>
+    <li><strong>Opriți-l din buton.</strong> Țineți apăsat butonul de pornire până se stinge. Nu pierdeți timp cu salvatul documentelor.</li>
+    <li><strong>Scoateți încărcătorul</strong> din laptop și tot ce e conectat: stick, mouse, cablu de monitor.</li>
+    <li><strong>Scoateți bateria</strong>, dacă modelul vă lasă să o scoateți fără șurubelniță.</li>
+    <li><strong>Întoarceți-l cu tastatura în jos</strong>, deschis ca un cort, pe un prosop. Așa lichidul curge înapoi pe unde a intrat, nu mai departe spre placă.</li>
+    <li><strong>Ștergeți ce se vede</strong> cu un șervețel, fără să apăsați pe taste.</li>
+  </ol>
+</section>
+
+<section class="sec">
+  <h2>Ce să nu faceți</h2>
+  <ul class="checks">
+    <li><strong>Nu-l reporniți „ca să vedeți dacă merge”.</strong> E gestul care face cel mai mult rău. Un laptop oprit la timp are doar o placă murdară; unul repornit are componente arse.</li>
+    <li><strong>Nu-l puneți la încărcat.</strong> Circuitul de încărcare stă sub tensiune chiar și cu laptopul stins.</li>
+    <li><strong>Nu folosiți foehnul.</strong> Aerul cald împinge lichidul mai adânc și poate deforma tastele și folia ecranului.</li>
+    <li><strong>Nu-l puneți în orez.</strong> Nu ajunge la lichidul dintre placă și carcasă.</li>
+    <li><strong>Nu-l scuturați</strong> și nu-l țineți în picioare pe o latură: lichidul ajunge în ecran.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>De ce contează timpul</h2>
+  <p>Apa de la robinet, cafeaua și sucul conduc curentul. Pe o placă aflată sub tensiune, între două contacte ude începe coroziunea: metalul se macină, apar depuneri verzui sau albe, iar traseele subțiri se întrerup. Procesul pornește din primele ore și continuă cât timp există umezeală și curent.</p>
+  <p>Mai e un lucru pe care puțini îl știu: un laptop stins nu e fără curent. Bateria ține alimentate câteva circuite de pe placă tot timpul. De aceea nu ajunge să-l lăsați „să se usuce” o săptămână pe calorifer. Trebuie desfăcut, cu bateria deconectată.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce facem noi la atelier</h2>
+  <div class="grid g2">
+    <div class="card"><h3>1. Desfacem și deconectăm bateria</h3><p>E primul lucru, înainte de orice măsurătoare. Din acel moment, coroziunea nu mai are curent din care să se hrănească.</p></div>
+    <div class="card"><h3>2. Vedem până unde a ajuns</h3><p>Scoatem tastatura și placa și ne uităm la microscop pe ambele fețe. Lichidul lasă urme: se vede exact pe unde a trecut.</p></div>
+    <div class="card"><h3>3. Curățăm placa</h3><p>Zonele atinse se curăță de depuneri, inclusiv sub componentele mici, unde lichidul rămâne prins.</p></div>
+    <div class="card"><h3>4. Înlocuim ce a cedat</h3><p>Componentele arse sau mâncate de coroziune se schimbă la microscop. Tastatura, dacă nu mai răspunde bine, se <a href="/inlocuire-tastatura-laptop/">înlocuiește</a>.</p></div>
+  </div>
+  <p style="margin-top:12px">La final laptopul stă la test, sub sarcină, înainte să vi-l dăm înapoi.</p>
+</section>
+
+<section class="sec">
+  <h2>Cât costă</h2>
+  <p>Nu avem un preț fix pentru „laptop ud”, pentru că nu există două cazuri la fel: la unul ajunge curățarea, la altul s-au dus tastatura și circuitul de încărcare. Diagnosticarea e gratuită, iar prețul ferm îl aflați după ce am desfăcut laptopul și am văzut placa.</p>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Înlocuire tastatură, dacă e cazul</span><b>100 – 300 lei</b></div>
+  <div class="price-row"><span>Reparație pe placa de bază, dacă e cazul</span><b>200 – 500 lei</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Dacă reparația nu merită față de valoarea laptopului, vă spunem noi primii. Se întâmplă mai ales la aparatele aduse târziu, cu coroziune în mai multe zone.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce ne spuneți când sunați</h2>
+  <ul class="checks">
+    <li><strong>Ce s-a vărsat</strong> și cam cât: o gură de apă sau o cană de cafea cu zahăr.</li>
+    <li><strong>Când</strong> s-a întâmplat și dacă laptopul a mai fost pornit de atunci.</li>
+    <li><strong>Unde a căzut lichidul:</strong> pe tastatură, pe lateral, lângă mufa de încărcare.</li>
+    <li><strong>Modelul</strong>, de pe eticheta de sub laptop.</li>
+  </ul>
+  <p>Aduceți laptopul la atelierul din Str. Moinești 7, Militari, Sector 6, în program: {SITE.program}. Deplasări la domiciliu facem doar pentru televizoare. Se poate trimite și <a href="/reparatii-prin-curier/">prin curier</a>, dar la lichid fiecare zi pe drum contează, așa că, dacă sunteți în București, e mai bine să veniți.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="💧 Ați vărsat ceva pe laptop?" text="Opriți-l, nu-l mai porniți și sunați-ne. Vă spunem ce să faceți până ajungeți la atelier." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a>, <a href="/inlocuire-tastatura-laptop/">înlocuire tastatură laptop</a>, <a href="/laptop-nu-porneste/">laptopul nu pornește</a>, <a href="/laptop-nu-se-incarca/">laptopul nu se încarcă</a>. Pentru Apple: <a href="/macbook-lichid-varsat/">lichid vărsat pe MacBook</a>.</p>
+</div>
+</Base>

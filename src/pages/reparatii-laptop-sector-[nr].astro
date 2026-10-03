@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { LAPTOP_SECTOARE } from '../data/laptop-sectoare';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+
+export function getStaticPaths() {
+  return LAPTOP_SECTOARE.map(s => ({ params: { nr: String(s.nr) }, props: { s } }));
+}
+const { s } = Astro.props;
+const url = `/reparatii-laptop-sector-${s.nr}/`;
+const title = `Service Laptop Sector ${s.nr} București | Reparații Laptopuri`;
+const desc = `Reparații laptop pentru Sectorul ${s.nr} (${s.cartiere.slice(0, 3).join(', ')}): ecran, baterie, mufă, tastatură, placă. Atelier în Militari, diagnosticare gratuită.`;
+const preturi = [
+  ['Diagnosticare', 'GRATUITĂ'],
+  ['Curățare + pastă termică', '80 – 150 lei'],
+  ['Înlocuire port de alimentare', '80 – 200 lei'],
+  ['Înlocuire baterie', '100 – 250 lei'],
+  ['Înlocuire tastatură', '100 – 300 lei'],
+  ['Înlocuire ecran', '200 – 600 lei'],
+  ['Reparare placă de bază', '200 – 500 lei'],
+];
+const alte = LAPTOP_SECTOARE.filter(x => x.nr !== s.nr);
+const schemaExtra = graf(
+  serviciu({ nume: `Service laptop Sector ${s.nr}`, tip: 'Reparații laptopuri', url, desc, sector: s.nr }),
+  breadcrumb([{ name: 'Reparații Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }, { name: `Sector ${s.nr}`, url }]),
+  { '@type': 'FAQPage', mainEntity: s.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogLaptop}>
+<div class="hero"><div class="wrap">
+  <span class="badge">💻 SERVICE LAPTOP · SECTORUL {s.nr}</span>
+  <h1>Service Laptop Sector {s.nr} București</h1>
+  <p class="lead">{s.lead}</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>💻 Orice marcă</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>{s.unghiTitlu}</h2>
+  {s.unghi.map(p => <p>{p}</p>)}
+  <p>Mai multe despre asta: <a href={s.legatura.href}>{s.legatura.text}</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>{s.drumTitlu}</h2>
+  <p>Atelierul este în <strong>Str. Moinești 7, Militari, Sector 6</strong>, aproape de Piața Gorjului. În Sectorul {s.nr} nu avem punct de primire, iar acasă la client mergem numai pentru televizoare: un laptop se repară pe banc, cu stație de lipit și aparatură de măsură. Program: {SITE.program}.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🚇 Metrou</h3><p>{s.metrou}</p></div>
+    <div class="card"><h3>🚗 Mașină</h3><p>{s.masina}</p></div>
+  </div>
+  <p style="margin-top:12px">Primim laptopuri din tot Sectorul {s.nr}: {s.cartiere.slice(0, -1).join(', ')} și {s.cartiere[s.cartiere.length - 1]}. Unde parcați și ce luați cu dumneavoastră scrie pe pagina <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>. Dacă nu puteți veni, laptopul se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce reparăm la laptopuri</h2>
+  <div class="grid g3">
+    <div class="card"><h3><a href="/laptop-nu-porneste/">Nu pornește</a></h3><p>Niciun led, pornește și se stinge, ecran negru. Căutăm componenta care a cedat.</p></div>
+    <div class="card"><h3><a href="/laptop-nu-se-incarca/">Nu se încarcă</a></h3><p>Mufă cu joc, baterie care nu mai ține, circuit de încărcare defect.</p></div>
+    <div class="card"><h3><a href="/inlocuire-ecran-laptop/">Ecran</a></h3><p>Spart, cu dungi, cu pete sau fără iluminare. Se schimbă panoul.</p></div>
+    <div class="card"><h3><a href="/inlocuire-tastatura-laptop/">Tastatură</a></h3><p>Taste care nu răspund, scriu singure sau au sărit.</p></div>
+    <div class="card"><h3><a href="/laptop-lichid-varsat/">Lichid vărsat</a></h3><p>Curățarea plăcii și înlocuirea componentelor atinse.</p></div>
+    <div class="card"><h3><a href="/laptop-se-incalzeste/">Se încinge</a></h3><p>Curățare de praf și pastă termică nouă.</p></div>
+  </div>
+  <p style="margin-top:12px">Lucrăm pe Dell, HP, Lenovo, Asus, Acer, MSI și celelalte mărci. Pentru Apple există pagina separată <a href={`/reparatii-macbook-sector-${s.nr}/`}>service MacBook Sector {s.nr}</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Prețuri orientative</h2>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Intervalele includ piesa și manopera și nu depind de sectorul din care veniți. Prețul ferm vi-l spunem după diagnosticare, înainte de a începe. Toate tarifele sunt pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente — Sectorul {s.nr}</h2>
+  <Faq items={s.faq} />
+</section>
+
+<Cta titlu={`💻 Laptop defect în Sectorul ${s.nr}?`} text="Sunați cu modelul și cu ce face laptopul. Vă spunem la ce preț să vă așteptați înainte să plecați de acasă." />
+<p style="font-size:14px;color:var(--mut)">Service laptop și pentru: {alte.map((x, i) => <span>{i > 0 ? ', ' : ''}<a href={`/reparatii-laptop-sector-${x.nr}/`}>Sectorul {x.nr}</a></span>)}, <a href="/reparatii-laptop-sector-6/">Sectorul 6</a>. Pagina generală: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a>.</p>
+</div>
+</Base>

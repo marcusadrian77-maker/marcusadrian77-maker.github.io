@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Înlocuire Tastatură Laptop București | 100–300 lei';
+const desc = 'Taste care nu răspund, scriu singure sau au sărit? Înlocuire tastatură laptop în București, 100–300 lei cu piesă și manoperă. Diagnosticare gratuită, garanție.';
+const faq = [
+ { q: 'Cât costă înlocuirea tastaturii la laptop?', a: 'Între 100 și 300 de lei, cu piesă și manoperă. Prețul depinde de model și de felul în care e prinsă tastatura: cea care se scoate separat e mai ieftin de schimbat decât cea fixată în carcasa de sus.' },
+ { q: 'Mi-a sărit o singură tastă. Trebuie schimbată toată tastatura?', a: 'Nu întotdeauna. Dacă a sărit doar capacul și clema de plastic de sub el e întreagă, tasta se pune la loc. Dacă s-a rupt clema ori suportul de pe placa tastaturii, la multe modele tasta nu mai stă și se schimbă ansamblul. Aduceți și capacul tastei, dacă îl mai aveți.' },
+ { q: 'Câteva taste nu mai merg deloc, restul da. De ce?', a: 'Tastele sunt legate între ele pe rânduri și coloane, pe o folie cu trasee. Când se întrerupe un traseu, de obicei după un lichid vărsat, cad împreună toate tastele de pe el. De aceea nu merg, de exemplu, tocmai 5, T, G și B. Folia nu se repară; se schimbă tastatura.' },
+ { q: 'Laptopul scrie singur sau repetă o literă. E tastatura?', a: 'De cele mai multe ori da: o tastă rămasă în contact, de regulă după lichid. Testul e simplu: dacă se întâmplă și înainte de pornirea Windowsului, de pildă în ecranul de BIOS, e tastatura. Dacă apare doar în Windows, poate fi un program sau o setare.' },
+ { q: 'Cât durează?', a: 'De regulă 24–48 de ore, dacă tastatura pentru modelul dumneavoastră e pe stoc. Dacă trebuie comandată, vă spunem termenul înainte.' },
+ { q: 'Pot primi tastatură cu litere românești sau cu iluminare?', a: 'Tastatura nouă trebuie să fie de același tip cu cea originală: dacă laptopul a avut iluminare, punem una cu iluminare. Dispunerea literelor depinde de ce se găsește pentru model; spuneți-ne ce preferați și vă spunem ce variante există.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Înlocuire tastatură laptop București', tip: 'Înlocuire tastatură laptop', url: '/inlocuire-tastatura-laptop/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }, { name: 'Înlocuire tastatură', url: '/inlocuire-tastatura-laptop/' }]),
+  faqSchema,
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogLaptop}>
+<div class="hero"><div class="wrap">
+  <span class="badge">⌨️ TASTATURĂ LAPTOP · ORICE MARCĂ</span>
+  <h1>Înlocuire Tastatură Laptop București</h1>
+  <p class="lead">O tastă sărită, un rând întreg care a amuțit, o literă care se scrie singură. Tastatura e una dintre piesele care se schimbă cel mai simplu la un laptop, cu o condiție: să fie ea cea defectă. Mai jos, cum vă dați seama și cât costă.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>💰 100 – 300 lei, cu piesă</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+
+<section class="sec">
+  <h2>Cum arată o tastatură defectă</h2>
+  <ul class="checks">
+    <li><strong>Un grup de taste nu mai răspunde</strong>, iar restul merg normal. Semn tipic de traseu întrerupt pe folia tastaturii.</li>
+    <li><strong>O literă se scrie singură</strong> sau se repetă la nesfârșit. O tastă a rămas în contact.</li>
+    <li><strong>Tastele sunt lipicioase</strong> ori se apasă greu, după suc, cafea sau ceai cu zahăr.</li>
+    <li><strong>A sărit o tastă</strong> și nu mai stă la loc.</li>
+    <li><strong>Iluminarea tastaturii</strong> nu se mai aprinde sau luminează doar pe o parte.</li>
+    <li><strong>Nu merge nicio tastă</strong>, dar trackpadul da. Poate fi tastatura sau cablul ei plat, ieșit din conector.</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>Un test de două minute, înainte de service</h2>
+  <ol>
+    <li><strong>Legați o tastatură externă</strong>, pe USB. Dacă pe ea totul merge normal, laptopul e în regulă și defectul e în tastatura lui.</li>
+    <li><strong>Verificați în afara Windowsului.</strong> La pornire, intrați în ecranul de BIOS (de obicei cu F2, Del sau Esc) și încercați săgețile. Dacă nu merg nici acolo, problema e de hardware, nu de sistem.</li>
+    <li><strong>Uitați-vă la NumLock și la tasta Fn.</strong> La laptopurile fără bloc numeric, NumLock transformă o parte din litere în cifre. Pare defect și nu e.</li>
+  </ol>
+  <p>Dacă tastatura externă se poartă la fel de ciudat, cauza nu e tastatura laptopului, ci sistemul de operare sau placa. Spuneți-ne asta la telefon; schimbă complet discuția.</p>
+</section>
+
+<section class="sec">
+  <h2>Două feluri de tastaturi, două lucrări diferite</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Tastatura care se scoate separat</h3><p>La multe laptopuri, mai ales cele mai vechi și cele de birou, tastatura e o piesă de sine stătătoare, ținută în câteva șuruburi și cleme. Se schimbă repede și e varianta ieftină.</p></div>
+    <div class="card"><h3>Tastatura fixată în carcasa de sus</h3><p>La laptopurile subțiri, tastatura e prinsă din fabrică în carcasa superioară, cu zeci de nituri de plastic. Se demontează tot laptopul: placă, baterie, răcire. Se poate schimba doar tastatura sau toată carcasa cu tastatură, în funcție de ce piesă există pentru model.</p></div>
+  </div>
+  <p style="margin-top:12px">De aici vine diferența dintre 100 și 300 de lei. Ce variantă aveți vă spunem după model, de la telefon.</p>
+</section>
+
+<section class="sec">
+  <h2>Dacă a fost lichid</h2>
+  <p>Tastatura e prima piesă care ia lichidul și, de multe ori, singura care îl oprește. Dar nu mereu. Sub ea e placa de bază, iar ce a trecut de tastatură lucrează acolo în liniște, săptămâni la rând.</p>
+  <p>De aceea, la un laptop pe care s-a vărsat ceva nu schimbăm doar tastatura. Desfacem, ne uităm la placă și o curățăm dacă e cazul. O tastatură nouă pusă peste o placă udă rezolvă tastele și lasă adevărata problemă să crească. Ce faceți în primele minute e explicat la <a href="/laptop-lichid-varsat/">lichid vărsat pe laptop</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Înlocuire tastatură laptop, cu piesă și manoperă</span><b>100 – 300 lei</b></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețul ferm îl aflați după ce știm modelul exact și verificăm piesa. De regulă lucrarea durează 24–48 de ore, dacă tastatura e pe stoc. Pentru celelalte intervenții, vedeți <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum decurge</h2>
+  <p>Ne sunați cu modelul de pe eticheta de sub laptop; după el căutăm tastatura potrivită. Aduceți laptopul la atelierul din Str. Moinești 7, Militari, Sector 6 ({SITE.program}) sau îl trimiteți <a href="/reparatii-prin-curier/">prin curier</a>. După montaj testăm fiecare tastă în parte, plus iluminarea, înainte de predare.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="⌨️ Tastatura laptopului nu mai ascultă?" text="Spuneți-ne modelul și ce taste nu merg. Vă spunem de la telefon ce variantă de tastatură aveți și cât costă." />
+<p style="font-size:14px;color:var(--mut)">Vedeți și <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri București</a>, <a href="/laptop-lichid-varsat/">lichid vărsat pe laptop</a>, <a href="/laptop-nu-porneste/">laptopul nu pornește</a>, <a href="/reparatii-laptop-sector-6/">service laptop Sector 6</a>. Pentru Apple: <a href="/inlocuire-tastatura-macbook/">înlocuire tastatură MacBook</a>.</p>
+</div>
+</Base>

@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+const title = 'Reparații PS4 București | Service PlayStation 4, Slim, Pro';
+const desc = 'Service PS4 în București: lumină albastră fără imagine, port HDMI, supraîncălzire, cititor de disc, hard disk, DualShock 4. Diagnosticare gratuită.';
+
+const preturi = [
+  ['Diagnosticare', 'GRATUITĂ'],
+  ['Curățare completă + pastă termică (inclusă gratuit în orice reparație)', '80 – 150 lei'],
+  ['Reparare port HDMI', '100 – 250 lei'],
+  ['Înlocuire cititor de disc', '150 – 350 lei'],
+  ['Reparare sursă de alimentare', '100 – 300 lei'],
+  ['Reparare controller DualShock 4 (drift, butoane)', '50 – 120 lei'],
+  ['Curățare după lichid vărsat', 'de la 150 lei'],
+];
+
+const faq = [
+ { q: 'PS4 pornește cu lumină albastră care pulsează și nu apare imagine. Ce are?', a: 'Este simptomul cunoscut ca „Blue Light of Death”. Consola încearcă să pornească și nu trece de verificarea inițială. Cauzele posibile sunt portul HDMI sau cipul care trimite semnalul video, sursa de alimentare, hard diskul și, mai rar, lipiturile procesorului. Nu se poate spune care dintre ele fără măsurători, de aceea diagnosticarea e primul pas — și este gratuită.' },
+ { q: 'Cât costă repararea portului HDMI la PS4?', a: 'Între 100 și 250 de lei. Capătul de jos al intervalului e pentru un port cu pini îndoiți care se înlocuiește curat; capătul de sus, pentru cazurile în care a cedat și cipul HDMI de pe placă.' },
+ { q: 'PS4 face zgomot de turbină. E grav?', a: 'Nu încă, dar e semnalul că trebuie curățată. Praful a astupat radiatorul, pasta termică s-a uscat, iar ventilatorul compensează prin turație. Dacă o lăsați așa, urmează opririle în timpul jocului și, în timp, defecte de placă. O curățare cu pastă nouă costă 80–150 de lei.' },
+ { q: 'Consola scoate discul singură sau nu-l mai primește. Se repară?', a: 'Da. La primele modele, butonul tactil de scoatere a discului se declanșează singur; la toate modelele se uzează mecanismul de încărcare și lentila laser. Mecanica și lentila se schimbă. Placa electronică a cititorului rămâne cea originală, pentru că e asociată cu consola.' },
+ { q: 'Merită să pun SSD într-un PS4?', a: 'Dacă jocurile se încarcă greu și meniul se mișcă încet, da: hard diskul mecanic e cea mai lentă piesă din consolă, iar după 6–8 ani începe și să dea erori. SSD-ul îl puteți cumpăra dumneavoastră; montarea și reinstalarea sistemului le facem noi. Prețul îl stabilim după ce vedem consola.' },
+ { q: 'Mai merită reparat un PS4 în 2026?', a: 'De cele mai multe ori, da. Reparațiile obișnuite — curățare, HDMI, sursă, cititor — costă între 80 și 350 de lei, mult sub prețul unei console noi. Nu merită doar când placa are mai multe defecte suprapuse, iar asta v-o spunem după diagnosticare, înainte să plătiți ceva.' },
+ { q: 'Cât durează?', a: 'Curățarea și reparațiile de controller se fac de regulă în 24–48 de ore. Portul HDMI și sursa, 1–2 zile. Intervențiile pe placa principală pot dura 3–5 zile lucrătoare.' },
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparații PS4 București', tip: 'Service PlayStation 4', url: '/reparatii-ps4-bucuresti/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații PS4', url: '/reparatii-ps4-bucuresti/' }]),
+  faqSchema
+);
+---
+<Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🎮 PS4 · PS4 SLIM · PS4 PRO</span>
+  <h1>Reparații PS4 București</h1>
+  <p class="lead">Cele mai multe console PlayStation 4 au trecut de șase ani, iar defectele lor sunt cele ale unui aparat care a muncit mult: praf, pastă termică uscată, port HDMI obosit, hard disk la capăt. Aproape toate se repară la o fracțiune din prețul unei console noi, în atelierul nostru din Militari.</p>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🧼 Curățare inclusă în reparație</span><span>🛡️ Garanție 6–12 luni</span></div>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>Ce model de PS4 aveți</h2>
+  <p>Cele trei generații se strică diferit, așa că e primul lucru pe care vă întrebăm la telefon. Codul exact (CUH-…) e pe eticheta din spatele consolei.</p>
+  <div class="grid g3">
+    <div class="card"><h3>PS4 (prima generație)</h3><p>Modelul gros, lansat în 2013. E cea mai veche și cea mai caldă: aici vedem cel mai des lumina albastră fără imagine și discul scos singur de butonul tactil.</p></div>
+    <div class="card"><h3>PS4 Slim</h3><p>Mai subțire și mai rece. Problemele tipice: hard disk uzat, port HDMI lovit, ventilator zgomotos după câțiva ani fără curățare.</p></div>
+    <div class="card"><h3>PS4 Pro</h3><p>Cea mai puternică și cea mai zgomotoasă când e plină de praf. Produce multă căldură, deci pasta termică și curățarea contează aici mai mult decât la celelalte.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Lumina albastră fără imagine</h2>
+  <p>Consola pornește, ledul pulsează albastru câteva secunde și nu devine niciodată alb. Pe televizor nu apare nimic. E defectul cel mai cunoscut al PS4 și cel mai des diagnosticat greșit, pentru că același simptom are patru cauze posibile:</p>
+  <ul class="checks">
+    <li><strong>Portul HDMI sau cipul HDMI de pe placă</strong> — consola funcționează, dar nu poate trimite imaginea.</li>
+    <li><strong>Sursa de alimentare</strong> — nu ține tensiunile stabile la pornire.</li>
+    <li><strong>Hard diskul</strong> — consola nu-și poate citi sistemul. Uneori se aude cum încearcă.</li>
+    <li><strong>Lipiturile procesorului</strong> — apar după ani de supraîncălzire. E cazul cel mai greu și cel în care vă spunem deschis dacă merită.</li>
+  </ul>
+  <p>Înainte să veniți, merită două verificări: alt cablu HDMI și altă intrare a televizorului. Dacă ledul devine alb și tot nu aveți imagine, problema e aproape sigur pe partea de HDMI.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce reparăm la PS4</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ico">🔌</div><h3>Port HDMI</h3><p>Pini îndoiți de un cablu forțat sau cip HDMI ars de o supratensiune venită pe cablu. Portul se înlocuiește prin lipire, la microscop.</p></div>
+    <div class="card"><div class="ico">🌡️</div><h3>Supraîncălzire</h3><p>Curățare completă, pastă termică nouă, verificarea ventilatorului. PS4 folosește pastă obișnuită, nu metal lichid ca PS5.</p></div>
+    <div class="card"><div class="ico">💿</div><h3>Cititor de disc</h3><p>Nu primește discul, îl scoate singur, nu citește jocurile. Schimbăm lentila și mecanica; placa cititorului rămâne cea originală.</p></div>
+    <div class="card"><div class="ico">💾</div><h3>Hard disk și SSD</h3><p>Erori la pornire, jocuri care nu se mai instalează, încărcări foarte lente. Înlocuim discul și reinstalăm sistemul.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>Sursă de alimentare</h3><p>Consola nu dă niciun semn sau se oprește după o secundă. Reparăm sursa la nivel de componentă.</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>DualShock 4</h3><p>Drift, butoane care nu răspund, mufă de încărcare slăbită. Detalii la <a href="/reparatii-controllere-ps4-ps5-xbox/">reparații controllere</a>.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă o reparație de PS4</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Intervenție</th><th>Preț orientativ</th></tr></thead><tbody>
+    {preturi.map(r => <tr><td>{r[0]}</td><td><strong>{r[1]}</strong></td></tr>)}
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ manopera. Când consola intră la o reparație, curățarea și pasta termică nu se plătesc separat: oricum o desfacem complet. Pentru înlocuirea hard diskului și pentru defectele de placă, prețul îl aflați după diagnosticare. Grila pentru toate aparatele e pe <a href="/preturi/">pagina de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Codurile de eroare pe care le vedem des</h2>
+  <ul class="checks">
+    <li><strong>CE-34878-0</strong> — jocul sau aplicația s-a închis. Dacă apare la toate jocurile, suspectul e hard diskul.</li>
+    <li><strong>CE-30005-8</strong> — eroare la citirea discului sau a hard diskului.</li>
+    <li><strong>CE-36329-3</strong> — eroare de software de sistem, de obicei după o actualizare întreruptă.</li>
+    <li><strong>SU-30746-0, SU-41350-3</strong> — actualizarea nu se poate instala.</li>
+  </ul>
+  <p>La erorile de sistem merită încercat întâi modul de siguranță: țineți apăsat butonul de pornire până auziți al doilea bip, apoi alegeți reconstruirea bazei de date. Nu șterge jocurile. Dacă eroarea revine, discul e pe ducă.</p>
+</section>
+
+<section class="sec">
+  <h2>Cum decurge</h2>
+  <ol>
+    <li><strong>Sunați sau scrieți pe WhatsApp</strong> cu modelul și ce face consola.</li>
+    <li><strong>Aduceți consola la atelier</strong>, în Str. Moinești 7, Militari, <a href="/reparatii-console-gaming-sector-6/">Sector 6</a>. Program: {SITE.program}. Aduceți și cablul de alimentare, iar dacă problema e la joc, un disc cu care apare.</li>
+    <li><strong>Diagnosticare gratuită.</strong> Vă sunăm cu defectul și cu prețul ferm.</li>
+    <li><strong>Reparația</strong>, doar după ce sunteți de acord cu prețul.</li>
+    <li><strong>Predare cu garanție scrisă</strong> de 6–12 luni.</li>
+  </ol>
+  <p>Nu sunteți din București? Consola se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="🎮 PS4 defect? Aduceți-l la diagnosticare gratuită" text="Spuneți-ne modelul și ce face consola. Vă spunem de la telefon la ce să vă așteptați." />
+<p style="font-size:14px;color:var(--mut)">Alte console: <a href="/reparatii-ps5-bucuresti/">reparații PS5</a>, <a href="/reparatii-xbox-bucuresti/">reparații Xbox</a>, <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">toate consolele</a>. Vedeți și <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a> și <a href="/reparatii-controllere-ps4-ps5-xbox/">reparații controllere</a>.</p>
+</div>
+</Base>
