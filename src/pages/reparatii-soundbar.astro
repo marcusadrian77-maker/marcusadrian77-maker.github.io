@@ -22,8 +22,8 @@ const marci = [
 const faq = [
  { q: 'Subwooferul nu se mai împerechează cu bara. Se repară?', a: 'De cele mai multe ori, da. Împerecherea se pierde fie pentru că modulul wireless din subwoofer a cedat, fie pentru că memoria barei a pierdut asocierea. În al doilea caz se rezolvă prin reimperechere, fără piese. Verificăm care dintre cele două este, gratuit.' },
  { q: 'Nu se aude nimic pe HDMI ARC, deși cablul e bun. De ce?', a: 'HDMI ARC combină trei lucruri care pot da greș separat: setarea din televizor, funcția CEC și portul propriu-zis al barei. Deseori e doar o setare sau un port ARC obosit de pe televizor, nu soundbarul. De aceea verificăm ansamblul, nu doar aparatul adus.' },
- { q: 'Cât costă o reparație de soundbar?', a: 'Diagnosticarea este gratuită. Reparația amplificatorului intern costă 80–200 lei, reparația Bluetooth sau a conectivității 60–150 lei, iar portul de alimentare 50–120 lei. Vă spunem costul exact înainte de a începe.' },
- { q: 'Merită reparat un soundbar ieftin?', a: 'Depinde de defect. Un port de alimentare rupt se rezolvă sub 150 de lei și aparatul mai merge ani. Dacă placa principală e distrusă la un model de buget, vă spunem deschis că nu merită — preferăm asta decât să vă luăm bani pe o lucrare fără sens.' },
+ { q: 'Cât costă o reparație de soundbar?', a: 'Diagnosticarea este gratuită. Reparația amplificatorului intern costă 80–200 lei, înlocuirea unui difuzor 50–150 lei, reparația Bluetooth sau a conectivității 60–150 lei, iar portul de alimentare 50–120 lei. Vă spunem costul exact înainte de a începe.' },
+ { q: 'Merită reparat un soundbar ieftin?', a: 'Depinde de defect. Un port de alimentare rupt sau un difuzor ars se rezolvă sub 150 de lei și aparatul mai merge ani. Dacă placa principală e distrusă la un model de buget, vă spunem deschis că nu merită — preferăm asta decât să vă luăm bani pe o lucrare fără sens.' },
  { q: 'Veniți la domiciliu sau trebuie adus în atelier?', a: 'Soundbarul se repară în atelierul din Militari, Sector 6 — are nevoie de bancul de lucru și de aparatura de măsură. Îl puteți aduce personal sau trimite prin curier, din orice localitate din țară.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -37,7 +37,7 @@ const schemaSEO = graf(
 <div class="hero"><div class="wrap">
   <span class="badge">🔊 SERVICE SOUNDBAR · BARE DE SUNET · SUBWOOFER</span>
   <h1>Reparații Soundbar București</h1>
-  <p class="lead">Reparăm bare de sunet și subwoofere de la toate mărcile, la nivel de componentă: amplificator, alimentare, module wireless și HDMI. Diagnostic gratuit, garanție scrisă 6–12 luni.</p>
+  <p class="lead">Reparăm bare de sunet și subwoofere de la toate mărcile, la nivel de componentă: amplificator, difuzoare, alimentare, module wireless și HDMI. Diagnostic gratuit, garanție scrisă 6–12 luni.</p>
   <div class="pills"><span>🔍 Diagnosticare Gratuită</span><span>🛡️ Garanție 6-12 luni</span><span>📦 Primim și prin curier</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
@@ -51,7 +51,7 @@ const schemaSEO = graf(
     <div class="card-soft"><strong>🔴 Nu pornește deloc</strong><span>Sursă internă sau alimentator extern, condensatoare umflate, port de alimentare slăbit din cauza cablului tras lateral</span></div>
     <div class="card-soft"><strong>🔴 Pornește, dar nu se aude</strong><span>Amplificatorul intern a intrat în protecție sau un canal a cedat. Deseori se repară la nivel de componentă</span></div>
     <div class="card-soft"><strong>🔴 Subwooferul nu se împerechează</strong><span>Modul wireless defect în subwoofer sau asociere pierdută în memoria barei</span></div>
-    <div class="card-soft"><strong>🔴 Sunet distorsionat sau pârâit</strong><span>Condensatoare uzate pe etajul final, amplificator defect</span></div>
+    <div class="card-soft"><strong>🔴 Sunet distorsionat sau pârâit</strong><span>Difuzor cu bobina atinsă, condensatoare uzate pe etajul final</span></div>
     <div class="card-soft"><strong>🔴 HDMI ARC / eARC nu funcționează</strong><span>Port HDMI defect, CEC dezactivat sau incompatibilitate de setare cu televizorul</span></div>
     <div class="card-soft"><strong>🔴 Bluetooth nu se conectează</strong><span>Modul radio defect sau firmware blocat după o actualizare întreruptă</span></div>
     <div class="card-soft"><strong>🔴 Se stinge singur după câteva minute</strong><span>Protecție termică, ventilație blocată de praf sau condensator care cedează la cald</span></div>
@@ -81,10 +81,11 @@ const schemaSEO = graf(
   <h2>Prețuri Orientative</h2>
   <div class="grid g3">
     <div class="card-soft"><strong>Reparare amplificator intern</strong><span>80 – 200 lei</span></div>
+    <div class="card-soft"><strong>Înlocuire difuzor</strong><span>50 – 150 lei</span></div>
     <div class="card-soft"><strong>Reparare Bluetooth / conectivitate</strong><span>60 – 150 lei</span></div>
     <div class="card-soft"><strong>Reparare port alimentare / baterie</strong><span>50 – 120 lei</span></div>
   </div>
-  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Difuzoare nu înlocuim: lucrăm pe partea electronică a barei și a subwooferului. Diagnosticarea este gratuită și nu vă obligă la nimic. Grila completă, pe toate tipurile de aparate, este pe <a href="/preturi/">pagina de prețuri</a>.</p>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Diagnosticarea este gratuită și nu vă obligă la nimic. Grila completă, pe toate tipurile de aparate, este pe <a href="/preturi/">pagina de prețuri</a>.</p>
 </section>
 <section class="sec">
   <h2>Și Restul Sistemului Audio</h2>
