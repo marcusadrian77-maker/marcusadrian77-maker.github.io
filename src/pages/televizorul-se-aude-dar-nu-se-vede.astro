@@ -12,10 +12,10 @@ const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'Televizorul se aude dar nu se vede. Ce înseamnă?', a: 'În marea majoritate a cazurilor înseamnă că iluminarea din spatele ecranului nu mai funcționează. Imaginea se formează normal — de aceea aveți sunet și, la lanternă, se văd meniurile — dar nu mai e nimic care să o lumineze. E una dintre cele mai frecvente defecțiuni la televizoarele LED și, în același timp, una dintre cele mai rentabile de reparat.' },
  { q: 'Cum îmi dau seama singur dacă e iluminarea sau panoul?', a: 'Faceți testul lanternei. Porniți televizorul, stingeți lumina în cameră și luminați ecranul de foarte aproape, oblic, cu lanterna telefonului. Dacă zăriți imaginea sau meniul, ca o umbră, panoul e bun și problema e la iluminare. Dacă nu se vede absolut nimic nici așa, defectul e mai adânc — sursă, placă principală sau chiar panoul.' },
- { q: 'Cât costă reparația?', a: 'Înlocuirea benzilor LED costă între 100 și 280 de lei, cu 6 luni garanție. Dacă vinovată e sursa de alimentare, intervalul e 150–350 de lei, cu 12 luni garanție. Dacă e placa principală, 200–500 de lei. Diagnosticarea la domiciliu e gratuită, iar prețul exact vi-l spunem înainte să începem.' },
+ { q: 'Cât costă reparația?', a: 'Înlocuirea benzilor LED costă între 150 și 420 de lei, cu 6 luni garanție. Dacă vinovată e sursa de alimentare, intervalul e 230–530 de lei, cu 12 luni garanție. Dacă e placa principală, 300–750 de lei. Diagnosticarea la domiciliu e gratuită, iar prețul exact vi-l spunem înainte să începem.' },
  { q: 'Ce înseamnă dacă ecranul e negru și nu se aude nimic?', a: 'Atunci vorbim despre altceva: televizorul probabil nici nu pornește cu adevărat. Uitați-vă la ledul de stare din față — dacă e stins complet, sau dacă clipește ritmic, cel mai probabil e sursa de alimentare. Avem ghiduri separate pentru televizoarele care nu pornesc deloc.' },
  { q: 'Imaginea apare câteva secunde și apoi ecranul devine negru. E același defect?', a: 'Da, e chiar semnul clasic al iluminării defecte. Televizorul pornește, driverul de LED-uri încearcă să alimenteze benzile, detectează o eroare și se oprește din protecție — de aici cele două-trei secunde de imagine. Se repară la fel, prin înlocuirea benzilor și verificarea driverului.' },
- { q: 'Merită reparat sau iau altul?', a: 'Dacă panoul e bun — și testul lanternei vă spune asta — reparația are aproape întotdeauna sens. O înlocuire de benzi LED la 100–280 de lei pe un televizor care altfel funcționează perfect e sub orice variantă de înlocuire. Vă spunem sincer când nu merită: atunci când panoul însuși e crăpat sau pătat.' },
+ { q: 'Merită reparat sau iau altul?', a: 'Dacă panoul e bun — și testul lanternei vă spune asta — reparația are aproape întotdeauna sens. O înlocuire de benzi LED la 150–420 de lei pe un televizor care altfel funcționează perfect e sub orice variantă de înlocuire. Vă spunem sincer când nu merită: atunci când panoul însuși e crăpat sau pătat.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaExtra = { '@context': 'https://schema.org', '@graph': [
@@ -76,9 +76,9 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <h2>Cât costă și ce se schimbă efectiv</h2>
   <p>Reparația înseamnă demontarea panoului, scoaterea benzilor vechi și montarea unora noi, cu verificarea driverului care le alimentează. Este o lucrare delicată — panoul unui televizor mare e subțire și se fisurează dacă e apucat greșit — dar pentru un atelier obișnuit cu ea e o intervenție de rutină.</p>
   <ul class="checks">
-    <li><strong>Înlocuire benzi LED (backlight): 100–280 de lei</strong>, garanție 6 luni. Prețul depinde de diagonală, pentru că se schimbă toate benzile.</li>
-    <li><strong>Sursă de alimentare: 150–350 de lei</strong>, garanție 12 luni — când ledurile sunt bune, dar nu primesc tensiune.</li>
-    <li><strong>Placă principală: 200–500 de lei</strong>, garanție 12 luni — mai rar, când semnalul video nu ajunge deloc la panou.</li>
+    <li><strong>Înlocuire benzi LED (backlight): 150–420 de lei</strong>, garanție 6 luni. Prețul depinde de diagonală, pentru că se schimbă toate benzile.</li>
+    <li><strong>Sursă de alimentare: 230–530 de lei</strong>, garanție 12 luni — când ledurile sunt bune, dar nu primesc tensiune.</li>
+    <li><strong>Placă principală: 300–750 de lei</strong>, garanție 12 luni — mai rar, când semnalul video nu ajunge deloc la panou.</li>
   </ul>
   <p>Diagnosticarea e gratuită și o facem la dumneavoastră acasă. Grila completă e pe pagina de <a href="/preturi/">prețuri</a>.</p>
 </section>

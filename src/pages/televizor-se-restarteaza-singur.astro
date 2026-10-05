@@ -14,7 +14,7 @@ const faq = [
  { q: 'Televizorul repornește în buclă, la nesfârșit. Ce înseamnă?', a: 'Bucla de repornire — logo, ecran negru, iar logo — apare când placa principală nu reușește să încarce complet software-ul. Poate fi memoria eMMC degradată sau o alimentare instabilă care cade exact în timpul pornirii. La modelele Smart TV rescriem memoria cu programator specializat, fără schimbarea plăcii.' },
  { q: 'Se oprește doar seara, sau doar după ce stă mult pornit. De ce?', a: 'Este semnătura clasică a supraîncălzirii sau a unei lipituri obosite. Componentele se dilată pe măsură ce placa se încălzește, iar o sudură crăpată microscopic pierde contactul. De aceea aparatul funcționează impecabil rece și cedează după o oră. Se rezolvă prin relipire și curățare, o intervenție relativ ieftină.' },
  { q: 'Poate fi de vină priza sau tensiunea din casă?', a: 'Da, se întâmplă. Prelungitoarele vechi, prizele cu contacte slăbite și fluctuațiile de tensiune din rețea produc exact acest simptom. Înainte de a ne suna, încercați televizorul în altă priză, direct, fără prelungitor. Dacă problema dispare, ați găsit-o — și v-am economisit o reparație.' },
- { q: 'Cât costă reparația unui televizor care se oprește singur?', a: 'Reparația sursei de alimentare, cea mai frecventă cauză, costă în general între 150 și 350 de lei cu piesă și manoperă. Înlocuirea barelor LED intră în 100–280 de lei. Placa principală, între 200 și 500. Resoftarea, când e vorba de software, 50–150 de lei. Diagnosticarea e gratuită.' },
+ { q: 'Cât costă reparația unui televizor care se oprește singur?', a: 'Reparația sursei de alimentare, cea mai frecventă cauză, costă în general între 230 și 530 de lei cu piesă și manoperă. Înlocuirea barelor LED intră în 150–420 de lei. Placa principală, între 200 și 500. Resoftarea, când e vorba de software, 80–230 de lei. Diagnosticarea e gratuită.' },
  { q: 'Este periculos să folosesc televizorul așa?', a: 'Nu-l lăsați nesupravegheat și scoateți-l din priză când nu îl folosiți. Un condensator umflat sau un scurtcircuit pe sursă înseamnă căldură într-un loc în care nu ar trebui să existe. Riscul de incendiu e mic, dar nu e zero, iar amânarea reparației transformă de obicei un defect ieftin într-unul scump.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -72,17 +72,17 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <section class="sec">
   <h2>💰 Cât costă reparația</h2>
   <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
-  <div class="price-row"><span>Reparare sursă de alimentare</span><b>150 – 350 lei</b></div>
-  <div class="price-row"><span>Înlocuire bare LED</span><b>100 – 280 lei</b></div>
-  <div class="price-row"><span>Curățare + refacere lipituri</span><b>120 – 250 lei</b></div>
-  <div class="price-row"><span>Reparare placă de bază</span><b>200 – 500 lei</b></div>
-  <div class="price-row"><span>Resoftare / rescriere memorie eMMC</span><b>50 – 150 lei</b></div>
+  <div class="price-row"><span>Reparare sursă de alimentare</span><b>230 – 530 lei</b></div>
+  <div class="price-row"><span>Înlocuire bare LED</span><b>150 – 420 lei</b></div>
+  <div class="price-row"><span>Curățare + refacere lipituri</span><b>180 – 380 lei</b></div>
+  <div class="price-row"><span>Reparare placă de bază</span><b>300 – 750 lei</b></div>
+  <div class="price-row"><span>Resoftare / rescriere memorie eMMC</span><b>80 – 230 lei</b></div>
   <p style="margin-top:12px;font-size:14px;color:var(--mut)">Piesa și manopera sunt incluse. Garanție scrisă 6–12 luni. Lista completă: <a href="/preturi/">prețuri reparații televizoare</a>.</p>
 </section>
 
 <section class="sec">
   <h2>De ce nu e bine să amânați</h2>
-  <p>Un condensator degradat pe sursă nu se repară singur — se degradează mai departe, iar tensiunile instabile pe care le produce ajung, în timp, la placa principală și la panou. Un defect de 200 de lei devine astfel unul de 600, sau ajunge în punctul în care televizorul nu mai merită reparat deloc.</p>
+  <p>Un condensator degradat pe sursă nu se repară singur — se degradează mai departe, iar tensiunile instabile pe care le produce ajung, în timp, la placa principală și la panou. Un defect de 300 de lei devine astfel unul de 900, sau ajunge în punctul în care televizorul nu mai merită reparat deloc.</p>
   <p>Până când îl aduceți la verificare, țineți-l scos din priză când nu îl folosiți și nu-l lăsați pornit nesupravegheat.</p>
 </section>
 

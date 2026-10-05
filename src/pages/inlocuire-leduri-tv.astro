@@ -7,10 +7,10 @@ import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 const title = 'Înlocuire Leduri TV: Preț și Cum Decurge | București';
-const desc = 'Preț înlocuire leduri TV: 100–280 lei cu garanție 6 luni, la orice marcă. Când se schimbă barete întregi, cât durează și cum aflați dacă asta aveți nevoie.';
+const desc = 'Preț înlocuire leduri TV: 150–420 lei cu garanție 6 luni, la orice marcă. Când se schimbă barete întregi, cât durează și cum aflați dacă asta aveți nevoie.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
- { q: 'Cât costă înlocuirea ledurilor la televizor?', a: 'Între 100 și 280 de lei, cu piesă, manoperă și 6 luni de garanție. Diferența o dă diagonala: la un televizor de 32 de inch sunt mai puține barete de schimbat decât la unul de 65. Prețul include și verificarea driverului care alimentează ledurile, pentru că uneori el este cel care le-a ars.' },
+ { q: 'Cât costă înlocuirea ledurilor la televizor?', a: 'Între 150 și 420 de lei, cu piesă, manoperă și 6 luni de garanție. Diferența o dă diagonala: la un televizor de 32 de inch sunt mai puține barete de schimbat decât la unul de 65. Prețul include și verificarea driverului care alimentează ledurile, pentru că uneori el este cel care le-a ars.' },
  { q: 'Se schimbă ledurile unul câte unul sau toată bareta?', a: 'Se schimbă baretele întregi, nu ledul ars. Ledurile sunt legate în serie și îmbătrânesc împreună: dacă înlocuiți doar unul, restul sunt deja obosite și cedează la scurt timp, iar aparatul se desface a doua oară degeaba. La fel, se schimbă toate baretele, nu doar cea defectă.' },
  { q: 'Cum știu că am nevoie de înlocuire de leduri?', a: 'Semnul clasic este ecranul negru cu sunetul prezent. Faceți testul lanternei: în cameră întunecată, luminați ecranul oblic, de aproape. Dacă zăriți imaginea ca o umbră, panoul e bun și ledurile sunt de vină. Mai sunt și forme parțiale: o zonă a ecranului mai întunecată sau imaginea care apare două secunde și apoi dispare.' },
  { q: 'Cât durează lucrarea?', a: 'Dacă avem baretele pe stoc pentru modelul dumneavoastră, o facem într-o singură vizită. La televizoarele mari, de 55 de inch în sus, preferăm atelierul: panoul e subțire, trebuie așezat orizontal pe o suprafață curată și manevrat cu grijă. Transportul dus-întors îl asigurăm noi, gratuit.' },
@@ -22,7 +22,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
  { '@type': 'Service', name: 'Înlocuire leduri TV', serviceType: 'Înlocuire benzi LED televizor', description: desc, url: canonical,
    areaServed: [{ '@type': 'City', name: 'București' }, { '@type': 'AdministrativeArea', name: 'Județul Ilfov' }],
    provider: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' },
-   offers: { '@type': 'Offer', priceCurrency: 'RON', priceSpecification: { '@type': 'PriceSpecification', minPrice: '100', maxPrice: '280', priceCurrency: 'RON' } } },
+   offers: { '@type': 'Offer', priceCurrency: 'RON', priceSpecification: { '@type': 'PriceSpecification', minPrice: '150', maxPrice: '420', priceCurrency: 'RON' } } },
  { '@type': 'BreadcrumbList', itemListElement: [
    { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
    { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
@@ -32,7 +32,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 ---
 <Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
 <div class="hero"><div class="wrap">
-  <span class="badge">💡 100–280 lei · garanție 6 luni</span>
+  <span class="badge">💡 150–420 lei · garanție 6 luni</span>
   <h1>Înlocuire Leduri TV</h1>
   <p class="lead">Ledurile din spatele ecranului sunt piese consumabile: se ard, iar televizorul rămâne cu sunet și fără imagine. Este una dintre cele mai frecvente reparații pe care le facem și, în același timp, una dintre cele mai rentabile — panoul rămâne intact, se schimbă doar iluminarea.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
@@ -43,7 +43,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 
 <section class="sec">
   <h2>Prețul înlocuirii de leduri</h2>
-  <p><strong>100–280 de lei</strong>, cu barete noi, manoperă și 6 luni de garanție scrisă. Intervalul e dat de diagonală: la un televizor de 32 de inch se montează două-trei barete, la unul de 65 pot fi zece sau mai multe, iar timpul de lucru crește la fel.</p>
+  <p><strong>150–420 de lei</strong>, cu barete noi, manoperă și 6 luni de garanție scrisă. Intervalul e dat de diagonală: la un televizor de 32 de inch se montează două-trei barete, la unul de 65 pot fi zece sau mai multe, iar timpul de lucru crește la fel.</p>
   <p>În preț intră și verificarea driverului de leduri de pe sursă. O facem de fiecare dată, pentru că dacă driverul e cel care a ars baretele — trimițând un curent prea mare — baretele noi ar păți exact același lucru în câteva săptămâni.</p>
   <p>Diagnosticarea e gratuită, la domiciliu, și vă spunem prețul exact înainte de a demonta ceva. Grila completă pentru toate tipurile de intervenție e pe pagina de <a href="/preturi/">prețuri</a>.</p>
 </section>
@@ -96,6 +96,6 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 
 <TrimitePoze />
 
-<Cta titlu="💡 Leduri arse la televizor? Sunați-ne!" text="100–280 lei cu garanție 6 luni. Spuneți-ne modelul și verificăm stocul cât vorbim la telefon." />
+<Cta titlu="💡 Leduri arse la televizor? Sunați-ne!" text="150–420 lei cu garanție 6 luni. Spuneți-ne modelul și verificăm stocul cât vorbim la telefon." />
 </div>
 </Base>
