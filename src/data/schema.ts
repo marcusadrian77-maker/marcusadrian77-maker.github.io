@@ -76,10 +76,10 @@ export function graf(...noduri: (object | null | false | undefined)[]) {
 
 export const OFERTE_MARCUS: [string, number, number, string][] = [
   ['Diagnosticare', 0, 0, 'Identificarea defecțiunii, gratuit și fără obligații'],
-  ['Reparație televizor — sursă de alimentare', 150, 400, 'Cea mai frecventă defecțiune la TV. Garanție 6–12 luni'],
-  ['Reparație televizor — iluminare LED', 150, 400, 'Ecran negru cu sunet prezent. Garanție 6–12 luni'],
-  ['Reparație televizor — placă principală', 150, 400, 'Smart TV, software, porturi. Garanție 6–12 luni'],
-  ['Înlocuire panou televizor', 400, 1200, 'Depinde de diagonală și tehnologie'],
+  ['Reparație televizor — sursă de alimentare', 230, 600, 'Cea mai frecventă defecțiune la TV. Garanție 6–12 luni'],
+  ['Reparație televizor — iluminare LED', 230, 600, 'Ecran negru cu sunet prezent. Garanție 6–12 luni'],
+  ['Reparație televizor — placă principală', 230, 600, 'Smart TV, software, porturi. Garanție 6–12 luni'],
+  ['Înlocuire panou televizor', 600, 1800, 'Depinde de diagonală și tehnologie'],
   ['Laptop — curățare și pastă termică', 80, 150, 'Pentru supraîncălzire și zgomot'],
   ['Laptop — înlocuire ecran', 200, 600, 'În funcție de diagonală și rezoluție'],
   ['Laptop — înlocuire baterie', 100, 250, 'Baterie nouă, cu calibrare'],

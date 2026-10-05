@@ -59,7 +59,7 @@ export const BRANDURI = [
    game: 'Reparăm toate gamele Samsung: Neo QLED, QLED, OLED, Crystal UHD, The Frame, The Serif, Series 6, 7, 8 și 9, 4K, 8K, Full HD și Smart TV Tizen. Intervenții pentru diagonale de la 32″ până la 85″, inclusiv modele de generații mai vechi. Avem experiență directă cu modelele cele mai vândute în România: UE55TU7172, QE65QN85A, UE50AU7172, QE55Q60B și The Frame LS03B, precum și cu seriile mai vechi J, K și M.',
    ghidLink: '/televizor-samsung-nu-porneste/',
    faq: [
-     { q: 'Cât costă reparația unui televizor Samsung?', a: 'Costul depinde de defecțiune: o reparație de sursă de alimentare sau backlight pornește de la 150–250 RON, în timp ce o rescriere eMMC sau reparație T-CON poate ajunge la 300–500 RON. Diagnosticarea este gratuită, iar prețul final îl aflați înainte de a accepta reparația.' },
+     { q: 'Cât costă reparația unui televizor Samsung?', a: 'Costul depinde de defecțiune: o reparație de sursă de alimentare sau backlight pornește de la 230–380 RON, în timp ce o rescriere eMMC sau reparație T-CON poate ajunge la 450–750 RON. Diagnosticarea este gratuită, iar prețul final îl aflați înainte de a accepta reparația.' },
      { q: 'Merită reparat un Samsung QLED sau e mai bine să cumpăr altul?', a: 'De regulă, dacă televizorul are sub 6–7 ani și diagonala este de 50″ sau mai mare, reparația merită — costul este de 3–5 ori mai mic decât un televizor nou echivalent. Vă spunem sincer dacă reparația se justifică economic sau nu.' },
      { q: 'Cât durează reparația unui televizor Samsung?', a: 'Majoritatea reparațiilor (sursă, backlight, conectivitate) se rezolvă pe loc, în 1–2 ore. Lucrările de atelier (rescriere eMMC, reparație T-CON, lucru pe panou) durează 1–3 zile lucrătoare, cu transport gratuit dus-întors.' },
    ],
@@ -80,7 +80,7 @@ export const BRANDURI = [
    ghidLink: '',
    faq: [
      { q: 'Se pot repara pixelii arși pe un LG OLED?', a: 'Da, în multe cazuri problema nu este de panou, ci de placa T-CON sau de cablul LVDS. Dacă defectul este izolat într-o zonă, reparația T-CON rezolvă problema. Diagnosticarea gratuită stabilește exact cauza și dacă reparația se justifică.' },
-     { q: 'Cât costă înlocuirea backlight-ului la un LG NanoCell?', a: 'Înlocuirea baretelor LED (backlight) la un LG NanoCell sau UHD costă de regulă între 200–400 RON, în funcție de diagonală și numărul de barete necesare. Reparația se face frecvent la domiciliu, în 1–2 ore.' },
+     { q: 'Cât costă înlocuirea backlight-ului la un LG NanoCell?', a: 'Înlocuirea baretelor LED (backlight) la un LG NanoCell sau UHD costă de regulă între 300–600 RON, în funcție de diagonală și numărul de barete necesare. Reparația se face frecvent la domiciliu, în 1–2 ore.' },
      { q: 'Televizorul LG rămâne blocat pe logo-ul webOS. Ce fac?', a: 'Această problemă se rezolvă prin rescrierea memoriei eMMC cu un programator specializat. Este o intervenție de atelier care durează 1–2 zile lucrătoare. Transportul televizorului este gratuit, iar garanția este de 6–12 luni.' },
    ],
  },
@@ -100,7 +100,7 @@ export const BRANDURI = [
    ghidLink: '',
    faq: [
      { q: 'Ce înseamnă când televizorul Sony clipește de mai multe ori?', a: 'Televizoarele Sony Bravia au un sistem de auto-diagnostic: numărul de clipiri ale LED-ului de standby indică tipul defecțiunii (sursă, T-CON, placă principală etc.). La diagnostic, identificăm codul și intervenim precis pe componenta defectă.' },
-     { q: 'Cât costă reparația unui Sony Bravia OLED?', a: 'Costul variază în funcție de defect: o reparație de sursă pornește de la 200 RON, iar intervențiile pe T-CON sau panou OLED pot ajunge la 400–600 RON. Diagnosticarea este gratuită și vă comunicăm prețul înainte de a începe reparația.' },
+     { q: 'Cât costă reparația unui Sony Bravia OLED?', a: 'Costul variază în funcție de defect: o reparație de sursă pornește de la 300 RON, iar intervențiile pe T-CON sau panou OLED pot ajunge la 600–900 RON. Diagnosticarea este gratuită și vă comunicăm prețul înainte de a începe reparația.' },
      { q: 'Televizorul Sony Bravia este blocat pe Android TV. Se poate repara?', a: 'Da, rezolvăm această problemă prin rescrierea memoriei eMMC sau reinstalarea firmware-ului. Este o intervenție de atelier care durează 1–2 zile lucrătoare, cu transport gratuit și garanție 6–12 luni.' },
    ],
  },
@@ -140,7 +140,7 @@ export const BRANDURI = [
    ghidLink: '',
    faq: [
      { q: 'Mai reparați televizoare Panasonic plasmă?', a: 'Da, reparăm și televizoare plasmă Panasonic — surse de alimentare, plăci Y-SUS și Z-SUS, plăci de control. Atât timp cât panoul în sine nu este spart, de obicei reparația se justifică, mai ales la modelele plasmă de diagonală mare care oferă o calitate excelentă a imaginii.' },
-     { q: 'Cât costă reparația unui Panasonic OLED?', a: 'Costul depinde de defecțiune: reparația sursei pornește de la 200 RON, iar intervențiile pe T-CON sau panou OLED pot ajunge la 400–600 RON. Diagnosticarea este gratuită și vă spunem prețul exact înainte de a începe.' },
+     { q: 'Cât costă reparația unui Panasonic OLED?', a: 'Costul depinde de defecțiune: reparația sursei pornește de la 300 RON, iar intervențiile pe T-CON sau panou OLED pot ajunge la 600–900 RON. Diagnosticarea este gratuită și vă spunem prețul exact înainte de a începe.' },
      { q: 'Televizorul Panasonic Viera nu mai pornește deloc. Se poate repara?', a: 'Da, în majoritatea cazurilor cauza este sursa de alimentare — condensatori cedați sau circuit de standby defect. Reparăm pe loc la domiciliu, în 1–2 ore, cu piese din trusa de service. Garanția este de 6–12 luni.' },
    ],
  },
@@ -159,7 +159,7 @@ export const BRANDURI = [
    game: 'Reparăm toate gamele Toshiba: UHD 4K, LED, seriile UA / UK / QA, Full HD și Smart TV (Fire TV, VIDAA, Android), diagonale de la 32″ la 75″, inclusiv modele mai vechi. Avem experiență cu modelele întâlnite în România: 55UA3D63DG, 50UK3163DG, 43LA2B63DG, 32WA2063DG, precum și cu seriile mai vechi L și W.',
    ghidLink: '',
    faq: [
-     { q: 'Cât costă reparația unui televizor Toshiba?', a: 'Reparațiile Toshiba sunt de obicei accesibile: o sursă de alimentare costă 150–250 RON, înlocuirea backlight-ului 200–350 RON, iar rescrierea eMMC 250–400 RON. Diagnosticarea este gratuită și aflați prețul final înainte de a decide.' },
+     { q: 'Cât costă reparația unui televizor Toshiba?', a: 'Reparațiile Toshiba sunt de obicei accesibile: o sursă de alimentare costă 230–380 RON, înlocuirea backlight-ului 300–530 RON, iar rescrierea eMMC 380–600 RON. Diagnosticarea este gratuită și aflați prețul final înainte de a decide.' },
      { q: 'Televizorul Toshiba cu Fire TV este blocat. Se rezolvă?', a: 'Da, problemele de Fire TV sau VIDAA se rezolvă prin rescrierea memoriei eMMC cu un programator specializat. Lucrarea se face în atelier, durează 1–2 zile, cu transport gratuit și garanție 6–12 luni.' },
      { q: 'Merită reparat un Toshiba mai vechi sau e mai bine să iau unul nou?', a: 'Depinde de diagonală și de defect. Un Toshiba de 43″+ cu o problemă de sursă sau backlight merită aproape întotdeauna reparat — costul e de 3–5 ori mai mic decât unul nou. La televizoare mici (32″) cu defecte complexe, poate fi mai eficient să cumpărați unul nou.' },
    ],
@@ -180,7 +180,7 @@ export const BRANDURI = [
    ghidLink: '',
    faq: [
      { q: 'Reparați televizoare Sharp Aquos mai vechi (cu tub catodic sau LCD)?', a: 'Da, reparăm și modelele Sharp LCD mai vechi din seria Aquos LC. Atât timp cât panoul este intact, sursa de alimentare și plăcile electronice pot fi reparate la nivel de componentă, la un cost rezonabil.' },
-     { q: 'Cât costă reparația unui Sharp Aquos cu ecran negru?', a: 'Ecranul negru cu sunet prezent înseamnă de obicei backlight defect. Înlocuirea baretelor LED costă între 200–350 RON la un Sharp Aquos, în funcție de diagonală. Reparația se face frecvent la domiciliu, în 1–2 ore.' },
+     { q: 'Cât costă reparația unui Sharp Aquos cu ecran negru?', a: 'Ecranul negru cu sunet prezent înseamnă de obicei backlight defect. Înlocuirea baretelor LED costă între 300–530 RON la un Sharp Aquos, în funcție de diagonală. Reparația se face frecvent la domiciliu, în 1–2 ore.' },
      { q: 'Televizorul Sharp cu Android TV nu mai pornește. Se poate repara?', a: 'Da, dacă LED-ul de standby este aprins dar TV-ul nu pornește, de obicei problema este de firmware — se rezolvă prin rescriere eMMC. Dacă LED-ul nu se aprinde deloc, cauza e sursa de alimentare. Ambele se repară rapid, cu garanție 6–12 luni.' },
    ],
  },
