@@ -159,8 +159,9 @@ const schemaExtra = {
 <>
 <div class="hero"><div class="wrap">
   <span class="badge">📺 SERVICE TELEVIZOARE {data.nume.toUpperCase()}</span>
-  <h1>Reparații TV {data.nume} București</h1>
+  <h1>{data.h1 || `Reparații TV ${data.nume} București`}</h1>
   <p class="lead">{data.hero}</p>
+  {data.linkTvb && <p style="font-size:14.5px;opacity:.9;margin-top:6px">Aici, în atelierul din Militari, lucrăm pe plăci, panouri și memorii. Dacă vreți ca tehnicianul să vină la dumneavoastră acasă, vedeți <a href={data.linkTvb.href} style="color:inherit;text-decoration:underline">{data.linkTvb.text}</a>.</p>}
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
