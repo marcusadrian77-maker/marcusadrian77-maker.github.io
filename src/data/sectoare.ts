@@ -42,7 +42,9 @@ export const SECTOARE = [
    cazuri: ['Aduse direct la atelier: televizoare cu defecte complexe de placă principală','Smart TV blocat în logo — rescriere eMMC în atelier, gata în 24–48h','LED 55″ din Drumul Taberei fără imagine — barete LED montate la domiciliu'] },
 ];
 export const BRANDURI = [
- { slug: 'samsung', nume: 'Samsung', titluSite: 'Reparații TV Samsung București | Service Televizoare Samsung',
+ { slug: 'samsung', nume: 'Samsung', titluSite: 'Service TV Samsung Sector 6 – Atelier, Reparații la Componentă',
+   h1: 'Service TV Samsung în Sector 6 — Atelier și Reparații la Componentă',
+   linkTvb: { href: 'https://www.reparatiitvbucuresti.ro/reparatii-televizoare-samsung/', text: 'reparații TV Samsung la domiciliu în toate sectoarele' },
    hero: 'Service specializat pentru televizoare Samsung — QLED, Neo QLED, Crystal UHD, The Frame și Smart TV. Reparăm la nivel de componentă, nu înlocuim plăci întregi inutil, ceea ce reduce semnificativ costul reparației. Reparații la domiciliu în București sau în atelierul nostru din Militari, Sector 6. Diagnostic gratuit, garanție 6–12 luni.',
    defecte: [
      ['Nu pornește / LED-ul clipește','sursă de alimentare, condensatori, placă principală — diagnosticăm codul de clipiri pentru identificare rapidă'],
