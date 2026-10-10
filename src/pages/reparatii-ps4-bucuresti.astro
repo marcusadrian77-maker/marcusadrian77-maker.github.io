@@ -31,7 +31,7 @@ const faq = [
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaSEO = graf(
   serviciu({ nume: 'Reparații PS4 București', tip: 'Service PlayStation 4', url: '/reparatii-ps4-bucuresti/', desc }),
-  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații PS4', url: '/reparatii-ps4-bucuresti/' }]),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Reparații PS4', url: '/reparatii-ps4-bucuresti/' }]),
   faqSchema
 );
 ---
@@ -118,6 +118,6 @@ const schemaSEO = graf(
 </section>
 
 <Cta titlu="🎮 PS4 defect? Aduceți-l la diagnosticare gratuită" text="Spuneți-ne modelul și ce face consola. Vă spunem de la telefon la ce să vă așteptați." />
-<p style="font-size:14px;color:var(--mut)">Alte console: <a href="/reparatii-ps5-bucuresti/">reparații PS5</a>, <a href="/reparatii-xbox-bucuresti/">reparații Xbox</a>, <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">toate consolele</a>. Vedeți și <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a> și <a href="/reparatii-controllere-ps4-ps5-xbox/">reparații controllere</a>.</p>
+<p style="font-size:14px;color:var(--mut)">Alte console: <a href="/reparatii-ps5-bucuresti/">reparații PS5</a>, <a href="/reparatii-xbox-bucuresti/">reparații Xbox</a>, <a href="/reparatii-console-gaming-sector-6/">toate consolele</a>. Vedeți și <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a> și <a href="/reparatii-controllere-ps4-ps5-xbox/">reparații controllere</a>.</p>
 </div>
 </Base>

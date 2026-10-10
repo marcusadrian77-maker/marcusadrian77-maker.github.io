@@ -6,7 +6,7 @@ import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
 const desc = "Service controllere PS4, PS5 și Xbox One/Series în București: drift la stick, butoane care nu răspund, mufă de încărcare. Diagnostic gratuit și garanție scrisă.";
-const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]));
+const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]));
 const faq = [
  { q: 'Cât durează reparația unui controller?', a: 'Majoritatea reparațiilor de controllere se finalizează în aceeași zi. Înlocuirea joystick-urilor sau a butoanelor durează de obicei 1–2 ore, iar reparațiile mai complexe (placă de bază, triggere adaptive PS5) pot necesita până la 24 de ore.' },
  { q: 'Se poate repara drift-ul de joystick sau trebuie înlocuit controllerul?', a: 'Da, drift-ul se repară prin înlocuirea modulului de joystick analog. Este o intervenție frecventă, cu piese disponibile pe stoc, și costă semnificativ mai puțin decât un controller nou (care poate ajunge la 250–350 lei).' },
@@ -90,7 +90,7 @@ const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Qu
     <li>Garanție 3 luni pentru manoperă</li>
     <li>Timp de reparație rapid — de obicei în aceeași zi</li>
   </ul>
-  <p style="font-size:14px;color:var(--mut)">Alte servicii pentru console: <a href="/reparatii-mentenanta-console-ps4-ps5-xbox-manete/">reparații console PlayStation și Xbox</a>, <a href="/reparatii-ps4-bucuresti/">reparații PS4</a>, <a href="/reparatii-xbox-bucuresti/">reparații Xbox</a>, <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>, <a href="/ps5-se-opreste-singur/">ghid PS5 se oprește singur</a>.</p>
+  <p style="font-size:14px;color:var(--mut)">Alte servicii pentru console: <a href="/reparatii-console-gaming-sector-6/">reparații console PlayStation și Xbox</a>, <a href="/reparatii-ps4-bucuresti/">reparații PS4</a>, <a href="/reparatii-xbox-bucuresti/">reparații Xbox</a>, <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>, <a href="/ps5-se-opreste-singur/">ghid PS5 se oprește singur</a>.</p>
 </section>
 
 <section class="sec">
