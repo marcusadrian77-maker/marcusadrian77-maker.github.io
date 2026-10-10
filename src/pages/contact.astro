@@ -12,6 +12,7 @@ const schemaSEO = graf(pagina('ContactPage', { nume: 'Contact Marcus Electronics
   <h1>Contact — Marcus Electronics</h1>
   <p class="lead">Aveți un echipament defect? Contactați service-ul nostru de reparații electronice din Sector 6, București.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-white" href={SITE.telefon2Href}>📞 {SITE.telefon2}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
 <Cifre />
@@ -22,7 +23,7 @@ const schemaSEO = graf(pagina('ContactPage', { nume: 'Contact Marcus Electronics
       <h2 style="margin-top:0">Informații de Contact</h2>
       <div class="card" style="font-size:15.5px">
         <div style="margin-bottom:9px">📍 <strong>Adresă:</strong> Str. Moinești nr. 7, bl. 134A, sc. A, ap. 1, int. 01, Sector 6, București</div>
-        <div style="margin-bottom:9px">📞 <strong>Telefon:</strong> <a href={SITE.telefonHref} style="font-weight:800;text-decoration:none">{SITE.telefon}</a></div>
+        <div style="margin-bottom:9px">📞 <strong>Telefon:</strong> <a href={SITE.telefonHref} style="font-weight:800;text-decoration:none">{SITE.telefon}</a> sau <a href={SITE.telefon2Href} style="font-weight:800;text-decoration:none">{SITE.telefon2}</a></div>
         <div style="margin-bottom:9px">💬 <strong>WhatsApp:</strong> <a href={SITE.whatsapp} rel="noopener">trimite mesaj</a></div>
         <div style="margin-bottom:9px">✉️ <strong>Email:</strong> <a href={'mailto:' + SITE.email}>{SITE.email}</a></div>
         <div>🕐 <strong>Program:</strong> {SITE.program}</div>
