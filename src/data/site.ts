@@ -16,7 +16,7 @@ export const NAV_SERVICII = [
   { href: '/reparatii-tv-sectoare/', label: 'TV la Domiciliu — pe Sectoare' },
   { href: '/reparatii-laptopuri-bucuresti/', label: 'Reparații Laptopuri' },
   { href: '/reparatii-macbook/', label: 'Reparații MacBook & iMac' },
-  { href: '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/', label: 'Reparații Console Gaming' },
+  { href: '/reparatii-console-gaming-sector-6/', label: 'Reparații Console Gaming' },
   { href: '/reparatii-boxe-active/', label: 'Boxe Active & Amplificatoare' },
   { href: '/reparatii-soundbar/', label: 'Reparații Soundbar' },
   { href: '/reparatii-monitoare-lcd/', label: 'Reparații Monitoare' },
