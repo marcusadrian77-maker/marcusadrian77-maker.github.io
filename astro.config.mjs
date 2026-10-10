@@ -6,6 +6,7 @@ export default defineConfig({
   redirects: {
     // Mostenite din WordPress (Rank Math)
     '/reparatii-laptopuri/': '/reparatii-laptopuri-bucuresti/',
+    '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/': '/reparatii-console-gaming-sector-6/',
     '/intrebari-frecvente-faq/': '/intrebari-frecvente-faq-2/',
     // Erori 404 din Search Console (aug 2026)
     // Slugurile vechi de sector (structura WordPress) -> structura noua
