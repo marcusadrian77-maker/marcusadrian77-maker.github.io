@@ -7,7 +7,7 @@ import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const title = 'Reparații Laptopuri București | Service Laptop pe Componente';
+const title = 'Service Laptop București – Reparații Laptopuri pe Componente';
 const desc = 'Service laptop în București: nu pornește, se încinge, nu se încarcă, ecran defect. Reparație pe placă, nu placă nouă. Diagnosticare gratuită, garanție scrisă.';
 const faq = [
  { q: 'Cât costă să aflu ce are laptopul?', a: 'Nimic. Diagnosticarea este gratuită și rămâne gratuită dacă hotărâți să nu reparați. Vă spunem defectul găsit și prețul ferm înainte de a începe orice intervenție, iar prețul acela nu se mai schimbă pe parcurs.' },
@@ -28,7 +28,7 @@ const schemaSEO = graf(
 <Base title={title} description={desc} image={IMG.ogLaptop} schemaExtra={schemaSEO}>
 <div class="hero"><div class="wrap">
   <span class="badge">💻 SERVICE LAPTOP · BUCUREȘTI</span>
-  <h1>Reparații Laptopuri București</h1>
+  <h1>Service Laptop București — Reparații Laptopuri</h1>
   <p class="lead">Un laptop care se încinge, nu se mai încarcă sau nu mai pornește are aproape întotdeauna o cauză punctuală — și aproape niciodată nu are nevoie de placă nouă. Lucrăm la nivel de componentă în atelierul din Militari, cu diagnosticare gratuită și preț ferm comunicat înainte.</p>
   <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă</span><span>🛡️ Garanție scrisă 6–12 luni</span><span>📦 Prin curier, din toată țara</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
