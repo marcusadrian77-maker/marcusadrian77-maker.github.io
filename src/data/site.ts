@@ -23,8 +23,8 @@ export const NAV_SERVICII = [
   { href: '/reparatii-soundbar/', label: 'Reparații Soundbar' },
   { href: '/reparatii-monitoare-lcd/', label: 'Reparații Monitoare' },
   { href: '/reparatii-cuptoare-cu-microunde/', label: 'Cuptoare cu Microunde' },
-  { href: '/mentenanta-periodica/', label: 'Mentenanță Periodică Laptop & Console' },
-  { href: '/mentenanta-profesionala-pasta-termica/', label: 'Mentenanță Pastă Termică' },
+  { href: '/mentenanta-console-ps4-ps5-xbox/', label: 'Mentenanță Console PS5, PS4, Xbox' },
+  { href: '/curatare-laptop-praf/', label: 'Curățare Laptop de Praf' },
   { href: '/reparatii-prin-curier/', label: 'Reparații prin Curier — toată țara' },
 ];
 export const NAV = [
