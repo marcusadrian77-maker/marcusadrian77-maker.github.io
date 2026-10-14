@@ -7,17 +7,17 @@ import { SITE } from '../data/site';
 const faq = [
  { q: 'Cât de des trebuie să fac mentenanța la consola PS4 sau PS5?', a: 'Recomandăm mentenanța o dată pe an sau la fiecare 12–18 luni de utilizare intensă. Mentenanța regulată previne supraîncălzirea și prelungește durata de viață a aparatului.' },
  { q: 'Ce include serviciul de mentenanță console?', a: 'Curățare internă completă, înlocuire pastă termică, curățare ventilator și radiator, verificare conectori și porturi, test complet de funcționare. Se realizează în 24–48 ore.' },
- { q: 'Care este prețul pentru mentenanță console gaming?', a: 'Prețul variază în funcție de modelul consolei și gradul de uzură. Contactați-ne la 0765.461.357 pentru o ofertă personalizată.' },
+ { q: 'Cât costă mentenanța unei console?', a: 'PlayStation 5: 200–280 lei (curățare completă și verificarea sau înlocuirea metalului lichid). PS4 / PS4 Pro: 150–200 lei. Xbox One și Series S/X: 150–200 lei. Diagnosticarea e gratuită, iar prețul exact îl aflați înainte de intervenție.' },
  { q: 'Oferiți mentenanță la domiciliu pentru console?', a: 'Mentenanța se realizează în atelierul nostru din Sectorul 6 București, Str. Moinești nr. 7. Puteți aduce consola personal sau trimite prin curier.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Mentenanță și curățare console PS4, PS5 și Xbox în București: pastă termică nouă, praf scos din radiatoare, testare completă. Diagnostic gratuit.";
+const desc = "Mentenanță PS5, PS4 și Xbox în București: curățare completă, pastă termică sau metal lichid, test de temperatură. PS5 200–280 lei, PS4 și Xbox 150–200 lei.";
 const schemaSEO = graf(serviciu({ nume: 'Mentenanță console PS4, PS5, Xbox', tip: 'Mentenanță console gaming', url: '/mentenanta-console-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Mentenanță Console', url: '/mentenanta-console-ps4-ps5-xbox/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Mentenanță Console PS4, PS5, Xbox | Curățare București" description={desc} schemaExtra={schemaSEO} image={IMG.ogConsola}>
+<Base title="Mentenanță PS5, PS4, Xbox București – Curățare și Pastă Termică" description={desc} schemaExtra={schemaSEO} image={IMG.ogConsola}>
 <div class="hero"><div class="wrap">
-  <h1>Mentenanță Console PS4, PS5, Xbox</h1>
+  <h1>Mentenanță PS5, PS4 și Xbox în București — Curățare și Pastă Termică</h1>
   <p class="lead">Servicii complete de mentenanță preventivă și curativă pentru PlayStation 4, PlayStation 5 și Xbox — durată de viață mai lungă a consolei și experiență de gaming superioară.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
@@ -27,6 +27,23 @@ const schemaSEO = graf(serviciu({ nume: 'Mentenanță console PS4, PS5, Xbox', t
   <h2>De ce este importantă mentenanța consolei tale?</h2>
   <p>Fără o mentenanță regulată, consolele acumulează praf, pasta termică se degradează și ventilatoarele se uzează. Acest lucru duce la supraîncălzire și opriri bruște în timpul jocului, zgomot excesiv, performanță redusă și lag-uri, defecțiuni hardware premature. Dacă PS5-ul tău se oprește deja singur, consultă ghidul nostru dedicat: <a href="/ps5-se-opreste-singur/">PS5 se oprește singur — cauze și soluții</a>.</p>
   <p>Un simplu service de mentenanță preventivă poate preveni aceste probleme și îți economisește bani pe termen lung.</p>
+</section>
+<section class="sec">
+  <h2>💰 Cât costă mentenanța consolei</h2>
+  {[['PlayStation 5','Curățare completă + verificare / înlocuire metal lichid','200–280 lei'],['PS4 / PS4 Pro','Curățare completă + pastă termică nouă','150–200 lei'],['Xbox One / Series S/X','Curățare completă + pastă termică','150–200 lei']].map(p => <div class="price-row"><span><strong style="color:var(--navy)">{p[0]}</strong> — {p[1]}</span><b>{p[2]}</b></div>)}
+  <p style="margin-top:12px">Lucrarea se face în atelierul din Militari, Sector 6 (Str. Moinești 7), de obicei în 24–48 de ore. Puteți aduce consola personal sau o puteți trimite prin curier din toată țara — vedeți <a href="/reparatii-prin-curier/">reparații prin curier</a>.</p>
+</section>
+<section class="sec">
+  <h2>🌡️ Pastă termică sau metal lichid?</h2>
+  <p>PS4 și Xbox folosesc din fabrică pastă termică, care se usucă în 2–4 ani și nu mai transferă bine căldura de pe procesor. La ele schimbăm pasta cu una de calitate și curățăm radiatorul și ventilatorul.</p>
+  <p>PlayStation 5 vine din fabrică cu metal lichid, un material mult mai bun, dar conductiv electric și pretențios la aplicare. La PS5 nu îl înlocuim de rutină: verificăm întâi dacă s-a deplasat sau s-a uscat, iar dacă e nevoie îl refacem, cu protecție pe componentele din jur. Cele mai multe PS5-uri care ajung la noi au de fapt nevoie doar de curățarea prafului din radiator și ventilator.</p>
+</section>
+<section class="sec">
+  <h2>📊 Temperaturi înainte și după mentenanță</h2>
+  <div class="grid g3">
+    {[['PS5 (APU sub sarcină)','88–95°C','65–72°C'],['PS4 Pro (APU sub sarcină)','90–97°C','68–75°C']].map(t => <div class="card" style="text-align:center"><strong style="color:var(--navy);font-size:14.5px">{t[0]}</strong><div style="font-size:13px;color:var(--mut);margin-top:8px">Înainte</div><div style="font-size:19px;font-weight:800;color:#c0392b">{t[1]}</div><div style="font-size:13px;color:var(--mut);margin-top:6px">După</div><div style="font-size:19px;font-weight:800;color:var(--green)">{t[2]}</div></div>)}
+  </div>
+  <p style="margin-top:10px">Măsurăm temperatura sub sarcină înainte și după intervenție și vă spunem diferența. Dacă PS5-ul se oprește singur în timpul jocului, citiți întâi ghidul <a href="/ps5-se-opreste-singur/">PS5 se oprește singur</a>.</p>
 </section>
 <section class="sec">
   <h2>Servicii de Mentenanță PlayStation 4 (PS4)</h2>
@@ -70,7 +87,7 @@ const schemaSEO = graf(serviciu({ nume: 'Mentenanță console PS4, PS5, Xbox', t
     <div class="card"><h3>🟡 Standard</h3><p>Curățare completă + înlocuire pastă termică + test de stres</p></div>
     <div class="card"><h3>🔵 Premium</h3><p>Toate serviciile Standard + curățare unitate optică + raport detaliat de diagnostic</p></div>
   </div>
-  <p style="margin-top:12px" class="note-warn">Toate serviciile includ <strong>garanție 3 luni</strong> pentru manopera efectuată. Consultați <a href="/preturi/">pagina de prețuri</a> pentru tarife orientative. Vezi și <a href="/mentenanta-profesionala-pasta-termica/">mentenanță profesională cu pastă termică &amp; metal lichid</a> sau <a href="/mentenanta-periodica/">programul de mentenanță periodică</a> — intervale recomandate: PS4 anual, PS5 și Xbox la 12–18 luni. Atelierul nostru se află în Militari — pentru detalii, vezi <a href="/reparatii-console-gaming-sector-6/">reparații console gaming Sector 6</a>.</p>
+  <p style="margin-top:12px" class="note-warn">Toate serviciile includ <strong>garanție 3 luni</strong> pentru manopera efectuată. Consultați <a href="/preturi/">pagina de prețuri</a> pentru tarife orientative. Intervale recomandate: PS4 anual, PS5 și Xbox la 12–18 luni. Atelierul e în Militari — vezi și <a href="/reparatii-console-gaming-sector-6/">reparații console București</a>.</p>
 </section>
 <section class="sec">
   <h2>❓ Întrebări Frecvente</h2>

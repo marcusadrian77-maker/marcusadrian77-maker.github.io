@@ -3,8 +3,8 @@ import Base from '../layouts/Base.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
-const title = 'Curățare Laptop de Praf: Cât de Des și De Ce Contează | Ghid';
-const desc = 'Laptopul se încinge, ventilatorul e zgomotos sau se oprește singur? La ce interval se face curățarea de praf și pasta termică și ce riști dacă o amâni.';
+const title = 'Curățare Laptop de Praf București – Pastă Termică, 100–180 lei';
+const desc = 'Curățare laptop de praf și pastă termică nouă în București, atelier în Sector 6: laptop standard 100–180 lei, gaming 180–280 lei, MacBook 150–320 lei. Gata de obicei într-o zi.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'Cât de des trebuie curățat laptopul de praf?', a: 'Recomandat: o dată la 12–18 luni pentru utilizare normală și o dată pe an dacă lucrați intens (gaming, randare) sau aveți animale de companie. Pasta termică se înlocuiește de regulă la 1–2 ani.' },
@@ -18,7 +18,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
    author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
  { '@type': 'BreadcrumbList', itemListElement: [
    { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
-   { '@type': 'ListItem', position: 2, name: 'Mentenanță Profesională', item: SITE.domeniu + '/mentenanta-profesionala-pasta-termica/' },
+   { '@type': 'ListItem', position: 2, name: 'Servicii', item: SITE.domeniu + '/servicii/' },
    { '@type': 'ListItem', position: 3, name: 'Curățare laptop de praf', item: canonical } ] },
  { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ] };
@@ -26,7 +26,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogLaptop}>
 <div class="hero"><div class="wrap">
   <span class="badge">📘 GHID PRACTIC</span>
-  <h1>Curățarea Laptopului de Praf: Cât de Des și De Ce Contează</h1>
+  <h1>Curățare Laptop de Praf și Pastă Termică — București</h1>
   <p class="lead">Praful este cauza numărul unu a supraîncălzirii și a defectării premature a laptopurilor. Iată cum îl recunoașteți la timp și ce presupune o curățare făcută corect.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
@@ -78,9 +78,18 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
       </ul>
     </div>
   </div>
-  <p>Serviciul se face în atelierul nostru din Militari, Sector 6. Timpul de execuție este de obicei o zi lucrătoare. Detalii complete pe pagina de <a href="/mentenanta-profesionala-pasta-termica/">mentenanță profesională și pastă termică</a>.</p>
+  <p>Serviciul se face în atelierul nostru din Militari, Sector 6. Timpul de execuție este de obicei o zi lucrătoare.</p>
 </section>
 
+<section class="sec">
+  <h2>💰 Cât costă curățarea și cât de des se face</h2>
+  {[['Laptop de birou / multimedia','la 12–18 luni','Curățare + pastă termică CPU/GPU','100–180 lei'],['Laptop gaming (MSI, ROG, Legion)','la 12 luni','Curățare + pastă sau metal lichid + pad-uri termice','180–280 lei'],['MacBook Air / Pro','la 12–18 luni','Curățare + pastă termică','150–320 lei']].map(p => <div class="price-row"><span><strong style="color:var(--navy)">{p[0]}</strong> — {p[2]} <span style="color:var(--mut)">({p[1]})</span></span><b>{p[3]}</b></div>)}
+  <p style="margin-top:12px">Diagnosticarea e gratuită, iar prețul exact îl aflați înainte să începem. Dacă laptopul stă pe pat sau pe pături, ori aveți animale în casă, scurtați intervalul.</p>
+</section>
+<section class="sec">
+  <h2>📊 Ce diferență face în grade</h2>
+  <p>La un laptop de gaming înfundat cu praf, procesorul ajunge des la 95–102°C sub sarcină și își reduce singur frecvența (throttling). După curățare și pastă nouă, același laptop stă de regulă la 72–82°C. La un MacBook Pro, diferența tipică e de la 85–92°C la 62–70°C. Măsurăm temperatura înainte și după, ca să vedeți rezultatul în cifre, nu doar în zgomotul ventilatorului.</p>
+</section>
 <section class="sec">
   <h2>Curățare Laptop vs. Curățare MacBook</h2>
   <p>MacBook-urile Apple necesită o abordare specială: șuruburi Pentalobe, componente lipite pe placa logic, ventilatoare cu design proprietar și, la modelele mai noi, lipici termic care necesită curățare atentă. Avem experiență cu toate generațiile de MacBook, inclusiv MacBook Air (M1/M2/M3) și MacBook Pro (Intel și Apple Silicon). Pentru detalii despre serviciile Apple, vizitați pagina de <a href="/reparatii-macbook/">service MacBook București</a>.</p>
@@ -99,8 +108,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <li><a href="/reparatii-laptopuri-bucuresti/">Reparații laptopuri București</a> — ecran, tastatură, placă de bază, port de alimentare (diagnosticare gratuită)</li>
     <li><a href="/reparatii-macbook/">Reparații MacBook</a> — service specializat Apple pentru toate modelurile</li>
     <li><a href="/reparatii-laptop-sector-6/">Reparații laptop Sector 6</a> — atelierul nostru din Militari</li>
-    <li><a href="/mentenanta-periodica/">Program de mentenanță periodică</a> — intervale recomandate pentru fiecare tip de aparat</li>
-    <li><a href="/mentenanta-profesionala-pasta-termica/">Mentenanță profesională și pastă termică</a> — pagina completă a serviciului</li>
+    <li><a href="/mentenanta-console-ps4-ps5-xbox/">Mentenanță console PS5, PS4 și Xbox</a> — curățare și pastă termică sau metal lichid pentru console</li>
   </ul>
 </section>
 
