@@ -27,7 +27,7 @@ export const LAPTOP_SECTOARE: LaptopSector[] = [
     unghiTitlu: 'Laptopul de birou care merge greu',
     unghi: [
       'Multe laptopuri de birou care ajung la service nu sunt stricate. Sunt lente: pornesc în trei minute, se blochează la al cincilea tab, iar ventilatorul se aude din camera cealaltă. Aproape întotdeauna, cauza e una dintre două.',
-      'Prima e discul. Un laptop care încă are disc mecanic se schimbă complet cu un SSD; manopera pentru upgrade de SSD sau de memorie este 50–100 de lei, la care se adaugă piesa. A doua e căldura: praful strâns în radiator obligă procesorul să încetinească singur, ca să nu se ardă. O curățare completă cu pastă termică nouă costă 80–150 de lei.',
+      'Prima e discul. Un laptop care încă are disc mecanic se schimbă complet cu un SSD; manopera pentru upgrade de SSD sau de memorie este 50–100 de lei, la care se adaugă piesa. A doua e căldura: praful strâns în radiator obligă procesorul să încetinească singur, ca să nu se ardă. O curățare completă cu pastă termică nouă costă 100–200 de lei.',
       'Amândouă se fac de regulă în 24–48 de ore, cu datele și programele păstrate. Înainte să cumpărați un laptop nou pentru că cel vechi „nu mai face față”, merită un telefon.',
     ],
     legatura: { href: '/laptop-se-incalzeste/', text: 'de ce se încălzește un laptop și ce e de făcut' },
@@ -47,7 +47,7 @@ export const LAPTOP_SECTOARE: LaptopSector[] = [
     unghiTitlu: 'Laptopul de gaming care se încinge',
     unghi: [
       'Un laptop de gaming produce de câteva ori mai multă căldură decât unul de birou, într-o carcasă aproape la fel de subțire. De aceea ajunge mai repede la simptomele clasice: ventilatoare la maximum, cadre care scad după jumătate de oră de joc, carcasă pe care nu mai puteți ține mâna, uneori oprire bruscă.',
-      'În cele mai multe cazuri nu e nimic ars. Radiatoarele sunt astupate cu praf, iar pasta termică de pe procesor și de pe placa video s-a uscat. Curățarea completă, cu pastă nouă, costă 80–150 de lei și e singura întreținere de care un astfel de laptop chiar are nevoie, cam o dată pe an dacă jucați des.',
+      'În cele mai multe cazuri nu e nimic ars. Radiatoarele sunt astupate cu praf, iar pasta termică de pe procesor și de pe placa video s-a uscat. Curățarea completă, cu pastă nouă, costă 100–200 de lei și e singura întreținere de care un astfel de laptop chiar are nevoie, cam o dată pe an dacă jucați des.',
       'Când un laptop de gaming merge mult timp supraîncălzit, cedează de obicei partea video de pe placă. Aceea e deja reparație de placă, 200–500 de lei, și nu întotdeauna reușește. Curățarea făcută la timp e mult mai ieftină.',
     ],
     legatura: { href: '/curatare-laptop-praf/', text: 'cum decurge curățarea de praf a unui laptop' },
