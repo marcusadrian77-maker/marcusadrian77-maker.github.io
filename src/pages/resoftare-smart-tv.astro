@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import { SITE } from '../data/site';
+const title = 'Resoftare Smart TV București – Când ajută și când e bani aruncați';
+const desc = 'Resoftare televizor Samsung, LG, Sony, Philips: ce înseamnă, ce poți face singur prin USB și când problema e de fapt memoria eMMC uzată. Atelier Militari. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Ce înseamnă resoftarea unui televizor?', a: 'Rescrierea software-ului (firmware-ului) din memoria internă. Se poate face prin USB, din meniu sau, când televizorul nu mai pornește deloc, direct pe memorie, cu programator, în atelier.' },
+ { q: 'Pot resofta singur televizorul?', a: 'Da, dacă televizorul încă ajunge în meniu și producătorul oferă fișierul de actualizare pentru modelul exact. Nu folosiți fișiere pentru alt model sau altă regiune și nu scoateți televizorul din priză în timpul procesului.' },
+ { q: 'De ce s-a stricat din nou la câteva săptămâni după resoftare?', a: 'Pentru că software-ul a fost scris pe o memorie fizic uzată. Celulele defecte corup din nou datele. În acest caz soluția este înlocuirea memoriei eMMC, nu încă o resoftare.' },
+ { q: 'Cât costă resoftarea?', a: 'Prețul orientativ pentru resoftare sau rescrierea memoriei este afișat pe site, iar prețul exact îl spunem după diagnostic, în funcție de model. Dacă memoria trebuie înlocuită, vă spunem înainte de lucrare.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Resoftare Smart TV: când ajută și când nu', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Resoftare Smart TV', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Resoftare Smart TV — Când Ajută și Când Nu</h1>
+  <p class="lead">„Trebuie resoftat" e probabil cea mai des auzită frază în service-urile TV. Uneori e exact ce trebuie. Alteori e o reparație care ține trei săptămâni. Diferența o face starea memoriei pe care se scrie software-ul.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Ce e resoftarea, pe înțelesul tuturor</h2>
+  <p>Un Smart TV are un sistem de operare — Tizen la Samsung, webOS la LG, Android TV sau Google TV la Sony, Philips, TCL și altele. Sistemul stă pe o memorie flash (eMMC) lipită pe placa principală. A resofta înseamnă a șterge și a rescrie acest sistem. Există trei niveluri:</p>
+  <ul class="checks">
+    <li><strong>Actualizare din meniu sau prin USB.</strong> Televizorul pornește, ajunge în meniu și își instalează singur firmware-ul de pe stick. O puteți face și acasă.</li>
+    <li><strong>Recuperare din modul service.</strong> Televizorul pornește parțial; se forțează o reinstalare din meniurile de service. Se face de tehnician.</li>
+    <li><strong>Scriere directă pe memorie, cu programator.</strong> Televizorul nu mai ajunge deloc la sistem. Se scrie imaginea completă direct pe cipul eMMC, în atelier.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Când resoftarea chiar rezolvă</h2>
+  <p>Resoftarea e soluția corectă când software-ul s-a stricat, dar memoria e sănătoasă. Cazuri tipice pe care le vedem:</p>
+  <ul class="checks">
+    <li>o actualizare întreruptă de o pană de curent sau de scoaterea din priză;</li>
+    <li>un televizor rămas blocat la siglă imediat după un update, fără alte semne în trecut;</li>
+    <li>aplicații care se închid, meniuri care îngheață, după ce resetarea din fabrică n-a ajutat;</li>
+    <li>firmware greșit instalat de cineva, pentru alt model sau altă regiune.</li>
+  </ul>
+  <p>În aceste situații, după resoftare televizorul funcționează ani de zile.</p>
+</section>
+<section class="sec">
+  <h2>Când resoftarea e bani aruncați</h2>
+  <p>Aici e opinia noastră, din ce ajunge pe banc: <strong>la un Smart TV de 6–8 ani, care s-a degradat treptat</strong> — tot mai lent, reporniri din când în când, apoi blocat la siglă — problema e aproape întotdeauna memoria fizică, nu software-ul. Celulele flash s-au uzat după ani de actualizări și cache de streaming.</p>
+  <p>Pe o astfel de memorie, o resoftare poate reuși pe moment. Televizorul pornește, clientul pleacă mulțumit, iar după câteva zile sau săptămâni simptomele revin, pentru că celulele defecte corup din nou datele. Clientul plătește de două ori și ajunge oricum la înlocuirea memoriei.</p>
+  <p>De aceea, înainte să resoftăm, verificăm starea memoriei. Dacă e uzată, vă spunem direct și propunem înlocuirea cipului eMMC — cu salvarea datelor unice ale televizorului, ca să nu pierdeți Netflix și celelalte aplicații. Am explicat de ce contează asta în <a href="/recuperare-netflix-dupa-emmc/">articolul despre Netflix după schimbarea eMMC</a>.</p>
+</section>
+<section class="sec">
+  <h2>Dacă vreți să încercați singur, prin USB</h2>
+  <ul class="checks">
+    <li><strong>Luați modelul exact</strong> de pe eticheta din spate (nu doar seria) și descărcați firmware-ul doar de pe site-ul oficial al producătorului.</li>
+    <li><strong>Folosiți un stick USB mic, formatat FAT32</strong>, și respectați structura de foldere cerută de producător.</li>
+    <li><strong>Nu întrerupeți procesul.</strong> Scoaterea din priză în timpul scrierii e cauza numărul unu a televizoarelor care ajung după aceea la noi „în siglă".</li>
+    <li><strong>Dacă televizorul nu ajunge în meniu</strong>, metoda prin USB de obicei nu se poate porni. Atunci e nevoie de atelier.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Resoftare în atelier, în București</h2>
+  <p>Lucrăm resoftări și rescrieri eMMC pentru Samsung, LG, Sony, Philips, Hisense, TCL și alte mărci, în atelierul din Militari, Sector 6. Transportul televizorului îl facem noi, gratuit, oriunde în București. Prețul orientativ îl găsiți pe pagina <a href="/televizor-se-restarteaza-singur/">televizorul se restartează singur</a>, iar restul prețurilor pe <a href="/preturi/">pagina de prețuri</a>; prețurile variază în funcție de model și diagonală.</p>
+  <p>Dacă televizorul e blocat la logo, citiți și <a href="/televizor-blocat-la-sigla/">ghidul pentru televizor blocat la siglă</a>. Pentru mărci: <a href="/reparatii-tv-samsung/">reparații TV Samsung</a>, <a href="/televizor-lg-nu-porneste/">TV LG nu pornește</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<TrimitePoze />
+
+<Cta titlu="📺 Televizorul are nevoie de resoftare? Sunați-ne!" text="Spuneți-ne modelul și ce s-a întâmplat înainte să se blocheze. Vă spunem dacă e software sau memorie." />
+</div>
+</Base>

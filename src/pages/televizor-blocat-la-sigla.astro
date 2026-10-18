@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import { SITE } from '../data/site';
+const title = 'Televizor LG sau Samsung blocat la siglă? Cauze și ce verifici';
+const desc = 'TV-ul LG sau Samsung rămâne la logo sau repornește în buclă? Ce verifici acasă în 10 minute, când e software, când e memoria eMMC și când e alimentarea. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'Televizorul meu Samsung rămâne la logo. E stricat ecranul?', a: 'Nu. Dacă logo-ul apare clar, panoul și iluminarea funcționează. Problema e în spatele lor: software-ul, memoria internă sau alimentarea plăcii principale.' },
+ { q: 'LG-ul cu webOS arată logo-ul și se stinge, iar și iar. Ce înseamnă?', a: 'Este bucla de pornire: placa nu reușește să încarce complet sistemul. Cel mai des e memoria eMMC degradată; mai rar, o tensiune care cade în timpul pornirii.' },
+ { q: 'Merită reparat un televizor blocat la siglă?', a: 'În cele mai multe cazuri da. Panoul, care este partea scumpă, e în regulă. Reparația se face pe placa principală, prin resoftare sau înlocuirea memoriei, fără placă nouă.' },
+ { q: 'Pot pierde Netflix după reparație?', a: 'Doar dacă memoria e înlocuită fără salvarea datelor unice ale televizorului. Înainte de înlocuire, încercăm întotdeauna să citim și să salvăm memoria veche.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Televizor LG sau Samsung blocat la siglă: cauze și ce verifici', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Televizor blocat la siglă', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizor LG sau Samsung Blocat la Siglă</h1>
+  <p class="lead">Apare logo-ul și acolo rămâne. Sau apare, se stinge, apare din nou. Vestea bună: dacă vedeți logo-ul clar, ecranul e întreg. Problema e într-un loc care se repară.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Ce vă spune logo-ul</h2>
+  <p>Logo-ul de pornire (Samsung, LG, Sony) e afișat de placa principală înainte să se încarce sistemul de operare. Dacă îl vedeți, înseamnă că sursa pornește, panoul afișează și iluminarea funcționează. Televizorul se oprește exact în momentul în care ar trebui să citească sistemul din memorie. De aici, trei suspecți, în ordinea frecvenței pe care o vedem în atelier:</p>
+  <ul class="checks">
+    <li><strong>Memoria eMMC uzată</strong> — cel mai des, la televizoare de 6 ani și peste, care s-au degradat treptat.</li>
+    <li><strong>Software corupt</strong> — după o actualizare întreruptă sau o pană de curent, la televizoare altfel sănătoase.</li>
+    <li><strong>Alimentare instabilă</strong> — o tensiune de pe sursă care cade când placa cere mai mult curent, exact la încărcarea sistemului.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ce verificați acasă, în 10 minute</h2>
+  <ul class="checks">
+    <li><strong>Scoateți tot ce e conectat:</strong> stick-uri USB, hard diskuri, HDMI, cablul de rețea. Un stick cu fișiere neobișnuite sau un HDD defect poate opri pornirea la unele modele.</li>
+    <li><strong>Resetare electrică:</strong> din priză 5 minute, apoi direct în priza de perete, fără prelungitor.</li>
+    <li><strong>Lăsați-l 10 minute la siglă.</strong> Pe o memorie aproape plină sau lentă, unele televizoare pornesc foarte greu. Dacă ajunge în meniu, faceți imediat o resetare din fabrică.</li>
+    <li><strong>Gândiți-vă ce s-a întâmplat înainte:</strong> a fost un update? o pană de curent? sau mergea tot mai greu de luni de zile? Răspunsul ne spune de la telefon dacă e software sau memorie.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>La Samsung</h2>
+  <p>La Samsung cu Tizen, blocarea la siglă vine des după ani de actualizări automate. Dacă televizorul mai încerca să pornească de câteva ori înainte să rămână definitiv la logo, memoria e principalul suspect. Dacă s-a blocat brusc, imediat după un update, resoftarea are șanse foarte bune. Dacă LED-ul roșu clipește și nu apare nici logo-ul, e altă problemă — vedeți <a href="/televizor-samsung-nu-porneste/">televizorul Samsung nu pornește</a>.</p>
+</section>
+<section class="sec">
+  <h2>La LG</h2>
+  <p>La LG cu webOS, tabloul tipic e bucla: logo, ecran negru, logo. Aceeași logică: degradare treptată înseamnă memorie, blocare bruscă după actualizare înseamnă software. Dacă LG-ul nu arată nici logo-ul, cauza e alta, de obicei sursa sau iluminarea — vedeți <a href="/televizor-lg-nu-porneste/">televizorul LG nu pornește</a>.</p>
+</section>
+<section class="sec">
+  <h2>Ce nu vă recomandăm</h2>
+  <p>Nu cumpărați o placă principală second-hand „compatibilă" fără diagnostic. Plăcile de pe internet vin adesea din televizoare cu exact aceeași problemă, iar memoria lor e la fel de uzată. Și nu acceptați resoftări repetate pe un televizor vechi: dacă a cedat o dată după resoftare, a doua oară nu va fi altfel. Am explicat diferența în <a href="/resoftare-smart-tv/">când ajută o resoftare și când nu</a>.</p>
+</section>
+<section class="sec">
+  <h2>Cum îl reparăm</h2>
+  <p>Televizorul vine în atelierul nostru din Militari; transportul îl facem gratuit oriunde în București. Măsurăm întâi alimentarea. Dacă tensiunile sunt corecte, citim memoria: dacă e sănătoasă, rescriem software-ul; dacă e uzată, înlocuim cipul eMMC și restaurăm datele unice ale televizorului, ca să meargă în continuare Netflix și celelalte aplicații (detalii în <a href="/recuperare-netflix-dupa-emmc/">Netflix după schimbarea eMMC</a>). Un exemplu complet, cu poze, e <a href="/din-atelier-sony-kd-55xe8096-emmc/">Sony-ul cu eMMC uzat din atelier</a>.</p>
+  <p>Prețul orientativ pentru rescrierea memoriei e pe pagina <a href="/televizor-se-restarteaza-singur/">televizorul se restartează singur</a>; prețul exact îl spunem după diagnostic, în funcție de model și diagonală. Vedeți și <a href="/reparatii-tv-samsung/">reparații TV Samsung</a> și <a href="/reparatii-televizoare/">reparații televizoare</a> pentru toate mărcile.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<TrimitePoze />
+
+<Cta titlu="📺 Televizorul e blocat la siglă? Sunați-ne!" text="Spuneți-ne modelul și ce s-a întâmplat înainte. Vă spunem de la telefon dacă e software sau memorie." />
+</div>
+</Base>

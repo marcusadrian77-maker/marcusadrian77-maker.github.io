@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import { SITE } from '../data/site';
+const title = 'Netflix nu mai merge după schimbarea eMMC? De ce și ce se poate face';
+const desc = 'După înlocuirea memoriei eMMC, Netflix sau Prime Video nu mai pornesc pe Smart TV? Explicăm de unde vin cheile DRM, când se pot recupera și ce să cereți service-ului. ☎ 0765.461.357';
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: 'De ce merge YouTube, dar Netflix nu?', a: 'YouTube redă o mare parte din conținut fără protecție DRM la nivel de dispozitiv. Netflix cere ca televizorul să se identifice cu chei unice, scrise în fabrică în memoria lui. Dacă memoria a fost înlocuită fără ca acele chei să fie mutate, televizorul nu mai poate dovedi că e un dispozitiv certificat.' },
+ { q: 'Se rezolvă cu o resetare din fabrică sau o actualizare?', a: 'Nu. Resetarea și actualizarea rescriu sistemul, dar nu creează cheile unice ale aparatului. Ele trebuie fie recuperate din memoria veche, fie restaurate dintr-o copie făcută înainte.' },
+ { q: 'Dacă memoria veche e complet moartă, mai există o soluție?', a: 'Cheile originale nu mai pot fi recuperate. Televizorul rămâne funcțional pentru canale, HDMI și o parte din aplicații. Pentru Netflix, varianta corectă și ieftină este un player extern (Chromecast cu Google TV, Fire TV Stick, Android TV box certificat) conectat pe HDMI.' },
+ { q: 'Cum știu dacă service-ul meu a păstrat cheile?', a: 'Întrebați direct, înainte de reparație: „Faceți copie după memoria veche și mutați partițiile cu cheile?". Un service care lucrează serios pe eMMC știe exact la ce vă referiți.' },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: 'Netflix nu mai merge după schimbarea eMMC: de ce și ce se poate face', description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Reparații televizoare', item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: 'Netflix după schimbarea eMMC', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Netflix Nu Mai Merge După Schimbarea Memoriei eMMC</h1>
+  <p class="lead">Televizorul a ieșit din reparație, pornește, prinde canalele, merge YouTube — dar Netflix dă eroare. Nu e o coincidență și nu e „o setare". E o informație care s-a pierdut odată cu memoria veche.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Ce s-a pierdut, de fapt</h2>
+  <p>Fiecare Smart TV pleacă din fabrică cu un set de date care îl fac unic: număr de serie, adresă MAC și, cel mai important, <strong>cheile DRM</strong> (Widevine, PlayReady și identificatorii ceruți de aplicațiile de streaming). Pe baza lor, Netflix, Prime Video sau Disney+ verifică faptul că televizorul e un dispozitiv certificat și abia apoi trimit filmul.</p>
+  <p>Aceste date stau într-o zonă separată a memoriei eMMC, lângă sistemul de operare. Când memoria se uzează și e înlocuită cu una nouă, pe cipul nou se scrie sistemul de operare potrivit modelului — dar sistemul e la fel pentru toate televizoarele de acel tip. <strong>Cheile unice nu vin în imagine</strong>; ele există doar în memoria veche.</p>
+  <p>Rezultatul: totul pare în regulă, mai puțin aplicațiile care cer protecție la nivel de dispozitiv. Netflix e primul care refuză, de obicei cu un mesaj vag despre o problemă de conectare sau de dispozitiv.</p>
+</section>
+<section class="sec">
+  <h2>Părerea noastră: aici se face sau se strică reparația</h2>
+  <p>Înlocuirea cipului eMMC e partea vizibilă a lucrării. Partea care contează pentru client se întâmplă <em>înainte</em>: citirea memoriei vechi. Cât timp cipul uzat mai poate fi citit, chiar și cu erori, partițiile cu chei se copiază și se mută pe memoria nouă. Atunci televizorul iese din atelier exact cum a intrat în fabrică, cu Netflix funcțional.</p>
+  <p>Dacă pasul ăsta e sărit — din grabă sau pentru că service-ul a scris doar o imagine „gata făcută" — cheile se pierd definitiv în momentul în care cipul vechi e aruncat. De aceea, la noi, înainte de înlocuire încercăm întotdeauna să citim și să salvăm memoria veche, ca să nu existe drum fără întoarcere.</p>
+  <ul class="checks">
+    <li><strong>Memoria veche se citește</strong> — cheile se recuperează aproape întotdeauna, iar Netflix funcționează după reparație.</li>
+    <li><strong>Memoria veche se citește parțial</strong> — depinde unde sunt erorile. Uneori zona cu chei e intactă chiar dacă sistemul nu mai pornea.</li>
+    <li><strong>Memoria veche e moartă sau a fost aruncată</strong> — cheile originale nu mai pot fi refăcute. Vă spunem asta direct, fără promisiuni.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ce faceți dacă televizorul a fost deja reparat în altă parte</h2>
+  <p>Primul pas: sunați service-ul care a schimbat memoria și întrebați dacă a păstrat cipul vechi sau o copie a lui. Dacă da, cheile se pot restaura și acum. Noi preluăm și astfel de lucrări: aduceți-ne televizorul și, dacă există, cipul vechi sau fișierul de copie.</p>
+  <p>Dacă nu mai există nimic, nu cheltuiți bani pe „resoftări" repetate. Nicio actualizare și nicio resetare nu recreează cheile. Soluția onestă este un player extern certificat pe HDMI — costă mai puțin decât o a doua intervenție inutilă, iar panoul televizorului, care e partea scumpă, rămâne în folosință.</p>
+</section>
+<section class="sec">
+  <h2>Cum lucrăm noi o reparație eMMC</h2>
+  <p>Pe scurt, pașii sunt cei din <a href="/din-atelier-sony-kd-55xe8096-emmc/">cazul Sony KD-55XE8096 descris în atelier</a>: diagnostic de alimentare, demontarea plăcii fără a atinge panoul, <strong>citirea și salvarea memoriei vechi</strong>, înlocuirea cipului sub microscop, scrierea sistemului și restaurarea partițiilor unice, apoi test pe banc — canale, HDMI, reporniri repetate și, obligatoriu, Netflix și YouTube pornite înainte de predare.</p>
+  <p>Ne vin des Sony Bravia cu Android TV, Philips și televizoare cu webOS sau Tizen. Dacă televizorul dvs. se blochează la siglă și nu ați ajuns încă la reparație, citiți și <a href="/televizor-blocat-la-sigla/">ce înseamnă un televizor blocat la siglă</a> și <a href="/resoftare-smart-tv/">când ajută o resoftare</a>. Prețul orientativ pentru rescrierea memoriei e pe pagina <a href="/televizor-se-restarteaza-singur/">televizorul se restartează singur</a>; prețul exact îl primiți după diagnostic, în funcție de model.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<TrimitePoze />
+
+<Cta titlu="📺 Netflix nu mai merge după o reparație? Sunați-ne!" text="Spuneți-ne modelul și cine a schimbat memoria. Vă spunem de la telefon dacă cheile mai pot fi recuperate." />
+</div>
+</Base>
