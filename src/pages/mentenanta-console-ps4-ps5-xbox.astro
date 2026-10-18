@@ -7,12 +7,12 @@ import { SITE } from '../data/site';
 const faq = [
  { q: 'Cât de des trebuie să fac mentenanța la consola PS4 sau PS5?', a: 'Recomandăm mentenanța o dată pe an sau la fiecare 12–18 luni de utilizare intensă. Mentenanța regulată previne supraîncălzirea și prelungește durata de viață a aparatului.' },
  { q: 'Ce include serviciul de mentenanță console?', a: 'Curățare internă completă, înlocuire pastă termică, curățare ventilator și radiator, verificare conectori și porturi, test complet de funcționare. Se realizează în 24–48 ore.' },
- { q: 'Cât costă mentenanța unei console?', a: 'PlayStation 5: 100–200 lei (curățare completă și verificarea sau înlocuirea metalului lichid). PS4 / PS4 Pro: 100–200 lei. Xbox One și Series S/X: 100–200 lei. Diagnosticarea e gratuită, iar prețul exact îl aflați înainte de intervenție.' },
+ { q: 'Cât costă mentenanța unei console?', a: 'PlayStation 5: 200 lei (curățare completă și verificarea sau înlocuirea metalului lichid). PS4 / PS4 Pro: 100–200 lei. Xbox One și Series S/X: 100–200 lei. Diagnosticarea e gratuită, iar prețul exact îl aflați înainte de intervenție.' },
  { q: 'Oferiți mentenanță la domiciliu pentru console?', a: 'Mentenanța se realizează în atelierul nostru din Sectorul 6 București, Str. Moinești nr. 7. Puteți aduce consola personal sau trimite prin curier.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Mentenanță PS5, PS4 și Xbox în București: curățare completă, pastă termică sau metal lichid, test de temperatură. PS5, PS4 și Xbox 100–200 lei.";
+const desc = "Mentenanță PS5, PS4 și Xbox în București: curățare completă, pastă termică sau metal lichid, test de temperatură. PS5 200 lei, PS4 și Xbox 100–200 lei.";
 const schemaSEO = graf(serviciu({ nume: 'Mentenanță console PS4, PS5, Xbox', tip: 'Mentenanță console gaming', url: '/mentenanta-console-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Mentenanță Console', url: '/mentenanta-console-ps4-ps5-xbox/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
 <Base title="Mentenanță PS5, PS4, Xbox București – Curățare și Pastă Termică" description={desc} schemaExtra={schemaSEO} image={IMG.ogConsola}>
@@ -30,7 +30,7 @@ const schemaSEO = graf(serviciu({ nume: 'Mentenanță console PS4, PS5, Xbox', t
 </section>
 <section class="sec">
   <h2>💰 Cât costă mentenanța consolei</h2>
-  {[['PlayStation 5','Curățare completă + verificare / înlocuire metal lichid','100–200 lei'],['PS4 / PS4 Pro','Curățare completă + pastă termică nouă','100–200 lei'],['Xbox One / Series S/X','Curățare completă + pastă termică','100–200 lei']].map(p => <div class="price-row"><span><strong style="color:var(--navy)">{p[0]}</strong> — {p[1]}</span><b>{p[2]}</b></div>)}
+  {[['PlayStation 5','Curățare completă + verificare / înlocuire metal lichid','200 lei'],['PS4 / PS4 Pro','Curățare completă + pastă termică nouă','100–200 lei'],['Xbox One / Series S/X','Curățare completă + pastă termică','100–200 lei']].map(p => <div class="price-row"><span><strong style="color:var(--navy)">{p[0]}</strong> — {p[1]}</span><b>{p[2]}</b></div>)}
   <p style="margin-top:12px">Lucrarea se face în atelierul din Militari, Sector 6 (Str. Moinești 7), de obicei în 24–48 de ore. Puteți aduce consola personal sau o puteți trimite prin curier din toată țara — vedeți <a href="/reparatii-prin-curier/">reparații prin curier</a>.</p>
 </section>
 <section class="sec">
