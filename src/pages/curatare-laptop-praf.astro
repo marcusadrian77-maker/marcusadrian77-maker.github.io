@@ -3,14 +3,14 @@ import Base from '../layouts/Base.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
-const title = 'Curățare Laptop de Praf București – Pastă Termică, 100–180 lei';
-const desc = 'Curățare laptop de praf și pastă termică nouă în București, atelier în Sector 6: laptop standard 100–180 lei, gaming 180–280 lei, MacBook 150–320 lei. Gata de obicei într-o zi.';
+const title = 'Curățare Laptop de Praf București – Pastă Termică, 100–200 lei';
+const desc = 'Curățare laptop de praf și pastă termică nouă în București, atelier în Sector 6: laptop standard 100–200 lei, gaming 180–280 lei, MacBook 150–320 lei. Gata de obicei într-o zi.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'Cât de des trebuie curățat laptopul de praf?', a: 'Recomandat: o dată la 12–18 luni pentru utilizare normală și o dată pe an dacă lucrați intens (gaming, randare) sau aveți animale de companie. Pasta termică se înlocuiește de regulă la 1–2 ani.' },
  { q: 'Cât durează curățarea profesională?', a: 'În atelierul nostru, curățarea completă cu înlocuirea pastei termice durează de obicei o zi lucrătoare, cu teste de temperatură înainte de predare.' },
  { q: 'Pot să curăț laptopul singur, cu spray de aer comprimat?', a: 'Suflarea prin grilaje fără dezasamblare împinge de multe ori praful mai adânc și poate roti ventilatorul peste turația sigură. Curățarea corectă presupune dezasamblare, curățarea radiatorului și pastă termică nouă.' },
- { q: 'Cât costă curățarea profesională?', a: 'Curățarea completă cu înlocuirea pastei termice pornește de la 80 lei și variază în funcție de modelul laptopului. Laptopurile cu sisteme de răcire mai complexe (gaming, MacBook Pro) pot necesita un preț ușor mai mare. Detalii pe pagina de prețuri.' },
+ { q: 'Cât costă curățarea profesională?', a: 'Curățarea completă cu înlocuirea pastei termice costă 100–200 lei și variază în funcție de modelul laptopului. Laptopurile cu sisteme de răcire mai complexe (gaming, MacBook Pro) pot necesita un preț ușor mai mare. Detalii pe pagina de prețuri.' },
  { q: 'Curățarea laptopului poate rezolva și alte probleme?', a: 'Da, de multe ori. Supraîncălzirea cronică cauzată de praf poate genera opriri bruște, performanță redusă (throttling), zgomot excesiv al ventilatorului și chiar deteriorarea bateriei. O curățare la timp rezolvă toate aceste simptome și previne defecțiuni costisitoare.' },
 ];
 const schemaExtra = { '@context': 'https://schema.org', '@graph': [
@@ -44,7 +44,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <div class="card-soft"><strong>Aer slab sau absent la grilaj</strong><span>Puțin sau deloc aer prin grilajul de evacuare, uneori cu miros de plastic încins. Radiatorul este aproape complet blocat.</span></div>
     <div class="card-soft"><strong>Baterie se descarcă rapid</strong><span>Căldura accelerează degradarea chimică a bateriei. Dacă autonomia a scăzut brusc, supraîncălzirea poate fi cauza.</span></div>
   </div>
-  <p>Dacă observați oricare dintre aceste simptome, nu așteptați. O curățare la timp costă 80–150 lei. O reparație de placă de bază deteriorată de supraîncălzire cronică poate depăși 300–500 lei — iar uneori laptopul nu mai merită reparat.</p>
+  <p>Dacă observați oricare dintre aceste simptome, nu așteptați. O curățare la timp costă 100–200 lei. O reparație de placă de bază deteriorată de supraîncălzire cronică poate depăși 300–500 lei — iar uneori laptopul nu mai merită reparat.</p>
 </section>
 
 <section class="sec">
@@ -83,7 +83,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 
 <section class="sec">
   <h2>💰 Cât costă curățarea și cât de des se face</h2>
-  {[['Laptop de birou / multimedia','la 12–18 luni','Curățare + pastă termică CPU/GPU','100–180 lei'],['Laptop gaming (MSI, ROG, Legion)','la 12 luni','Curățare + pastă sau metal lichid + pad-uri termice','180–280 lei'],['MacBook Air / Pro','la 12–18 luni','Curățare + pastă termică','150–320 lei']].map(p => <div class="price-row"><span><strong style="color:var(--navy)">{p[0]}</strong> — {p[2]} <span style="color:var(--mut)">({p[1]})</span></span><b>{p[3]}</b></div>)}
+  {[['Laptop de birou / multimedia','la 12–18 luni','Curățare + pastă termică CPU/GPU','100–200 lei'],['Laptop gaming (MSI, ROG, Legion)','la 12 luni','Curățare + pastă sau metal lichid + pad-uri termice','180–280 lei'],['MacBook Air / Pro','la 12–18 luni','Curățare + pastă termică','150–320 lei']].map(p => <div class="price-row"><span><strong style="color:var(--navy)">{p[0]}</strong> — {p[2]} <span style="color:var(--mut)">({p[1]})</span></span><b>{p[3]}</b></div>)}
   <p style="margin-top:12px">Diagnosticarea e gratuită, iar prețul exact îl aflați înainte să începem. Dacă laptopul stă pe pat sau pe pături, ori aveți animale în casă, scurtați intervalul.</p>
 </section>
 <section class="sec">
