@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import { SITE } from '../data/site';
+const title = "Televizor Sony nu pornește, LED-ul roșu clipește? Ce înseamnă";
+const desc = "Sony Bravia nu pornește sau LED-ul roșu clipește de 2, 5 sau 6 ori? Cum citești codul de clipiri, ce verifici acasă și ce se repară în atelier. ☎ 0765.461.357";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "Ce înseamnă 6 clipiri la Sony Bravia?", a: "La modelele LED, 6 clipiri indică de cele mai multe ori o problemă de iluminare (backlight): una sau mai multe barete LED arse sau driverul lor. Este una dintre cele mai frecvente reparații la Sony și se face fără schimbarea ecranului." },
+ { q: "Ce înseamnă 2 clipiri?", a: "În general, o problemă de alimentare pe placa principală sau pe sursă. Diagnosticul exact se face cu aparatură de măsură." },
+ { q: "Televizorul Sony rămâne la logo. Ce e?", a: "Dacă logo-ul apare, ecranul și iluminarea funcționează. La Sony cu Android TV, blocarea la logo vine de obicei de la memoria internă eMMC. Am descris un caz real în articolul despre Sony KD-55XE8096." },
+ { q: "Merită reparat un Sony de 7–8 ani?", a: "De multe ori da. Sony are panouri bune, care arată bine și după mulți ani, iar defectele frecvente (backlight, sursă, memorie) se repară fără schimbarea ecranului." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "Televizor Sony nu pornește: LED-ul roșu clipește", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Reparații TV Sony", item: SITE.domeniu + '/reparatii-tv-sony/' },
+   { '@type': 'ListItem', position: 3, name: "Televizor Sony nu pornește", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul Sony Nu Pornește — LED-ul Roșu Clipește</h1>
+  <p class="lead">Sony e una dintre puținele mărci care vă spune singură unde e defectul: prin numărul de clipiri ale LED-ului roșu. Iată cum îl citiți și ce urmează.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Pasul 1: verificările de acasă</h2>
+  <ul class="checks">
+    <li><strong>Scoateți televizorul din priză 5 minute</strong>, apoi conectați-l direct în priza de perete, fără prelungitor.</li>
+    <li><strong>Porniți din butonul fizic</strong> de pe televizor (de obicei pe spate sau sub marginea de jos), ca să excludeți telecomanda.</li>
+    <li><strong>Scoateți stick-urile USB și hard diskurile</strong> conectate. La unele modele Android TV, un dispozitiv USB problematic poate încurca pornirea.</li>
+    <li><strong>Numărați clipirile LED-ului roșu.</strong> Sony repetă codul: un număr de clipiri, o pauză, apoi iar. Numărați de 2–3 ori ca să fiți siguri.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Pasul 2: ce spun clipirile</h2>
+  <p>Codurile diferă puțin de la o generație la alta, dar în atelier vedem cel mai des:</p>
+  <ul class="checks">
+    <li><strong>2 clipiri</strong> — alimentare: sursa sau tensiunile de pe placa principală.</li>
+    <li><strong>5 sau 6 clipiri</strong> — de cele mai multe ori iluminarea (barete LED, driverul de backlight) sau legătura cu panoul. Pe modelele LED, 6 clipiri înseamnă aproape întotdeauna barete arse.</li>
+    <li><strong>Alte coduri</strong> — pot indica placa principală, temperatura sau software-ul. Spuneți-ne numărul la telefon, împreună cu modelul.</li>
+    <li><strong>LED-ul nu se aprinde deloc</strong> — sursa nu mai dă tensiune de standby.</li>
+  </ul>
+  <p>Un test simplu pentru backlight: porniți televizorul și luminați ecranul de aproape cu lanterna telefonului. Dacă se ghicește imaginea, panoul funcționează și problema e iluminarea — vedeți <a href="/inlocuire-leduri-tv/">înlocuire leduri TV</a>.</p>
+</section>
+<section class="sec">
+  <h2>Părerea noastră despre Sony</h2>
+  <p>Sony face panouri care îmbătrânesc frumos. De aceea ni se pare păcat să vedem Bravia-uri de 6–8 ani aruncate pentru o problemă de barete sau de memorie. Cele două defecte cele mai frecvente la Sony, backlight-ul și memoria eMMC la modelele cu Android TV, se repară la nivel de componentă, fără placă nouă și fără ecran nou.</p>
+  <p>La memoria eMMC e un detaliu important: dacă se schimbă cipul fără salvarea datelor unice ale televizorului, după reparație nu mai merge Netflix. Am explicat de ce în <a href="/recuperare-netflix-dupa-emmc/">Netflix după schimbarea eMMC</a>.</p>
+</section>
+<section class="sec">
+  <h2>Cum decurge reparația</h2>
+  <p>Venim la domiciliu în București pentru diagnostic; deplasarea și diagnosticarea sunt gratuite. Defectele de sursă se rezolvă de multe ori pe loc. Baretele LED și memoria se lucrează în atelierul din Militari, cu transport gratuit dus-întors. Mai multe despre marcă găsiți pe pagina <a href="/reparatii-tv-sony/">reparații TV Sony</a>, iar prețurile orientative pe <a href="/preturi/">pagina de prețuri</a>.</p>
+  <p>Dacă televizorul ajunge la logo și se oprește acolo, citiți și <a href="/televizor-blocat-la-sigla/">televizor blocat la siglă</a>. Un caz real: <a href="/din-atelier-sony-kd-55xe8096-emmc/">Sony KD-55XE8096 cu eMMC uzat</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<TrimitePoze />
+
+<Cta titlu="📺 Sony-ul tot nu pornește? Sunați-ne!" text="Spuneți-ne modelul și câte clipiri face LED-ul. Vă spunem de la telefon unde e, cel mai probabil, defectul." />
+</div>
+</Base>

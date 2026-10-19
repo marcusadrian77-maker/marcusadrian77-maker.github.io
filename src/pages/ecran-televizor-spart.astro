@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import { SITE } from '../data/site';
+const title = "Ecran de televizor spart: se repară? Răspunsul cinstit de la atelier";
+const desc = "Ți-a căzut televizorul sau ai lovit ecranul? Ce înseamnă un panou spart, când merită înlocuit, când nu și ce poți face cu televizorul. ☎ 0765.461.357";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "Se poate lipi sau repara fisura de pe ecran?", a: "Nu. Ecranul unui televizor nu e o simplă sticlă: în spatele suprafeței sunt straturi de cristale lichide (sau pixeli OLED) și circuite foarte fine. O fisură le rupe din interior. Singura reparație reală este înlocuirea întregului panou." },
+ { q: "Cât costă înlocuirea panoului?", a: "Orientativ 750–2.250 de lei, în funcție de model și diagonală: panoul este de departe cea mai scumpă piesă din televizor. Vă spunem prețul exact după ce verificăm dacă panoul se mai găsește pentru modelul dumneavoastră. Dacă iese aproape cât un televizor nou, vă spunem asta direct." },
+ { q: "Asigurarea acoperă ecranul spart?", a: "Unele asigurări de locuință sau garanții extinse acoperă daunele accidentale. Merită verificat înainte de orice decizie: vă putem da un document de constatare pentru asigurator." },
+ { q: "Ce fac cu televizorul dacă nu merită reparat?", a: "Plăcile din el (placa principală, sursa, T-CON) sunt de obicei în regulă și au valoare ca piese. Se poate preda și la reciclare. Nu îl aruncați la gunoi menajer." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "Ecran de televizor spart: se repară?", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Reparații televizoare", item: SITE.domeniu + '/reparatii-televizoare/' },
+   { '@type': 'ListItem', position: 3, name: "Ecran televizor spart", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Ecran de Televizor Spart — Se Repară?</h1>
+  <p class="lead">Pată neagră care se întinde, fisuri ca o pânză de păianjen, linii colorate pornind dintr-un punct. Vă spunem direct ce se poate face și când nu merită să dați bani.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Cum recunoașteți un panou spart</h2>
+  <ul class="checks">
+    <li><strong>Fisuri vizibile</strong> sau un punct de impact, chiar mic, de la care pornesc linii.</li>
+    <li><strong>Pată neagră sau colorată</strong> care nu se mișcă odată cu imaginea și uneori crește în zilele următoare.</li>
+    <li><strong>Linii verticale sau orizontale</strong> apărute imediat după o lovitură, o cădere sau transport.</li>
+    <li><strong>Imaginea e bună doar pe o porțiune</strong> a ecranului, restul e negru sau „curcubeu”.</li>
+  </ul>
+  <p>Atenție: nu orice linie pe ecran înseamnă panou spart. Dacă televizorul nu a fost lovit, liniile pot veni de la placa T-CON sau de la conexiunile panoului, care se repară. Am explicat diferența în <a href="/dungi-pe-ecranul-televizorului/">dungi pe ecranul televizorului</a>.</p>
+</section>
+<section class="sec">
+  <h2>Părerea noastră: de cele mai multe ori nu merită</h2>
+  <p>Ne vin des televizoare cu ecranul spart și primul lucru pe care îl facem e să spunem adevărul: <strong>la un televizor obișnuit, de 43–55 de inch, înlocuirea panoului costă de regulă aproape cât un televizor nou</strong>. Panoul e piesa scumpă, iar la multe modele nici nu se mai găsește separat.</p>
+  <p>Merită de discutat în câteva situații:</p>
+  <ul class="checks">
+    <li><strong>Televizoare scumpe, OLED sau diagonale mari</strong>, unde diferența față de un model nou echivalent e mare.</li>
+    <li><strong>Modele pentru care panoul există pe stoc</strong> la un preț rezonabil.</li>
+    <li><strong>Când asigurarea plătește</strong> reparația.</li>
+  </ul>
+  <p>În rest, vă spunem cinstit să nu dați banii. Un service care vă promite „reparăm fisura” fără să schimbe panoul nu vă spune adevărul.</p>
+</section>
+<section class="sec">
+  <h2>Ce să nu faceți</h2>
+  <p>Nu apăsați pe zona crăpată ca să „vedeți dacă revine”: fisura se extinde. Nu lăsați televizorul pornit ore întregi cu un panou fisurat — pot apărea scurtcircuite pe conexiunile panoului care afectează și plăcile. Și nu cumpărați panouri de pe internet fără să știți codul exact: același model de televizor poate avea panouri de la producători diferiți, care nu sunt compatibile.</p>
+</section>
+<section class="sec">
+  <h2>Cum vă ajutăm</h2>
+  <p>Ne trimiteți o poză cu ecranul și cu eticheta din spate. Verificăm dacă panoul se găsește și cât costă, iar dacă nu merită, vă spunem din prima, fără deplasare inutilă. Dacă merită, înlocuirea se face în atelierul nostru din Militari, cu transport gratuit în București. Prețurile orientative pentru manoperă sunt pe <a href="/preturi/">pagina de prețuri</a>; prețurile variază în funcție de model și diagonală.</p>
+  <p>Vedeți și <a href="/reparatii-televizoare/">reparații televizoare</a> și <a href="/cat-costa-o-reparatie/">cât costă o reparație</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<TrimitePoze />
+
+<Cta titlu="📺 Ecran spart? Trimiteți-ne o poză!" text="Spuneți-ne modelul de pe etichetă. Vă spunem direct dacă merită reparat sau nu." />
+</div>
+</Base>

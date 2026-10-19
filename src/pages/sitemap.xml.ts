@@ -11,7 +11,7 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'presa/',
  'termeni-si-conditii/', 'politica-de-confidentialitate/', 'gdpr/',
  'televizor-samsung-nu-porneste/', 'ps5-se-opreste-singur/', 'macbook-ecran-negru/', 'curatare-laptop-praf/',
- 'televizor-lg-nu-porneste/', 'televizor-blocat-la-sigla/', 'resoftare-smart-tv/', 'recuperare-netflix-dupa-emmc/', 'laptop-se-incalzeste/',
+ 'televizor-lg-nu-porneste/', 'televizor-blocat-la-sigla/', 'resoftare-smart-tv/', 'ecran-televizor-spart/', 'televizor-sony-nu-porneste/', 'televizor-philips-nu-porneste/', 'recuperare-netflix-dupa-emmc/', 'laptop-se-incalzeste/',
  'inlocuire-ecran-laptop/', 'inlocuire-baterie-laptop/',
  'reparatii-monitoare-gaming/', 'reparatii-ps5-bucuresti/', 'reparatii-ps4-bucuresti/', 'reparatii-xbox-bucuresti/',
  'laptop-nu-porneste/', 'laptop-nu-se-incarca/', 'inlocuire-tastatura-laptop/', 'laptop-lichid-varsat/',

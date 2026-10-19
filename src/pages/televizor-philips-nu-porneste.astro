@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import TrimitePoze from '../components/TrimitePoze.astro';
+import { SITE } from '../data/site';
+const title = "Televizor Philips nu pornește sau rămâne în standby? Cauze și soluții";
+const desc = "Philips cu Android TV sau Ambilight nu pornește, clipește LED-ul sau rămâne în standby? Ce verifici acasă, cauzele frecvente și ce se repară în atelier. ☎ 0765.461.357";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "De ce rămâne televizorul Philips în standby?", a: "Cel mai des, sursa dă tensiunea de standby, dar nu reușește să pornească restul televizorului. Alte cauze: placa principală care nu dă comanda de pornire sau software-ul blocat la modelele cu Android TV." },
+ { q: "Ambilight-ul se aprinde, dar ecranul rămâne negru. Ce e?", a: "Televizorul pornește, deci sursa și placa funcționează în mare parte. Cauza probabilă e iluminarea ecranului (barete LED) sau placa T-CON. Testul cu lanterna lipită de ecran vă arată care dintre ele." },
+ { q: "Philips-ul repornește singur sau se blochează la logo. Merită reparat?", a: "Da, de cele mai multe ori. La modelele cu Android TV e frecvent memoria internă uzată, care se înlocuiește fără placă nouă." },
+ { q: "Cât costă reparația?", a: "Depinde de defect, model și diagonală. Diagnosticarea e gratuită și vă spunem prețul exact înainte de orice intervenție." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "Televizor Philips nu pornește: cauze și soluții", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Reparații TV Philips", item: SITE.domeniu + '/reparatii-tv-philips/' },
+   { '@type': 'ListItem', position: 3, name: "Televizor Philips nu pornește", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul Philips Nu Pornește sau Rămâne în Standby</h1>
+  <p class="lead">LED-ul de standby e aprins, dar ecranul nu vine. Sau clipește, sau Ambilight se aprinde și imaginea nu. La Philips, fiecare dintre aceste semne duce în alt loc.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Verificări simple, înainte de service</h2>
+  <ul class="checks">
+    <li><strong>Resetare electrică:</strong> din priză 5 minute, apoi direct în priza de perete.</li>
+    <li><strong>Butonul fizic:</strong> la multe modele Philips e un joystick sau un buton mic sub marginea de jos, în mijloc. Dacă televizorul pornește de acolo, problema e telecomanda.</li>
+    <li><strong>Bateriile telecomenzii și senzorul:</strong> priviți LED-ul telecomenzii prin camera telefonului când apăsați un buton. Dacă nu vedeți lumină, telecomanda nu emite.</li>
+    <li><strong>Dispozitivele conectate:</strong> scoateți USB, HDMI și cablul de antenă și încercați din nou.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ce înseamnă ce vedeți</h2>
+  <p><strong>LED-ul de standby e aprins, nu se întâmplă nimic la pornire.</strong> Cel mai frecvent: sursa pornește doar pe standby, sau placa principală nu dă comanda de pornire. Se diagnostichează cu aparatură.</p>
+  <p><strong>LED-ul clipește continuu.</strong> Televizorul a detectat o eroare și refuză pornirea. La Philips, clipirile repetate indică de obicei sursa, iluminarea sau placa principală.</p>
+  <p><strong>Se aude sunetul, Ambilight-ul merge, ecranul e negru.</strong> Aproape sigur iluminarea (barete LED) sau T-CON. Baretele arse sunt cel mai frecvent defect pe care îl vedem la Philips LED — vedeți <a href="/inlocuire-leduri-tv/">înlocuire leduri TV</a>.</p>
+  <p><strong>Logo-ul apare, apoi se oprește sau repornește.</strong> La Android TV, de regulă memoria eMMC sau software-ul. Detalii în <a href="/televizor-blocat-la-sigla/">televizor blocat la siglă</a> și <a href="/resoftare-smart-tv/">resoftare Smart TV</a>.</p>
+</section>
+<section class="sec">
+  <h2>Părerea noastră</h2>
+  <p>Philips are un avantaj pe care mulți îl uită: Ambilight-ul funcționează ca un instrument de diagnostic. Dacă se aprinde, știm deja că televizorul pornește și că problema e mai aproape de ecran decât de sursă. Spuneți-ne la telefon ce face Ambilight-ul și vă putem orienta din prima.</p>
+  <p>Nu vă recomandăm plăci cumpărate „compatibile” de pe internet pe baza unui video: la Philips, același model poate avea plăci diferite în funcție de lotul de producție.</p>
+</section>
+<section class="sec">
+  <h2>Reparația la noi</h2>
+  <p>Venim la domiciliu în București cu deplasare și diagnosticare gratuite. Sursa se repară adesea pe loc; baretele LED și memoria se lucrează în atelierul din Militari, cu transport gratuit. Mai multe pe pagina <a href="/reparatii-tv-philips/">reparații TV Philips</a>; prețuri orientative pe <a href="/preturi/">pagina de prețuri</a>, care variază în funcție de model și diagonală.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<TrimitePoze />
+
+<Cta titlu="📺 Philips-ul tot nu pornește? Sunați-ne!" text="Spuneți-ne modelul și ce face LED-ul sau Ambilight-ul. Vă orientăm de la telefon." />
+</div>
+</Base>
