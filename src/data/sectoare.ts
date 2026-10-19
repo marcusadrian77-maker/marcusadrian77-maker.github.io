@@ -79,7 +79,7 @@ export const BRANDURI = [
      ['Imagine cu culori alterate','placă T-CON sau cablu LVDS defect — reparație sau înlocuire în atelier'],
    ],
    game: 'Reparăm toate gamele LG: OLED evo (seriile C, G, B), QNED, NanoCell, UHD LED, 4K, 8K și Smart TV webOS, diagonale de la 32″ la 86″, inclusiv modele mai vechi. Avem experiență directă cu cele mai populare modele din România: OLED55C1, OLED65C2, 55NANO766, 50UP77006 și 43UQ75006, precum și cu seriile mai vechi LJ, UJ și UK.',
-   ghidLink: '',
+   ghidLink: '/televizor-lg-nu-porneste/',
    faq: [
      { q: 'Se pot repara pixelii arși pe un LG OLED?', a: 'Da, în multe cazuri problema nu este de panou, ci de placa T-CON sau de cablul LVDS. Dacă defectul este izolat într-o zonă, reparația T-CON rezolvă problema. Diagnosticarea gratuită stabilește exact cauza și dacă reparația se justifică.' },
      { q: 'Cât costă înlocuirea backlight-ului la un LG NanoCell?', a: 'Înlocuirea baretelor LED (backlight) la un LG NanoCell sau UHD costă de regulă între 300–600 RON, în funcție de diagonală și numărul de barete necesare. Reparația se face frecvent la domiciliu, în 1–2 ore.' },
@@ -99,7 +99,7 @@ export const BRANDURI = [
      ['Imagine cu artefacte sau blocaje','placă principală sau problemă de firmware — rescriere software sau reparație hardware'],
    ],
    game: 'Reparăm toate gamele Sony Bravia: Bravia XR, OLED (seriile A80/A90), LED X-series, 4K, 8K, Full HD, Google TV și Android TV, diagonale de la 32″ la 85″, inclusiv modele mai vechi. Avem experiență cu modelele cele mai întâlnite în România: KD-55X80K, KD-65X85K, XR-55A80J, KD-43X72K și KDL-W, precum și cu gamele mai vechi EX și W.',
-   ghidLink: '',
+   ghidLink: '/televizor-sony-nu-porneste/',
    faq: [
      { q: 'Ce înseamnă când televizorul Sony clipește de mai multe ori?', a: 'Televizoarele Sony Bravia au un sistem de auto-diagnostic: numărul de clipiri ale LED-ului de standby indică tipul defecțiunii (sursă, T-CON, placă principală etc.). La diagnostic, identificăm codul și intervenim precis pe componenta defectă.' },
      { q: 'Cât costă reparația unui Sony Bravia OLED?', a: 'Costul variază în funcție de defect: o reparație de sursă pornește de la 300 RON, iar intervențiile pe T-CON sau panou OLED pot ajunge la 600–900 RON. Diagnosticarea este gratuită și vă comunicăm prețul înainte de a începe reparația.' },
@@ -119,7 +119,7 @@ export const BRANDURI = [
      ['TV se blochează în timpul utilizării','problemă de firmware sau memorie internă — rescriere sau actualizare forțată'],
    ],
    game: 'Reparăm toate gamele Philips: OLED+, Ambilight, The One, PUS / PML / LED, 4K, 8K, Full HD și Smart TV, diagonale de la 32″ la 86″, inclusiv modele mai vechi. Avem experiență cu modelele populare în România: 55OLED707, 50PUS8507, 43PFS5505, 65PML9506 și The One 55PUS8808, precum și cu seriile mai vechi PFL și PFT.',
-   ghidLink: '',
+   ghidLink: '/televizor-philips-nu-porneste/',
    faq: [
      { q: 'Se poate repara sistemul Ambilight?', a: 'Da, reparăm Ambilight-ul — fie că este vorba de benzi LED defecte pe una sau mai multe laturi, fie de circuitul de comandă. Reparația se face de obicei în atelier, durează 1–2 zile și costă semnificativ mai puțin decât un televizor nou cu Ambilight.' },
      { q: 'Televizorul Philips nu pornește și LED-ul de standby nu se aprinde. Ce poate fi?', a: 'De regulă, problema este la sursa de alimentare: condensatori cedați, diode de protecție arse sau circuitul de standby defect. Reparăm sursa la nivel de componentă, pe loc la domiciliu, în 1–2 ore, cu garanție 6–12 luni.' },
