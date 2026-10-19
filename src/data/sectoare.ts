@@ -9,14 +9,14 @@ export const SECTOARE = [
  { nr: 2, zone: 'Colentina, Pantelimon, Obor, Iancului', pins: ['Colentina','Pantelimon','Obor','Moșilor','Iancului','Tei','Fundeni','Balta Albă','Floreasca'],
    local: [
      'În Sectorul 2 ajungem zilnic: cartierele dense de blocuri din Colentina, Pantelimon, Tei și Iancului ne aduc constant solicitări, de la garsoniere de pe Șoseaua Colentina până la casele din zona Fundeni și Plumbuita. Cele mai frecvente intervenții aici sunt pe televizoare LED Samsung și LG de 40–55″, la care cedează iluminarea (backlight) sau sursa de alimentare.',
-     'Reparația se face de regulă pe loc, în apartament — schimbarea baretelor LED sau a condensatorilor din sursă durează sub două ore. Dacă e nevoie de atelier, transportăm gratuit televizorul dus-întors, iar la predare primiți garanție scrisă 6–12 luni.',
+     'Reparația se face pe loc, în apartament, când avem piesa pe stoc — schimbarea baretelor LED sau a condensatorilor din sursă durează sub două ore. Dacă e nevoie de atelier, transportăm gratuit televizorul dus-întors, iar la predare primiți garanție scrisă 6–12 luni.',
      'În Sectorul 2 reparăm frecvent televizoare cu probleme de alimentare cauzate de fluctuațiile de tensiune din rețeaua electrică a blocurilor mai vechi din Colentina și Pantelimon. Defecțiunile tipice includ condensatori umflați în sursa de alimentare, diode de protecție arse și circuite de standby defecte. De asemenea, în ansamblurile noi din zona Fundeni și Plumbuita, intervenim pe Smart TV-uri cu probleme de software — Tizen, webOS sau Android TV blocat — pe care le rezolvăm prin rescriere eMMC.',
    ],
    cazuri: ['LED 50″ cu imagine care dispare după câteva secunde — barete LED înlocuite la domiciliu','TV care pornește greu, „dă din prima doar când e cald" — condensatori sursă schimbați pe loc','Televizor lovit de supratensiune pe Șos. Pantelimon — sursă + diode de protecție','LG NanoCell 55″ din Tei cu ecran negru dar sunet prezent — backlight complet înlocuit','Samsung 43″ din Obor cu Tizen blocat în buclă de repornire — rescriere memorie eMMC','Philips 50″ din Iancului cu Ambilight stins pe o latură — bandă LED Ambilight schimbată'] },
  { nr: 3, zone: 'Titan, Vitan, Dristor, Dudești, Balta Albă, Timpuri Noi', pins: ['Titan','Vitan','Dristor','Dudești','Balta Albă','Timpuri Noi','IOR','Pallady'],
    local: [
      'Sectorul 3 este cel mai populat sector al Capitalei și, pentru noi, zona cu cele mai multe programări: Titan, Balta Albă, Dristor și Vitan concentrează mii de blocuri, iar în ansamblurile noi de pe Theodor Pallady intervenim constant pe televizoare cumpărate în ultimii ani, încă neieșite din perioada în care merită reparate.',
-     'Datorită cererii mari, în Sectorul 3 avem de obicei intervenții în aceeași zi — sunați dimineața, ajungem după-amiaza. Reparăm pe loc în majoritatea cazurilor, iar pentru lucrările de atelier transportul este gratuit, inclusiv pentru diagonalele mari.',
+     'Datorită cererii mari, în Sectorul 3 avem de obicei intervenții în aceeași zi — sunați dimineața, ajungem după-amiaza. Reparăm pe loc când avem piesa pe stoc, iar placa de bază și piesele comandate merg la atelier, cu transport gratuit, inclusiv pentru diagonalele mari.',
      'Intervențiile cele mai comune în Sectorul 3 sunt înlocuirea baretelor LED la televizoare Samsung și LG de 40–55″, reparații de surse de alimentare cu condensatori defecți, și rezolvarea problemelor de software la Smart TV-uri. În zona Pallady și ansamblurile rezidențiale noi, vedem des televizoare relativ noi cu probleme de port HDMI — ars după conectarea unei console PlayStation sau Xbox — pe care le reparăm la nivel de circuit, fără înlocuirea plăcii întregi.',
    ],
    cazuri: ['Smart TV din ansamblurile noi Pallady cu Wi-Fi căzut — modul de rețea reparat','LED 55″ din Titan cu jumătate de ecran întunecată — difuzor de lumină și barete LED','TV cu HDMI ars după conectarea consolei — circuit HDMI reparat la nivel de componentă','Samsung 50″ din Balta Albă care se stinge singur — condensatori sursă înlocuiți pe loc','LG webOS din Dristor blocat în logo — rescriere eMMC în atelier, gata în 24h','Philips 43″ din Vitan cu dungi verticale pe ecran — placă T-CON reparată'] },
@@ -63,7 +63,7 @@ export const BRANDURI = [
    faq: [
      { q: 'Cât costă reparația unui televizor Samsung?', a: 'Costul depinde de defecțiune: o reparație de sursă de alimentare sau backlight pornește de la 230–380 RON, în timp ce o rescriere eMMC sau reparație T-CON poate ajunge la 450–750 RON. Diagnosticarea este gratuită, iar prețul final îl aflați înainte de a accepta reparația.' },
      { q: 'Merită reparat un Samsung QLED sau e mai bine să cumpăr altul?', a: 'De regulă, dacă televizorul are sub 6–7 ani și diagonala este de 50″ sau mai mare, reparația merită — costul este de 3–5 ori mai mic decât un televizor nou echivalent. Vă spunem sincer dacă reparația se justifică economic sau nu.' },
-     { q: 'Cât durează reparația unui televizor Samsung?', a: 'Majoritatea reparațiilor (sursă, backlight, conectivitate) se rezolvă pe loc, în 1–2 ore. Lucrările de atelier (rescriere eMMC, reparație T-CON, lucru pe panou) durează 1–3 zile lucrătoare, cu transport gratuit dus-întors.' },
+     { q: 'Cât durează reparația unui televizor Samsung?', a: 'Reparațiile de sursă, backlight sau conectivitate se rezolvă pe loc, în 1–2 ore, dacă avem piesa pe stoc. Lucrările de atelier (rescriere eMMC, reparație T-CON, lucru pe panou) durează 1–3 zile lucrătoare, cu transport gratuit dus-întors.' },
    ],
  },
  { slug: 'lg', nume: 'LG', titluSite: 'Reparații TV LG București | Service Televizoare LG OLED',
@@ -122,7 +122,7 @@ export const BRANDURI = [
    ghidLink: '/televizor-philips-nu-porneste/',
    faq: [
      { q: 'Se poate repara sistemul Ambilight?', a: 'Da, reparăm Ambilight-ul — fie că este vorba de benzi LED defecte pe una sau mai multe laturi, fie de circuitul de comandă. Reparația se face de obicei în atelier, durează 1–2 zile și costă semnificativ mai puțin decât un televizor nou cu Ambilight.' },
-     { q: 'Televizorul Philips nu pornește și LED-ul de standby nu se aprinde. Ce poate fi?', a: 'De regulă, problema este la sursa de alimentare: condensatori cedați, diode de protecție arse sau circuitul de standby defect. Reparăm sursa la nivel de componentă, pe loc la domiciliu, în 1–2 ore, cu garanție 6–12 luni.' },
+     { q: 'Televizorul Philips nu pornește și LED-ul de standby nu se aprinde. Ce poate fi?', a: 'De regulă, problema este la sursa de alimentare: condensatori cedați, diode de protecție arse sau circuitul de standby defect. Reparăm sursa la nivel de componentă, pe loc la domiciliu dacă avem piesele pe stoc, în 1–2 ore, cu garanție 6–12 luni.' },
      { q: 'Cât durează reparația unui Philips Smart TV blocat?', a: 'Un Smart TV Philips blocat (Saphi sau Android TV) necesită de obicei rescriere eMMC în atelier. Lucrarea durează 1–2 zile lucrătoare, cu transport gratuit. Firmware-ul este restaurat la versiunea stabilă, iar garanția este de 6–12 luni.' },
    ],
  },
@@ -143,7 +143,7 @@ export const BRANDURI = [
    faq: [
      { q: 'Mai reparați televizoare Panasonic plasmă?', a: 'Da, reparăm și televizoare plasmă Panasonic — surse de alimentare, plăci Y-SUS și Z-SUS, plăci de control. Atât timp cât panoul în sine nu este spart, de obicei reparația se justifică, mai ales la modelele plasmă de diagonală mare care oferă o calitate excelentă a imaginii.' },
      { q: 'Cât costă reparația unui Panasonic OLED?', a: 'Costul depinde de defecțiune: reparația sursei pornește de la 300 RON, iar intervențiile pe T-CON sau panou OLED pot ajunge la 600–900 RON. Diagnosticarea este gratuită și vă spunem prețul exact înainte de a începe.' },
-     { q: 'Televizorul Panasonic Viera nu mai pornește deloc. Se poate repara?', a: 'Da, în majoritatea cazurilor cauza este sursa de alimentare — condensatori cedați sau circuit de standby defect. Reparăm pe loc la domiciliu, în 1–2 ore, cu piese din trusa de service. Garanția este de 6–12 luni.' },
+     { q: 'Televizorul Panasonic Viera nu mai pornește deloc. Se poate repara?', a: 'Da, în majoritatea cazurilor cauza este sursa de alimentare — condensatori cedați sau circuit de standby defect. Reparăm pe loc la domiciliu, în 1–2 ore, cu piesele pe care le avem pe stoc; dacă piesa trebuie comandată, televizorul merge la atelier. Garanția este de 6–12 luni.' },
    ],
  },
  { slug: 'toshiba', nume: 'Toshiba', titluSite: 'Reparații TV Toshiba București | Service Televizoare Toshiba',
