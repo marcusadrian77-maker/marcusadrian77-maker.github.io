@@ -13,8 +13,8 @@ const faq = [
  { q: 'Cât costă înlocuirea ledurilor la televizor?', a: 'Între 250 și 1.000 de lei, cu piesă, manoperă și 6 luni de garanție. Diferența o dă diagonala: la un televizor de 32 de inch sunt mai puține barete de schimbat decât la unul de 65. Prețul include și verificarea driverului care alimentează ledurile, pentru că uneori el este cel care le-a ars.' },
  { q: 'Se schimbă ledurile unul câte unul sau toată bareta?', a: 'Se schimbă baretele întregi, nu ledul ars. Ledurile sunt legate în serie și îmbătrânesc împreună: dacă înlocuiți doar unul, restul sunt deja obosite și cedează la scurt timp, iar aparatul se desface a doua oară degeaba. La fel, se schimbă toate baretele, nu doar cea defectă.' },
  { q: 'Cum știu că am nevoie de înlocuire de leduri?', a: 'Semnul clasic este ecranul negru cu sunetul prezent. Faceți testul lanternei: în cameră întunecată, luminați ecranul oblic, de aproape. Dacă zăriți imaginea ca o umbră, panoul e bun și ledurile sunt de vină. Mai sunt și forme parțiale: o zonă a ecranului mai întunecată sau imaginea care apare două secunde și apoi dispare.' },
- { q: 'Cât durează lucrarea?', a: 'Dacă avem baretele pe stoc pentru modelul dumneavoastră, o facem într-o singură vizită. La televizoarele mari, de 55 de inch în sus, preferăm atelierul: panoul e subțire, trebuie așezat orizontal pe o suprafață curată și manevrat cu grijă. Transportul dus-întors îl asigurăm noi, gratuit.' },
- { q: 'Se poate face acasă sau trebuie dus în atelier?', a: 'La diagonale mici și medii se poate face la domiciliu, dacă există o masă liberă și lumină bună. Peste 55 de inch recomandăm atelierul, tocmai pentru că riscul de fisurare a panoului crește cu dimensiunea. Decidem împreună la telefon, după ce ne spuneți modelul.' },
+ { q: 'Cât durează lucrarea?', a: 'Dacă avem baretele pe stoc pentru modelul dumneavoastră, o facem într-o singură vizită. La televizoarele mai mari de 55 de inch lucrăm doar în atelier: panoul e subțire, trebuie așezat orizontal pe o suprafață curată și manevrat cu grijă. Transportul dus-întors îl asigurăm noi, gratuit.' },
+ { q: 'Se poate face acasă sau trebuie dus în atelier?', a: 'La diagonale mici și medii se poate face la domiciliu, dacă există o masă liberă și lumină bună. Peste 55 de inch lucrăm doar în atelier, tocmai pentru că riscul de fisurare a panoului crește cu dimensiunea. Decidem împreună la telefon, după ce ne spuneți modelul.' },
  { q: 'De ce s-au ars ledurile dacă televizorul e relativ nou?', a: 'Cel mai des din căldură: luminozitate ținută la maximum, aparatul montat într-o nișă fără aerisire în spate sau expus la soare direct. Mai rar, vinovat e driverul de leduri care le alimentează cu un curent prea mare — de aceea îl verificăm de fiecare dată, altfel baretele noi ar avea aceeași soartă.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -76,7 +76,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <li><strong>Se înlocuiesc baretele</strong>, se verifică driverul și se testează iluminarea înainte de a remonta.</li>
     <li><strong>Se reasamblează și se testează</strong> aparatul complet, pornit, câteva minute bune.</li>
   </ul>
-  <p>La diagonale mari preferăm atelierul din Militari, unde avem masă mare și spațiu curat. Transportul dus-întors îl facem noi și nu îl plătiți.</p>
+  <p>Televizoarele mai mari de 55 de inch le reparăm doar în atelierul din Militari, unde avem masă mare și spațiu curat. Transportul dus-întors îl facem noi și nu îl plătiți.</p>
 </section>
 
 <section class="sec">
