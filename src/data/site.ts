@@ -60,6 +60,8 @@ export const SCHEMA_LOCALBUSINESS = {
     'https://www.google.com/maps?cid=8478287421888488271',
     'https://www.google.com/maps?cid=3284667601974338277',
     'https://www.reparatiitvbucuresti.ro/',
+    'https://www.facebook.com/profile.php?id=61595637197218',
+    'https://listafirme.ro/marcus-electronics-srl-18426506/',
   ],
   subjectOf: {
     '@type': 'NewsArticle',
