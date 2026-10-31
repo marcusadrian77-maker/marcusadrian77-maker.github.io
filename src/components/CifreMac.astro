@@ -1,0 +1,14 @@
+---
+// Banda cu cifre-cheie pentru paginile MacBook (în locul benzii generale).
+const CIFRE = [
+  { nr: 'Intel + M1–M4', txt: 'MacBook Air și Pro din 2012 până la modelele Apple Silicon' },
+  { nr: 'Microscop', txt: 'reparăm componenta arsă de pe placă, nu schimbăm placa' },
+  { nr: '0 lei', txt: 'diagnosticarea, indiferent dacă reparați sau nu' },
+  { nr: '6 luni', txt: 'garanție scrisă, pe piesă și pe manoperă' },
+];
+---
+<section class="cifre" aria-label="Pe scurt">
+  <div class="wrap cifre-grid">
+    {CIFRE.map(c => <div class="cif"><b>{c.nr}</b><span>{c.txt}</span></div>)}
+  </div>
+</section>
