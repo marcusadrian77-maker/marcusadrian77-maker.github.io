@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import Cifre from '../components/Cifre.astro';
 import { IMG } from '../data/images';
 import Cta from '../components/Cta.astro';
+import CifreMac from '../components/CifreMac.astro';
 import { SITE } from '../data/site';
 import { MACURI } from '../data/macbook';
 const title = 'Service MacBook București – Reparații MacBook Air și Pro';
-const desc = 'Service MacBook Air și Pro în București: placă de bază, ecran, baterie, tastatură, daune de lichid. Diagnosticare GRATUITĂ, garanție 6–12 luni. ☎ 0765.461.357';
+const desc = 'Service MacBook Air și Pro în București: placă de bază, ecran, baterie, tastatură, daune de lichid. Diagnosticare GRATUITĂ, garanție 6 luni, preț ferm înainte. ☎ 0765.461.357';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const preturi = [
  ['Diagnosticare', 'GRATUITĂ'],
@@ -19,14 +19,15 @@ const preturi = [
 ];
 const faq = [
  { q: 'Cât costă diagnosticarea unui MacBook?', a: 'Nimic — diagnosticarea este gratuită, indiferent dacă acceptați sau nu reparația. Vă comunicăm defectul exact și prețul ferm înainte de orice intervenție, iar prețul nu se modifică pe parcurs.' },
+ { q: 'Se poate face ceva în aceeași zi?', a: 'Da, curățarea cu pastă termică nouă o facem de regulă în aceeași zi, în funcție de disponibilitatea atelierului — sunați-ne înainte și vă spunem dacă vă putem primi. Celelalte reparații au termenele de mai jos.' },
  { q: 'Cât durează o reparație de MacBook?', a: 'Intervențiile uzuale (baterie, ecran, tastatură, port de încărcare) se fac de regulă în 24–48 de ore. Reparațiile de placă de bază durează în general 2–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
  { q: 'Reparați plăci de bază sau doar le înlocuiți?', a: 'Le reparăm la nivel de componentă: identificăm circuitul defect la microscop și înlocuim exact piesa arsă — un condensator, un controler de alimentare, un mosfet. Așa costul rămâne o fracțiune din prețul unei plăci noi.' },
  { q: 'Am vărsat lichid pe MacBook. Ce fac?', a: 'Opriți-l imediat, nu-l puneți la încărcat și nu-l porniți „să vedeți dacă merge” — coroziunea avansează cu fiecare oră sub tensiune. Aduceți-l cât mai repede la atelier; cu cât intervenim mai devreme, cu atât șansele de recuperare completă sunt mai mari.' },
  { q: 'Datele mele sunt în siguranță în timpul reparației?', a: 'Da. Nu accesăm fișierele personale, iar la reparațiile de placă facem tot posibilul să păstrăm datele intacte. La modelele Apple Silicon, unde SSD-ul este lipit pe placă, recomandăm un backup înainte de intervenție dacă laptopul mai pornește.' },
- { q: 'Ce garanție primesc?', a: 'Garanție scrisă între 6 și 12 luni, în funcție de intervenție, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în garanție, îl rezolvăm fără costuri suplimentare.' },
+ { q: 'Ce garanție primesc?', a: 'Garanție scrisă de 6 luni, care acoperă atât piesa montată, cât și manopera. Dacă defectul reapare în garanție, îl rezolvăm fără costuri suplimentare.' },
  { q: 'Cât costă înlocuirea ecranului la un MacBook?', a: 'Între 700 și 2.700 lei, în funcție de model și de diagonală. Diferența e mare pentru că la modelele recente displayul se livrează ca ansamblu complet, iar la unele probleme (backlight, cablu flex) nu e nevoie de ecran nou deloc — de aceea diagnosticăm întâi și abia apoi dăm prețul.' },
  { q: 'Îmi pierd garanția Apple dacă reparați voi MacBook-ul?', a: 'Dacă laptopul este încă în garanție Apple, vă recomandăm să mergeți întâi la un service autorizat — orice intervenție externă anulează garanția producătorului. Majoritatea clienților noștri vin cu MacBook-uri ieșite din garanție sau cu defecte pe care Apple le rezolvă doar prin înlocuirea plăcii, la prețuri comparabile cu ale unui laptop nou.' },
- { q: 'Folosiți piese originale?', a: 'Folosim piese originale sau echivalente de calitate, în funcție de disponibilitate și de bugetul agreat cu dumneavoastră. Vă spunem clar, înainte de reparație, ce tip de piesă montăm. La reparațiile de placă înlocuim componente electronice noi, de la furnizori consacrați, prin parteneriatul nostru ASWO.' },
+ { q: 'Folosiți piese originale?', a: 'Folosim piese originale sau echivalente de calitate, în funcție de disponibilitate și de bugetul agreat cu dumneavoastră. Vă spunem clar, înainte de reparație, ce tip de piesă montăm. La reparațiile de placă înlocuim componente electronice noi, de la furnizori consacrați.' },
  { q: 'Merită reparat un MacBook vechi de 6–8 ani?', a: 'De multe ori da, pentru că un MacBook din 2016–2018 reparat corect mai funcționează ani buni, iar reparația costă o fracțiune dintr-un model nou. Vă spunem sincer dacă nu merită: dacă o placă are coroziune extinsă în mai multe zone, vă recomandăm să nu investiți în ea.' },
 ];
 const schemaExtra = { '@context': 'https://schema.org', '@graph': [
@@ -47,12 +48,18 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <span class="badge">🍎 SERVICE APPLE · LA NIVEL DE COMPONENTĂ</span>
   <h1>Service MacBook București — Reparații MacBook Air și Pro</h1>
   <p class="lead">Reparăm placa, nu o aruncăm. Service MacBook Air și MacBook Pro în atelierul nostru din Militari, Sector 6 — de la înlocuiri de ecran și baterie până la microsoldering pe plăci declarate „moarte” de alte service-uri.</p>
-  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🛡️ Garanție scrisă 6–12 luni</span><span>💰 Preț ferm, comunicat înainte</span><span>📦 Prin curier, din toată țara</span></div>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🛡️ Garanție scrisă 6 luni</span><span>💰 Preț ferm, comunicat înainte</span><span>📦 Prin curier, din toată țara</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
-<Cifre />
+<CifreMac />
 <div class="wrap">
+<section class="sec">
+  <h2>💰 Cât Costă Reparația unui MacBook</h2>
+  <p>Prețurile de mai jos includ piesa și manopera. Prețul exact îl aflați după diagnosticare, care este gratuită, și nu se mai schimbă pe parcurs.</p>
+  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Curățarea cu pastă termică nouă se face de regulă <strong>în aceeași zi</strong>, în funcție de disponibilitatea atelierului. Prețul pe fiecare model: <a href="/preturi-macbook/">prețuri MacBook pe model</a>. Toate aparatele: <a href="/preturi/">prețuri reparații electronice</a>.</p>
+</section>
 <section class="sec">
   <h2>Reparăm la Nivel de Componentă — Diferența Care Contează</h2>
   <p>Dacă ați căutat „service laptop Apple", aici ați ajuns: un MacBook este un laptop Apple, iar noi îl reparăm ca pe orice laptop de calitate — pe componentă, nu pe subansamblu. Diferența față de un laptop obișnuit stă în piese și în proceduri, nu în principiu.</p>
@@ -88,6 +95,10 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <li><strong>Baterie umflată sau descărcare rapidă</strong> — <a href="/inlocuire-baterie-macbook/">înlocuire baterie</a>, cu verificarea circuitului de încărcare</li>
     <li><strong>Repornește singur / se blochează</strong> — diagnosticare placă, memorie, SSD, software</li>
   </ul>
+  <div class="grid g2" style="margin-top:14px;align-items:start">
+    <figure style="margin:0"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Apple_MacBook_Battery_Failure_(3403475388).jpg?width=1000" alt="Baterie de MacBook umflată care a deformat carcasa laptopului" width="1000" height="771" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;display:block" /><figcaption style="font-size:13px;color:var(--mut);margin-top:6px;line-height:1.45">O baterie umflată împinge trackpadul și carcasa din interior. Nu se mai încarcă și nu se amână: se înlocuiește. <span style="display:block;font-size:12px">Imagine ilustrativă · Foto: Steve Jurvetson, <a href="https://commons.wikimedia.org/wiki/File:Apple_MacBook_Battery_Failure_(3403475388).jpg" rel="noopener nofollow" target="_blank">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener nofollow license" target="_blank">CC BY 2.0</a></span></figcaption></figure>
+    <figure style="margin:0"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/MacBook_Air_keyboard_3.jpg?width=1000" alt="Tastatura iluminată a unui MacBook Air" width="1000" height="563" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;display:block" /><figcaption style="font-size:13px;color:var(--mut);margin-top:6px;line-height:1.45">Tastatura e prinsă de carcasa superioară, de aceea taste blocate sau moarte înseamnă de obicei ansamblu nou, nu doar câteva taste. <span style="display:block;font-size:12px">Imagine ilustrativă · Foto: TheumasNL, <a href="https://commons.wikimedia.org/wiki/File:MacBook_Air_keyboard_3.jpg" rel="noopener nofollow" target="_blank">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener nofollow license" target="_blank">CC BY-SA 4.0</a></span></figcaption></figure>
+  </div>
 </section>
 <section class="sec">
   <h2>Ghiduri pe Defecte — Înainte să Veniți la Atelier</h2>
@@ -111,11 +122,6 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   </div>
 </section>
 <section class="sec">
-  <h2>💰 Prețuri Orientative Reparații MacBook</h2>
-  {preturi.map(p => <div class="price-row"><span>{p[0]}</span><b>{p[1]}</b></div>)}
-  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Intervalele sunt orientative și acoperă manopera plus piesa. Prețul ferm îl aflați după diagnosticare, care e gratuită și nu vă obligă la nimic. Tabelul pe fiecare model: <a href="/preturi-macbook/">prețuri MacBook pe model</a>. Lista pentru toate aparatele: <a href="/preturi/">prețuri reparații electronice</a>.</p>
-</section>
-<section class="sec">
   <h2>Defecte Tipice pe Generații de MacBook</h2>
   <p>După ani de lucru pe plăci Apple, se vede clar că fiecare generație are „boala” ei. Dacă știți anul și modelul, de multe ori putem estima problema încă de la telefon.</p>
   <figure style="margin:14px auto 18px;max-width:760px"><img src="/img/macbook-pro-deschis-placa.webp" alt="MacBook Pro cu capacul de jos scos: placa de bază, bateria, ventilatorul și stocarea" width="1400" height="988" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;display:block" /><figcaption style="font-size:13px;color:var(--mut);margin-top:6px;line-height:1.45">Un MacBook Pro deschis: placa de bază sus, bateria și stocarea jos. La modelele mai noi, memoria și SSD-ul sunt lipite direct pe placă. <span style="display:block;font-size:12px">Imagine ilustrativă · Foto: Haotian0905, <a href="https://commons.wikimedia.org/wiki/File:MacBook_Pro_main_board.jpg" rel="noopener nofollow" target="_blank">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noopener nofollow license" target="_blank">CC BY-SA 3.0</a></span></figcaption></figure>
@@ -126,6 +132,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <p>Modelele cu cip T2 au un circuit de alimentare sensibil: laptopul nu mai pornește deloc, nu se aprinde niciun LED, iar încărcătorul nu schimbă culoarea. În majoritatea cazurilor este vorba de o linie de tensiune în scurtcircuit sau de un controler de încărcare ars — se repară punctual, la microscop, fără schimbarea plăcii.</p>
   <h3>MacBook Air și Pro cu M1, M2, M3 — lichid și porturi</h3>
   <p>Modelele Apple Silicon sunt fiabile electronic, dar au două puncte slabe practice: <strong>porturile USB-C</strong>, care se uzează mecanic de la mii de conectări, și <strong>lichidul vărsat</strong>, care ajunge rapid pe placă pentru că nu mai există aproape niciun spațiu tampon. La aceste modele SSD-ul este lipit pe placă, deci recuperarea datelor depinde de starea plăcii — cu atât mai mult contează să ajungă repede la atelier.</p>
+  <figure style="margin:14px auto 18px;max-width:760px"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Unibody_MacBook_disassembled..jpg?width=1000" alt="Interiorul unui MacBook Unibody cu bateria scoasă: placa de bază, unitatea optică și hard diskul" width="1000" height="664" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;display:block" /><figcaption style="font-size:13px;color:var(--mut);margin-top:6px;line-height:1.45">Un MacBook mai vechi, desfăcut: la aceste modele bateria, stocarea și memoria se schimbă separat, de aceea reparațiile sunt cele mai rentabile. <span style="display:block;font-size:12px">Imagine ilustrativă · Foto: Roger Wang, <a href="https://commons.wikimedia.org/wiki/File:Unibody_MacBook_disassembled..jpg" rel="noopener nofollow" target="_blank">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener nofollow license" target="_blank">CC BY-SA 2.0</a></span></figcaption></figure>
   <h3>MacBook 2012–2015 — cele mai rentabile reparații</h3>
   <p>Sunt modelele pentru care Apple nu mai oferă piese, dar care merg impecabil după o reparație corectă. Cel mai des le înlocuim bateria (umflată, care presează trackpadul), le curățăm sistemul de răcire și le reparăm circuitul de încărcare. Costul e mic raportat la câți ani mai funcționează laptopul după.</p>
 </section>
@@ -135,28 +142,15 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
   <p>Nu vă recomandăm reparația când placa are coroziune extinsă pe mai multe zone după lichid, când s-au încercat deja intervenții agresive în alte ateliere și pistele de pe placă sunt rupte, sau când costul cumulat (ecran + placă + baterie) se apropie de valoarea laptopului. În aceste cazuri vă spunem direct, iar diagnosticarea rămâne gratuită.</p>
 </section>
 <section class="sec">
-  <h2>Modele pe Care Lucrăm</h2>
-  <p>Reparăm toate generațiile: <strong>MacBook Air</strong> (Intel, M1, M2, M3, M4), <strong>MacBook Pro</strong> 13″, 14″, 15″ și 16″ (Intel și Apple Silicon), plus <strong>iMac</strong> și <strong>Mac Mini</strong>. Lucrăm inclusiv pe modele mai vechi (2012–2017), pentru care Apple nu mai oferă suport — de multe ori acestea sunt cele mai rentabile reparații, pentru că alternativa „schimbăm placa” nu mai există.</p>
-  <p>Fiecare serie are defectele ei caracteristice, piesele ei și capcanele ei. Mai jos găsiți pagina dedicată fiecărui model, cu ce se strică la el, cât costă și ce trebuie știut înainte. Codul de tip <strong>A1706</strong> este cel care identifică sigur aparatul — denumirea comercială singură nu ajunge.</p>
-  <h3>MacBook Pro 13″ (Intel)</h3>
-  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('pro-13') && m.cpu === 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
-  <h3>MacBook Pro 15″ și 16″ (Intel)</h3>
-  <ul class="checks">{MACURI.filter(m => (m.slug.startsWith('pro-15') || m.slug.startsWith('pro-16')) && m.cpu === 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
-  <h3>MacBook Pro Apple Silicon (M1, M2)</h3>
-  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('pro') && m.cpu !== 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
-  <h3>MacBook Air</h3>
-  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('air')).map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
-</section>
-<section class="sec">
   <h2>Cum Decurge Reparația</h2>
   <ol>
     <li><strong>Ne contactați.</strong> Telefonic sau pe WhatsApp — descrieți problema și modelul (îl găsiți pe spatele carcasei sau în „Despre acest Mac”).</li>
     <li><strong>Diagnosticare gratuită.</strong> Aduceți laptopul la atelierul din Str. Moinești 7, Militari. Îl verificăm și vă spunem exact ce are și cât costă reparația — fără nicio obligație.</li>
     <li><strong>Reparația.</strong> Doar după acordul dumneavoastră, la prețul comunicat. Intervențiile uzuale durează 24–48h, reparațiile de placă 2–5 zile lucrătoare.</li>
-    <li><strong>Predare cu garanție.</strong> Testăm complet aparatul și îl predați cu garanție scrisă 6–12 luni pentru piesă și manoperă.</li>
+    <li><strong>Predare cu garanție.</strong> Testăm complet aparatul și îl predați cu garanție scrisă de 6 luni pentru piesă și manoperă.</li>
   </ol>
   <h3>📦 Din afara Bucureștiului: trimiteți prin curier</h3>
-  <p>Nu trebuie să fiți din București ca să ajungeți la noi. Primim MacBook-uri prin curier <strong>din orice localitate din România</strong>, iar aparatul trece prin exact aceiași pași ca unul adus personal: despachetare, diagnosticare gratuită, telefon cu defectul și prețul, reparație, test și reambalare. Garanția scrisă de 6–12 luni este aceeași.</p>
+  <p>Nu trebuie să fiți din București ca să ajungeți la noi. Primim MacBook-uri prin curier <strong>din orice localitate din România</strong>, iar aparatul trece prin exact aceiași pași ca unul adus personal: despachetare, diagnosticare gratuită, telefon cu defectul și prețul, reparație, test și reambalare. Garanția scrisă de 6 luni este aceeași.</p>
   <p>Se trimite <strong>aparatul întreg</strong>, nu placa scoasă din el — o placă separată nu poate fi testată sub sarcină. Transportul îl plătiți dumneavoastră, în ambele sensuri, iar pentru aparatele primite prin curier se aplică o manoperă minimă de <strong>200 de lei fără piese</strong>. Termenul obișnuit este de 2–5 zile lucrătoare de la primirea coletului.</p>
   <p>Sunați-ne întâi, cu modelul și cu ce face aparatul: facem socoteala împreună la telefon, gratuit, și vă spunem deschis dacă merită expediat. Detaliile complete sunt pe <a href="/reparatii-prin-curier/">reparații prin curier</a>.</p>
 </section>
@@ -166,7 +160,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
     <div class="card"><div class="ico">🔍</div><h3>Diagnoză GRATUITĂ</h3><p>La noi diagnosticarea nu costă nimic, indiferent de decizie — la multe service-uri Apple din București se plătește 180–200 lei.</p></div>
     <div class="card"><div class="ico">🔬</div><h3>Microsoldering real</h3><p>Reparăm componenta defectă la microscop, nu vindem plăci și subansamble întregi.</p></div>
     <div class="card"><div class="ico">💰</div><h3>Preț ferm înainte</h3><p>Aflați costul exact înainte să acceptați reparația. Fără surprize la ridicare.</p></div>
-    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6–12 luni</h3><p>Garanție scrisă pentru toate intervențiile, piesă și manoperă.</p></div>
+    <div class="card"><div class="ico">🛡️</div><h3>Garanție 6 luni</h3><p>Garanție scrisă pentru toate intervențiile, piesă și manoperă.</p></div>
   </div>
   <p style="margin-top:12px">Atelierul se află în <strong>Militari, Sector 6</strong> (Str. Moinești 7) — dacă sunteți din zonă, vedeți și pagina <a href="/reparatii-macbook-sector-6/">Service MacBook Sector 6</a>. Pentru celelalte sectoare, cu drumul până la atelier: <a href="/reparatii-macbook-sector-1/">Sectorul 1</a>, <a href="/reparatii-macbook-sector-2/">Sectorul 2</a>, <a href="/reparatii-macbook-sector-3/">Sectorul 3</a>, <a href="/reparatii-macbook-sector-4/">Sectorul 4</a>, <a href="/reparatii-macbook-sector-5/">Sectorul 5</a>. Program: {SITE.program}.</p>
 </section>
@@ -181,6 +175,19 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <section class="sec">
   <h2>Întrebări Frecvente</h2>
   {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<section class="sec">
+  <h2>Modele pe Care Lucrăm</h2>
+  <p>Reparăm toate generațiile: <strong>MacBook Air</strong> (Intel, M1, M2, M3, M4), <strong>MacBook Pro</strong> 13″, 14″, 15″ și 16″ (Intel și Apple Silicon), plus <strong>iMac</strong> și <strong>Mac Mini</strong>. Lucrăm inclusiv pe modele mai vechi (2012–2017), pentru care Apple nu mai oferă suport — de multe ori acestea sunt cele mai rentabile reparații, pentru că alternativa „schimbăm placa” nu mai există.</p>
+  <p>Fiecare serie are defectele ei caracteristice, piesele ei și capcanele ei. Mai jos găsiți pagina dedicată fiecărui model, cu ce se strică la el, cât costă și ce trebuie știut înainte. Codul de tip <strong>A1706</strong> este cel care identifică sigur aparatul — denumirea comercială singură nu ajunge.</p>
+  <h3>MacBook Pro 13″ (Intel)</h3>
+  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('pro-13') && m.cpu === 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
+  <h3>MacBook Pro 15″ și 16″ (Intel)</h3>
+  <ul class="checks">{MACURI.filter(m => (m.slug.startsWith('pro-15') || m.slug.startsWith('pro-16')) && m.cpu === 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
+  <h3>MacBook Pro Apple Silicon (M1, M2)</h3>
+  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('pro') && m.cpu !== 'intel').map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
+  <h3>MacBook Air</h3>
+  <ul class="checks">{MACURI.filter(m => m.slug.startsWith('air')).map(m => <li><a href={'/reparatii-macbook/' + m.slug + '/'}>{m.nume} {m.cod}</a> — {m.an}</li>)}</ul>
 </section>
 <Cta titlu="🍎 MacBook Defect? Sunați-ne pentru Diagnosticare Gratuită!" text="Spuneți-ne modelul și simptomele — vă orientăm din prima privind reparația și costul estimativ." />
 <p style="font-size:14px;color:var(--mut)">Alte servicii: <a href="/reparatii-laptopuri-bucuresti/">reparații laptopuri</a>, <a href="/curatare-laptop-praf/">mentenanță și pastă termică</a>, <a href="/reparatii-televizoare/">reparații televizoare</a>, <a href="/reparatii-monitoare-lcd/">reparații monitoare</a>, <a href="/reparatii-boxe-active/">reparații boxe active</a>. Din afara Bucureștiului, MacBook-ul se poate trimite <a href="/reparatii-prin-curier/">prin curier</a>.</p>
