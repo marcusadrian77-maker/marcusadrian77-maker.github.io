@@ -15,6 +15,7 @@ const preturi = [
   ['Înlocuire cititor de disc / reparare drive', '150 – 350 lei'],
   ['Reparare sursă de alimentare', '100 – 300 lei'],
   ['Reparare controller DualSense (drift, butoane, trigger)', '50 – 120 lei'],
+  ['Upgrade joystick-uri Hall Effect / TMR la DualSense (ambele)', '150 lei'],
   ['Curățare după lichid vărsat', 'de la 150 lei'],
   ['Upgrade SSD NVMe (montare + configurare)', 'de la 100 lei + SSD'],
   ['Resoftare PS5 / Xbox Series', 'de la 150 lei'],
@@ -26,6 +27,7 @@ const faq = [
  { q: 'PS5-ul meu face zgomot puternic. Ce poate fi?', a: 'Cauza cea mai frecventă este praful acumulat pe ventilator și pe radiator. După 1–2 ani de utilizare fluxul de aer se blochează, iar ventilatorul compensează prin turație maximă. O curățare profesională cu verificarea lichidului metalic rezolvă problema complet. Mai rar, zgomotul vine de la lagărul ventilatorului, care se înlocuiește.' },
  { q: 'PS5 nu mai citește discurile. Se repară?', a: 'Da. La modelele cu unitate optică problemele apar la lentila laser (murdară sau slăbită), la motorul de antrenare sau la cureaua de încărcare a discului. Curățăm și recalibrăm lentila, iar dacă drive-ul este defect îl înlocuim. Atenție: la PS5 unitatea optică este asociată prin software cu placa consolei, deci nu se poate monta pur și simplu una luată de pe altă consolă — reasocierea o facem noi.' },
  { q: 'Se poate repara drift-ul la DualSense?', a: 'Da. Drift-ul (mișcarea involuntară a stick-ului analogic) se rezolvă prin înlocuirea modulului de joystick. Folosim module de calitate și calibrăm controllerul după înlocuire. Reparația durează de regulă o zi și costă 50–120 lei.' },
+ { q: 'Montați joystick-uri Hall Effect pe DualSense?', a: 'Da. Înlocuim ambele stick-uri ale controllerului DualSense cu module Hall Effect (TMR), care citesc poziția magnetic, fără contact mecanic, și de aceea nu mai fac drift în timp. Upgrade-ul pentru ambele joystick-uri costă 150 lei, cu calibrare inclusă.' },
  { q: 'PS5-ul se oprește singur în timpul jocurilor. Ce fac?', a: 'Oprirea în timpul jocurilor indică de obicei supraîncălzire: lichid metalic deplasat, praf acumulat sau ventilator cu performanță redusă. Mai rar, poate fi o problemă pe placa principală sau pe sursa de alimentare. Consultați și <a href="/ps5-se-opreste-singur/">ghidul nostru detaliat despre PS5 care se oprește singur</a>.' },
  { q: 'Am vărsat lichid pe consolă. Ce fac imediat?', a: 'Nu o porniți și nu o puneți la priză — curentul prin plăcile ude face cel mai mare rău. Scoateți-o din priză și aduceți-o cât mai repede. O demontăm complet, curățăm oxidul de pe plăci în baie cu ultrasunete și o uscăm controlat. Cu cât ajunge mai devreme la noi, cu atât cresc șansele de recuperare.' },
  { q: 'Cât durează o reparație de PS5?', a: 'Intervențiile uzuale (curățare, lichid metalic, DualSense drift) se fac în 24–48 de ore. Reparațiile de port HDMI durează 1–2 zile. Intervențiile pe placa principală pot necesita 3–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
@@ -122,29 +124,6 @@ const schemaSEO = graf(
   <p><strong>Când.</strong> La 12–18 luni pentru o consolă folosită normal, în cameră curată, pe un raft deschis. La 8–12 luni dacă stă în mobilă închisă, dacă în casă sunt animale de companie sau dacă se joacă zilnic titluri grele. Semnalele că a trecut deja momentul: ventilatorul urcă în turație în meniu, nu doar în joc; aerul care iese pe lateral e fierbinte, nu cald; consola se oprește singură după o oră.</p>
   <p><strong>Ce cuprinde.</strong> Demontare completă, curățarea radiatorului și a ventilatorului, verificarea lichidului metalic și reaplicarea lui dacă s-a deplasat, schimbarea pad-urilor termice, curățarea sursei și a cititorului, apoi test sub sarcină cu urmărirea temperaturilor înainte și după. Predăm consola cu valorile măsurate, nu cu „acum e curată".</p>
   <p><strong>Cât costă.</strong> 200 lei dacă aduceți consola doar pentru mentenanță. Dacă o aduceți pentru orice altă reparație, mentenanța completă e inclusă gratuit — oricum demontăm consola ca să ajungem la placă. Vedeți și pagina generală de <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console PS4, PS5 și Xbox</a>.</p>
-</section>
-
-<section class="sec">
-  <h2>Ce model de PS5 aveți? Fiecare are punctele lui slabe</h2>
-  <p>Sony a scos până acum trei generații de PlayStation 5, iar defectele nu sunt aceleași la toate. Modelul îl găsiți pe eticheta de sub consolă, sub forma unui cod care începe cu <strong>CFI-</strong>. Spuneți-ni-l la telefon și vă putem spune din start ce e probabil să fi cedat.</p>
-  <h3>PS5 original (CFI-10xx, CFI-11xx, CFI-12xx) — 2020–2023</h3>
-  <p>Consola mare, cu capace albe late, în varianta cu disc sau Digital Edition. Fiind cea mai veche, ajunge cel mai des la noi cu praf mult în radiator și cu lichidul metalic deplasat după ani de funcționare, ceea ce duce la opriri în jocuri și ventilator la turație mare. Mufa HDMI e la fel de expusă ca la celelalte modele.</p>
-  <h3>PS5 Slim (CFI-20xx) — din 2023</h3>
-  <p>Mai mică și mai ușoară, cu cititorul de discuri detașabil: varianta Digital poate primi ulterior o unitate de disc. Unitatea se asociază cu consola la prima conectare, de aceea la înlocuire lucrăm numai cu piese compatibile. Fiind mai compactă, se încălzește mai repede dacă stă într-un spațiu închis.</p>
-  <h3>PS5 Pro (CFI-70xx) — din 2024</h3>
-  <p>Cel mai puternic model, livrat fără unitate de disc, cu răcire mai mare și consum mai ridicat. E încă relativ nou, așa că vedem mai ales mufe HDMI deteriorate și probleme de alimentare. Reparațiile se fac la fel, la nivel de componentă, fără schimbarea plăcii.</p>
-</section>
-
-<section class="sec">
-  <h2>Sunteți din afara Bucureștiului? Trimiteți PS5-ul prin curier</h2>
-  <p>Consolele le reparăm doar în atelier, dar nu trebuie neapărat să veniți până în Militari. Primim PS5-ul prin curier din toată țara, cu condiția să fie întreg, nedesfăcut. Îl diagnosticăm gratuit, vă sunăm cu prețul și ne apucăm de lucru doar după ce sunteți de acord. După reparație și testare, îl trimitem înapoi tot prin curier.</p>
-  <ul>
-    <li>Trimiteți doar consola și cablul de alimentare, fără manete, jocuri sau suport.</li>
-    <li>Împachetați-o strâns, în folie cu bule și cu material de umplutură pe toate părțile.</li>
-    <li>Curierul îl alegeți dumneavoastră și este pe cheltuiala dumneavoastră, în ambele sensuri.</li>
-    <li>Pentru aparatele trimise prin curier, manopera minimă este de 200 lei, fără piese.</li>
-  </ul>
-  <p>Toți pașii, cu regulile de împachetare, sunt pe pagina <a href="/reparatii-prin-curier/">reparații prin curier</a>.</p>
 </section>
 
 <section class="sec">
