@@ -49,7 +49,7 @@ export function descriere(m: Mac): string {
   const final = v(m, [
     'Diagnosticare gratuită, garanție scrisă.',
     'Diagnosticare gratuită, preț ferm dinainte.',
-    'Diagnosticare gratuită, garanție 6–12 luni.',
+    'Diagnosticare gratuită, garanție 6 luni.',
     'Diagnosticare gratuită, piese pe stoc.',
   ]);
   return `Service ${m.scurt} (${m.an}) în București: ${cheie}. ${final}`;
@@ -269,10 +269,10 @@ export function despreBaterie(m: Mac): string {
     `Producătorul dă bateriei circa ${cicluri} de cicluri de încărcare. După ele nu se strică brusc, dar autonomia se reduce an de an.`,
   ]);
   const final = v(m, [
-    'Înlocuirea costă 300 – 750 de lei, cu baterie nouă și calibrare, cu garanție de 12 luni.',
-    'Schimbarea ei se încadrează între 300 și 750 de lei, piesă și manoperă, cu 12 luni garanție.',
+    'Înlocuirea costă 300 – 750 de lei, cu baterie nouă și calibrare, cu garanție de 6 luni.',
+    'Schimbarea ei se încadrează între 300 și 750 de lei, piesă și manoperă, cu 6 luni garanție.',
     'O baterie nouă, montată și calibrată, costă 300 – 750 de lei și vine cu garanție de un an.',
-    'Lucrarea costă între 300 și 750 de lei, include calibrarea și are garanție scrisă de 12 luni.',
+    'Lucrarea costă între 300 și 750 de lei, include calibrarea și are garanție scrisă de 6 luni.',
   ]);
   return `${deschidere} ${cap} ${umflare} ${final}`;
 }
@@ -367,9 +367,9 @@ export function notaPret(m: Mac): string {
 
 export function notaProces(m: Mac): string {
   return v(m, [
-    `Ne spuneți codul ${m.cod} și ce face aparatul, iar noi vă dăm un interval realist încă de la telefon. Diagnosticarea la atelier este gratuită și fără obligații, reparația se face doar după acordul dumneavoastră, iar predarea vine cu garanție scrisă de 6–12 luni.`,
+    `Ne spuneți codul ${m.cod} și ce face aparatul, iar noi vă dăm un interval realist încă de la telefon. Diagnosticarea la atelier este gratuită și fără obligații, reparația se face doar după acordul dumneavoastră, iar predarea vine cu garanție scrisă de 6 luni.`,
     `Primul pas este un telefon sau un mesaj pe WhatsApp cu codul ${m.cod} și simptomele. Verificăm disponibilitatea pieselor, vă spunem un interval, apoi diagnosticăm gratuit la atelier și vă comunicăm prețul ferm înainte de orice intervenție.`,
-    `Procedura e scurtă: ne trimiteți codul ${m.cod} și descrieți problema, aducem aparatul pe masă, îl diagnosticăm fără costuri și vă dăm prețul exact. Reparăm numai după ce spuneți da, cu garanție de 6–12 luni la predare.`,
+    `Procedura e scurtă: ne trimiteți codul ${m.cod} și descrieți problema, aducem aparatul pe masă, îl diagnosticăm fără costuri și vă dăm prețul exact. Reparăm numai după ce spuneți da, cu garanție de 6 luni la predare.`,
     `Începe cu un mesaj în care ne dați codul ${m.cod} și ne spuneți ce se întâmplă. Urmează diagnosticarea gratuită la atelier, apoi devizul. Nimic nu se demontează fără acordul dumneavoastră, iar la predare primiți garanție scrisă.`,
   ]);
 }
@@ -385,9 +385,9 @@ export function despreCurier(m: Mac): string[] {
     `Aparatul poate veni la noi prin curier, de oriunde din România. Sunați întâi cu codul ${m.cod} și cu ce face aparatul, apoi vă dăm adresa exactă și indicațiile de ambalare.`,
   ]);
   const p2 = v(m, [
-    'Trimiteți aparatul întreg, nu placa scoasă din el: o placă separată nu poate fi testată sub sarcină și nu avem cum să verificăm la final că totul funcționează. Diagnosticarea rămâne gratuită, iar garanția scrisă de 6–12 luni este aceeași ca pentru clienții din București.',
-    'Regula e simplă: aparat întreg, nu subansamble. Diagnosticarea nu costă nimic nici pentru coletele din țară, iar la retur primiți aceeași garanție scrisă de 6–12 luni ca oricine vine personal la atelier.',
-    'Se trimite aparatul complet, nu doar placa — altfel nu îl putem testa cu adevărat înainte de a vi-l da înapoi. Verificarea este gratuită și pentru aparatele venite din țară, iar garanția rămâne cea obișnuită, 6–12 luni în scris.',
+    'Trimiteți aparatul întreg, nu placa scoasă din el: o placă separată nu poate fi testată sub sarcină și nu avem cum să verificăm la final că totul funcționează. Diagnosticarea rămâne gratuită, iar garanția scrisă de 6 luni este aceeași ca pentru clienții din București.',
+    'Regula e simplă: aparat întreg, nu subansamble. Diagnosticarea nu costă nimic nici pentru coletele din țară, iar la retur primiți aceeași garanție scrisă de 6 luni ca oricine vine personal la atelier.',
+    'Se trimite aparatul complet, nu doar placa — altfel nu îl putem testa cu adevărat înainte de a vi-l da înapoi. Verificarea este gratuită și pentru aparatele venite din țară, iar garanția rămâne cea obișnuită, 6 luni în scris.',
   ]);
   const p3 = v(m, [
     'Două lucruri de știut înainte de a expedia: transportul îl plătiți dumneavoastră, în ambele sensuri, iar pentru aparatele primite prin curier se aplică o manoperă minimă de 200 de lei fără piese. Termenul obișnuit este de 2–5 zile lucrătoare din momentul în care coletul ajunge la noi.',
@@ -497,7 +497,7 @@ export function intrebari(m: Mac): { q: string; a: string }[] {
       'Locuiesc în altă parte a țării. Cum ajunge aparatul la voi?',
     ]),
     a: v(m, [
-      'Da, din orice localitate din România. Trimiteți aparatul întreg prin curier, cu transportul pe cheltuiala dumneavoastră în ambele sensuri. Diagnosticarea rămâne gratuită, manopera minimă pentru coletele din țară este de 200 de lei fără piese, iar garanția scrisă este aceeași, 6–12 luni.',
+      'Da, din orice localitate din România. Trimiteți aparatul întreg prin curier, cu transportul pe cheltuiala dumneavoastră în ambele sensuri. Diagnosticarea rămâne gratuită, manopera minimă pentru coletele din țară este de 200 de lei fără piese, iar garanția scrisă este aceeași, 6 luni.',
       'Da. Primim aparate prin curier din toată țara, dar sunați întâi: facem socoteala la telefon și vă spunem dacă merită expediat. Transportul îl plătiți dumneavoastră, dus-întors, iar pentru aparatele primite astfel manopera minimă este de 200 de lei, fără piese.',
       'Se poate din orice colț al țării. Ne sunați, stabilim cum trimiteți, iar aparatul urmează același drum ca oricare altul din atelier. Diagnosticarea e gratuită, manopera minimă la coletele din țară e de 200 de lei fără piese, iar termenul obișnuit e de 2–5 zile lucrătoare de la primire.',
     ]),
