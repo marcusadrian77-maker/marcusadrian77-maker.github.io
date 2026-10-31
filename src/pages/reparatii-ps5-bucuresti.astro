@@ -30,7 +30,7 @@ const faq = [
  { q: 'Montați joystick-uri Hall Effect pe DualSense?', a: 'Da. Înlocuim ambele stick-uri ale controllerului DualSense cu module Hall Effect (TMR), care citesc poziția magnetic, fără contact mecanic, și de aceea nu mai fac drift în timp. Upgrade-ul pentru ambele joystick-uri costă 150 lei, cu calibrare inclusă.' },
  { q: 'PS5-ul se oprește singur în timpul jocurilor. Ce fac?', a: 'Oprirea în timpul jocurilor indică de obicei supraîncălzire: lichid metalic deplasat, praf acumulat sau ventilator cu performanță redusă. Mai rar, poate fi o problemă pe placa principală sau pe sursa de alimentare. Consultați și <a href="/ps5-se-opreste-singur/">ghidul nostru detaliat despre PS5 care se oprește singur</a>.' },
  { q: 'Am vărsat lichid pe consolă. Ce fac imediat?', a: 'Nu o porniți și nu o puneți la priză — curentul prin plăcile ude face cel mai mare rău. Scoateți-o din priză și aduceți-o cât mai repede. O demontăm complet, curățăm oxidul de pe plăci în baie cu ultrasunete și o uscăm controlat. Cu cât ajunge mai devreme la noi, cu atât cresc șansele de recuperare.' },
- { q: 'Cât durează o reparație de PS5?', a: 'Intervențiile uzuale (curățare, lichid metalic, DualSense drift) se fac în 24–48 de ore. Reparațiile de port HDMI durează 1–2 zile. Intervențiile pe placa principală pot necesita 3–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
+ { q: 'Cât durează o reparație de PS5?', a: 'În funcție de disponibilitate, multe reparații le facem chiar în aceeași zi. Intervențiile uzuale (curățare, lichid metalic, DualSense drift) se fac în 24–48 de ore. Reparațiile de port HDMI durează 1–2 zile. Intervențiile pe placa principală pot necesita 3–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
  { q: 'Curățarea se plătește separat de reparație?', a: 'Nu. Orice consolă pe care o reparăm pleacă de la noi curățată complet și cu pasta termică sau lichidul metalic reîmprospătate, fără cost suplimentar. Plătiți doar intervenția pentru care ați adus consola. Curățarea se plătește separat doar dacă o aduceți exclusiv pentru mentenanță, fără altă reparație.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -45,7 +45,7 @@ const schemaSEO = graf(
   <span class="badge">🎮 SERVICE PLAYSTATION 5</span>
   <h1>Reparații PS5 București</h1>
   <p class="lead">Service PS5 în atelier propriu, în Militari — Sector 6. Reparăm orice problemă de PlayStation 5: port HDMI ars, lichid metalic deplasat, cititor de disc, SSD, supraîncălzire, DualSense drift și erori de sistem. Diagnosticare gratuită, garanție scrisă, curățare completă inclusă în orice reparație.</p>
-  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🧼 Curățare inclusă în reparație</span><span>🛡️ Garanție 6–12 luni</span><span>💰 Preț ferm, comunicat înainte</span></div>
+  <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🧼 Curățare inclusă în reparație</span><span>🛡️ Garanție 6 luni</span><span>💰 Preț ferm, comunicat înainte</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
@@ -133,7 +133,7 @@ const schemaSEO = graf(
     <li><strong>Aduceți consola.</strong> Atelierul se află în Str. Moinești 7, Militari, <a href="/reparatii-console-gaming-sector-6/">Sector 6</a>. Program: {SITE.program}.</li>
     <li><strong>Diagnosticare gratuită.</strong> Verificăm consola complet și vă spunem exact ce are și cât costă reparația — fără obligație. Dacă nu vă convine prețul, o luați înapoi fără să plătiți nimic.</li>
     <li><strong>Reparația.</strong> Doar după acordul dumneavoastră, la prețul comunicat. Curățarea completă și pasta termică sau lichidul metalic sunt incluse.</li>
-    <li><strong>Predare cu garanție scrisă 6–12 luni</strong> la manoperă și la piesele montate de noi.</li>
+    <li><strong>Predare cu garanție scrisă 6 luni</strong> la manoperă și la piesele montate de noi.</li>
   </ol>
 </section>
 
