@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+
+const tipuri = [
+ ['Subwoofere active PA', 'JBL EON 518S/618S, PRX818S, SRX818SP/828SP, Behringer B318S-X, dB Technologies DVX SUB 12D/15D/18D', 'Lucrează ore întregi la putere mare: cedează placa de amplificare, sursa comutată și ventilarea.'],
+ ['Subwoofere de studio', 'Yamaha HS8S, KRK 10s/12s, Genelec 7050–7380, Focal Alpha Sub 80, Sub One', 'Amplificatorul din placa de spate, filtrele de protecție, zgomotul de fond.'],
+ ['Subwoofere de home cinema și de soundbar', 'Subwooferul activ al sistemului 5.1 sau unitatea separată a soundbarului', 'Sursa, amplificatorul, conexiunea wireless cu soundbarul care nu se mai împerechează.'],
+];
+
+const defecte = [
+ ['Nu pornește deloc', 'Siguranța, sursa sau releul de pornire. Se verifică întâi alimentarea, apoi placa de putere.'],
+ ['Pornește, dar nu scoate bas', 'Amplificatorul nu mai livrează putere sau intrarea nu mai primește semnal. Se măsoară pe etaje.'],
+ ['Bâzâie sau pocnește', 'Condensatoare de filtraj uscate în sursă sau masă slăbită pe placă.'],
+ ['Intră în protecție la volum', 'Tranzistoare finale arse sau woofer cu bobina în scurt.'],
+ ['Se aude un zgomot de hârâit', 'Wooferul e afectat. Se înlocuiește cu unul nou.'],
+ ['Nu se mai conectează la soundbar', 'Modulul wireless sau împerecherea. Uneori se rezolvă fără piese.'],
+];
+
+const preturi = [
+ ['Reparare amplificator (subwoofer de casă sau soundbar)', '80 – 200 lei'],
+ ['Reparare amplificator intern (subwoofer PA sau de studio)', '150 – 350 lei'],
+ ['Înlocuire sursă comutată', '200 – 400 lei'],
+ ['Înlocuire tranzistoare finale sau condensatoare', '100 – 250 lei'],
+];
+
+const faq = [
+ { q: 'Reparați și wooferul, difuzorul mare?', a: 'Un woofer defect îl înlocuim cu unul nou. Nu rebobinăm și nu reconăm difuzoare.' },
+ { q: 'Subwooferul meu PA are 18 inch și e greu. Trebuie adus tot?', a: 'Da, aparatul întreg, ca să-l putem testa sub sarcină. Nu primim doar placa de amplificare scoasă din cutie, pentru că nu se poate testa.' },
+ { q: 'Merită reparat un subwoofer de soundbar?', a: 'Depinde de soundbar. La sistemele scumpe, da, aproape întotdeauna. La cele ieftine vă spunem după diagnostic, care e gratuit, dacă reparația se justifică.' },
+ { q: 'Cât durează?', a: 'Dacă piesa e pe stoc, câteva zile. Când trebuie comandată, vă spunem termenul înainte să începem.' },
+ { q: 'Ce garanție aveți?', a: '6–12 luni, în funcție de intervenție, scris pe bon.' },
+];
+
+const desc = 'Reparații subwoofer în București: PA (JBL, Behringer, dB), studio (Yamaha, KRK, Genelec) și home cinema. Amplificator, sursă. Diagnostic gratuit.';
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparatii subwoofer', tip: 'Reparatii audio', url: '/reparatii-subwoofer/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Boxe', url: '/reparatii-boxe-active/' }, { name: 'Subwoofer', url: '/reparatii-subwoofer/' }]),
+  faqSchema
+);
+---
+<Base title="Reparații Subwoofer București | PA, Studio, Home Cinema" description={desc} image={IMG.ogBoxe} schemaExtra={schemaSEO}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Subwoofer în București</h1>
+  <p class="lead">Subwooferul e partea din sistem care muncește cel mai greu, iar placa lui de amplificare cedează prima. Reparăm subwoofere active PA, de studio și de home cinema în atelierul din Militari, Sector 6. Diagnostic gratuit, garanție 6–12 luni.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>🔊 Ce subwoofere reparăm</h2>
+  <p>Un subwoofer activ are în cutie trei lucruri: wooferul, amplificatorul și sursa. Aproape toate defectele sunt în ultimele două, pentru că duc curenți mari, se încălzesc și îmbătrânesc mai repede decât restul sistemului.</p>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Tip</th><th>Exemple</th><th>Ce cedează</th></tr></thead><tbody>
+    {tipuri.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td><td>{r[2]}</td></tr>)}
+  </tbody></table></div>
+</section>
+
+<section class="sec">
+  <h2>🔧 Defecte pe care le vedem des</h2>
+  <div class="grid g3">
+    {defecte.map(d => <div class="card-soft"><strong>🔴 {d[0]}</strong><span>{d[1]}</span></div>)}
+  </div>
+  <p style="margin-top:12px"><strong>Despre woofer:</strong> un difuzor defect îl înlocuim cu unul nou. Nu reparăm difuzoare, nu rebobinăm și nu reconăm.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă reparația unui subwoofer</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Intervenție</th><th>Preț orientativ</th></tr></thead><tbody>
+    {preturi.map(r => <tr><td>{r[0]}</td><td><strong>{r[1]}</strong></td></tr>)}
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețul exact îl aflați după diagnostic, care e gratuit. Vedeți și <a href="/preturi/">lista completă de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>📍 Cum ajunge subwooferul la noi</h2>
+  <p>Îl aduceți la atelier, în Str. Moinești 7, Militari, Sector 6 (<a href="/cum-ajungeti-la-atelier/">cum ajungeți</a>), sau îl trimiteți <a href="/reparatii-prin-curier/">prin curier</a>, întreg. Program: {SITE.program}. Reparăm și restul sistemului: <a href="/reparatii-boxe-active/">boxe active</a>, <a href="/reparatii-boxe-active-amplificatoare/">amplificatoare</a>, <a href="/reparatii-soundbar/">soundbar-uri</a> și <a href="/reparatii-boxe-jbl/">boxe JBL</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="🔊 Subwooferul nu mai scoate bas? Sunați-ne!" />
+</div>
+</Base>
