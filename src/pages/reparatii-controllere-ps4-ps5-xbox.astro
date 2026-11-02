@@ -5,18 +5,20 @@ import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Service controllere PS4, PS5 și Xbox One/Series în București: drift la stick, butoane care nu răspund, mufă de încărcare. Diagnostic gratuit și garanție scrisă.";
-const schemaSEO = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]));
+const desc = "Drift la controller PS5, PS4 sau Xbox? Înlocuim joystick-ul sau montăm stick-uri Hall Effect, 150 lei la DualSense. Diagnostic gratuit, garanție 6 luni.";
 const faq = [
  { q: 'Cât durează reparația unui controller?', a: 'Majoritatea reparațiilor de controllere se finalizează în aceeași zi. Înlocuirea joystick-urilor sau a butoanelor durează de obicei 1–2 ore, iar reparațiile mai complexe (placă de bază, triggere adaptive PS5) pot necesita până la 24 de ore.' },
  { q: 'Se poate repara drift-ul de joystick sau trebuie înlocuit controllerul?', a: 'Da, drift-ul se repară prin înlocuirea modulului de joystick analog. Este o intervenție frecventă, cu piese disponibile pe stoc, și costă semnificativ mai puțin decât un controller nou (care poate ajunge la 250–350 lei).' },
+ { q: 'Ce este upgrade-ul Hall Effect și cât costă?', a: 'Joystick-urile originale citesc poziția prin contact mecanic, care se tocește și produce drift. Stick-urile Hall Effect sau TMR citesc poziția magnetic, fără contact, deci nu mai fac drift în timp. La DualSense, upgrade-ul pentru ambele stick-uri costă 150 de lei.' },
+ { q: 'Cum îmi dau seama că am drift?', a: 'Personajul sau camera se mișcă singure în joc, cursorul din meniu sare fără să atingeți stick-ul, sau trebuie să împingeți stick-ul în direcția opusă ca să stea pe loc. Apare de obicei întâi la stick-ul stâng, cel folosit pentru mers.' },
  { q: 'Oferiți garanție pentru reparațiile de controllere?', a: 'Da, toate reparațiile de controllere beneficiază de garanție scrisă de 6 luni. Dacă problema reapare în perioada de garanție, o remediem gratuit.' },
 ];
 const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaAll = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]), schemaFaq);
 ---
-<Base title="Reparații Controllere PS4, PS5, Xbox | Service București" description={desc} image={IMG.ogConsola} schemaExtra={schemaSEO}>
+<Base title="Reparații Drift Controller PS5, PS4, Xbox | București" description={desc} image={IMG.ogConsola} schemaExtra={schemaAll}>
 <div class="hero"><div class="wrap">
-  <h1>Reparații Controllere PS4, PS5, Xbox</h1>
+  <h1>Reparații Controllere PS4, PS5, Xbox: Drift, Butoane, Încărcare</h1>
   <p class="lead">Servicii profesionale de reparații controllere pentru PlayStation 4, PlayStation 5 și Xbox. Rezolvăm rapid orice defecțiune: drift joystick, butoane blocate, port USB defect sau probleme de conectare.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
@@ -33,6 +35,17 @@ const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Qu
     <div class="card-soft"><strong>Vibrații nefuncționale</strong><span>Motoarele de vibrații nu funcționează</span></div>
     <div class="card-soft"><strong>Touchpad defect (PS4/PS5)</strong><span>Touchpad-ul nu răspunde la atingere</span></div>
   </div>
+</section>
+
+<section class="sec">
+  <h2>Drift la controller: reparat sau scăpat definitiv de el</h2>
+  <p>Drift-ul înseamnă că stick-ul trimite mișcare deși nu-l atingeți: personajul merge singur, camera se rotește încet sau cursorul din meniu sare. Cauza e uzura senzorului din joystick, care citește poziția prin contact mecanic și se tocește cu fiecare oră de joc.</p>
+  <p>Aveți două variante:</p>
+  <ul class="checks">
+    <li><strong>Înlocuirea joystick-ului cu unul nou, de același tip.</strong> Drift-ul dispare, dar senzorul nou se uzează la fel, în timp. E varianta potrivită pentru un controller folosit ocazional.</li>
+    <li><strong>Upgrade la stick-uri Hall Effect sau TMR.</strong> Citesc poziția magnetic, fără contact, deci nu se mai tocesc și nu mai fac drift. La DualSense, pentru ambele stick-uri, costă <strong>150 lei</strong>.</li>
+  </ul>
+  <p>Ambele variante se fac în atelier, de obicei în aceeași zi, cu garanție 6 luni. Dacă drift-ul apare doar într-un singur joc, verificați întâi zona moartă (deadzone) din setările jocului.</p>
 </section>
 
 <section class="sec">
