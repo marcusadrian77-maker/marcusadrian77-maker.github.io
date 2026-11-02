@@ -17,7 +17,7 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'laptop-nu-porneste/', 'laptop-nu-se-incarca/', 'inlocuire-tastatura-laptop/', 'laptop-lichid-varsat/',
  'reparatii-laptop-sector-1/', 'reparatii-laptop-sector-2/', 'reparatii-laptop-sector-3/', 'reparatii-laptop-sector-4/', 'reparatii-laptop-sector-5/',
  'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/',
- 'reparatii-boxe-portabile-bluetooth/',
+ 'reparatii-boxe-portabile-bluetooth/', 'reparatii-boxe-jbl/', 'reparatii-subwoofer/',
  'dungi-pe-ecranul-televizorului/', 'televizor-fara-sunet/', 'televizor-se-restarteaza-singur/', 'reparatii-tv-buzau/',
  'televizorul-se-aude-dar-nu-se-vede/', 'televizor-trasnit/', 'inlocuire-leduri-tv/',
  'imagine-albastra-televizor/',
