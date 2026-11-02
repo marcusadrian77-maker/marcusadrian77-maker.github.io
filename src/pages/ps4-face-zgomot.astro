@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = "PS4 face zgomot? De ce urlă ventilatorul și ce faceți";
+const desc = "Ventilatorul PS4 urlă ca un avion, chiar și în meniu? De ce se întâmplă, ce puteți face acasă și cât costă curățarea cu pastă termică nouă.";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "E normal ca PS4 să facă zgomot?", a: "Un zumzet ușor în jocuri, da. Un zgomot puternic chiar în meniu, nu: înseamnă că procesorul se încinge și ventilatorul merge la maximum. Cauza e aproape mereu praful și pasta termică uscată." },
+ { q: "Cât costă curățarea unui PS4?", a: "Curățarea completă cu pastă termică nouă costă 100–200 de lei, în funcție de model. Se face în aceeași zi, în funcție de disponibilitate, cu garanție 6 luni." },
+ { q: "Pot curăța PS4 singur?", a: "Exteriorul, da, cu aspiratorul pe grilaje. Interiorul cere demontarea completă, iar cablurile panglică de pe placă se rup ușor. Dacă zgomotul rămâne, e mai sigur în service." },
+ { q: "Cât de des trebuie curățat un PS4?", a: "Depinde de cât praf e în casă și de cât se joacă. La un PS4 folosit zilnic, o curățare la 1–2 ani ține zgomotul și temperaturile în limite normale." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "PS4 face zgomot: de ce urlă ventilatorul și cum se rezolvă", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Mentenanță Console", item: SITE.domeniu + "/mentenanta-console-ps4-ps5-xbox/" },
+   { '@type': 'ListItem', position: 3, name: "PS4 face zgomot", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>PS4 Face Zgomot: De Ce Urlă Ventilatorul și Ce Faceți</h1>
+  <p class="lead">Un PS4 care sună ca un avion la decolare nu e „normal pentru vârsta lui”. Ventilatorul se turează la maximum pentru că procesorul se încinge, iar asta are aproape întotdeauna aceeași cauză.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>De ce urlă ventilatorul</h2>
+  <p>Ventilatorul PS4 își mărește turația după temperatura procesorului. Când radiatorul e plin de praf și pasta termică dintre procesor și radiator s-a uscat, căldura nu mai pleacă, iar ventilatorul încearcă să compenseze. La PS4 Pro zgomotul apare mai devreme, pentru că procesorul lui produce mai multă căldură.</p>
+  <p>Pasta termică originală se usucă după câțiva ani. Combinată cu praful, scamele și părul de animale strânse în lamelele radiatorului, temperatura crește mult peste normal.</p>
+</section>
+<section class="sec">
+  <h2>Alte zgomote, alte cauze</h2>
+  <ul class="checks">
+    <li><strong>Un zumzet sau un hârâit constant, nu doar tare.</strong> Rulmentul ventilatorului e uzat sau o scamă atinge paletele. Ventilatorul se curăță sau se înlocuiește.</li>
+    <li><strong>Clicuri sau zgomot când introduceți un disc.</strong> E unitatea optică, nu ventilatorul.</li>
+    <li><strong>Zgomot doar într-un singur joc.</strong> Unele jocuri solicită procesorul mult mai tare; dacă în rest consola e liniștită, e normal.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ce puteți face acasă</h2>
+  <ul class="checks">
+    <li><strong>Loc de aerisire.</strong> Lăsați cel puțin 10 cm liberi în spatele și în lateralele consolei. Nu o țineți într-un dulap închis.</li>
+    <li><strong>Curățare exterioară.</strong> Aspirați ușor grilajele, cu consola oprită și scoasă din priză.</li>
+    <li><strong>Poziția.</strong> Dacă stă pe covor sau pe un raft cu textil, ridicați-o pe o suprafață dură.</li>
+  </ul>
+  <p>Curățarea interioară cere demontarea completă, iar cablurile panglică de pe placă se rup ușor. Dacă zgomotul revine după curățarea exterioară, e nevoie de mentenanță.</p>
+</section>
+<section class="sec">
+  <h2>Mentenanța: ce facem noi</h2>
+  <p>Desfacem consola complet, curățăm radiatorul și ventilatorul, înlocuim pasta termică și testăm temperatura sub sarcină înainte de predare. Detalii pe pagina de <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>.</p>
+  <div class="price-row"><span>Curățare completă + pastă termică nouă</span><b>100 – 200 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Garanție 6 luni. Mentenanța se face în aceeași zi, în funcție de disponibilitate. Dacă ventilatorul are rulmentul uzat, vă spunem după diagnostic, care e gratuit. Vedeți și <a href="/reparatii-ps4-bucuresti/">reparații PS4 București</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="🎮 PS4 urlă? Adu-l la curățare!" text="Curățare completă și pastă termică nouă, 100–200 lei, cu testul de temperatură la predare." />
+</div>
+</Base>
