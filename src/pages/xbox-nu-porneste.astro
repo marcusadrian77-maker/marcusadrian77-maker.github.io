@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = "Xbox nu pornește? Cauze și ce verificați acasă";
+const desc = "Xbox One sau Series nu pornește, se aprinde și se stinge sau nu dă imagine? Ce verificați acasă, cauzele reale și cât costă reparația.";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "Xbox One nu pornește și ledul de pe sursă e stins. Ce înseamnă?", a: "Sursa externă nu primește curent sau e defectă. Încercați alt cablu de la priză și altă priză. Dacă ledul rămâne stins, sursa trebuie reparată sau înlocuită." },
+ { q: "Xbox Series se aprinde o secundă și se stinge. De ce?", a: "Protecția oprește alimentarea, de obicei din cauza unui scurtcircuit pe placă sau a unei surse slăbite. Se găsește prin măsurare, iar reparația plăcii pornește de la 200 de lei." },
+ { q: "Xbox pornește, dar nu dă imagine. Ce verific?", a: "Alt cablu HDMI și portul de ieșire corect de pe consolă. La Xbox One, portul de intrare HDMI arată la fel ca cel de ieșire și se încurcă ușor. Dacă tot nu apare imaginea, poate fi portul HDMI defect." },
+ { q: "Cât costă reparația unui Xbox care nu pornește?", a: "Sursa costă 100–300 de lei, placa de bază de la 200 de lei, resoftarea la Series de la 150 de lei. Diagnosticul e gratuit, iar garanția e de 6 luni." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "Xbox nu pornește: cauze, verificări acasă și prețuri", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Reparații Xbox", item: SITE.domeniu + "/reparatii-xbox-bucuresti/" },
+   { '@type': 'ListItem', position: 3, name: "Xbox nu pornește", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Xbox Nu Pornește: Xbox One, Series S și Series X</h1>
+  <p class="lead">Butonul nu reacționează, consola se aprinde o secundă și se stinge, sau pornește fără imagine. La Xbox, ce verificați depinde de model: Xbox One original are sursa în afara consolei, celelalte o au în interior.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Primul pas depinde de model</h2>
+  <ul class="checks">
+    <li><strong>Xbox One original</strong> are sursa externă, „cărămida” de pe cablu, cu un led. Led alb sau portocaliu înseamnă că sursa primește curent; fără led, sursa sau cablul de la priză e defect.</li>
+    <li><strong>Xbox One S, One X, Series S și Series X</strong> au sursa în interior și un cablu standard. Încercați alt cablu și altă priză, fără prelungitor.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Verificări de făcut acasă</h2>
+  <ul class="checks">
+    <li><strong>Repornire completă.</strong> Țineți butonul Xbox de pe consolă apăsat 10 secunde, scoateți cablul din priză, așteptați un minut, apoi porniți din nou.</li>
+    <li><strong>Pornire de pe consolă, nu de pe controller.</strong> Dacă pornește de pe buton și nu de pe controller, problema e la controller sau la asocierea lui.</li>
+    <li><strong>Imaginea.</strong> Dacă se aude sunetul de pornire dar ecranul rămâne negru, încercați alt cablu HDMI și portul de ieșire corect de pe consolă, nu pe cel de intrare.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Cauzele pe care le găsim în atelier</h2>
+  <p><strong>Sursa de alimentare.</strong> Cea mai frecventă cauză când consola nu dă niciun semn. La modelele cu sursă internă, cedează după o supratensiune sau după ani de căldură. Se repară pe componentă.</p>
+  <p><strong>Placa de bază.</strong> Consola se aprinde o secundă și se stinge: protecția oprește alimentarea din cauza unui scurtcircuit. Se caută componenta defectă și se înlocuiește.</p>
+  <p><strong>Software.</strong> La Series S și X, o actualizare eșuată poate bloca pornirea. Se rezolvă prin resoftare.</p>
+  <p><strong>Portul HDMI,</strong> la Xbox One, One S și One X, când consola pornește dar nu dă imagine.</p>
+</section>
+<section class="sec">
+  <h2>💰 Cât costă</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparare sursă de alimentare</span><b>100 – 300 lei</b></div>
+  <div class="price-row"><span>Reparație placă de bază</span><b>de la 200 lei</b></div>
+  <div class="price-row"><span>Resoftare Xbox Series</span><b>de la 150 lei</b></div>
+  <div class="price-row"><span>Reparare port HDMI (Xbox One, One S, One X)</span><b>100 – 250 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Garanție 6 luni. Reparațiile se fac în aceeași zi, în funcție de disponibilitate. Lista completă: <a href="/reparatii-xbox-bucuresti/">reparații Xbox București</a>.</p>
+</section>
+<section class="sec">
+  <h2>Cum ajunge consola la noi</h2>
+  <p>O aduceți la atelierul din Str. Moinești 7, Militari, Sector 6 (<a href="/cum-ajungeti-la-atelier/">cum ajungeți</a>), sau o trimiteți <a href="/reparatii-prin-curier/">prin curier</a>, întreagă. La Xbox One original, trimiteți și sursa externă. Pentru alte console vedeți <a href="/reparatii-console-gaming-sector-6/">reparații console București</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="🎮 Xbox nu pornește? Diagnostic gratuit!" text="Găsim cauza și vă spunem prețul înainte să începem. Garanție 6 luni." />
+</div>
+</Base>
