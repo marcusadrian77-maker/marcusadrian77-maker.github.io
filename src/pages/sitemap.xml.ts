@@ -13,7 +13,7 @@ const statice = ['', 'despre-noi/', 'servicii/', 'preturi/', 'contact/', 'intreb
  'televizor-samsung-nu-porneste/', 'ps5-se-opreste-singur/', 'macbook-ecran-negru/', 'curatare-laptop-praf/',
  'televizor-lg-nu-porneste/', 'televizor-blocat-la-sigla/', 'resoftare-smart-tv/', 'ecran-televizor-spart/', 'televizor-sony-nu-porneste/', 'televizor-philips-nu-porneste/', 'recuperare-netflix-dupa-emmc/', 'laptop-se-incalzeste/',
  'inlocuire-ecran-laptop/', 'inlocuire-baterie-laptop/',
- 'reparatii-monitoare-gaming/', 'reparatii-ps5-bucuresti/', 'reparatii-ps4-bucuresti/', 'reparatii-xbox-bucuresti/',
+ 'reparatii-monitoare-gaming/', 'reparatii-ps5-bucuresti/', 'reparatii-ps4-bucuresti/', 'reparatii-xbox-bucuresti/', 'ps5-nu-porneste/', 'ps4-nu-da-imagine/', 'ps4-face-zgomot/', 'xbox-nu-porneste/', 'televizorul-nu-porneste/',
  'laptop-nu-porneste/', 'laptop-nu-se-incarca/', 'inlocuire-tastatura-laptop/', 'laptop-lichid-varsat/',
  'reparatii-laptop-sector-1/', 'reparatii-laptop-sector-2/', 'reparatii-laptop-sector-3/', 'reparatii-laptop-sector-4/', 'reparatii-laptop-sector-5/',
  'reparatii-tv-hisense/', 'reparatii-tv-led-bucuresti/',
