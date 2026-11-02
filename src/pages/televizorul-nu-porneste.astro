@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = "Televizorul nu pornește? Ce înseamnă ledul și ce faceți";
+const desc = "Televizorul nu pornește, ledul e aprins, stins sau clipește? Ce înseamnă fiecare situație, ce verificați acasă și cât costă reparația.";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "Televizorul nu pornește și ledul e stins. Ce fac?", a: "Verificați priza cu alt aparat și scoateți prelungitorul. Dacă ledul rămâne stins direct în priza de perete, defectul e de regulă pe sursa de alimentare, care se repară." },
+ { q: "Ledul e roșu fix, dar televizorul nu pornește din telecomandă.", a: "Verificați telecomanda prin camera telefonului și încercați butonul de pe televizor. Dacă nici de pe aparat nu pornește, placa principală nu răspunde și e nevoie de diagnostic." },
+ { q: "Ce înseamnă când ledul clipește?", a: "Televizorul încearcă să pornească, iar protecția îl oprește. La multe mărci, numărul de clipiri arată placa defectă. Numărați clipirile și spuneți-ne la telefon." },
+ { q: "Se repară acasă sau trebuie dus la service?", a: "Majoritatea se repară acasă, cu piese din stoc. Reparațiile pe placa de bază și cele cu piese comandate se fac în atelier, iar transportul îl asigurăm noi." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "Televizorul nu pornește: ce înseamnă ledul și ce faceți", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Reparații televizoare", item: SITE.domeniu + "/reparatii-televizoare/" },
+   { '@type': 'ListItem', position: 3, name: "Televizorul nu pornește", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>Televizorul Nu Pornește: Ce Vă Spune Ledul din Față</h1>
+  <p class="lead">Înainte de orice, uitați-vă la ledul mic din partea de jos a ecranului. Dacă e stins, aprins fix sau clipește, defectul e în locuri diferite, iar unele situații se rezolvă fără tehnician.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Ledul e stins complet</h2>
+  <p>Televizorul nu primește curent sau sursa de alimentare nu mai pornește deloc. Verificați întâi priza cu alt aparat, scoateți prelungitorul și încercați direct în perete. Dacă ledul rămâne stins, defectul e de obicei pe sursă: o siguranță arsă sau o componentă cedată după o supratensiune.</p>
+</section>
+<section class="sec">
+  <h2>Ledul e aprins fix, dar televizorul nu reacționează</h2>
+  <ul class="checks">
+    <li><strong>Telecomanda.</strong> Priviți ledul telecomenzii prin camera telefonului și apăsați un buton: dacă nu vedeți nicio lumină, sunt bateriile sau telecomanda.</li>
+    <li><strong>Butonul de pe televizor.</strong> Majoritatea au un buton de pornire sub ecran sau pe spate. Dacă pornește de acolo, problema e la telecomandă.</li>
+    <li><strong>Scos din priză cinci minute.</strong> Un televizor blocat în standby își revine uneori după ce se descarcă complet.</li>
+  </ul>
+  <p>Dacă nici butonul de pe aparat nu-l pornește, placa principală nu mai răspunde la comanda de pornire: alimentare instabilă sau memorie internă degradată.</p>
+</section>
+<section class="sec">
+  <h2>Ledul clipește</h2>
+  <p>Televizorul încearcă să pornească, iar protecția îl oprește. La multe mărci, numărul de clipiri arată placa defectă, așa că numărați-le înainte să ne sunați. Dacă se aprinde și se stinge de mai multe ori la rând, vedeți ghidul <a href="/televizor-se-restarteaza-singur/">televizorul se aprinde și se stinge</a>.</p>
+</section>
+<section class="sec">
+  <h2>Pornește, dar nu e chiar pornit</h2>
+  <ul class="checks">
+    <li><strong>Se aude sunetul, ecranul rămâne negru:</strong> de cele mai multe ori iluminarea, vedeți <a href="/televizorul-se-aude-dar-nu-se-vede/">se aude dar nu se vede</a>.</li>
+    <li><strong>Rămâne la logo:</strong> software sau memorie, vedeți <a href="/televizor-blocat-la-sigla/">televizor blocat la siglă</a>.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ghiduri pe mărci</h2>
+  <p>Fiecare marcă are defectele ei tipice și propriile coduri de clipire: <a href="/televizor-samsung-nu-porneste/">Samsung nu pornește</a>, <a href="/televizor-lg-nu-porneste/">LG nu pornește</a>, <a href="/televizor-sony-nu-porneste/">Sony nu pornește</a>, <a href="/televizor-philips-nu-porneste/">Philips nu pornește</a>.</p>
+</section>
+<section class="sec">
+  <h2>💰 Cât costă</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparare sursă de alimentare</span><b>230 – 530 lei</b></div>
+  <div class="price-row"><span>Reparare placă de bază</span><b>300 – 750 lei</b></div>
+  <div class="price-row"><span>Înlocuire bare LED</span><b>250 – 1.000 lei</b></div>
+  <div class="price-row"><span>Resoftare / rescriere memorie eMMC</span><b>80 – 230 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Prețurile pot varia în funcție de model și diagonală. Majoritatea televizoarelor se repară acasă, cu piese din stoc; reparațiile pe placa de bază și cele cu piese comandate se fac în atelier, iar transportul îl facem noi. Lista completă: <a href="/preturi/">prețuri</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="📺 Televizorul nu pornește? Sunați-ne!" text="Diagnostic gratuit. Spuneți-ne marca, modelul de pe etichetă și ce face ledul." />
+</div>
+</Base>
