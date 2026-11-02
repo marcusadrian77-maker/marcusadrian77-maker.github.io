@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import Cifre from '../components/Cifre.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { IMG } from '../data/images';
+import { SITE } from '../data/site';
+import { breadcrumb, graf, serviciu } from '../data/schema';
+
+const familii = [
+ ['Boxe portabile', 'Charge 3/4/5/6, Flip 4/5/6/7, Xtreme 2/3/4, Go 2/3/4, Clip 3/4/5, Pulse 4/5, Wind 3', 'Mufa de încărcare USB-C sau micro-USB, acumulatorul, difuzorul cu membrana ruptă, butoanele.'],
+ ['Boxe de petrecere', 'Boombox 2/3, PartyBox 110, 310, 710', 'Acumulatorul mare, amplificatorul intern care intră în protecție, sursa de la priză, mufele de chitară și microfon.'],
+ ['JBL Professional (PA)', 'EON 306P, 308P, 310, 510, 515, 610, 615, PRX412M, PRX415M, PRX425, PRX735, PRX815, PRX835', 'Modulul de amplificare din spate, sursa comutată, mufele XLR oxidate, driverul de înalte ars.'],
+ ['Subwoofere JBL', 'EON 518S, 618S, PRX818S, SRX818SP, SRX828SP', 'Plăcile de putere, care lucrează la sarcină mare, și wooferul de 18 inch.'],
+];
+
+const semne = [
+ ['Nu se mai încarcă sau încarcă doar dacă țineți cablul înclinat', 'Mufa s-a slăbit pe placă. La Charge și Flip e defectul numărul unu. Se schimbă conectorul, nu placa.'],
+ ['Se descarcă în câteva minute', 'Acumulatorul a ajuns la capătul ciclurilor. Punem unul nou, de aceeași capacitate, cu protecție.'],
+ ['Carcasa s-a umflat', 'Acumulator umflat. Nu o mai încărcați până nu ajunge la noi.'],
+ ['Sunet hârâit la volum mare', 'Membrana sau bobina difuzorului e afectată. Difuzorul se înlocuiește cu unul nou.'],
+ ['PartyBox-ul pornește și se oprește', 'De obicei amplificatorul intră în protecție sau sursa nu mai ține sarcina.'],
+ ['EON sau PRX fără sunet, cu LED-ul aprins', 'Modulul de amplificare sau sursa din spate. Se repară pe componentă, fără modul nou de la JBL.'],
+];
+
+const preturi = [
+ ['Înlocuire mufă de încărcare sau acumulator (portabile)', '50 – 120 lei'],
+ ['Înlocuire difuzor (portabile)', '50 – 150 lei'],
+ ['Reparare Bluetooth / conectivitate', '60 – 150 lei'],
+ ['Reparare amplificator intern (portabile, PartyBox)', '80 – 200 lei'],
+ ['Înlocuire driver de înalte (EON, PRX)', '100 – 200 lei'],
+ ['Reparare amplificator intern (EON, PRX)', '150 – 350 lei'],
+ ['Înlocuire sursă comutată (EON, PRX)', '200 – 400 lei'],
+];
+
+const faq = [
+ { q: 'Sunteți service autorizat JBL?', a: 'Nu. Suntem service specializat independent. Reparăm boxele JBL la nivel de componentă, cu piese de la furnizori de componente electronice, inclusiv ASWO. Dacă boxa e încă în garanția magazinului, mergeți întâi acolo.' },
+ { q: 'Merită reparat un JBL Charge sau Flip?', a: 'De cele mai multe ori da. Mufa și acumulatorul costă 50–120 lei, mult sub prețul unei boxe noi. Dacă placa e distrusă după o cădere sau după apă, vă spunem asta după diagnostic, care e gratuit.' },
+ { q: 'Reparați difuzorul unei boxe JBL?', a: 'Difuzorul defect îl înlocuim cu unul nou. Nu rebobinăm și nu reconăm difuzoare.' },
+ { q: 'Pot trimite boxa prin curier?', a: 'Da, boxa întreagă, ambalată bine. Nu primim plăci sau piese demontate, pentru că nu se pot testa.' },
+ { q: 'Cât durează reparația?', a: 'Mufa, acumulatorul și difuzorul la portabile se fac de regulă în 24–48 de ore. La EON și PRX depinde de piesă; vă spunem termenul înainte să începem.' },
+ { q: 'Ce garanție aveți?', a: '6–12 luni, în funcție de intervenție, scris pe bon.' },
+];
+
+const desc = 'Reparații boxe JBL în București: Charge, Flip, Xtreme, Boombox, PartyBox, EON și PRX. Mufă, acumulator, difuzor, amplificator. Diagnostic gratuit.';
+const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+const schemaSEO = graf(
+  serviciu({ nume: 'Reparatii boxe JBL', tip: 'Reparatii boxe', url: '/reparatii-boxe-jbl/', desc }),
+  breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Boxe', url: '/reparatii-boxe-active/' }, { name: 'Boxe JBL', url: '/reparatii-boxe-jbl/' }]),
+  faqSchema
+);
+---
+<Base title="Reparații Boxe JBL București | Charge, Flip, PartyBox, EON" description={desc} image={IMG.ogBoxe} schemaExtra={schemaSEO}>
+<div class="hero"><div class="wrap">
+  <h1>Reparații Boxe JBL în București</h1>
+  <p class="lead">De la un JBL Flip care nu se mai încarcă până la un EON care a amuțit la o petrecere: reparăm boxe JBL în atelierul din Militari, Sector 6. Diagnostic gratuit, garanție 6–12 luni.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<Cifre />
+<div class="wrap">
+
+<section class="sec">
+  <h2>🔊 Ce boxe JBL reparăm</h2>
+  <p>JBL face aparate foarte diferite sub același nume: o boxă de buzunar de 200 de lei și o incintă PRX de scenă au în comun doar sigla. De aceea le tratăm separat, pe familii, fiecare cu defectele ei tipice.</p>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Familie</th><th>Modele</th><th>Ce cedează de obicei</th></tr></thead><tbody>
+    {familii.map(r => <tr><td><strong>{r[0]}</strong></td><td>{r[1]}</td><td>{r[2]}</td></tr>)}
+  </tbody></table></div>
+</section>
+
+<section class="sec">
+  <h2>🔧 După ce semne vă dați seama ce s-a stricat</h2>
+  <div class="grid g3">
+    {semne.map(d => <div class="card-soft"><strong>🔴 {d[0]}</strong><span>{d[1]}</span></div>)}
+  </div>
+  <p style="margin-top:12px"><strong>Despre difuzoare:</strong> un difuzor defect îl înlocuim cu unul nou. Nu reparăm difuzoare, nu rebobinăm și nu reconăm.</p>
+</section>
+
+<section class="sec">
+  <h2>💰 Cât costă reparația unei boxe JBL</h2>
+  <div class="tbl-wrap"><table class="tb"><thead><tr><th>Intervenție</th><th>Preț orientativ</th></tr></thead><tbody>
+    {preturi.map(r => <tr><td>{r[0]}</td><td><strong>{r[1]}</strong></td></tr>)}
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețul exact îl aflați după diagnostic, care e gratuit și nu vă obligă la nimic. Vedeți și <a href="/preturi/">lista completă de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>📍 Cum ajunge boxa la noi</h2>
+  <p>Aduceți boxa la atelier, în Str. Moinești 7, Militari, Sector 6 (<a href="/cum-ajungeti-la-atelier/">cum ajungeți</a>), sau o trimiteți <a href="/reparatii-prin-curier/">prin curier</a>, întreagă. Program: {SITE.program}. Pentru alte mărci de boxe portabile vedeți <a href="/reparatii-boxe-portabile-bluetooth/">reparații boxe portabile și Bluetooth</a>, pentru incinte PA de alte mărci <a href="/reparatii-boxe-active/">reparații boxe active</a>, iar pentru basul de la petreceri <a href="/reparatii-subwoofer/">reparații subwoofer</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>❓ Întrebări frecvente</h2>
+  <Faq items={faq} />
+</section>
+
+<Cta titlu="🔊 Boxa JBL nu mai merge? Sunați-ne!" />
+</div>
+</Base>
