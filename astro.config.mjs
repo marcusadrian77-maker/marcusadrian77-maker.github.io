@@ -1,8 +1,36 @@
 import { defineConfig } from 'astro/config';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
+
+// Cloudflare Pages: redirecturile din `redirects` devin 301 reale prin dist/_redirects
+// (pe GitHub Pages erau doar pagini cu meta-refresh + noindex).
+// Regulile existente din public/_redirects se pastreaza, iar cele din config se adauga dupa ele.
+function cloudflareRedirects() {
+  let map = {};
+  return {
+    name: 'cloudflare-redirects',
+    hooks: {
+      'astro:config:done': ({ config }) => { map = config.redirects || {}; },
+      'astro:build:done': ({ dir }) => {
+        const file = new URL('_redirects', dir);
+        const existing = existsSync(file) ? readFileSync(file, 'utf8').trimEnd() + '\n' : '';
+        const lines = Object.entries(map).map(([from, to]) => {
+          const dest = typeof to === 'string' ? to : to.destination;
+          const rule = `${from} ${dest} 301`;
+          // si varianta fara slash final, ca sa nu treaca prin 308 + 301
+          return from.length > 1 && from.endsWith('/') ? `${rule}\n${from.slice(0, -1)} ${dest} 301` : rule;
+        });
+        writeFileSync(file, existing + '# Generate din astro.config.mjs\n' + lines.join('\n') + '\n');
+        console.log(`[cloudflare-redirects] ${lines.length} reguli din config adaugate in _redirects`);
+      },
+    },
+  };
+}
+
 export default defineConfig({
   site: 'https://www.reparatiielectronice.ro',
   trailingSlash: 'always',
   build: { format: 'directory' },
+  integrations: [cloudflareRedirects()],
   redirects: {
     // Mostenite din WordPress (Rank Math)
     '/reparatii-laptopuri/': '/reparatii-laptopuri-bucuresti/',
