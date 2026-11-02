@@ -6,20 +6,21 @@ import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
-const title = 'Televizorul Se Restartează sau Se Oprește Singur | Ghid';
-const desc = 'Televizorul se oprește singur, repornește în buclă sau intră în standby? Cauzele reale, ce verificați acasă și cât costă reparația. Diagnostic gratuit.';
+const title = 'Televizorul se Aprinde și se Stinge sau se Oprește Singur';
+const desc = 'Televizorul se aprinde și se stinge, se oprește singur sau repornește în buclă? Cauzele reale, ce verificați acasă și cât costă reparația.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
  { q: 'De ce se oprește televizorul singur după câteva minute?', a: 'Cel mai frecvent, circuitul de protecție detectează o tensiune ieșită din limite și oprește aparatul ca să nu se ardă. Cauza reală e de obicei un condensator degradat pe sursa de alimentare sau o bară LED cu un led în scurtcircuit. Ambele se repară, iar simptomul „merge câteva minute și se stinge" e chiar tipic pentru ele.' },
  { q: 'Televizorul repornește în buclă, la nesfârșit. Ce înseamnă?', a: 'Bucla de repornire — logo, ecran negru, iar logo — apare când placa principală nu reușește să încarce complet software-ul. Poate fi memoria eMMC degradată sau o alimentare instabilă care cade exact în timpul pornirii. La modelele Smart TV rescriem memoria cu programator specializat, fără schimbarea plăcii.' },
  { q: 'Se oprește doar seara, sau doar după ce stă mult pornit. De ce?', a: 'Este semnătura clasică a supraîncălzirii sau a unei lipituri obosite. Componentele se dilată pe măsură ce placa se încălzește, iar o sudură crăpată microscopic pierde contactul. De aceea aparatul funcționează impecabil rece și cedează după o oră. Se rezolvă prin relipire și curățare, o intervenție relativ ieftină.' },
  { q: 'Poate fi de vină priza sau tensiunea din casă?', a: 'Da, se întâmplă. Prelungitoarele vechi, prizele cu contacte slăbite și fluctuațiile de tensiune din rețea produc exact acest simptom. Înainte de a ne suna, încercați televizorul în altă priză, direct, fără prelungitor. Dacă problema dispare, ați găsit-o — și v-am economisit o reparație.' },
- { q: 'Cât costă reparația unui televizor care se oprește singur?', a: 'Reparația sursei de alimentare, cea mai frecventă cauză, costă în general între 230 și 530 de lei cu piesă și manoperă. Înlocuirea barelor LED intră în 250–1.000 de lei. Placa principală, între 200 și 500. Resoftarea, când e vorba de software, 80–230 de lei. Diagnosticarea e gratuită.' },
+ { q: 'Cât costă reparația unui televizor care se oprește singur?', a: 'Reparația sursei de alimentare, cea mai frecventă cauză, costă în general între 230 și 530 de lei cu piesă și manoperă. Înlocuirea barelor LED intră în 250–1.000 de lei. Placa principală, între 300 și 750. Resoftarea, când e vorba de software, 80–230 de lei. Diagnosticarea e gratuită.' },
+ { q: 'Televizorul se aprinde și se stinge singur, fără să ating telecomanda. De ce?', a: 'De cele mai multe ori nu e telecomanda, ci protecția: placa de alimentare încearcă să pornească, detectează o tensiune greșită și oprește totul, apoi încearcă din nou. De aici ciclul de aprins-stins, adesea cu ledul din față clipind. Mai rar e un buton de pe carcasă blocat sau umezeala în receptorul de telecomandă. Dacă ciclul continuă și după ce l-ați ținut scos din priză câteva minute, e defect de sursă sau de iluminare, nu de setări.' },
  { q: 'Este periculos să folosesc televizorul așa?', a: 'Nu-l lăsați nesupravegheat și scoateți-l din priză când nu îl folosiți. Un condensator umflat sau un scurtcircuit pe sursă înseamnă căldură într-un loc în care nu ar trebui să existe. Riscul de incendiu e mic, dar nu e zero, iar amânarea reparației transformă de obicei un defect ieftin într-unul scump.' },
 ];
 const faqSchema = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaExtra = { '@context': 'https://schema.org', '@graph': [
- { '@type': 'Article', headline: 'Televizorul se restartează sau se oprește singur', description: desc, url: canonical, inLanguage: 'ro',
+ { '@type': 'Article', headline: 'Televizorul se aprinde și se stinge sau se oprește singur', description: desc, url: canonical, inLanguage: 'ro',
    author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
  { '@type': 'BreadcrumbList', itemListElement: [
    { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
@@ -31,13 +32,23 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
 <div class="hero"><div class="wrap">
   <span class="badge">📘 GHID PRACTIC</span>
-  <h1>Televizorul Se Restartează sau Se Oprește Singur</h1>
-  <p class="lead">Se stinge în mijlocul filmului, repornește în buclă la logo sau intră singur în standby după douăzeci de minute. Nu e „bătrânețe" — e un simptom cu cauze precise, dintre care majoritatea se repară ieftin dacă nu sunt lăsate să avanseze.</p>
+  <h1>Televizorul se Aprinde și se Stinge, se Oprește sau se Restartează Singur</h1>
+  <p class="lead">Se aprinde și se stinge de mai multe ori la rând, se închide în mijlocul filmului, repornește în buclă la logo sau intră singur în standby după douăzeci de minute. Nu e „bătrânețe" — e un simptom cu cauze precise, dintre care majoritatea se repară ieftin dacă nu sunt lăsate să avanseze.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
 </div></div>
 <Cifre />
 <div class="wrap">
+
+<section class="sec">
+  <h2>Se aprinde și se stinge repetat: ce înseamnă</h2>
+  <p>Sunt două simptome care seamănă, dar au cauze diferite, așa că merită să vă uitați atent ce face televizorul.</p>
+  <ul class="checks">
+    <li><strong>Se aprinde și se stinge imediat, de mai multe ori la rând</strong>, uneori cu un clic din spate și cu ledul din față clipind. Televizorul nici nu apucă să afișeze imaginea. Aici protecția oprește pornirea din prima secundă: de obicei e sursa de alimentare sau un led în scurtcircuit pe barele de iluminare.</li>
+    <li><strong>Pornește normal și se stinge după un timp</strong>, după câteva minute sau după o oră. Aici aparatul funcționează până când ceva cedează la cald: condensatori obosiți pe sursă sau lipituri crăpate. Detaliile sunt mai jos, la cauze.</li>
+  </ul>
+  <p>Dacă ledul din față clipește într-un anumit ritm, numărați clipirile înainte să ne sunați: la multe mărci, ritmul indică placa defectă și ne ajută să aducem piesa potrivită de la prima vizită.</p>
+</section>
 
 <section class="sec">
   <h2>Verificări rapide acasă</h2>
