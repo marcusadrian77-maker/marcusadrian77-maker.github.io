@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = "PS4 nu dă imagine? Cauze și ce verificați acasă";
+const desc = "PS4 pornește, ledul e aprins, dar pe televizor nu apare nimic? Ce verificați acasă, de ce cedează portul HDMI și cât costă reparația.";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "PS4 pornește, dar televizorul spune fără semnal. Ce fac?", a: "Încercați întâi alt cablu HDMI și alt port pe televizor, apoi porniți consola în Safe Mode și alegeți Change Resolution. Dacă tot nu apare imaginea, problema e de regulă la portul HDMI sau la cipul de imagine." },
+ { q: "Cum îmi dau seama că portul HDMI e stricat?", a: "Luminați portul cu lanterna telefonului. Pinii strâmbi, lipsă sau care se ating între ei arată că portul e deteriorat. Uneori imaginea apare doar dacă țineți cablul într-o anumită poziție, tot un semn de port slăbit." },
+ { q: "Cât costă înlocuirea portului HDMI la PS4?", a: "Între 100 și 250 de lei, în funcție de model și de cât de afectată e placa. Dacă e afectat și cipul de imagine, reparația plăcii pornește de la 200 de lei." },
+ { q: "Ledul PS4 pulsează albastru și nu trece în alb. Ce înseamnă?", a: "Consola nu termină pornirea. Cauzele tipice sunt cipul de imagine, alimentarea sau hard diskul. Se verifică în atelier, cu diagnostic gratuit." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "PS4 nu dă imagine: cauze, verificări și prețuri", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Reparații PS4", item: SITE.domeniu + "/reparatii-ps4-bucuresti/" },
+   { '@type': 'ListItem', position: 3, name: "PS4 nu dă imagine", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>PS4 Nu Dă Imagine: De la Setări la Portul HDMI</h1>
+  <p class="lead">Consola pornește, ledul se aprinde, ventilatorul merge, dar televizorul spune „fără semnal”. La PS4, Slim și Pro, cauza e fie o setare, fie portul HDMI, fie cipul de imagine de pe placă.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Verificări de făcut acasă, înainte de service</h2>
+  <ul class="checks">
+    <li><strong>Alt cablu HDMI și alt port pe televizor.</strong> Cablurile se rup pe interior fără să se vadă. Încercați și alt televizor sau un monitor, dacă aveți.</li>
+    <li><strong>Intrarea corectă pe televizor.</strong> Pare evident, dar multe televizoare nu comută singure pe HDMI.</li>
+    <li><strong>Rezoluția, din Safe Mode.</strong> Cu consola oprită, țineți butonul de pornire până la al doilea bip, cam 7 secunde. Conectați controllerul prin cablu și alegeți opțiunea „Change Resolution”. Consola repornește în 480p; dacă acum apare imaginea, problema era de setări.</li>
+    <li><strong>Setarea HDCP</strong>, dacă folosiți un splitter sau o placă de captură: dezactivați-o temporar și testați direct în televizor.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Ledul albastru care pulsează și nu trece în alb</h2>
+  <p>Dacă ledul rămâne albastru și pulsează, fără să treacă în alb, iar televizorul nu primește nimic, consola nu termină pornirea. Cauzele tipice sunt cipul care transmite imaginea către portul HDMI, alimentarea instabilă sau hard diskul care nu mai răspunde. Fiecare se verifică separat în atelier.</p>
+</section>
+<section class="sec">
+  <h2>Portul HDMI, cea mai frecventă cauză</h2>
+  <p>Portul HDMI al PS4 e lipit doar cu câteva puncte pe placă. Un cablu tras sau o consolă mutată cu cablul în ea îndoaie pinii sau smulge portul de pe placă. Se vede uneori cu lanterna: pini strâmbi, lipsă sau atingându-se între ei.</p>
+  <p>Portul se înlocuiește cu unul nou, lipit pe placă la microscop. Dacă pinii s-au atins între ei sub tensiune, verificăm și cipul de imagine de lângă port, care poate ceda odată cu el.</p>
+</section>
+<section class="sec">
+  <h2>💰 Cât costă</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparare port HDMI</span><b>100 – 250 lei</b></div>
+  <div class="price-row"><span>Reparație placă de bază (inclusiv cipul de imagine)</span><b>de la 200 lei</b></div>
+  <div class="price-row"><span>Reparare sursă de alimentare</span><b>100 – 300 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Garanție 6 luni. Reparațiile se fac în aceeași zi, în funcție de disponibilitate. Lista completă: <a href="/reparatii-ps4-bucuresti/">reparații PS4 București</a>.</p>
+</section>
+<section class="sec">
+  <h2>Cum ajunge consola la noi</h2>
+  <p>O aduceți la atelierul din Str. Moinești 7, Militari, Sector 6 (<a href="/cum-ajungeti-la-atelier/">cum ajungeți</a>), sau o trimiteți <a href="/reparatii-prin-curier/">prin curier</a>, întreagă. Dacă consola face și zgomot sau se încălzește, vedeți și <a href="/ps4-face-zgomot/">PS4 face zgomot</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="🎮 PS4 fără imagine? Diagnostic gratuit!" text="Înlocuim portul HDMI la microscop și verificăm cipul de imagine. Garanție 6 luni." />
+</div>
+</Base>
