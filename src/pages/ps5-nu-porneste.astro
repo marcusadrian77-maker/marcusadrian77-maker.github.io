@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = "PS5 nu pornește? Cauze, ce verificați acasă și prețuri";
+const desc = "PS5 nu pornește deloc, bipăie și se stinge sau ledul pulsează și atât? Ce verificați acasă, care sunt cauzele reale și cât costă reparația.";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "PS5 nu pornește deloc, nici ledul nu se aprinde. Ce înseamnă?", a: "Consola nu primește curent sau sursa internă nu pornește. Încercați alt cablu și altă priză, fără prelungitor, apoi lăsați-o zece minute scoasă din priză. Dacă tot nu dă niciun semn, de cele mai multe ori e sursa de alimentare, care se repară." },
+ { q: "PS5 bipăie o dată și se stinge. De ce?", a: "Sursa pornește, dar protecția o oprește imediat. Cauza e fie sursa slăbită, fie un scurtcircuit pe placa de bază. Ambele se găsesc prin măsurare și se repară pe componentă." },
+ { q: "Cum pornesc PS5 în Safe Mode?", a: "Cu consola oprită complet, țineți apăsat butonul de pornire până la al doilea bip, cam 7 secunde. Conectați controllerul prin cablu USB și apăsați butonul PS. Dacă apare meniul, consola e bună hardware." },
+ { q: "Merită reparat un PS5 care nu pornește?", a: "Aproape întotdeauna da. Sursa costă 100–300 lei, iar placa de bază de la 200 lei, mult sub prețul unei console noi. Diagnosticul e gratuit, așa că aflați prețul înainte să decideți." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Article', headline: "PS5 nu pornește: cauze, verificări acasă și prețuri", description: desc, url: canonical, inLanguage: 'ro',
+   author: { '@type': 'Organization', name: 'Marcus Electronics' }, publisher: { '@type': 'Organization', name: 'Marcus Electronics', url: SITE.domeniu + '/' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: "Reparații PS5", item: SITE.domeniu + "/reparatii-ps5-bucuresti/" },
+   { '@type': 'ListItem', position: 3, name: "PS5 nu pornește", item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">📘 GHID PRACTIC</span>
+  <h1>PS5 Nu Pornește: Ce Verificați Acasă și Ce Înseamnă Fiecare Semn</h1>
+  <p class="lead">Apăsați butonul și nu se întâmplă nimic, consola bipăie o dată și se stinge, sau ledul pulsează alb fără imagine. Fiecare dintre aceste semne arată spre altă cauză, iar unele se rezolvă fără service.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Ce face consola când apăsați butonul</h2>
+  <ul class="checks">
+    <li><strong>Nu se aprinde nimic, niciun bip.</strong> Consola nu primește curent sau sursa internă nu mai pornește. Începeți cu cablul și priza, apoi, dacă nu e de acolo, e de regulă sursa.</li>
+    <li><strong>Un bip, ledul se aprinde o clipă, apoi se stinge.</strong> Sursa pornește, dar protecția o oprește imediat. Cauza poate fi sursa slăbită sau un scurtcircuit pe placa de bază.</li>
+    <li><strong>Ledul pulsează alb, dar pe televizor nu apare nimic.</strong> Consola pornește, deci nu e o problemă de alimentare. Mergeți la verificarea de imagine de mai jos.</li>
+    <li><strong>Pornește și se stinge după câteva minute.</strong> E alt simptom, de obicei supraîncălzirea. Vedeți ghidul <a href="/ps5-se-opreste-singur/">PS5 se oprește singur</a>.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>Verificări de făcut acasă, în ordinea asta</h2>
+  <ul class="checks">
+    <li><strong>Alt cablu, altă priză.</strong> Cablul de alimentare al PS5 e unul standard, cu două găuri. Încercați altul, direct în priza de perete, fără prelungitor.</li>
+    <li><strong>Scoateți-o din priză zece minute.</strong> După o pană de curent, protecția sursei rămâne uneori blocată până se descarcă complet.</li>
+    <li><strong>Pornire în Safe Mode.</strong> Cu consola oprită, țineți butonul de pornire apăsat până auziți al doilea bip, la aproximativ 7 secunde. Conectați controllerul prin cablu USB. Dacă apare meniul Safe Mode, consola e bună din punct de vedere hardware și problema e de software.</li>
+    <li><strong>Alt port HDMI pe televizor sau alt cablu HDMI,</strong> dacă ledul se aprinde dar nu vedeți imagine.</li>
+  </ul>
+  <p>Dacă nici după acești pași consola nu dă niciun semn, defectul e în interior și e nevoie de măsurători pe placă.</p>
+</section>
+<section class="sec">
+  <h2>Cauzele pe care le găsim în atelier</h2>
+  <p><strong>Sursa de alimentare internă.</strong> Este cauza cea mai frecventă când consola nu dă niciun semn. Componentele ei cedează după o supratensiune sau după ani de funcționare la temperatură mare. Se repară pe componentă sau se înlocuiește.</p>
+  <p><strong>Placa de bază.</strong> Un scurtcircuit pe una dintre liniile de alimentare face ca sursa să intre în protecție imediat după bip. Se caută componenta în scurt și se înlocuiește, fără placă nouă.</p>
+  <p><strong>Software corupt.</strong> O actualizare întreruptă de o pană de curent poate lăsa consola să pornească doar în Safe Mode sau deloc. Se rezolvă prin resoftare, fără piese.</p>
+</section>
+<section class="sec">
+  <h2>💰 Cât costă</h2>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <div class="price-row"><span>Reparare sursă de alimentare</span><b>100 – 300 lei</b></div>
+  <div class="price-row"><span>Reparație placă de bază</span><b>de la 200 lei</b></div>
+  <div class="price-row"><span>Resoftare PS5</span><b>de la 150 lei</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Garanție 6 luni. Reparațiile se fac în aceeași zi, în funcție de disponibilitate. Lista completă: <a href="/reparatii-ps5-bucuresti/">reparații PS5 București</a>.</p>
+</section>
+<section class="sec">
+  <h2>Cum ajunge consola la noi</h2>
+  <p>O aduceți la atelierul din Str. Moinești 7, Militari, Sector 6 (<a href="/cum-ajungeti-la-atelier/">cum ajungeți</a>), sau o trimiteți <a href="/reparatii-prin-curier/">prin curier</a>. Primim doar consola întreagă, nu plăci sau piese demontate, pentru că nu se pot testa. Pentru alte console vedeți <a href="/reparatii-console-gaming-sector-6/">reparații console București</a>.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="🎮 PS5 nu pornește? Adu-o la diagnostic gratuit!" text="Găsim cauza prin măsurare și vă spunem prețul înainte de reparație. Garanție 6 luni." />
+</div>
+</Base>
