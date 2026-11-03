@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import { IMG } from '../data/images';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+const title = "Mentenanță PS5 București – Curățare și Metal Lichid";
+const desc = "Mentenanță PS5 în București: curățare completă, verificarea metalului lichid și test de temperatură, 200 lei. În aceeași zi, în funcție de disponibilitate.";
+const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
+const faq = [
+ { q: "Cât costă mentenanța la PS5?", a: "200 de lei, pentru PS5 original, Digital sau Slim. Include desfacerea completă, curățarea ventilatorului și a radiatorului, verificarea metalului lichid și testul de temperatură. Garanția e de 6 luni." },
+ { q: "Cât durează?", a: "Se face în aceeași zi, în funcție de disponibilitate. Dacă e nevoie să refacem metalul lichid, durează ceva mai mult, pentru că aplicarea se face atent și se testează după." },
+ { q: "Schimbați metalul lichid la fiecare mentenanță?", a: "Nu. Metalul lichid nu se usucă precum pasta termică. Îl verificăm la fiecare desfacere și îl refacem doar dacă s-a deplasat, s-a oxidat sau temperaturile arată că nu mai face contact bun." },
+ { q: "Cât de des trebuie făcută mentenanța la PS5?", a: "La 12–18 luni pentru o consolă folosită zilnic, mai des dacă stă pe covor, lângă un animal cu păr sau într-un spațiu închis. Semnul clar că a venit timpul e ventilatorul care se aude tare chiar în meniu." },
+ { q: "Pot curăța singur PS5?", a: "Partea exterioară, da: scoateți capacele laterale și aspirați cele două orificii de colectare a prafului. Ventilatorul și radiatorul se curăță corect doar cu consola desfăcută, iar sub radiator e metalul lichid, care nu trebuie atins fără echipament." },
+ { q: "Mentenanța rezolvă și oprirea bruscă în timpul jocului?", a: "De cele mai multe ori, da, dacă oprirea vine din supraîncălzire. Dacă PS5-ul se oprește și când e rece, cauza e alta și o căutăm la diagnostic, care e gratuit." },
+];
+const schemaExtra = { '@context': 'https://schema.org', '@graph': [
+ { '@type': 'Service', name: 'Mentenanță PS5', serviceType: 'Mentenanță console', url: canonical, description: desc, areaServed: 'București',
+   provider: { '@type': 'LocalBusiness', name: 'Marcus Electronics', url: SITE.domeniu + '/' },
+   offers: { '@type': 'Offer', price: '200', priceCurrency: 'RON' } },
+ { '@type': 'BreadcrumbList', itemListElement: [
+   { '@type': 'ListItem', position: 1, name: 'Acasă', item: SITE.domeniu + '/' },
+   { '@type': 'ListItem', position: 2, name: 'Mentenanță console', item: SITE.domeniu + '/mentenanta-console-ps4-ps5-xbox/' },
+   { '@type': 'ListItem', position: 3, name: 'Mentenanță PS5', item: canonical } ] },
+ { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+] };
+---
+<Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogConsola}>
+<div class="hero"><div class="wrap">
+  <span class="badge">🎮 PS5 · 200 lei · garanție 6 luni</span>
+  <h1>Mentenanță PS5 în București: Curățare și Metal Lichid</h1>
+  <p class="lead">PS5 nu se răcește cu pastă termică, ca alte console, ci cu metal lichid. De aceea mentenanța lui e alt fel de lucrare: praful se scoate la fiecare desfacere, dar metalul lichid se verifică și se reface doar când chiar e nevoie.</p>
+  <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
+  <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
+</div></div>
+<div class="wrap">
+<section class="sec">
+  <h2>Când are nevoie PS5-ul de mentenanță</h2>
+  <ul class="checks">
+    <li><strong>Ventilatorul se aude tare chiar în meniu</strong>, nu doar în jocurile grele. La un PS5 curat, în meniu abia se aude.</li>
+    <li><strong>Aerul care iese prin spate e foarte fierbinte</strong> și consola e caldă la atingere pe partea de sus.</li>
+    <li><strong>Se oprește singur în timpul jocului</strong>, uneori cu mesajul că s-a încins. Vedeți și <a href="/ps5-se-opreste-singur/">PS5 se oprește singur</a>.</li>
+    <li><strong>A trecut mai mult de un an</strong> de la cumpărare sau de la ultima curățare, iar consola stă jos, lângă covor sau într-un raft închis.</li>
+  </ul>
+</section>
+<section class="sec">
+  <h2>De ce PS5 e diferit: metalul lichid</h2>
+  <p>Între procesorul PS5 și radiator, Sony a pus metal lichid, un aliaj care conduce căldura mult mai bine decât pasta termică obișnuită. Avantajul e că nu se usucă în doi-trei ani, cum se întâmplă cu pasta la PS4. Dezavantajul e că e conductiv electric: dacă ajunge pe componentele din jurul procesorului, poate face scurtcircuit.</p>
+  <p>De aceea, la PS5 nu schimbăm metalul lichid de rutină. Când desfacem consola, ne uităm dacă stratul e uniform, dacă a ieșit din zona lui și dacă s-a oxidat. Dacă e în regulă, îl lăsăm neatins. Dacă nu, îl curățăm complet și aplicăm altul, cu zona din jur protejată.</p>
+  <p>Ce se murdărește cu adevărat la PS5 e altceva: ventilatorul mare și lamelele radiatorului, unde se strâng praful, scamele și părul. Acolo e de obicei cauza zgomotului și a temperaturilor mari.</p>
+</section>
+<section class="sec">
+  <h2>Ce puteți face acasă, între două mentenanțe</h2>
+  <p>PS5 are un lucru bun: două orificii de colectare a prafului, accesibile fără să desfaceți consola. Cu PS5 oprit și scos din priză, scoateți capacele laterale albe și aspirați ușor cele două orificii. La PS5 Slim, capacele se scot altfel, dar principiul e același.</p>
+  <ul class="checks">
+    <li>Lăsați cel puțin 10 cm liberi în spatele și în lateralele consolei.</li>
+    <li>Nu o țineți pe covor sau într-un dulap cu ușă.</li>
+    <li>Nu suflați cu aer comprimat direct în ventilator: îl învârte peste turația lui normală.</li>
+  </ul>
+  <p>Ce nu se poate face acasă fără risc e curățarea radiatorului și verificarea metalului lichid. Desfacerea implică demontarea ventilatorului și a radiatorului, iar o picătură de metal lichid scăpată pe placă transformă o curățare într-o reparație.</p>
+</section>
+<section class="sec">
+  <h2>Ce facem la mentenanța PS5</h2>
+  <ul class="checks">
+    <li><strong>Măsurăm temperatura sub sarcină</strong> înainte de desfacere, ca să avem cu ce compara.</li>
+    <li><strong>Desfacem consola complet</strong> și scoatem ventilatorul și radiatorul.</li>
+    <li><strong>Curățăm ventilatorul, lamelele radiatorului și canalele de aer</strong>, plus orificiile de colectare a prafului.</li>
+    <li><strong>Verificăm metalul lichid</strong> și îl refacem doar dacă e nevoie.</li>
+    <li><strong>Remontăm și testăm din nou sub sarcină</strong>, iar la predare vă spunem temperaturile de dinainte și de după.</li>
+  </ul>
+  <div class="price-row"><span>Mentenanță PS5 (original, Digital sau Slim)</span><b>200 lei</b></div>
+  <div class="price-row"><span>Diagnosticare</span><b>GRATUITĂ</b></div>
+  <p style="margin-top:12px;font-size:14px;color:var(--mut)">Garanție 6 luni. Mentenanța se face în aceeași zi, în funcție de disponibilitate. Pentru PS4 și Xbox, vedeți <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>; pentru alte defecte, <a href="/reparatii-ps5-bucuresti/">reparații PS5 București</a>.</p>
+</section>
+<section class="sec">
+  <h2>Cum ajunge consola la noi</h2>
+  <p>O aduceți la atelierul din Str. Moinești 7, Militari, Sector 6 (<a href="/cum-ajungeti-la-atelier/">cum ajungeți</a>), sau o trimiteți <a href="/reparatii-prin-curier/">prin curier</a>, întreagă. Nu e nevoie să aduceți controllerul sau cablul, doar consola.</p>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  {faq.map(f => <div style="margin:0 0 14px"><h3 style="margin:0 0 4px;font-size:17px">{f.q}</h3><p style="margin:0">{f.a}</p></div>)}
+</section>
+<Cta titlu="🎮 PS5 urlă sau se încinge? Mentenanță 200 lei" text="Curățare completă, verificarea metalului lichid și test de temperatură înainte și după." />
+</div>
+</Base>
