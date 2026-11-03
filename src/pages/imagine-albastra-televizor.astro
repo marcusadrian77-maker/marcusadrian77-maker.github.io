@@ -6,7 +6,7 @@ import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
-const title = 'Imagine Albastră pe Televizor: Cauze și Preț';
+const title = 'Televizorul se Vede Albastru? Cauze și Preț';
 const desc = 'Ecranul bate în albastru sau are pete albăstrui? Ce înseamnă fiecare formă, cum verificați singur în două minute și cât costă reparația. Diagnostic gratuit.';
 const canonical = new URL(Astro.url.pathname, SITE.domeniu).href;
 const faq = [
@@ -31,7 +31,7 @@ const schemaExtra = { '@context': 'https://schema.org', '@graph': [
 <Base title={title} description={desc} schemaExtra={schemaExtra} image={IMG.ogTv}>
 <div class="hero"><div class="wrap">
   <span class="badge">🔵 GHID PRACTIC</span>
-  <h1>Imagine Albastră pe Televizor</h1>
+  <h1>Televizorul se Vede Albastru: Imagine și Pete Albastre</h1>
   <p class="lead">Zăpada din filme pare violet, pielea oamenilor arată vânătă, iar albul nu mai e alb. Mulți își schimbă televizorul din cauza asta, convinși că s-a terminat ecranul. De cele mai multe ori ecranul e perfect sănătos și se schimbă altceva, mult mai ieftin.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
