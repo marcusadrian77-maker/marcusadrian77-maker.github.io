@@ -6,7 +6,7 @@ import Cta from '../components/Cta.astro';
 import { IMG } from '../data/images';
 import { SITE } from '../data/site';
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const title = 'Reparații PS5 București | Service PlayStation 5';
+const title = 'Reparații PS5 București | Service PS5, Slim și Pro';
 const desc = 'Service PS5 în București: port HDMI, lichid metalic, cititor de disc, SSD, supraîncălzire, drift la DualSense. Diagnosticare gratuită, curățare inclusă.';
 
 const preturi = [
@@ -31,6 +31,7 @@ const faq = [
  { q: 'Montați joystick-uri Hall Effect pe DualSense?', a: 'Da. Înlocuim ambele stick-uri ale controllerului DualSense cu module Hall Effect (TMR), care citesc poziția magnetic, fără contact mecanic, și de aceea nu mai fac drift în timp. Upgrade-ul pentru ambele joystick-uri costă 150 lei, cu calibrare inclusă.' },
  { q: 'PS5-ul se oprește singur în timpul jocurilor. Ce fac?', a: 'Oprirea în timpul jocurilor indică de obicei supraîncălzire: lichid metalic deplasat, praf acumulat sau ventilator cu performanță redusă. Mai rar, poate fi o problemă pe placa principală sau pe sursa de alimentare. Consultați și <a href="/ps5-se-opreste-singur/">ghidul nostru detaliat despre PS5 care se oprește singur</a>.' },
  { q: 'Am vărsat lichid pe consolă. Ce fac imediat?', a: 'Nu o porniți și nu o puneți la priză — curentul prin plăcile ude face cel mai mare rău. Scoateți-o din priză și aduceți-o cât mai repede. O demontăm complet, curățăm oxidul de pe plăci în baie cu ultrasunete și o uscăm controlat. Cu cât ajunge mai devreme la noi, cu atât cresc șansele de recuperare.' },
+ { q: 'Reparați și PS5 Slim sau PS5 Pro?', a: 'Da, reparăm toate modelele: PS5 original (CFI-10xx, 11xx, 12xx), PS5 Slim (CFI-20xx) și PS5 Pro (CFI-70xx), cu disc sau Digital. Prețurile intervențiilor sunt aceleași; diferă doar demontarea și piesele compatibile. Spuneți-ne modelul de pe etichetă când sunați, ca să știm ce pregătim.' },
  { q: 'Cât durează o reparație de PS5?', a: 'În funcție de disponibilitate, multe reparații le facem chiar în aceeași zi. Intervențiile uzuale (curățare, lichid metalic, DualSense drift) se fac în 24–48 de ore. Reparațiile de port HDMI durează 1–2 zile. Intervențiile pe placa principală pot necesita 3–5 zile lucrătoare, în funcție de complexitate și de piesele necesare.' },
  { q: 'Curățarea se plătește separat de reparație?', a: 'Nu. Orice consolă pe care o reparăm pleacă de la noi curățată complet și cu pasta termică sau lichidul metalic reîmprospătate, fără cost suplimentar. Plătiți doar intervenția pentru care ați adus consola. Curățarea se plătește separat doar dacă o aduceți exclusiv pentru mentenanță, fără altă reparație.' },
 ];
@@ -43,7 +44,7 @@ const schemaSEO = graf(
 ---
 <Base title={title} description={desc} schemaExtra={schemaSEO} image={IMG.ogConsola}>
 <div class="hero"><div class="wrap">
-  <span class="badge">🎮 SERVICE PLAYSTATION 5</span>
+  <span class="badge">🎮 SERVICE PS5 · ORIGINAL, SLIM ȘI PRO</span>
   <h1>Reparații PS5 București</h1>
   <p class="lead">Service PS5 în atelier propriu, în Militari — Sector 6. Reparăm orice problemă de PlayStation 5: port HDMI ars, lichid metalic deplasat, cititor de disc, SSD, supraîncălzire, DualSense drift și erori de sistem. Diagnosticare gratuită, garanție scrisă, curățare completă inclusă în orice reparație.</p>
   <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🧼 Curățare inclusă în reparație</span><span>🛡️ Garanție 6 luni</span><span>💰 Preț ferm, comunicat înainte</span></div>
@@ -58,6 +59,7 @@ const schemaSEO = graf(
   <p>Orice consolă care intră în atelier pentru o reparație pleacă de la noi <strong>curățată complet, cu lichidul metalic sau pasta termică reîmprospătate și cu pad-urile termice verificate</strong> — fără cost suplimentar. Nu o facturăm separat, pentru că oricum demontăm consola ca să ajungem la placă, iar o consolă care se întoarce curată și răcită corect nu se mai întoarce peste trei luni cu aceeași problemă.</p>
   <p>Plătiți doar intervenția pentru care ați adus consola. Curățarea se plătește separat doar dacă aduceți consola exclusiv pentru <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță preventivă</a>, fără altă reparație.</p>
 </section>
+<figure style="margin:6px auto 22px;max-width:420px"><img src="/img/reparatii-ps5-curatare-mufa-hdmi.webp" alt="PS5 desfăcut în atelierul din Militari pentru reparație: curățare și înlocuire mufă HDMI" width="540" height="959" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:12px;display:block" /><figcaption style="font-size:13.5px;color:var(--mut);margin-top:6px;text-align:center">PS5 pe masa de lucru din atelierul nostru din Militari: curățare și înlocuire mufă HDMI.</figcaption></figure>
 
 <section class="sec">
   <h2>Servicii de reparație PS5</h2>
@@ -81,6 +83,20 @@ const schemaSEO = graf(
   </tbody></table></div>
   <p style="font-size:14.5px">Consola nu dă niciun semn de viață? Vedeți ghidul <a href="/ps5-nu-porneste/">PS5 nu pornește</a>.</p>
   <p style="margin-top:12px;font-size:14.5px;color:var(--mut)">Prețurile includ manopera și curățarea completă a consolei. Valoarea exactă o aflați după diagnosticare, care este gratuită și nu vă obligă la nimic — dacă nu vă convine prețul, luați consola înapoi fără să plătiți nimic. Vedeți și <a href="/preturi/">lista completă de prețuri</a>.</p>
+</section>
+
+<section class="sec">
+  <h2>Ce model de PS5 aveți? Contează la reparație</h2>
+  <p>„PS5" înseamnă de fapt trei console diferite pe dinăuntru. Prețul unei intervenții rămâne cel din tabelul de mai sus, dar demontarea, piesele compatibile și câteva capcane diferă de la un model la altul. De aceea vă cerem modelul la telefon: ne spune ce pregătim înainte să ajungeți.</p>
+  <div class="grid g3">
+    <div class="card-soft"><strong>PS5 original (2020–2023)</strong><span>Codurile CFI-10xx, CFI-11xx și CFI-12xx, în variantă cu disc sau Digital. Consola mare, cu capacele albe care se scot. Aici vedem cele mai multe porturi HDMI rupte și cele mai multe console înfundate de praf, pentru că sunt și cele mai vechi.</span></div>
+    <div class="card-soft"><strong>PS5 Slim (din 2023)</strong><span>Codurile CFI-20xx. Mai mică și mai compactă, deci mai puțin loc pentru aer și o demontare cu alți pași. Cititorul de disc e un modul separat, care se prinde de consolă și se asociază cu ea online la prima montare.</span></div>
+    <div class="card-soft"><strong>PS5 Pro (din 2024)</strong><span>Codurile CFI-70xx. Cea mai puternică și cea mai scumpă, vine fără cititor de disc (se poate atașa modulul separat). La o consolă de valoarea asta, o reparație pe componentă e aproape întotdeauna mai rentabilă decât orice alternativă.</span></div>
+  </div>
+  <h3>Unde găsiți modelul exact</h3>
+  <p>Codul începe cu „CFI-" și apare pe eticheta cu cod de bare de pe consolă și pe cutie. Dacă consola încă pornește, îl vedeți și în meniu: <strong>Setări → Sistem → Software de sistem → Informații consolă</strong>, la „Nume model". Trimiteți-ni-l pe WhatsApp odată cu o descriere a defectului și vă spunem de la început dacă reparația e una de câteva ore sau de câteva zile.</p>
+  <h3>Lucruri care sunt la fel pe toate modelele</h3>
+  <p>Toate trei folosesc lichid metalic între procesor și radiator, toate au portul HDMI lipit direct pe placa principală și toate au cititorul de disc legat software de consola cu care a venit. Asta înseamnă că o reparație de port HDMI se face prin microsoldare indiferent de model, că lichidul metalic se reaplică cu aceeași grijă la izolarea zonei și că un cititor luat de pe altă consolă nu funcționează pur și simplu montat. Pentru toate modelele lucrăm în același atelier din Militari, cu aceeași garanție de 6 luni.</p>
 </section>
 
 <section class="sec">
