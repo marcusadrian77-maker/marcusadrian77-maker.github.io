@@ -11,7 +11,7 @@ const FURNIZOR = {
   url: D + '/',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Str. Moinești nr. 7, bl. 134A, ap. 1',
+    streetAddress: 'Str. Moinești nr. 7, bl. 134A, sc. A, ap. 1',
     addressLocality: 'București',
     addressRegion: 'Sector 6',
     addressCountry: 'RO',

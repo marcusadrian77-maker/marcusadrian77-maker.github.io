@@ -8,7 +8,7 @@ export const SITE = {
   telefon2Href: 'tel:+40720667800',
   whatsapp: 'https://wa.me/40765461357',
   email: 'reparatielectronice@yahoo.com',
-  adresa: 'Str. Moinești nr. 7, bl. 134A, ap. 1, Militari, Sector 6, București',
+  adresa: 'Str. Moinești nr. 7, bl. 134A, sc. A, ap. 1, Militari, Sector 6, București',
   adresaScurta: 'Militari, Sector 6, București',
   program: 'Luni–Vineri: 10:00–19:00',
   zonaDomiciliu: 'București și Ilfov',
@@ -50,7 +50,7 @@ export const SCHEMA_LOCALBUSINESS = {
   telephone: '+40765461357',
   email: 'reparatielectronice@yahoo.com',
   priceRange: '$$',
-  address: { '@type': 'PostalAddress', streetAddress: 'Str. Moinești nr. 7, bl. 134A, ap. 1', postalCode: '061231', addressLocality: 'București', addressRegion: 'Sector 6', addressCountry: 'RO' },
+  address: { '@type': 'PostalAddress', streetAddress: 'Str. Moinești nr. 7, bl. 134A, sc. A, ap. 1', postalCode: '061231', addressLocality: 'București', addressRegion: 'Sector 6', addressCountry: 'RO' },
   geo: { '@type': 'GeoCoordinates', latitude: 44.4318013, longitude: 26.0191044 },
   contactPoint: [
     { '@type': 'ContactPoint', telephone: '+40765461357', contactType: 'customer service', areaServed: 'RO', availableLanguage: 'ro' },
