@@ -6,14 +6,14 @@ import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
 const faq = [
- { q: 'Din ce zone ale Sectorului 6 ajung clienții la voi?', a: 'Primim console din tot Sectorul 6 — Militari, Drumul Taberei, Crângași, Giulești, Ghencea, Lujerului, Politehnica, Grozăvești și Regie. Atelierul este în Str. Moinești 7, bl. 134 A, la câteva minute de Piața Gorjului și de bulevardul Iuliu Maniu, deci din oricare dintre zonele astea ajungeți în 10–20 de minute. Nu este nevoie de programare, dar un telefon înainte ne lasă să verificăm stocul de piese.' },
+ { q: 'Din ce zone ale Sectorului 6 ajung clienții la voi?', a: 'Primim console din tot Sectorul 6 — Militari, Drumul Taberei, Crângași, Giulești, Ghencea, Lujerului, Politehnica, Grozăvești și Regie. Atelierul este în Str. Moinești nr. 7, bl. 134A, ap. 1, la câteva minute de Piața Gorjului și de bulevardul Iuliu Maniu, deci din oricare dintre zonele astea ajungeți în 10–20 de minute. Nu este nevoie de programare, dar un telefon înainte ne lasă să verificăm stocul de piese.' },
  { q: 'Reparați consola fără să pierd datele de joc?', a: 'Da, marea majoritate a reparațiilor hardware nu afectează datele salvate pe consolă. Dacă există riscuri, te informăm în avans și îți recomandăm să faci un backup în cloud (PlayStation Plus / Xbox Game Pass) înainte de service.' },
  { q: 'Cât durează repararea unei console?', a: 'Reparațiile simple (curățare, port HDMI, drift controller) se finalizează în 1–2 zile lucrătoare. Reparațiile complexe la nivel de placă de bază pot dura 3–5 zile. Vei fi anunțat imediat ce consola este gata.' },
 ];
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const preturi = [['Diagnosticare','GRATUITĂ'],['Înlocuire port HDMI PS5 / Xbox Series','350–400 lei'],['Curățare ventilator + pastă termică consolă','100–200 lei'],['Reparare placă de bază consolă','de la 200 lei'],['Înlocuire joystick / reparare drift','150 lei'],['Înlocuire display Nintendo Switch','300–500 lei']];
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Service console în Sectorul 6: atelier în Militari, Str. Moinești 7, la 10–20 de minute de Drumul Taberei, Crângași și Lujerului. Diagnosticare gratuită.";
+const desc = "Service console în Sectorul 6: atelier în Militari, Str. Moinești nr. 7, bl. 134A, ap. 1, la 10–20 de minute de Drumul Taberei, Crângași și Lujerului. Diagnosticare gratuită.";
 const schemaSEO = graf(serviciu({ nume: 'Reparații console gaming Sector 6', tip: 'Reparații console gaming', url: '/reparatii-console-gaming-sector-6/', desc , sector: 6 }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Sector 6', url: '/reparatii-console-gaming-sector-6/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
 <Base title="Reparații Console București – PlayStation, Xbox, Switch" description="Reparații console în București: PS5, PS4, Xbox Series, Xbox One, Nintendo Switch și manete. Atelier în Militari, Sector 6. Diagnostic gratuit, garanție 6 luni." schemaExtra={schemaSEO} image={IMG.ogConsola}>
@@ -76,7 +76,7 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații console gaming Sector 6', ti
 
 <section class="sec">
   <h2>📍 Unde ne găsiți în Sectorul 6</h2>
-  <p>Atelierul este în <strong>Str. Moinești 7, bl. 134 A, Militari</strong>, la câteva minute de Piața Gorjului și de bulevardul Iuliu Maniu. Program: {SITE.program}.</p>
+  <p>Atelierul este în <strong>Str. Moinești nr. 7, bl. 134A, ap. 1, Militari</strong>, la câteva minute de Piața Gorjului și de bulevardul Iuliu Maniu. Program: {SITE.program}.</p>
   <p>Venim frecvent cu console de la clienți din <strong>Militari, Drumul Taberei, Crângași, Giulești, Ghencea, Lujerului, Politehnica, Grozăvești și Regie</strong> — practic din tot Sectorul 6 ajungeți la noi în 10–20 de minute. Primim console și din celelalte sectoare ale Bucureștiului și din Ilfov; le puteți aduce la atelier sau le putem prelua prin <a href="/reparatii-prin-curier/">curier</a>.</p>
   <p>Pentru PlayStation 5 avem o pagină separată, cu defecțiunile specifice și prețurile lor: <a href="/reparatii-ps5-bucuresti/">reparații PS5 București</a>. La fel pentru <a href="/reparatii-ps4-bucuresti/">PlayStation 4</a> și <a href="/reparatii-xbox-bucuresti/">Xbox</a>. Pentru controllere: <a href="/reparatii-controllere-ps4-ps5-xbox/">reparații controllere PS4, PS5 și Xbox</a>.</p>
 </section>
@@ -90,7 +90,7 @@ const schemaSEO = graf(serviciu({ nume: 'Reparații console gaming Sector 6', ti
   <p>Pentru PlayStation 5 avem o pagină dedicată, cu defecțiunile specifice consolei și prețurile lor: <a href="/reparatii-ps5-bucuresti/">reparații PS5 București</a>.</p>
 </section>
 
-<p style="font-size:14px;color:var(--mut)">Atelierul este în Str. Moinești 7, Militari, lângă Piața Gorjului și metroul Gorjului — vedeți <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>, cu ce aduceți cu dumneavoastră. Dacă problema e la ecran, nu la consolă, vedeți <a href="/reparatii-monitoare-gaming/">reparații monitoare gaming</a>.</p>
+<p style="font-size:14px;color:var(--mut)">Atelierul este în Str. Moinești nr. 7, bl. 134A, ap. 1, Militari, lângă Piața Gorjului și metroul Gorjului — vedeți <a href="/cum-ajungeti-la-atelier/">cum ajungeți la atelier</a>, cu ce aduceți cu dumneavoastră. Dacă problema e la ecran, nu la consolă, vedeți <a href="/reparatii-monitoare-gaming/">reparații monitoare gaming</a>.</p>
 <Cta titlu="🎮 Consolă Defectă? Sunați-ne!" />
 </div>
 </Base>
