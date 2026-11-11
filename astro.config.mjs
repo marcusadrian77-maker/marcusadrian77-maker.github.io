@@ -32,6 +32,12 @@ export default defineConfig({
   build: { format: 'directory' },
   integrations: [cloudflareRedirects()],
   redirects: {
+    // 11 nov 2026: MacBook pe sectoare 1–5 unite cu pagina principala (canibalizare)
+    '/reparatii-macbook-sector-1/': '/reparatii-macbook/',
+    '/reparatii-macbook-sector-2/': '/reparatii-macbook/',
+    '/reparatii-macbook-sector-3/': '/reparatii-macbook/',
+    '/reparatii-macbook-sector-4/': '/reparatii-macbook/',
+    '/reparatii-macbook-sector-5/': '/reparatii-macbook/',
     // Mostenite din WordPress (Rank Math)
     '/reparatii-laptopuri/': '/reparatii-laptopuri-bucuresti/',
     '/reparatii-mentenanta-console-ps4-ps5-xbox-manete/': '/reparatii-console-gaming-sector-6/',
