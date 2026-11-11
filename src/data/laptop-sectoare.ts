@@ -74,7 +74,7 @@ export const LAPTOP_SECTOARE: LaptopSector[] = [
     faq: [
       { q: 'Cât durează schimbarea ecranului?', a: 'Dacă panoul pentru modelul dumneavoastră e pe stoc, 24–48 de ore. Dacă trebuie comandat, 3–5 zile. Vă spunem la telefon în care caz sunteți.' },
       { q: 'Pot folosi laptopul cu ecranul spart până vin la service?', a: 'Da, legat la un monitor extern sau la televizor. Aveți doar grijă să nu apăsați pe zona spartă.' },
-      { q: 'La ce stație cobor?', a: 'La Gorjului, pe M3. Atelierul e în Str. Moinești 7, la câteva minute pe jos.' },
+      { q: 'La ce stație cobor?', a: 'La Gorjului, pe M3. Atelierul e în Str. Moinești nr. 7, bl. 134A, ap. 1, la câteva minute pe jos.' },
     ],
   },
   {

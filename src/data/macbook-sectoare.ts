@@ -70,7 +70,7 @@ export const MAC_SECTOARE: MacSector[] = [
     faq: [
       { q: 'Am vărsat apă pe MacBook. Pot veni azi?', a: 'Da, sunați înainte și veniți în aceeași zi. Între timp nu-l porniți și nu-l încărcați. Cu cât ajunge mai repede, cu atât sunt mai mari șansele ca placa să se salveze doar prin curățare.' },
       { q: 'Cât costă curățarea după lichid?', a: 'Între 450 și 600 de lei dacă nu au ars componente; cu înlocuiri de componente, 600–900 de lei. Diagnosticarea este gratuită.' },
-      { q: 'Unde cobor din metrou?', a: 'La Gorjului, pe linia M3. De acolo atelierul e la câteva minute pe jos, în Str. Moinești 7.' },
+      { q: 'Unde cobor din metrou?', a: 'La Gorjului, pe linia M3. De acolo atelierul e la câteva minute pe jos, în Str. Moinești nr. 7, bl. 134A, ap. 1.' },
     ],
   },
   {
