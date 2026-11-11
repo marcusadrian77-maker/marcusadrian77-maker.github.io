@@ -6,7 +6,7 @@ import ContactCard from '../components/ContactCard.astro';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
 const faq = [
- { q: 'Unde sunteți exact în Sectorul 6?', a: 'În Str. Moinești 7, bl. 134 A, în Militari — la câteva minute de Piața Gorjului și de bulevardul Iuliu Maniu. De la stațiile de metrou Gorjului și Păcii se vine pe jos. Program: Luni–Vineri, 10:00–19:00. Nu e nevoie de programare, dar un telefon înainte ne lasă să verificăm dacă avem piesa pe stoc.' },
+ { q: 'Unde sunteți exact în Sectorul 6?', a: 'În Str. Moinești nr. 7, bl. 134A, ap. 1, în Militari — la câteva minute de Piața Gorjului și de bulevardul Iuliu Maniu. De la stațiile de metrou Gorjului și Păcii se vine pe jos. Program: Luni–Vineri, 10:00–19:00. Nu e nevoie de programare, dar un telefon înainte ne lasă să verificăm dacă avem piesa pe stoc.' },
  { q: 'Veniți să luați laptopul de acasă, din Sectorul 6?', a: 'La televizoare venim la domiciliu, pentru că un televizor mare e greu de transportat. Laptopul se aduce la atelier: reparația lui cere microscop, stație de lipit și aparatură de măsură, care nu se cară la client. Din oricare zonă a Sectorului 6 ajungeți la noi în 10–20 de minute, iar dacă nu puteți veni deloc, laptopul poate fi trimis prin curier.' },
  { q: 'Cât durează depanarea unui laptop?', a: 'Intervențiile uzuale — curățare cu pastă termică, baterie, tastatură, port de alimentare, upgrade SSD — se fac în 24–48 de ore. Înlocuirea de ecran depinde de disponibilitatea panoului: 24–48 de ore pentru un model comun, 3–5 zile dacă trebuie comandat. Reparațiile pe placa de bază durează 3–5 zile lucrătoare.' },
  { q: 'Cât costă să aflu ce are laptopul?', a: 'Nimic. Diagnosticarea este gratuită și rămâne gratuită dacă hotărâți să nu reparați. Vă spunem defectul găsit și prețul ferm înainte de a începe, iar prețul acela nu se mai schimbă pe parcurs. Dacă reparația nu merită față de valoarea laptopului, v-o spunem noi primii.' },
@@ -15,13 +15,13 @@ const faq = [
 const schemaFaq = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const preturi = [['Diagnosticare','GRATUITĂ'],['Curățare + pastă termică','100 – 200 lei'],['Înlocuire port de alimentare','80 – 200 lei'],['Înlocuire baterie','100 – 250 lei'],['Înlocuire tastatură','100 – 300 lei'],['Înlocuire ecran / display','200 – 600 lei'],['Reparare placă de bază','200 – 500 lei'],['Upgrade SSD / RAM','50 – 100 lei (manoperă)']];
 import { breadcrumb, graf, serviciu } from '../data/schema';
-const desc = "Service laptop în Sectorul 6, atelier pe Str. Moinești 7, lângă Piața Gorjului: curățare, baterie, ecran, placă de bază. Diagnostic gratuit, gata în 24–48 de ore.";
+const desc = "Service laptop în Sectorul 6, atelier pe Str. Moinești nr. 7, bl. 134A, ap. 1: curățare, baterie, ecran, placă de bază. Diagnostic gratuit, gata în 24–48 de ore.";
 const schemaSEO = graf(serviciu({ nume: 'Service laptop Sector 6', tip: 'Reparații și depanare laptopuri', url: '/reparatii-laptop-sector-6/', desc , sector: 6 }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Laptopuri', url: '/reparatii-laptopuri-bucuresti/' }, { name: 'Sector 6', url: '/reparatii-laptop-sector-6/' }]), { '@type': 'FAQPage', mainEntity: schemaFaq.mainEntity });
 ---
-<Base title="Service Laptop Sector 6 – Militari, Drumul Taberei" description="Service laptop în Sectorul 6, atelier pe Str. Moinești 7, lângă Piața Gorjului: curățare, baterie, ecran, placă de bază. Diagnostic gratuit, gata în 24–48 de ore." schemaExtra={schemaSEO} image={IMG.ogLaptop}>
+<Base title="Service Laptop Sector 6 – Militari, Drumul Taberei" description="Service laptop în Sectorul 6, atelier pe Str. Moinești nr. 7, bl. 134A, ap. 1: curățare, baterie, ecran, placă de bază. Diagnostic gratuit, gata în 24–48 de ore." schemaExtra={schemaSEO} image={IMG.ogLaptop}>
 <div class="hero"><div class="wrap">
   <h1>Service și Reparații Laptop Sector 6 — Militari, Gorjului, Drumul Taberei</h1>
-  <p class="lead">Căutați un service de laptop în Sectorul 6? Atelierul nostru e în Militari, pe Str. Moinești 7. Facem reparații laptop Sector 6 pentru orice marcă, la nivel de componentă — nu schimbăm placa dacă a cedat o piesă de pe ea. Diagnosticare gratuită și garanție scrisă 6–12 luni.</p>
+  <p class="lead">Căutați un service de laptop în Sectorul 6? Atelierul nostru e în Militari, pe Str. Moinești nr. 7, bl. 134A, ap. 1. Facem reparații laptop Sector 6 pentru orice marcă, la nivel de componentă — nu schimbăm placa dacă a cedat o piesă de pe ea. Diagnosticare gratuită și garanție scrisă 6–12 luni.</p>
   <div class="pills"><span>🔍 Diagnosticare GRATUITĂ</span><span>🔬 Reparație pe placă</span><span>🛡️ Garanție 6–12 luni</span><span>🚶 La 2 minute de Piața Gorjului</span></div>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
@@ -55,7 +55,7 @@ const schemaSEO = graf(serviciu({ nume: 'Service laptop Sector 6', tip: 'Repara�
 
 <section class="sec">
   <h2>📍 Din ce zonă a Sectorului 6 veniți</h2>
-  <p>Facem depanare laptop în Sectorul 6 de peste 25 de ani, din același atelier: <strong>Str. Moinești 7, bl. 134 A, Militari</strong>, aproape de Piața Gorjului și de bulevardul Iuliu Maniu. Program: {SITE.program}. Nu e nevoie de programare — puteți veni direct, dar un telefon înainte ne ajută să vă spunem din prima dacă e ceva ce se rezolvă pe loc.</p>
+  <p>Facem depanare laptop în Sectorul 6 de peste 25 de ani, din același atelier: <strong>Str. Moinești nr. 7, bl. 134A, ap. 1, Militari</strong>, aproape de Piața Gorjului și de bulevardul Iuliu Maniu. Program: {SITE.program}. Nu e nevoie de programare — puteți veni direct, dar un telefon înainte ne ajută să vă spunem din prima dacă e ceva ce se rezolvă pe loc.</p>
   <ul class="checks">
     <li><strong>Militari și Gorjului.</strong> Suntem în cartier. De la metrou Gorjului sau Păcii se vine pe jos, în câteva minute.</li>
     <li><strong>Drumul Taberei.</strong> Pe Iuliu Maniu sau prin Ghencea, 10–15 minute cu mașina. Cu metroul M5 până la Eroilor și apoi M3 spre Preciziei.</li>
