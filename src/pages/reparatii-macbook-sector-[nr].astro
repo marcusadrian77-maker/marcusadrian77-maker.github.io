@@ -7,7 +7,8 @@ import { MAC_SECTOARE } from '../data/macbook-sectoare';
 import { breadcrumb, graf, serviciu } from '../data/schema';
 
 export function getStaticPaths() {
-  return MAC_SECTOARE.map(s => ({ params: { nr: String(s.nr) }, props: { s } }));
+  // 11 nov 2026: paginile MacBook pe sectoarele 1–5 au fost unite cu /reparatii-macbook/ (redirect 301 in astro.config.mjs)
+  return [];
 }
 const { s } = Astro.props;
 const url = `/reparatii-macbook-sector-${s.nr}/`;
