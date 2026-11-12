@@ -6,6 +6,7 @@ import { graf } from '../data/schema';
 import Cta from '../components/Cta.astro';
 import { SITE } from '../data/site';
 import { IMG } from '../data/images';
+import Faq from '../components/Faq.astro';
 const schemaSEO = graf({
   '@type': 'WebSite',
   name: 'Marcus Electronics',
@@ -14,6 +15,13 @@ const schemaSEO = graf({
   inLanguage: 'ro-RO',
   publisher: { '@type': 'ElectronicsStore', name: 'Marcus Electronics', url: 'https://www.reparatiielectronice.ro/' },
 });
+const faq = [
+  { q: 'Cât costă diagnosticul dacă nu fac reparația?', a: 'Nimic. Diagnosticul este gratuit pentru orice aparat adus în atelierul din Militari, Sector 6, iar la televizoare deplasarea și diagnosticarea la domiciliu sunt gratuite în București și Ilfov. Primiți prețul înainte de reparație și decideți dacă mergem mai departe.' },
+  { q: 'Reparați televizorul la mine acasă?', a: 'Da. Peste 90% dintre televizoare le reparăm direct la domiciliu, în București și Ilfov, cu piese pe care le avem pe stoc. Reparațiile pe placa de bază și cele pentru care piesa trebuie comandată se fac în atelier: luăm noi televizorul și vi-l aducem înapoi reparat.' },
+  { q: 'Ce aparate pot aduce la atelier?', a: 'Laptopuri, MacBook și iMac, console PS5, PS4 și Xbox, controllere, boxe active, amplificatoare, soundbar-uri, monitoare și cuptoare cu microunde. Atelierul este pe Str. Moinești nr. 7, bl. 134A, sc. A, ap. 1, Militari, Sector 6, deschis de luni până vineri, 10:00–19:00.' },
+  { q: 'Pot trimite aparatul prin curier din alt oraș?', a: 'Da, pentru laptopuri, MacBook, console, controllere, boxe active, soundbar-uri și amplificatoare, trimise întregi. Televizoarele și monitoarele nu le primim prin curier, pentru că ecranele se sparg ușor la transport.' },
+  { q: 'Ce garanție primesc?', a: 'Garanție scrisă de 6–12 luni, în funcție de reparație, cu factură. La console și MacBook garanția este de 6 luni.' },
+];
 const echip = [
   { img: IMG.tv, ico: '📺', t: 'Reparații Televizoare', href: '/reparatii-televizoare/', d: 'Samsung, LG, Sony, Philips, Panasonic, Hisense, TCL, Sharp. LED, OLED, QLED, Smart TV. Reparații și la domiciliu!' },
   { img: IMG.laptop, ico: '💻', t: 'Reparații Laptopuri', href: '/reparatii-laptopuri-bucuresti/', d: 'Dell, HP, Lenovo, Asus, Acer, MSI, Toshiba, Samsung, Huawei. Gaming, ultrabook, business.' },
@@ -27,7 +35,7 @@ const echip = [
   { img: IMG.tehnician, ico: '🌡️', t: 'Mentenanță PS5, PS4, Xbox', href: '/mentenanta-console-ps4-ps5-xbox/', d: 'Curățare, pastă termică și metal lichid pentru console, cu temperaturi măsurate înainte și după.' },
 ];
 ---
-<Base title="Reparații și Service Televizoare, Electronice București" description="Televizoare reparate la domiciliu, în tot Bucureștiul. Laptopuri, MacBook, console, boxe și monitoare în atelierul din Militari, Sector 6. Diagnostic gratuit." image={IMG.ogDefault} schemaExtra={schemaSEO}>
+<Base title="Reparații și Service Televizoare, Electronice București" description="Televizoare reparate la domiciliu, în tot Bucureștiul. Laptopuri, MacBook, console, boxe și monitoare în atelierul din Militari, Sector 6. Diagnostic gratuit." image={IMG.ogDefault} schemaExtra={{ ...schemaSEO, '@graph': [...schemaSEO['@graph'], { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] }}>
 <div class="hero" style={'--hero-img:url(' + IMG.hero + ')'}>
   <div class="wrap">
     <span class="badge">REPARAȚII ELECTRONICE BUCUREȘTI</span>
@@ -45,8 +53,8 @@ const echip = [
   <div class="split">
     <div>
       <h2 style="margin-top:0">Despre Marcus Electronics</h2>
-      <p>Suntem o echipă tânără și dinamică, capabilă să facă față noilor provocări din domeniul reparațiilor electronice. Punem preț pe calitatea și promptitudinea serviciilor și tratăm fiecare client cu maximă seriozitate.</p>
-      <p>Dispunem de un laborator propriu în București, dotat cu echipamente de ultimă generație pentru a diagnostica și rezolva orice defecțiune. <strong>{SITE.firma}</strong> înseamnă profesionalism, seriozitate, încredere și competență.</p>
+      <p>Marcus Electronics este un atelier de reparații electronice din Militari, Sector 6, care lucrează la nivel de componentă: găsim piesa care a cedat pe placă — condensator, tranzistor, baretă LED, port HDMI, memorie eMMC — și o înlocuim, în loc să schimbăm subansamblul întreg.</p>
+      <p>Televizoarele le reparăm la domiciliu, în București și Ilfov. Laptopurile, MacBook-urile, consolele, boxele și monitoarele se repară în atelier, unde avem stații de lipit cu aer cald, programatoare pentru memorii și piese pe stoc de la ASWO, astfel încât multe reparații se termină în aceeași zi.</p>
       <ul style="margin:0 0 16px;padding-left:20px;line-height:1.7">
         <li><strong>SC Marcus Electronics SRL</strong>, înființată în 2006 · CUI 18426506 · J40/3220/2006</li>
         <li>Atelier propriu: {SITE.adresa}</li>
@@ -90,9 +98,22 @@ const echip = [
   <p style="margin-top:16px;font-size:15px">Reparația plăcii de bază pornește de la 200 lei, iar intervențiile se fac în aceeași zi, în funcție de disponibilitate. Pentru manete există pagina de <a href="/reparatii-controllere-ps4-ps5-xbox/">reparații controllere PS4, PS5 și Xbox</a>, iar pentru curățare preventivă cea de <a href="/mentenanta-console-ps4-ps5-xbox/">mentenanță console</a>. Toate consolele, inclusiv Nintendo Switch, sunt adunate pe pagina de <a href="/reparatii-console-gaming-sector-6/">reparații console București</a>.</p>
 </section>
 <section class="sec">
+  <div class="section-head"><h2>Cât costă o reparație — prețuri orientative</h2><p>Prețurile pot varia în funcție de model și diagonală. Prețul exact îl aflați după diagnosticarea gratuită, înainte de reparație.</p></div>
+  <div class="tbl-wrap" style="margin-top:14px"><table class="tb"><thead><tr><th>Aparat</th><th>Reparație</th><th>Preț orientativ</th><th>Unde se face</th></tr></thead><tbody>
+    <tr><td>Televizor</td><td>Sursă de alimentare (nu pornește)</td><td><strong>230–530 lei</strong></td><td>La domiciliu</td></tr>
+    <tr><td>Televizor</td><td>Barete LED (sunet fără imagine)</td><td><strong>250–1.000 lei</strong></td><td>La domiciliu</td></tr>
+    <tr><td>Laptop</td><td>Curățare + pastă termică</td><td><strong>100–200 lei</strong></td><td>Atelier</td></tr>
+    <tr><td>PS5</td><td>Mentenanță completă (metal lichid)</td><td><strong>200 lei</strong></td><td>Atelier</td></tr>
+    <tr><td>PS4 / Xbox</td><td>Curățare + pastă termică</td><td><strong>100–200 lei</strong></td><td>Atelier</td></tr>
+    <tr><td>Console</td><td>Reparație placă de bază</td><td><strong>de la 200 lei</strong></td><td>Atelier</td></tr>
+    <tr><td>Controller PS5</td><td>Joystick-uri magnetice TMR (ambele)</td><td><strong>150 lei / manetă</strong></td><td>Atelier</td></tr>
+  </tbody></table></div>
+  <p style="margin-top:12px;font-size:15px">Lista completă este pe pagina de <a href="/preturi/">prețuri</a>.</p>
+</section>
+<section class="sec">
   <div class="section-head"><h2>Ce Probleme Putem Rezolva?</h2></div>
   <div class="grid g3" style="margin-top:16px">
-    <div class="card-soft"><strong>Display crăpat</strong><span>Ecran spart sau defect? Îl înlocuim.</span></div>
+    <div class="card-soft"><strong>Ecran spart la laptop</strong><span>Display crăpat la laptop sau MacBook? Îl înlocuim.</span></div>
     <div class="card-soft"><strong>Apă vărsată</strong><span>Reparăm sau înlocuim placa de bază udată.</span></div>
     <div class="card-soft"><strong>Boxe defecte</strong><span>Pornește dar nu se aude? Avem soluția.</span></div>
     <div class="card-soft"><strong>Dungi pe ecran</strong><span>Dungi verticale = nevoie de depanare TV.</span></div>
@@ -122,6 +143,10 @@ const echip = [
     <div class="card"><p style="color:#f5a623;margin:0 0 6px">★★★★★</p><p style="margin:0">„În 2 ore mi-au rezolvat problema. Super profi, merită să apelați la ei."</p></div>
     <div class="card"><p style="color:#f5a623;margin:0 0 6px">★★★★★</p><p style="margin:0">„Recomand! Personal amabil și profesionist! Televizorul nu mai pierde posturile."</p></div>
   </div>
+</section>
+<section class="sec">
+  <h2>Întrebări frecvente</h2>
+  <Faq items={faq} />
 </section>
 <Cta titlu="Aparat Defect? Sunați-ne Acum!" text="Diagnostic gratuit — vă răspundem rapid la telefon sau pe WhatsApp." />
 </div>
