@@ -33,6 +33,7 @@ export default defineConfig({
   integrations: [cloudflareRedirects()],
   redirects: {
     // 11 nov 2026: MacBook pe sectoare 1–5 unite cu pagina principala (canibalizare)
+    '/mentenanta-ps5/': '/mentenanta-console-ps4-ps5-xbox/',
     '/reparatii-macbook-sector-1/': '/reparatii-macbook/',
     '/reparatii-macbook-sector-2/': '/reparatii-macbook/',
     '/reparatii-macbook-sector-3/': '/reparatii-macbook/',
