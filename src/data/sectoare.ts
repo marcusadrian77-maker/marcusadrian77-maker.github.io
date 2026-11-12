@@ -37,7 +37,7 @@ export const SECTOARE = [
  { nr: 6, zone: 'Militari, Drumul Taberei, Giulești', pins: ['Tot Sectorul 6','Militari','Drumul Taberei','Crângași','Giulești','Ghencea','Lujerului','Gorjului','Politehnica','Prelungirea Ghencea'], home: true,
    local: [
      'Sectorul 6 este acasă pentru noi: atelierul Marcus Electronics se află pe Str. Moinești nr. 7, bl. 134A, sc. A, ap. 1, în Militari, la câteva minute de Lujerului, Gorjului și Apusului. De aici acoperim cel mai rapid Drumul Taberei, Crângașiul, Giuleștiul și Prelungirea Ghencea — de regulă ajungem în maximum două ore. Televizorul nu trebuie să îl cărați dumneavoastră: venim noi acasă, iar dacă e nevoie de atelier, îl transportăm tot noi.',
-     'Fiind sectorul nostru, aici facem și cele mai complexe lucrări: rescriere eMMC, reparații T-CON și reparații pe placa de bază la nivel de componentă — totul în atelierul propriu, cu aparatură de măsură profesională. Vecinii din Militari și Drumul Taberei ne cunosc de peste 25 de ani.',
+     'Fiind sectorul nostru, aici facem și cele mai complexe lucrări: rescriere eMMC, reparații T-CON și reparații pe placa de bază la nivel de componentă — totul în atelierul propriu, cu aparatură de măsură profesională. Vecinii din Militari și Drumul Taberei ne cunosc din 2006, de când avem atelierul.',
    ],
    cazuri: ['Duse de noi în atelier: televizoare cu defecte complexe de placă principală','Smart TV blocat în logo — rescriere eMMC în atelier, gata în 24–48h','LED 55″ din Drumul Taberei fără imagine — barete LED montate la domiciliu'],
    faq: [
