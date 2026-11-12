@@ -80,7 +80,7 @@ export const OFERTE_MARCUS: [string, number, number, string][] = [
   ['Reparație televizor — iluminare LED', 230, 600, 'Ecran negru cu sunet prezent. Garanție 6–12 luni'],
   ['Reparație televizor — placă principală', 230, 600, 'Smart TV, software, porturi. Garanție 6–12 luni'],
   ['Înlocuire panou televizor', 600, 1800, 'Depinde de diagonală și tehnologie'],
-  ['Laptop — curățare și pastă termică', 80, 150, 'Pentru supraîncălzire și zgomot'],
+  ['Laptop — curățare și pastă termică', 200, 300, '200 lei cu pastă termică, 300 lei cu metal lichid'],
   ['Laptop — înlocuire ecran', 200, 600, 'În funcție de diagonală și rezoluție'],
   ['Laptop — înlocuire baterie', 100, 250, 'Baterie nouă, cu calibrare'],
   ['MacBook — înlocuire baterie', 300, 750, 'Cu calibrare și verificarea cicluri'],
