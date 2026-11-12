@@ -16,9 +16,9 @@ const faq = [
 const schemaFaq = { '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 const schemaAll = graf(serviciu({ nume: 'Reparații controllere PS4, PS5, Xbox', tip: 'Reparații controllere', url: '/reparatii-controllere-ps4-ps5-xbox/', desc }), breadcrumb([{ name: 'Servicii', url: '/servicii/' }, { name: 'Reparații Console Gaming', url: '/reparatii-console-gaming-sector-6/' }, { name: 'Reparații Controllere', url: '/reparatii-controllere-ps4-ps5-xbox/' }]), schemaFaq);
 ---
-<Base title="Reparații Drift Controller PS5, PS4, Xbox | București" description={desc} image={IMG.ogConsola} schemaExtra={schemaAll}>
+<Base title="Reparații Controller PS5 București | Drift 150 lei, DualSense" description={desc} image={IMG.ogConsola} schemaExtra={schemaAll}>
 <div class="hero"><div class="wrap">
-  <h1>Reparații Controllere PS4, PS5, Xbox: Drift, Butoane, Încărcare</h1>
+  <h1>Reparații Controller PS5, PS4 și Xbox: Drift, Butoane, Încărcare</h1>
   <p class="lead">Servicii profesionale de reparații controllere pentru PlayStation 4, PlayStation 5 și Xbox. Rezolvăm rapid orice defecțiune: drift joystick, butoane blocate, port USB defect sau probleme de conectare.</p>
   <a class="btn btn-white" href={SITE.telefonHref}>📞 {SITE.telefon}</a>
   <a class="btn btn-wa" href={SITE.whatsapp} rel="noopener">💬 WhatsApp</a>
